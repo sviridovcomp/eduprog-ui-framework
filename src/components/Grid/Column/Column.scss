@@ -1,0 +1,39 @@
+@import "../../../styles/mixins/grid";
+@import "../../../styles/variables/media";
+
+.ep-col {
+  @include generate-sme-columns($space-normal);
+  @include generate-column(md, $space-normal);
+  &_stretch {
+    display: flex;
+  }
+  .ep-row_adaptive & {
+    @media #{$desktop-m-min} {
+      @include generate-column(lg, $space-large);
+    }
+    @media #{$desktop-s} {
+      @include generate-column(md, $space-normal);
+    }
+    @media #{$mobile-m} {
+      @include generate-column(xs, $space-small);
+    }
+    .ep-row_temporary & {
+      @include generate-sme-columns($space-normal);
+    }
+    @media #{$desktop-m-min} {
+      @include generate-sme-columns($space-large);
+    }
+  }
+}
+.ep-col-offset {
+  @include generate-sme-offset-columns();
+  @media #{$mobile-m-interval} {
+    @include generate-offset-columns(xs);
+  }
+  @media #{$desktop-s} {
+    @include generate-offset-columns(md);
+  }
+  @media #{$desktop-m-min} {
+    @include generate-offset-columns(lg);
+  }
+}

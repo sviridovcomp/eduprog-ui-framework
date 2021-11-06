@@ -1,0 +1,109 @@
+@import "../../styles/variables/variables";
+
+.Button {
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  user-select: none;
+  text-align: center;
+  white-space: nowrap;
+  transform: scale(1);
+  transition: background, width, color,
+    transform $transition-duration$transition-type;
+  border: 2px;
+  border-radius: 0.5rem;
+  font-family: $font-family;
+
+  &-clicking {
+    transform: scale(0.9);
+  }
+
+  &-color {
+    &_primary {
+      background-color: $color-primary;
+    }
+    &_secondary {
+      background-color: $color-secondary;
+    }
+    &_accent {
+      background-color: $color-accent;
+    }
+    &_success {
+      background-color: $color-success;
+    }
+    &_danger {
+      background-color: $color-danger;
+    }
+  }
+
+  &-type {
+    &_default {
+      background-color: $color-lightgray;
+    }
+    &_action {
+      background-color: $color-primary;
+      color: $color-white;
+      &:hover {
+        background-color: darken($color-primary, 20%);
+      }
+    }
+    &_default {
+      color: $color-black;
+      background-color: $color-lightgray;
+      &.btn-clicked,
+      &:hover {
+        background-color: darken($color-white, 20%);
+      }
+    }
+    &_link {
+      border: 1px solid $color-lightblue;
+      color: $color-lightblue;
+      background-color: $color-white;
+      &:hover {
+        background-color: lighten($color-lightblue, 21%);
+      }
+    }
+    &_pseudo {
+      border: 2px solid $color-gray;
+    }
+    &_clear {
+      color: $color-darkgray;
+      background-color: transparent;
+      &:hover {
+        color: $color-black;
+      }
+    }
+    &_raised {
+      box-shadow: 0 0 13px 3px rgba(0, 0, 0, 0.17);
+    }
+  }
+
+  &-size {
+    &_sm {
+      height: 2rem;
+      padding: 0 1rem;
+      font-size: 0.875rem;
+    }
+    &_md {
+      height: 2.5rem;
+      padding: 0 1.25rem;
+      font-size: 1rem;
+    }
+    &_lg {
+      height: 3.125rem;
+      padding: 0 1.625rem;
+      font-size: 1.125rem;
+    }
+    &_xl {
+      height: 3.75rem;
+      padding: 0 2rem;
+      font-size: 1.5rem;
+    }
+  }
+}
