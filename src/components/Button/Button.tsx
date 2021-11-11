@@ -2,15 +2,33 @@ import React, { FC, useState } from "react";
 import "./Button.scss";
 
 export type ButtonPropsType = {
+  /**
+   * Цвет кнопки
+   */
   color?: "primary" | "secondary" | "accent" | "success" | "danger";
+
+  /**
+   * Тип кнопки
+   */
   type?: "default" | "action" | "link" | "pseudo" | "clear" | "raised";
+
+  /**
+   * Размер кнопки
+   */
   size?: "xs" | "sm" | "md" | "lg" | "xl";
+
+  /**
+   * Обработчик клика по кнопке
+   */
   onClick?: (event?: React.MouseEvent<HTMLButtonElement>) => void;
 };
 
+/**
+ * Компонент создающий кнопки
+ */
 const Button: FC<ButtonPropsType> = ({
   children,
-  color= "primary",
+  color,
   type = "default",
   size = "md",
   onClick,

@@ -1,0 +1,57 @@
+import Button from "../Button";
+import Row from "../../Grid/Row/Row";
+import Column from "../../Grid/Column/Column";
+import { Meta } from "@storybook/addon-docs";
+
+<Meta title="Компоненты/Button/Примеры" component={Button} />
+
+## Примеры
+
+### Тип кнопки
+
+Чтобы изменить вид кнопки, установите свойство `view` в одно из следующих значений:
+`"default"`, `"action"`, `"link"`, `"pseudo"`, `"clear"`, `"raised"`.
+
+<Row>
+  <Column>
+    <Button type="default">Button</Button>
+  </Column>
+  <Column>
+    <Button type="action">Button</Button>
+  </Column>
+  <Column>
+    <Button type="link">Button</Button>
+  </Column>
+  <Column>
+    <Button type="pseudo">Button</Button>
+  </Column>
+  <Column>
+    <Button type="clear">Button</Button>
+  </Column>
+  <Column>
+    <Button type="raised">Button</Button>
+  </Column>
+</Row>
+
+```tsx
+<Row>
+  <Column>
+    <Button type="default">Button</Button>
+  </Column>
+  <Column>
+    <Button type="action">Button</Button>
+  </Column>
+  <Column>
+    <Button type="link">Button</Button>
+  </Column>
+  <Column>
+    <Button type="pseudo">Button</Button>
+  </Column>
+  <Column>
+    <Button type="clear">Button</Button>
+  </Column>
+  <Column>
+    <Button type="raised">Button</Button>
+  </Column>
+</Row>
+```
