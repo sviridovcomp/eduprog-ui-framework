@@ -1,0 +1,71 @@
+@import "../../styles/variables/variables";
+
+.checkbox {
+  display: inline-block;
+  box-sizing: border-box;
+
+  &-wrapper {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+  }
+
+  input {
+    display: none;
+    &:checked ~ .checkbox-fake > .checkbox-checkmark-type_primary {
+      background-color: $color-primary;
+    }
+    &:checked ~ .checkbox-fake > .checkbox-checkmark-type_secondary {
+      background-color: $color-secondary;
+    }
+    &:checked ~ .checkbox-fake > .checkbox-checkmark-type_accent {
+      background-color: $color-accent;
+    }
+    &:checked ~ .checkbox-fake > .checkbox-checkmark:after {
+      display: flex;
+    }
+    &:checked ~ .checkbox-fake > .checkbox-checkmark {
+      transform: scale(1);
+    }
+    &:checked ~ .checkbox-fake .checkbox-checkmark > .checkbox-checkmark-icon {
+      visibility: visible;
+      transform: scale(1);
+    }
+  }
+  .checkbox-fake {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 0.5rem;
+    background-color: #ecf1f7;
+    transition: all $transition-duration $transition-type;
+    cursor: pointer;
+    &:hover {
+      background-color: darken(#ecf1f7, 5%);
+    }
+    .checkbox-checkmark {
+      display: flex;
+      width: 1.5rem;
+      height: 1.5rem;
+      border-radius: 0.5rem;
+      transition: transform $transition-duration $transition-type;
+      transform: scale(0);
+      &-icon {
+        visibility: hidden;
+        display: flex;
+        transition: transform $transition-duration $transition-type;
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        transform: scale(0);
+      }
+    }
+  }
+
+  &-additional {
+    padding: 0 0.75rem;
+    user-select: none;
+  }
+}

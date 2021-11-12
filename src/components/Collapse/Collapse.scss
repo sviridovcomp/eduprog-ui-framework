@@ -1,0 +1,10 @@
+.collapse {
+  &-toggle {
+    display: inline-block;
+    cursor: pointer;
+  }
+  &-content {
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0, 1, 0, 1);
+  }
+}
