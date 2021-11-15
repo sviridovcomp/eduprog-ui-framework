@@ -19,13 +19,14 @@
 
 .Popup-coppied {
   position: absolute;
-  right: 1rem;
+  right: 0;
   opacity: 0;
   background-color: $color-primary;
   color: $color-white;
   padding: 1rem;
   border-radius: 0.5rem;
   font: $font-text-lg;
+  margin-top: 0.5rem;
 
   &-active {
     animation: fade 0.5s ease;

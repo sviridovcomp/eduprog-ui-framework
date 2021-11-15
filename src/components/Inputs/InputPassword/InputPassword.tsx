@@ -7,17 +7,28 @@ export type InputPasswordPropsType = {
    * Заголовок input
    */
   label: string;
+
+  /**
+   * Событие обновления input
+   */
+  onChange?: (value: string, event?: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 /**
  * InputCopy позволяет пользователю копировать текст текстового поля
  */
-const InputPassword: FC<InputPasswordPropsType> = ({ label }) => {
+const InputPassword: FC<InputPasswordPropsType> = ({ label, onChange }) => {
   const [passwordVisible, setPasswordVisible] = useState(false);
-
+  const onInputChange = (value: string, event?: React.ChangeEvent<HTMLInputElement>) => {
+    if (onChange && event) {
+      onChange(value, event)
+    }
+  }
+  
   return (
     <div className="InputPassword">
       <Input
+        onChange={onInputChange}
         inputType={passwordVisible ? "text" : "password"}
         label={label}
         rightAdditional={

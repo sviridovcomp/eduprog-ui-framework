@@ -12,6 +12,14 @@ export type InputCopyPropsType = {
    * Текст, который показан при копировании
    */
   copyLabel: string;
+
+  /**
+   * Событие обновления input
+   */
+  onChange: (
+    value: string,
+    event?: React.ChangeEvent<HTMLInputElement>
+  ) => void;
 };
 
 /**
@@ -20,12 +28,20 @@ export type InputCopyPropsType = {
 const InputCopy: FC<InputCopyPropsType> = ({
   label,
   copyLabel = "Скопировано",
+  onChange,
 }) => {
   const [value, setValue] = useState("");
   const [activePopup, setActivePopup] = useState(false);
 
-  const onChange = (value: string) => {
+  const onInputChange = (
+    value: string,
+    event?: React.ChangeEvent<HTMLInputElement>
+  ) => {
     setValue(value);
+
+    if (onChange && event) {
+      onChange(value, event);
+    }
   };
 
   const copyValue = () => {
@@ -47,7 +63,7 @@ const InputCopy: FC<InputCopyPropsType> = ({
   return (
     <div className="InputCopy">
       <Input
-        onChange={onChange}
+        onChange={onInputChange}
         label={label}
         rightAdditional={
           <svg
