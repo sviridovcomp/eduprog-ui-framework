@@ -2,12 +2,30 @@ import React, { FC, useState } from "react";
 import "./Dialog.scss";
 
 export type DialogPropsType = {
+  /**
+   * Заголовок диалога
+   */
   label?: string;
+
+  /**
+   * Элемент триггер, при нажатии, на который диалог открывается
+   */
   toggle: React.ReactNode;
+
+  /**
+   * Контент диалога
+   */
   children: React.ReactNode;
+
+  /**
+   * Размер диалога
+   */
   size: "xs" | "sm" | "md" | "lg" | "xl" | "fluid" | "page";
 };
 
+/**
+ * Компонент реализующий всплывающие диалоги
+ */
 const Dialog: FC<DialogPropsType> = ({
   label,
   toggle,
