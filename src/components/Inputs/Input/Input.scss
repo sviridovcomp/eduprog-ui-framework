@@ -1,4 +1,4 @@
-@import "../../styles/variables/variables";
+@import "../../../styles/variables/variables";
 
 .TextInput {
   font-family: $font-family;
@@ -55,5 +55,25 @@
       border: 1px solid #9d9d9d;
       background-color: $color-platinum;
     }
+  }
+
+  &-left {
+    display: inline-flex;
+    height: 100%;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 1rem;
+  }
+
+  &-right {
+    display: inline-flex;
+    height: 100%;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 1rem;
   }
 }

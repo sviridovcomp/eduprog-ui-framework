@@ -1,5 +1,5 @@
 import React, { FC, useRef, useState } from "react";
-import TextInput from "../TextInput/TextInput";
+import Input from "../Inputs/Input/Input";
 
 export type PhoneNumberInputProps = {
   label: string;
@@ -19,7 +19,7 @@ const PhoneInput: FC<PhoneNumberInputProps> = ({ label }) => {
   };
 
   return (
-    <TextInput
+    <Input
       inputType="tel"
       defaultValue={phoneNumber}
       onChange={phoneChange}

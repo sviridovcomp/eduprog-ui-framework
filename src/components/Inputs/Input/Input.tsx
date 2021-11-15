@@ -1,18 +1,23 @@
 import React, { FC, useState } from "react";
-import "./TextInput.scss";
+import "./Input.scss";
 
 export type TextInputProps = {
   label: string;
   maxLength?: number;
-  inputType?: "text" | "tel" | "email";
+  inputType?: "text" | "tel" | "email" | "password";
   mask?: string;
   defaultValue?: string;
-  onChange?: (value: string, event?: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (
+    value: string,
+    event?: React.ChangeEvent<HTMLInputElement>
+  ) => void;
   onPaste?: (event?: React.ClipboardEvent<HTMLInputElement>) => void;
   onKeyDown?: (event?: React.KeyboardEvent<HTMLInputElement>) => void;
+  leftAdditional?: React.ReactNode;
+  rightAdditional?: React.ReactNode;
 };
 
-const TextInput: FC<TextInputProps> = ({
+const Input: FC<TextInputProps> = ({
   label,
   inputType = "text",
   maxLength,
@@ -21,6 +26,8 @@ const TextInput: FC<TextInputProps> = ({
   onChange,
   onPaste,
   onKeyDown,
+  leftAdditional,
+  rightAdditional,
 }) => {
   const [active, setActive] = useState(false);
   const [value, setValue] = useState(defaultValue);
@@ -70,6 +77,8 @@ const TextInput: FC<TextInputProps> = ({
         </div>
 
         <div className="TextInput-field">
+          <div className="TextInput-left">{leftAdditional}</div>
+
           <input
             className="TextInput-control"
             type={inputType}
@@ -82,10 +91,12 @@ const TextInput: FC<TextInputProps> = ({
             onPaste={(event) => inputPaste(event)}
             onKeyDown={(event) => inputKeyDown(event)}
           />
+
+          <div className="TextInput-right">{rightAdditional}</div>
         </div>
       </div>
     </div>
   );
 };
 
-export default TextInput;
+export default Input;

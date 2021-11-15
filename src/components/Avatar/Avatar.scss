@@ -1,0 +1,68 @@
+@import "../../styles/variables/variables";
+
+.avatar {
+  display: flex;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  position: relative;
+  border-radius: 0.625rem;
+  text-align: center;
+  text-transform: uppercase;
+  background-color: currentColor;
+  user-select: none;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+
+  &-text {
+    color: $color-white;
+  }
+
+  &-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &-rounded {
+    border-radius: 50%;
+  }
+
+  &-size {
+    &_xs {
+      width: 1.5rem;
+      height: 1.5rem;
+      font: $font-text-sm;
+    }
+
+    &_sm {
+      width: 2rem;
+      height: 2rem;
+      font: $font-text-sm;
+    }
+
+    &_md {
+      width: 3rem;
+      height: 3rem;
+      font: $font-text-md;
+    }
+
+    &_lg {
+      width: 4rem;
+      height: 4rem;
+      font: $font-heading-5;
+    }
+
+    &_xl {
+      width: 6rem;
+      height: 6rem;
+      font: $font-heading-3;
+    }
+
+    &_xxl {
+      width: 9rem;
+      height: 9rem;
+      font: $font-heading-1;
+    }
+  }
+}

@@ -1,0 +1,14 @@
+@import "./font";
+
+$font-heading-1: bold 3.125rem/3.5rem $font-family;
+$font-heading-2: bold 2.75rem/3rem $font-family;
+$font-heading-3: bold 2.25rem/2.5rem $font-family;
+$font-heading-4: bold 1.75rem/2rem $font-family;
+$font-heading-5: bold 1.5rem/1.75rem $font-family;
+$font-heading-6: bold 1.25rem/1.5rem $font-family;
+
+$font-text-xl: normal 1.1875rem/1.75rem $font-family;
+$font-text-lg: normal 1.0625rem/1.5rem $font-family;
+$font-text-md: normal 0.9375rem/1.5rem $font-family;
+$font-text-sm: normal 0.8125rem/1.25rem $font-family;
+$font-text-xs: normal 0.6875rem/1rem $font-family;
