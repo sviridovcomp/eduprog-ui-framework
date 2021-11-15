@@ -3,12 +3,31 @@ import { useId } from "react-id-generator";
 import "./Checkbox.scss";
 
 export type CheckboxPropsType = {
+  /**
+   * контент слева или справа чекбокса
+   */
   children?: React.ReactNode;
+
+  /**
+   * Положение `children`
+   */
   position?: "left" | "right";
+
+  /**
+   * Цвет чекбокса
+   */
   type: "primary" | "secondary" | "accent";
+
+  /**
+   * Коллбэк вызывается при изменении значения чекбокса
+   * @param value - новое значение чекбокса
+   */
   onChange?: (value: boolean) => void;
 };
 
+/**
+ * Компонент чекбокса.
+ */
 const Checkbox: FC<CheckboxPropsType> = ({
   children,
   position = "left",
@@ -19,7 +38,7 @@ const Checkbox: FC<CheckboxPropsType> = ({
   const [checkboxId] = useId();
   const rootClasses = [
     "checkbox-checkmark",
-    type && `checkbox-checkmark-type_${type}`,
+    type ? `checkbox-checkmark-type_${type}` : "",
   ];
 
   const onClick = () => {
