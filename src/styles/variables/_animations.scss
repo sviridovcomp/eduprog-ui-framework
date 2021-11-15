@@ -1,2 +1,16 @@
 $transition-duration: 0.25s;
 $transition-type: ease;
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide {
+  0% { transform: translateY(-50%); }
+}

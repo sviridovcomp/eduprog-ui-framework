@@ -1,0 +1,115 @@
+@import "../../styles/variables/animations";
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+
+  &-toggle {
+    display: inline-block;
+    width: 100%;
+  }
+
+  &-transition {
+    opacity: 0;
+    pointer-events: none;
+    user-select: none;
+
+    &-active {
+      animation-name: fade;
+      animation-duration: 0.5s;
+      opacity: 1;
+      pointer-events: auto;
+      user-select: auto;
+    }
+  }
+
+  &-item {
+    display: block;
+    z-index: 10;
+    transition: opacity $transition-duration $transition-type;
+    position: absolute;
+    box-sizing: border-box;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 0.75rem;
+      height: 0.75rem;
+      background-color: #fff;
+      transform: rotate(135deg);
+      top: -0.375rem;
+      left: 0.75rem;
+    }
+
+    &-fullwidth {
+      width: 100%;
+    }
+
+    &-clearly {
+      &::before {
+        opacity: 0;
+      }
+    }
+
+    &-direction {
+      &_bottom-left {
+        top: calc(100% + 10px);
+      }
+
+      &_bottom-center {
+        top: calc(100% + 10px);
+        left: 50%;
+        transform: translateX(-50%);
+        &::before {
+          left: 50%;
+          transform: translateX(-50%) rotate(135deg);
+        }
+      }
+      &_bottom-right {
+        top: calc(100% + 10px);
+        right: 0;
+        &::before {
+          left: initial;
+          right: 0.75rem;
+        }
+      }
+      &_top-left {
+        bottom: calc(100% + 10px);
+        &::before {
+          top: initial;
+          bottom: -0.375rem;
+          left: 0.75rem;
+        }
+      }
+      &_top-right {
+        bottom: calc(100% + 10px);
+        right: 0;
+        &::before {
+          top: initial;
+          bottom: -0.375rem;
+          left: initial;
+          right: 0.75rem;
+        }
+      }
+      &_top-center {
+        bottom: calc(100% + 10px);
+        left: 50%;
+        transform: translateX(-50%);
+        &::before {
+          top: initial;
+          bottom: -0.375rem;
+          left: 50%;
+          transform: translateX(-50%) rotate(135deg);
+        }
+      }
+    }
+
+    &-content {
+      box-shadow: 0 0 0.75rem 0.25rem rgba(0, 0, 0, 0.2);
+      width: 100%;
+      border-radius: 0.5rem;
+      background-color: #ffffff;
+      overflow: hidden;
+    }
+  }
+}

@@ -1,3 +1,4 @@
 import Button from "./components/Button/Button";
 import { Row, Column, Container } from "./components/Grid/Grid";
-export { Button, Column, Container, Row };
+import Collapse from "./components/Collapse/Collapse";
+export { Button, Column, Container, Row, Collapse };

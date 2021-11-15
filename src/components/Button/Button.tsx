@@ -46,13 +46,13 @@ const Button: FC<ButtonPropsType> = ({
   const clicking = (event: React.MouseEvent<HTMLButtonElement>) => {
     setActive(true);
 
-    setTimeout(() => {
-      setActive(false);
-    }, 400);
-
     if (onClick) {
       onClick(event);
     }
+
+    setTimeout(() => {
+      setActive(false);
+    }, 400);
   };
 
   return (

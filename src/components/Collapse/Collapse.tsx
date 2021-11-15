@@ -1,13 +1,24 @@
 import React, { FC, useState } from "react";
+import { CSSTransition } from "react-transition-group";
 import "./Collapse.scss";
 
 export type CollapsePropsType = {
   children: React.ReactNode;
   toggle: React.ReactNode;
+  transition?: "fade" | "slide";
 };
 
-const Collapse: FC<CollapsePropsType> = ({ children, toggle }) => {
+const Collapse: FC<CollapsePropsType> = ({
+  children,
+  toggle,
+  transition = "fade",
+}) => {
   const [active, setActive] = useState(false);
+  const collapseTransitionClasses = [
+    "collapse-transition",
+    transition && `collapse-transition_${transition}`,
+    active && "collapse-transition-active",
+  ];
   const onClick = () => {
     setActive(!active);
   };
@@ -18,7 +29,9 @@ const Collapse: FC<CollapsePropsType> = ({ children, toggle }) => {
         {toggle}
       </div>
 
-      {active && <div className="collapse-content">{children}</div>}
+      <div className={collapseTransitionClasses.join(" ")}>
+        <div className="collapse-content">{children}</div>
+      </div>
     </div>
   );
 };

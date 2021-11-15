@@ -1,8 +1,37 @@
+@import "../../styles/variables/animations";
+
 .collapse {
   &-toggle {
     display: inline-block;
     cursor: pointer;
   }
+  &-transition {
+    &_fade {
+      opacity: 0;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    &_slide {
+      transform: translateY(-100%);
+      display: none;
+    }
+
+    &-active.collapse-transition_fade {
+      animation-name: fade;
+      animation-duration: 0.5s;
+      opacity: 1;
+      pointer-events: auto;
+      user-select: auto;
+    }
+
+    &-active.collapse-transition_slide {
+      display: inline-block;
+      animation: slide 0.5s forwards;
+      transform: translateY(0%);
+    }
+  }
+
   &-content {
     overflow: hidden;
     transition: max-height 0.4s cubic-bezier(0, 1, 0, 1);
