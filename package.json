@@ -1,7 +1,7 @@
 {
   "name": "eduprog-ui-framework",
   "homepage": "http://edu-prog.github.io/eduprog-ui-framework",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "main": "./dist/index.js",
   "license": "MIT",
   "devDependencies": {
@@ -35,10 +35,10 @@
     "webpack-cli": "^4.9.1"
   },
   "peerDependencies": {
-    "react": "*",
-    "react-dom": "*",
-    "react-id-generator": "*",
-    "react-transition-group": "*"
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-id-generator": "^3.0.2",
+    "react-transition-group": "^4.4.2"
   },
   "files": [
     "dist"
