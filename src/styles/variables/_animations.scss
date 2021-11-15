@@ -12,5 +12,13 @@ $transition-type: ease;
 }
 
 @keyframes slide {
-  0% { transform: translateY(-50%); }
+  0% {
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes pop {
+  50% {
+    transform: scale(1.2) translate(-50%, -50%);
+  }
 }
