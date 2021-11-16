@@ -1,0 +1,27 @@
+@import "../../../styles/variables/variables";
+
+.Heading {
+    h1 {
+        font: $font-heading-1;
+    }
+
+    h2 {
+        font: $font-heading-2;
+    }
+    
+    h3 {
+        font: $font-heading-3;
+    }
+
+    h4 {
+        font: $font-heading-4;
+    }
+
+    h5 {
+        font: $font-heading-5;
+    }
+
+    h6 {
+        font: $font-heading-6;
+    }
+}

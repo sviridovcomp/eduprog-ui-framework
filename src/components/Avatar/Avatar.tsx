@@ -21,6 +21,8 @@ export type AvatarPropsType = {
    * Размер аватара
    */
   size: "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
+
+  autoColor?: boolean;
 };
 
 /**
@@ -31,19 +33,27 @@ const Avatar: FC<AvatarPropsType> = ({
   avatarUrl,
   text,
   size = "md",
+  autoColor, 
 }) => {
   const rootClasses = [
     "avatar",
     size ? `avatar-size_${size}` : "",
     rounded ? "avatar-rounded" : "",
   ];
+
+  const colors = [
+    "#b5eeeb",
+    "#c5b5ee",
+    "#dcb5ee",
+  ];
+
   const avatarFormattedText =
     size == "xs" || size == "sm"
       ? text.split(" ")[0][0]
       : `${text.split(" ")[0][0]}${text.split(" ")[1][0]}`;
 
   return (
-    <div className={rootClasses.join(" ")}>
+    <div className={rootClasses.join(" ")} style={{backgroundColor: autoColor ?  colors[(Math.floor(Math.random() * colors.length))] : "grey"}}>
       {avatarUrl && <img className="avatar-img" src={avatarUrl} alt="" />}
 
       {!avatarUrl && <div className="avatar-text">{avatarFormattedText}</div>}
