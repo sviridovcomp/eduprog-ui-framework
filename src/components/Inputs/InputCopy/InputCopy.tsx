@@ -1,6 +1,7 @@
 import React, { FC, useState } from "react";
 import Input from "../Input/Input";
 import "./InputCopy.scss";
+import classList from "../../../utils/classList";
 
 export type InputCopyPropsType = {
   /**
@@ -85,10 +86,10 @@ const InputCopy: FC<InputCopyPropsType> = ({
         }
       />
       <div
-        className={[
+        className={classList([
           "popup-coppied",
           activePopup ? "popup-coppied-active" : "",
-        ].join(" ")}
+        ])}
       >
         {copyLabel}
       </div>
