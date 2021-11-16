@@ -3,7 +3,6 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import Dialog from "../Dialog";
 import Button from "../../Button/Button";
-import Heading from "../../Typography/Heading/Heading";
 import Collapse from "../../Collapse/Collapse";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export

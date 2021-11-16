@@ -1,5 +1,6 @@
 import React, { FC, useState } from "react";
 import "./Dialog.scss";
+import classList from "../../utils/classList";
 
 export type DialogPropsType = {
   /**
@@ -46,20 +47,20 @@ const Dialog: FC<DialogPropsType> = ({
       {active && (
         <>
           <div
-            className={[
+            className={classList([
               "dialog-transition_fade",
               active ? "dialog-transition_fade-active" : "",
-            ].join(" ")}
+            ])}
           >
             <div className="dialog-wrapper" onClick={() => setActive(false)} />
           </div>
           <div
-            className={[
+            className={classList([
               "dialog-body",
               "dialog-transition_pop",
               active ? "dialog-transition_pop-active" : "",
               size ? `dialog-body-size_${size}` : "",
-            ].join(" ")}
+            ])}
           >
             <section className="dialog-header">
               <h2 className="dialog-heading">{label}</h2>

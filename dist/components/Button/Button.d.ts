@@ -2,10 +2,6 @@ import React, { FC } from "react";
 import "./Button.scss";
 export declare type ButtonPropsType = {
     /**
-     * Цвет кнопки
-     */
-    color?: "primary" | "secondary" | "accent" | "success" | "danger";
-    /**
      * Тип кнопки
      */
     type?: "default" | "action" | "link" | "pseudo" | "clear" | "raised";

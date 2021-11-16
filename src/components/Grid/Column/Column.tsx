@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import "./Column.scss";
+import classList from "../../../utils/classList";
 
 type RowColWidth =
   | number
@@ -26,14 +27,14 @@ export type ColumnPropsType = {
 };
 
 const Column: FC<ColumnPropsType> = ({ children, col, xs, md, lg }) => {
-  const rootClasses = [
+  const rootClasses = classList([
     "ep-col",
-    col && `ep-col_${col}`,
-    xs && `ep-col_xs-${xs}`,
-    md && `ep-col_md-${md}`,
-    lg && `ep-col_lg-${lg}`,
-  ];
-  return <div className={rootClasses.join(" ")}>{children}</div>;
+    col ? `ep-col_${col}` : "",
+    xs ? `ep-col_xs-${xs}` : "",
+    md ? `ep-col_md-${md}` : "",
+    lg ? `ep-col_lg-${lg}` : "",
+  ]);
+  return <div className={rootClasses}>{children}</div>;
 };
 
 export default Column;

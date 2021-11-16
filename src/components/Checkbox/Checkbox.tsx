@@ -1,6 +1,7 @@
 import React, { FC, useState } from "react";
 import { useId } from "react-id-generator";
 import "./Checkbox.scss";
+import classList from "../../utils/classList";
 
 export type CheckboxPropsType = {
   /**
@@ -36,10 +37,10 @@ const Checkbox: FC<CheckboxPropsType> = ({
 }) => {
   const [active, setActive] = useState(false);
   const [checkboxId] = useId();
-  const rootClasses = [
+  const rootClasses = classList([
     "checkbox-checkmark",
     type ? `checkbox-checkmark-type_${type}` : "",
-  ];
+  ]);
 
   const onClick = () => {
     setActive(!active);
@@ -59,7 +60,7 @@ const Checkbox: FC<CheckboxPropsType> = ({
         <input type="checkbox" id={checkboxId} onClick={onClick} />
 
         <span className="checkbox-fake">
-          <span className={rootClasses.join(" ")}></span>
+          <span className={rootClasses}/>
         </span>
 
         {position === "right" && (
