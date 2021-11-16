@@ -1,5 +1,6 @@
 import React, { FC, useState } from "react";
 import "./Input.scss";
+import classList from "../../../utils/classList";
 
 export type TextInputProps = {
   label: string;
@@ -68,10 +69,10 @@ const Input: FC<TextInputProps> = ({
     <div className="input">
       <div className="input">
         <div
-          className={[
+          className={classList([
             "input-label",
-            (active || value) && "input-label-active",
-          ].join(" ")}
+            active || value ? "input-label-active" : "",
+          ])}
         >
           {label}
         </div>
