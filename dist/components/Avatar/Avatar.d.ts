@@ -17,6 +17,7 @@ export declare type AvatarPropsType = {
      * Размер аватара
      */
     size: "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
+    autoColor?: boolean;
 };
 /**
  * Компонент для показа аватара пользователя

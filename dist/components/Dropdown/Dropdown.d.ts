@@ -12,7 +12,7 @@ export declare type DropdownPropsType = {
     /**
      * Направление раскрытия popup
      */
-    direction?: "bottom-left" | "bottom-center" | "bottom-right" | "top-left" | "top-center" | "top-right";
+    direction: "bottom-left" | "bottom-center" | "bottom-right" | "top-left" | "top-center" | "top-right";
     /**
      * Убрать стрелочку направления popup
      */

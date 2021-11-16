@@ -1,4 +1,4 @@
-import { FC } from "react";
+import React, { FC } from "react";
 import "./InputCopy.scss";
 export declare type InputCopyPropsType = {
     /**
@@ -9,6 +9,10 @@ export declare type InputCopyPropsType = {
      * Текст, который показан при копировании
      */
     copyLabel: string;
+    /**
+     * Событие обновления input
+     */
+    onChange: (value: string, event?: React.ChangeEvent<HTMLInputElement>) => void;
 };
 /**
  * InputCopy позволяет пользователю копировать текст текстового поля
