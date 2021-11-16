@@ -61,16 +61,15 @@ const InputCopy: FC<InputCopyPropsType> = ({
   };
 
   return (
-    <div className="InputCopy">
+    <div className="input-copy">
       <Input
         onChange={onInputChange}
         label={label}
         rightAdditional={
           <svg
-            className="InputCopy-copy"
+            className="input-copy-copy"
             onClick={copyValue}
             xmlns="http://www.w3.org/2000/svg"
-            enable-background="new 0 0 24 24"
             height="24px"
             viewBox="0 0 24 24"
             width="24px"
@@ -87,8 +86,8 @@ const InputCopy: FC<InputCopyPropsType> = ({
       />
       <div
         className={[
-          "Popup-coppied",
-          activePopup ? "Popup-coppied-active" : "",
+          "popup-coppied",
+          activePopup ? "popup-coppied-active" : "",
         ].join(" ")}
       >
         {copyLabel}

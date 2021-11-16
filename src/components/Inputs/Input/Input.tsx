@@ -65,22 +65,22 @@ const Input: FC<TextInputProps> = ({
   };
 
   return (
-    <div className="TextInput">
-      <div className="TextInput-wrapper">
+    <div className="input">
+      <div className="input">
         <div
           className={[
-            "TextInput-label",
-            (active || value) && "TextInput-label-active",
+            "input-label",
+            (active || value) && "input-label-active",
           ].join(" ")}
         >
           {label}
         </div>
 
-        <div className="TextInput-field">
-          <div className="TextInput-left">{leftAdditional}</div>
+        <div className="input-field">
+          <div className="input-left">{leftAdditional}</div>
 
           <input
-            className="TextInput-control"
+            className="input-control"
             type={inputType}
             maxLength={maxLength}
             placeholder={active ? mask : ""}
@@ -92,7 +92,7 @@ const Input: FC<TextInputProps> = ({
             onKeyDown={(event) => inputKeyDown(event)}
           />
 
-          <div className="TextInput-right">{rightAdditional}</div>
+          <div className="input-right">{rightAdditional}</div>
         </div>
       </div>
     </div>

@@ -43,29 +43,31 @@ const Dialog: FC<DialogPropsType> = ({
         {toggle}
       </div>
 
-	    {active &&
-      <>
+      {active && (
+        <>
           <div
-              className={[
-						    "dialog-transition_fade",
-						    active ? "dialog-transition_fade-active" : "",
-					    ].join(" ")}
+            className={[
+              "dialog-transition_fade",
+              active ? "dialog-transition_fade-active" : "",
+            ].join(" ")}
           >
-              <div className="dialog-wrapper" onClick={() => setActive(false)}/>
+            <div className="dialog-wrapper" onClick={() => setActive(false)} />
           </div>
           <div
-              className={[
-						    "dialog-body",
-						    "dialog-transition_pop",
-						    active ? "dialog-transition_pop-active" : "",
-                size ? `dialog-body-size_${size}` : "",
-					    ].join(" ")}
+            className={[
+              "dialog-body",
+              "dialog-transition_pop",
+              active ? "dialog-transition_pop-active" : "",
+              size ? `dialog-body-size_${size}` : "",
+            ].join(" ")}
           >
-              <div className="dialog-header">{label}</div>
-              <div className="dialog-content">{children}</div>
+            <section className="dialog-header">
+              <h2 className="dialog-heading">{label}</h2>
+            </section>
+            <section className="dialog-content">{children}</section>
           </div>
-      </>
-	    }
+        </>
+      )}
     </div>
   );
 };

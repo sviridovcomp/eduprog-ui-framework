@@ -1,6 +1,6 @@
 @import "../../../styles/variables/variables";
 
-.InputCopy {
+.input-copy {
   position: relative;
   display: inline-block;
   width: 100%;
@@ -17,12 +17,12 @@
   }
 }
 
-.Popup-coppied {
+.popup-coppied {
   position: absolute;
   right: 0;
   opacity: 0;
   background-color: $color-primary;
-  color: $color-white;
+  color: $color-background;
   padding: 1rem;
   border-radius: 0.5rem;
   font: $font-text-lg;

@@ -15,7 +15,7 @@ export type DropdownPropsType = {
   /**
    * Направление раскрытия popup
    */
-  direction?:
+  direction:
     | "bottom-left"
     | "bottom-center"
     | "bottom-right"
@@ -45,7 +45,7 @@ export type DropdownPropsType = {
 const Dropdown: FC<DropdownPropsType> = ({
   children,
   toggle,
-  direction,
+  direction = "bottom-left",
   clearly = false,
   fullwidth = false,
   dismissible = true,
@@ -57,9 +57,9 @@ const Dropdown: FC<DropdownPropsType> = ({
   ];
   const dropdownItemClasses = [
     "dropdown-item",
-    direction ? `dropdown-item-direction_${direction}` : '',
-    clearly ? "dropdown-item-clearly" : '',
-    fullwidth ? "dropdown-item-fullwidth" : '',
+    direction ? `dropdown-item-direction_${direction}` : "",
+    clearly ? "dropdown-item-clearly" : "",
+    fullwidth ? "dropdown-item-fullwidth" : "",
   ];
   const onClick = () => {
     setActive(!active);

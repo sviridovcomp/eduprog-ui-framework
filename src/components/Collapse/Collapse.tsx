@@ -28,9 +28,11 @@ const Collapse: FC<CollapsePropsType> = ({
         {toggle}
       </div>
 
-      <div className={collapseTransitionClasses.join(" ")}>
-        <div className="collapse-content">{children}</div>
-      </div>
+      {active && (
+        <div className={collapseTransitionClasses.join(" ")}>
+          <div className="collapse-content">{children}</div>
+        </div>
+      )}
     </div>
   );
 };

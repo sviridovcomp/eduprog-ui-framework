@@ -1,25 +1,25 @@
 @import "../../../styles/variables/variables";
 
-.Paragraph {
-    &-size {
-        &_xs {
-            font: $font-text-xs;
-        }
-
-        &_sm {
-            font: $font-text-sm;
-        }
-
-        &_md {
-            font: $font-text-md;
-        }
-
-        &_lg {
-            font: $font-text-lg;
-        }
-
-        &_xl {
-            font: $font-text-xl;
-        }
+.paragraph {
+  &-size {
+    &_xs {
+      font: $font-text-xs;
     }
+
+    &_sm {
+      font: $font-text-sm;
+    }
+
+    &_md {
+      font: $font-text-md;
+    }
+
+    &_lg {
+      font: $font-text-lg;
+    }
+
+    &_xl {
+      font: $font-text-xl;
+    }
+  }
 }

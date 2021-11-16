@@ -3,7 +3,7 @@ import "./Heading.scss";
 
 export type HeadingPropsType = {
   /**
-   * Текст заголовка 
+   * Текст заголовка
    */
   children: string;
 
@@ -14,36 +14,24 @@ export type HeadingPropsType = {
 };
 
 /**
- * Компонент Заголовок 
+ * Компонент Заголовок
  */
-const Heading: FC<HeadingPropsType> = ({children, size = "xxl"}) => {
+const Heading: FC<HeadingPropsType> = ({ children, size = "xxl" }) => {
   return (
-      <div className="Heading">
-        {size === "xxl" &&
-            <h1>{children}</h1>
-        }
+    <div className="heading">
+      {size === "xxl" && <h1>{children}</h1>}
 
-        {size === "xl" &&
-            <h2>{children}</h2>
-        }
+      {size === "xl" && <h2>{children}</h2>}
 
-        {size === "lg" &&
-            <h3>{children}</h3>
-        }
+      {size === "lg" && <h3>{children}</h3>}
 
-        {size === "md" &&
-            <h4>{children}</h4>
-        }
+      {size === "md" && <h4>{children}</h4>}
 
-        {size === "sm" &&
-            <h5>{children}</h5>
-        }
+      {size === "sm" && <h5>{children}</h5>}
 
-        {size === "xs" &&
-            <h6>{children}</h6>
-        }
-      </div>
-  )
-}
+      {size === "xs" && <h6>{children}</h6>}
+    </div>
+  );
+};
 
-export default Heading
+export default Heading;

@@ -48,23 +48,23 @@
     }
     &_action {
       background-color: $color-primary;
-      color: $color-white;
+      color: $color-background;
       &:hover {
         background-color: darken($color-primary, 20%);
       }
     }
     &_default {
-      color: $color-black;
+      color: $color-text;
       background-color: $color-lightgray;
       &.btn-clicked,
       &:hover {
-        background-color: darken($color-white, 20%);
+        background-color: darken($color-background, 20%);
       }
     }
     &_link {
       border: 1px solid $color-lightblue;
       color: $color-lightblue;
-      background-color: $color-white;
+      background-color: $color-background;
       &:hover {
         background-color: lighten($color-lightblue, 21%);
       }
@@ -76,7 +76,7 @@
       color: $color-darkgray;
       background-color: transparent;
       &:hover {
-        color: $color-black;
+        color: $color-text;
       }
     }
     &_raised {

@@ -11,7 +11,10 @@ export type InputPasswordPropsType = {
   /**
    * Событие обновления input
    */
-  onChange?: (value: string, event?: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (
+    value: string,
+    event?: React.ChangeEvent<HTMLInputElement>
+  ) => void;
 };
 
 /**
@@ -19,21 +22,24 @@ export type InputPasswordPropsType = {
  */
 const InputPassword: FC<InputPasswordPropsType> = ({ label, onChange }) => {
   const [passwordVisible, setPasswordVisible] = useState(false);
-  const onInputChange = (value: string, event?: React.ChangeEvent<HTMLInputElement>) => {
+  const onInputChange = (
+    value: string,
+    event?: React.ChangeEvent<HTMLInputElement>
+  ) => {
     if (onChange && event) {
-      onChange(value, event)
+      onChange(value, event);
     }
-  }
-  
+  };
+
   return (
-    <div className="InputPassword">
+    <div className="input-password">
       <Input
         onChange={onInputChange}
         inputType={passwordVisible ? "text" : "password"}
         label={label}
         rightAdditional={
           <div
-            className="InputPassword-toggler"
+            className="input-password-toggler"
             onClick={() => setPasswordVisible(!passwordVisible)}
           >
             {passwordVisible && (
