@@ -1,12 +1,8 @@
 import React, { FC, useState } from "react";
 import "./Button.scss";
+import classList from "../../utils/classList";
 
 export type ButtonPropsType = {
-  /**
-   * Цвет кнопки
-   */
-  color?: "primary" | "secondary" | "accent" | "success" | "danger";
-
   /**
    * Тип кнопки
    */
@@ -28,20 +24,18 @@ export type ButtonPropsType = {
  */
 const Button: FC<ButtonPropsType> = ({
   children,
-  color,
   type = "default",
   size = "md",
   onClick,
 }) => {
   const [active, setActive] = useState(false);
 
-  const rootClasses = [
+  const rootClasses = classList([
     "Button",
-    `Button-color_${color}`,
     `Button-type_${type}`,
     `Button-size_${size}`,
-    active && "Button-clicking",
-  ];
+    active ? "Button-clicking" : "",
+  ]);
 
   const clicking = (event: React.MouseEvent<HTMLButtonElement>) => {
     setActive(true);
@@ -58,7 +52,7 @@ const Button: FC<ButtonPropsType> = ({
   return (
     <div>
       <button
-        className={rootClasses.join(" ")}
+        className={rootClasses}
         onClick={(event) => clicking(event)}
       >
         <span className="Button-label">{children}</span>
