@@ -1,5 +1,6 @@
 import React, { FC, useState } from "react";
 import "./Dropdown.scss";
+import classList from "../../utils/classList";
 
 export type DropdownPropsType = {
   /**
@@ -51,16 +52,6 @@ const Dropdown: FC<DropdownPropsType> = ({
   dismissible = true,
 }) => {
   const [active, setActive] = useState(false);
-  const dropdownTransitionClasses = [
-    "dropdown-transition",
-    active && "dropdown-transition-active",
-  ];
-  const dropdownItemClasses = [
-    "dropdown-item",
-    direction ? `dropdown-item-direction_${direction}` : "",
-    clearly ? "dropdown-item-clearly" : "",
-    fullwidth ? "dropdown-item-fullwidth" : "",
-  ];
   const onClick = () => {
     setActive(!active);
   };
@@ -71,8 +62,20 @@ const Dropdown: FC<DropdownPropsType> = ({
         {toggle}
       </div>
 
-      <div className={dropdownTransitionClasses.join(" ")}>
-        <div className={dropdownItemClasses.join(" ")}>
+      <div
+        className={classList([
+          "dropdown-transition",
+          active ? "dropdown-transition-active" : "",
+        ])}
+      >
+        <div
+          className={classList([
+            "dropdown-item",
+            direction ? `dropdown-item-direction_${direction}` : "",
+            clearly ? "dropdown-item-clearly" : "",
+            fullwidth ? "dropdown-item-fullwidth" : "",
+          ])}
+        >
           <div className="dropdown-item-content">{children}</div>
         </div>
       </div>
