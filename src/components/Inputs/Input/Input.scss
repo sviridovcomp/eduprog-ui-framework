@@ -1,6 +1,7 @@
 @import "../../../styles/variables/variables";
 
 .input {
+  position: relative;
   font-family: $font-family;
 
   &-wrapper {

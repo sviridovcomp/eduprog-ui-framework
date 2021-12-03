@@ -1,5 +1,5 @@
 import React, { FC, useState } from "react";
-import "./Collapse.scss";
+import "./Expand.scss";
 import classList from "../../utils/classList";
 
 export type CollapsePropsType = {
@@ -8,7 +8,7 @@ export type CollapsePropsType = {
   transition?: "fade" | "slide";
 };
 
-const Collapse: FC<CollapsePropsType> = ({
+const Expand: FC<CollapsePropsType> = ({
   children,
   toggle,
   transition = "fade",
@@ -38,4 +38,4 @@ const Collapse: FC<CollapsePropsType> = ({
   );
 };
 
-export default Collapse;
+export default Expand;

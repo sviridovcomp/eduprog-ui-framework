@@ -1,4 +1,5 @@
 const path = require("path");
+const {TsconfigPathsPlugin} = require("tsconfig-paths-webpack-plugin");
 
 module.exports = {
   mode: "production",
@@ -8,9 +9,11 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
     libraryTarget: "umd",
     clean: true,
+    globalObject: 'this',
   },
   resolve: {
     extensions: [".ts", ".tsx"],
+    plugins: [new TsconfigPathsPlugin()]
   },
   externals: {
     react: "react",

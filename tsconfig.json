@@ -16,6 +16,11 @@
     "declaration": true,
     "jsx": "react",
     "outDir": "./dist/",
+    "baseUrl": ".",
+    "paths": {
+      "@components/*": ["./src/components/*"],
+      "@utils/*": ["./src/utils/*"]
+    }
   },
   "include": ["src"],
   "exclude": ["dist", "node_modules", "**/*.stories.ts"]

@@ -21,6 +21,11 @@ export type InputCopyPropsType = {
     value: string,
     event?: React.ChangeEvent<HTMLInputElement>
   ) => void;
+
+  /**
+   * Имя элемента в DOM
+   */
+  name?: string;
 };
 
 /**
@@ -30,6 +35,7 @@ const InputCopy: FC<InputCopyPropsType> = ({
   label,
   copyLabel = "Скопировано",
   onChange,
+  name = "",
 }) => {
   const [value, setValue] = useState("");
   const [activePopup, setActivePopup] = useState(false);
@@ -64,8 +70,10 @@ const InputCopy: FC<InputCopyPropsType> = ({
   return (
     <div className="input-copy">
       <Input
+        inputType="text"
         onChange={onInputChange}
         label={label}
+        name={name}
         rightAdditional={
           <svg
             className="input-copy-copy"

@@ -1,0 +1,22 @@
+@import "mixins/margins";
+
+@include margin-generator("left");
+@include margin-generator("right");
+@include margin-generator("top");
+@include margin-generator("bottom");
+
+.mt-auto {
+  margin-top: auto;
+}
+
+.ml-auto {
+  margin-left: auto;
+}
+
+.mr-auto {
+  margin-right: auto;
+}
+
+.mb-auto {
+  margin-bottom: auto;
+}

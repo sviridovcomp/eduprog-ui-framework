@@ -15,12 +15,18 @@ export type InputPasswordPropsType = {
     value: string,
     event?: React.ChangeEvent<HTMLInputElement>
   ) => void;
+
+  name?: string;
 };
 
 /**
  * InputCopy позволяет пользователю копировать текст текстового поля
  */
-const InputPassword: FC<InputPasswordPropsType> = ({ label, onChange }) => {
+const InputPassword: FC<InputPasswordPropsType> = ({
+  label,
+  onChange,
+  name = "",
+}) => {
   const [passwordVisible, setPasswordVisible] = useState(false);
   const onInputChange = (
     value: string,
@@ -37,6 +43,7 @@ const InputPassword: FC<InputPasswordPropsType> = ({ label, onChange }) => {
         onChange={onInputChange}
         inputType={passwordVisible ? "text" : "password"}
         label={label}
+        name={name}
         rightAdditional={
           <div
             className="input-password-toggler"

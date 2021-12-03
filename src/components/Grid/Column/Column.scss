@@ -37,3 +37,24 @@
     @include generate-offset-columns(lg);
   }
 }
+
+@mixin margin_generate($direction) {
+  @for $i from 1 to 7 {
+    .ep-col_m#{$direction}-#{$i} {
+      @if $direction == "l" {
+        margin-left: $i * 0.25rem;
+      } @else if $direction == "r" {
+        margin-right: $i * 0.25rem;
+      } @else if $direction == "t" {
+        margin-top: $i * 0.25rem;
+      } @else if $direction == "b" {
+        margin-bottom: $i * 0.25rem;
+      }
+    }
+  }
+}
+
+@include margin_generate("t");
+@include margin_generate("l");
+@include margin_generate("r");
+@include margin_generate("b");

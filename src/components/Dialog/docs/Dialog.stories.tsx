@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import Dialog from "../Dialog";
 import Button from "../../Button/Button";
-import Collapse from "../../Collapse/Collapse";
+import Expand from "../../Expand/Expand";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -34,7 +34,7 @@ Playground.args = {
         get data from outside
       </p>
 
-      <Collapse toggle={<Button>Dynamic height change</Button>}>
+      <Expand toggle={<Button>Dynamic height change</Button>}>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab animi
         aperiam asperiores aspernatur atque commodi ea esse, et exercitationem
         fugit harum hic laboriosam magni maiores minima molestiae nisi omnis
@@ -57,7 +57,7 @@ Playground.args = {
         neque, nobis nostrum officia sit, totam ut veniam voluptatem? Animi
         architecto cupiditate dolorem ea eos eum id, molestias nesciunt officia
         possimus quod tempora!
-      </Collapse>
+      </Expand>
     </div>
   ),
   toggle: <Button>Dialog</Button>,

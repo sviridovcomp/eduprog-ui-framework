@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import "./Button.scss";
-export declare type ButtonPropsType = {
+import { defaultProps } from "@utils/defaultProps";
+export declare type ButtonPropsType = defaultProps & {
     /**
      * Тип кнопки
      */
@@ -13,6 +14,14 @@ export declare type ButtonPropsType = {
      * Обработчик клика по кнопке
      */
     onClick?: (event?: React.MouseEvent<HTMLButtonElement>) => void;
+    /**
+     *  Имя кнопки в DOM
+     */
+    name?: string;
+    /**
+     * Управление шириной кнопки. При значении 'available' растягивает кнопку на ширину родителя
+     */
+    width?: "default" | "available";
 };
 /**
  * Компонент создающий кнопки

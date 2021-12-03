@@ -1,0 +1,24 @@
+@mixin margin-generator($direction) {
+  @for $i from 1 to 7 {
+    @if $direction == "left" {
+      .ml-#{$i} {
+        margin-left: $i * 0.25rem;
+      }
+    }
+    @else if $direction == "right" {
+      .mr-#{$i} {
+        margin-right: $i * 0.25rem;
+      }
+    }
+    @else if $direction == "top" {
+      .mt-#{$i} {
+        margin-top: $i * 0.25rem;
+      }
+    }
+    @else if $direction == "bottom" {
+      .mb-#{$i} {
+        margin-bottom: $i * 0.25rem;
+      }
+    }
+  }
+}

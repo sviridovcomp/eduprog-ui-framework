@@ -13,6 +13,10 @@ export declare type InputCopyPropsType = {
      * Событие обновления input
      */
     onChange: (value: string, event?: React.ChangeEvent<HTMLInputElement>) => void;
+    /**
+     * Имя элемента в DOM
+     */
+    name?: string;
 };
 /**
  * InputCopy позволяет пользователю копировать текст текстового поля

@@ -1,9 +1,9 @@
 import React, { FC } from "react";
-import "./Collapse.scss";
+import "./Expand.scss";
 export declare type CollapsePropsType = {
     children: React.ReactNode;
     toggle: React.ReactNode;
     transition?: "fade" | "slide";
 };
-declare const Collapse: FC<CollapsePropsType>;
-export default Collapse;
+declare const Expand: FC<CollapsePropsType>;
+export default Expand;

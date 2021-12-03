@@ -1,8 +1,9 @@
 import React, { FC, useState } from "react";
 import "./Button.scss";
-import classList from "../../utils/classList";
+import classList from "@utils/classList";
+import {defaultProps} from "@utils/defaultProps";
 
-export type ButtonPropsType = {
+export type ButtonPropsType = defaultProps & {
   /**
    * Тип кнопки
    */
@@ -17,6 +18,16 @@ export type ButtonPropsType = {
    * Обработчик клика по кнопке
    */
   onClick?: (event?: React.MouseEvent<HTMLButtonElement>) => void;
+
+  /**
+   *  Имя кнопки в DOM
+   */
+  name?: string;
+
+  /**
+   * Управление шириной кнопки. При значении 'available' растягивает кнопку на ширину родителя
+   */
+  width?: "default" | "available";
 };
 
 /**
@@ -27,6 +38,9 @@ const Button: FC<ButtonPropsType> = ({
   type = "default",
   size = "md",
   onClick,
+  className= "",
+  name,
+  width = "default",
 }) => {
   const [active, setActive] = useState(false);
 
@@ -35,6 +49,7 @@ const Button: FC<ButtonPropsType> = ({
     `Button-type_${type}`,
     `Button-size_${size}`,
     active ? "Button-clicking" : "",
+    `Button-width_${width}`,
   ]);
 
   const clicking = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -52,8 +67,9 @@ const Button: FC<ButtonPropsType> = ({
   return (
     <div>
       <button
-        className={rootClasses}
+        className={`${rootClasses} ${className}`}
         onClick={(event) => clicking(event)}
+        name={name}
       >
         <span className="Button-label">{children}</span>
       </button>

@@ -1,0 +1,40 @@
+@import "../../../styles/variables/variables";
+
+.input-count {
+  position: relative;
+  &-controller {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.5rem;
+    font-weight: 700;
+    right: 0;
+    top: 0;
+  }
+
+  &-plus {
+    border-top-right-radius: 0.5rem;
+  }
+
+  &-minus {
+    border-bottom-right-radius: 0.5rem;
+    border-top: 4px solid $color-background;
+  }
+
+  &-plus, &-minus {
+    display: flex;
+    background-color: $color-platinum;
+    width: 4rem;
+    height: calc(3.6rem / 2);
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    cursor: pointer;
+    border-left: 4px solid $color-background;
+    transition: background-color $transition-duration $transition-type;
+
+    &:hover {
+      background-color: darken($color-platinum, 10%);
+    }
+  }
+}

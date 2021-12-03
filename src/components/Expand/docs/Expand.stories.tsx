@@ -1,19 +1,19 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
-import Collapse from "../Collapse";
+import Expand from "../Expand";
 import Button from "../../Button/Button";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "Компоненты/Collapse/Playground",
-  component: Collapse,
+  title: "Компоненты/Expand/Playground",
+  component: Expand,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
-} as ComponentMeta<typeof Collapse>;
+} as ComponentMeta<typeof Expand>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof Collapse> = (args) => (
-  <Collapse {...args} />
+const Template: ComponentStory<typeof Expand> = (args) => (
+  <Expand {...args} />
 );
 
 export const Playground = Template.bind({});
