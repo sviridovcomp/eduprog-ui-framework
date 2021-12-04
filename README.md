@@ -3,3 +3,19 @@
 </h1>
 
 [![NodeJS with Webpack](https://github.com/edu-prog/eduprog-ui-framework/actions/workflows/webpack.yml/badge.svg)](https://github.com/edu-prog/eduprog-ui-framework/actions/workflows/webpack.yml) [![CodeQL](https://github.com/edu-prog/eduprog-ui-framework/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/edu-prog/eduprog-ui-framework/actions/workflows/codeql-analysis.yml)
+
+## Установка
+
+Eduprog UI Framework доступен в виде [npm пакета](https://www.npmjs.com/package/eduprog-ui-framework)
+
+```shell
+// with npm
+npm install eduprog-ui-framework
+
+// with yarn
+yarn add eduprog-ui-framework
+```
+
+## Примеры компонентов
+
+Примеры компонентов Вы сможете найти [на сайте](https://edu-prog.github.io/eduprog-ui-framework)
