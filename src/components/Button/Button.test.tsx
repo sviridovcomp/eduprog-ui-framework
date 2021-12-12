@@ -1,6 +1,7 @@
 import Button from "@components/Button/Button";
 import { shallow } from "enzyme";
 import React from "react";
+import {asyncSleep} from "@utils/utils";
 
 describe("Button testing", () => {
   it("Button content", () => {
@@ -9,7 +10,7 @@ describe("Button testing", () => {
     expect(button.text()).toEqual("Test");
   });
 
-  it("Button clicking", () => {
+  it("Button clicking", async () => {
     let isClicked = false;
 
     const onClick = () => {
@@ -21,5 +22,8 @@ describe("Button testing", () => {
 
     expect(isClicked).toBe(true);
     expect(button.hasClass("Button-clicking"));
+
+    await asyncSleep(400);
+    expect(button.hasClass("Button-clicking")).toEqual(false);
   });
 });
