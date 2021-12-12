@@ -22,4 +22,13 @@ describe("Avatar testing", () => {
       expect(avatar.text()).toEqual("TA");
     });
   });
+
+  it("Image can't found", () => {
+    const avatarWithNotFoundImage = shallow(
+      <Avatar size="md" text="Test Avatar" avatarUrl="https://test.ru" />
+    );
+    expect(avatarWithNotFoundImage.find("img").props().alt).toEqual(
+      "Test Avatar"
+    );
+  });
 });

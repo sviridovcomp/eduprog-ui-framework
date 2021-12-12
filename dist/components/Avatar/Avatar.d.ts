@@ -4,7 +4,7 @@ export declare type AvatarPropsType = {
     /**
      * Круглый аватар
      */
-    rounded: boolean;
+    rounded?: boolean;
     /**
      * Ссылка на картинку аватара
      */

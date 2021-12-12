@@ -54,7 +54,7 @@ const Avatar: FC<AvatarPropsType> = ({
 
   return (
     <div className={rootClasses.join(" ")} style={{backgroundColor: autoColor ?  colors[(Math.floor(Math.random() * colors.length))] : "grey"}}>
-      {avatarUrl && <img className="avatar-img" src={avatarUrl} alt="" />}
+      {avatarUrl && <img className="avatar-img" src={avatarUrl} alt={text} />}
 
       {!avatarUrl && <div className="avatar-text">{avatarFormattedText}</div>}
     </div>
