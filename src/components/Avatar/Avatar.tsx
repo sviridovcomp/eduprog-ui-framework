@@ -33,7 +33,7 @@ const Avatar: FC<AvatarPropsType> = ({
   avatarUrl,
   text,
   size = "md",
-  autoColor, 
+  autoColor,
 }) => {
   const rootClasses = [
     "avatar",
@@ -41,11 +41,7 @@ const Avatar: FC<AvatarPropsType> = ({
     rounded ? "avatar-rounded" : "",
   ];
 
-  const colors = [
-    "#b5eeeb",
-    "#c5b5ee",
-    "#dcb5ee",
-  ];
+  const colors = ["#b5eeeb", "#c5b5ee", "#dcb5ee"];
 
   const avatarFormattedText =
     size == "xs" || size == "sm"
@@ -53,7 +49,14 @@ const Avatar: FC<AvatarPropsType> = ({
       : `${text.split(" ")[0][0]}${text.split(" ")[1][0]}`;
 
   return (
-    <div className={rootClasses.join(" ")} style={{backgroundColor: autoColor ?  colors[(Math.floor(Math.random() * colors.length))] : "grey"}}>
+    <div
+      className={rootClasses.join(" ")}
+      style={{
+        backgroundColor: autoColor
+          ? colors[Math.floor(Math.random() * colors.length)]
+          : "grey",
+      }}
+    >
       {avatarUrl && <img className="avatar-img" src={avatarUrl} alt={text} />}
 
       {!avatarUrl && <div className="avatar-text">{avatarFormattedText}</div>}
