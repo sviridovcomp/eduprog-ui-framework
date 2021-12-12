@@ -31,4 +31,25 @@ describe("Avatar testing", () => {
       "Test Avatar"
     );
   });
+
+  it("Avatar testing classNames render", () => {
+    const avatarClasses = shallow(
+      <Avatar
+        size="xs"
+        text="Avatar Test"
+        rounded
+        className={"test-class-name"}
+      />
+    );
+    const receivedClasses = [
+      "avatar",
+      "avatar-size_xs",
+      "avatar-rounded",
+      "test-class-name",
+    ];
+
+    receivedClasses.forEach((item) => {
+      expect(avatarClasses.hasClass(item));
+    });
+  });
 });

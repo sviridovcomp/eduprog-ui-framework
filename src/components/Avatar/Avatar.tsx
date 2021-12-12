@@ -1,7 +1,8 @@
 import React, { FC } from "react";
 import "./Avatar.scss";
+import {defaultProps} from "@utils/defaultProps";
 
-export type AvatarPropsType = {
+export type AvatarPropsType = defaultProps & {
   /**
    * Круглый аватар
    */
@@ -34,11 +35,13 @@ const Avatar: FC<AvatarPropsType> = ({
   text,
   size = "md",
   autoColor,
+  className = "",
 }) => {
   const rootClasses = [
     "avatar",
     size ? `avatar-size_${size}` : "",
     rounded ? "avatar-rounded" : "",
+    className,
   ];
 
   const colors = ["#b5eeeb", "#c5b5ee", "#dcb5ee"];
