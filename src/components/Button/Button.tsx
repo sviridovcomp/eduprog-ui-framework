@@ -1,7 +1,7 @@
 import React, { FC, useState } from "react";
 import "./Button.scss";
 import classList from "@utils/classList";
-import {defaultProps} from "@utils/defaultProps";
+import { defaultProps } from "@utils/defaultProps";
 
 export type ButtonPropsType = defaultProps & {
   /**
@@ -28,6 +28,16 @@ export type ButtonPropsType = defaultProps & {
    * Управление шириной кнопки. При значении 'available' растягивает кнопку на ширину родителя
    */
   width?: "default" | "available";
+
+  /**
+   * Список произвольных элементов в левом слоте.
+   */
+  contentLeft?: React.ReactNode;
+
+  /**
+   * Список произвольных элементов в правом слоте.
+   */
+  contentRight?: React.ReactNode;
 };
 
 /**
@@ -38,9 +48,11 @@ const Button: FC<ButtonPropsType> = ({
   type = "default",
   size = "md",
   onClick,
-  className= "",
+  className = "",
   name,
   width = "default",
+  contentLeft,
+  contentRight,
 }) => {
   const [active, setActive] = useState(false);
 
@@ -71,7 +83,16 @@ const Button: FC<ButtonPropsType> = ({
         onClick={(event) => clicking(event)}
         name={name}
       >
-        <span className="Button-label">{children}</span>
+        <span className="Button-label">
+          <span className="Button-label_left">
+            {contentLeft}
+          </span>
+          <span className="Button-label_center">{children}</span>
+
+          <span className="Button-label_right">
+            {contentRight}
+          </span>
+        </span>
       </button>
     </div>
   );

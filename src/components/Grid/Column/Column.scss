@@ -1,5 +1,5 @@
-@import "../../../styles/mixins/grid";
-@import "../../../styles/variables/media";
+@import "~styles/mixins/grid";
+@import "~styles/variables/media";
 
 .ep-col {
   @include generate-sme-columns($space-normal);

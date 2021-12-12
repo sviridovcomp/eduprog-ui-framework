@@ -22,6 +22,14 @@ export declare type ButtonPropsType = defaultProps & {
      * Управление шириной кнопки. При значении 'available' растягивает кнопку на ширину родителя
      */
     width?: "default" | "available";
+    /**
+     * Список произвольных элементов в левом слоте.
+     */
+    contentLeft?: React.ReactNode;
+    /**
+     * Список произвольных элементов в правом слоте.
+     */
+    contentRight?: React.ReactNode;
 };
 /**
  * Компонент создающий кнопки

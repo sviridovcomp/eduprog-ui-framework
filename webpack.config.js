@@ -7,13 +7,16 @@ module.exports = {
   output: {
     filename: "index.js",
     path: path.resolve(__dirname, "dist"),
-    libraryTarget: "umd",
+    libraryTarget: "umd2",
     clean: true,
     globalObject: 'this',
   },
   resolve: {
     extensions: [".ts", ".tsx"],
-    plugins: [new TsconfigPathsPlugin()]
+    plugins: [new TsconfigPathsPlugin()],
+    alias: {
+      styles: path.join(__dirname, "src/styles")
+    }
   },
   externals: {
     react: "react",
