@@ -1,6 +1,7 @@
 import { FC } from "react";
 import "./Avatar.scss";
-export declare type AvatarPropsType = {
+import { defaultProps } from "@utils/defaultProps";
+export declare type AvatarPropsType = defaultProps & {
     /**
      * Круглый аватар
      */
