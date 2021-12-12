@@ -1,6 +1,6 @@
 on: ["push", "pull_request"]
 
-name: Test Coveralls
+name: Coverage
 
 jobs:
 
@@ -16,7 +16,7 @@ jobs:
       with:
         node-version: 14.x
 
-    - name: npm install, make test-coverage
+    - name: yarn install, generate coverage
       run: |
         yarn install
         yarn test:coverage
