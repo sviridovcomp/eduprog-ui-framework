@@ -8,4 +8,17 @@ describe("Button testing", () => {
 
     expect(button.text()).toEqual("Test");
   });
+
+  it("Button clicking", () => {
+    let isClicked = false;
+
+    const onClick = () => {
+      isClicked = true;
+    };
+    const button = shallow(<Button onClick={onClick}>Test</Button>);
+
+    button.find("button").simulate("click");
+
+    expect(isClicked).toBe(true);
+  });
 });
