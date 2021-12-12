@@ -2,7 +2,7 @@
   Eduprog UI Framework  
 </h1>
 
-[![NodeJS with Webpack](https://github.com/edu-prog/eduprog-ui-framework/actions/workflows/webpack.yml/badge.svg)](https://github.com/edu-prog/eduprog-ui-framework/actions/workflows/webpack.yml) [![CodeQL](https://github.com/edu-prog/eduprog-ui-framework/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/edu-prog/eduprog-ui-framework/actions/workflows/codeql-analysis.yml) [![Coverage Status](https://coveralls.io/repos/github/edu-prog/eduprog-ui-framework/badge.svg?branch=master)](https://coveralls.io/github/edu-prog/eduprog-ui-framework?branch=master)
+[![NodeJS with Webpack](https://github.com/edu-prog/eduprog-ui-framework/actions/workflows/webpack.yml/badge.svg)](https://github.com/edu-prog/eduprog-ui-framework/actions/workflows/webpack.yml) [![CodeQL](https://github.com/edu-prog/eduprog-ui-framework/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/edu-prog/eduprog-ui-framework/actions/workflows/codeql-analysis.yml) [![Coverage Status](https://coveralls.io/repos/github/edu-prog/eduprog-ui-framework/badge.svg?branch=master&service=github)](https://coveralls.io/github/edu-prog/eduprog-ui-framework?branch=master)
 
 ## Установка
 
