@@ -52,4 +52,20 @@ describe("Avatar testing", () => {
       expect(avatarClasses.hasClass(item));
     });
   });
+
+  it("Avatar testing color generator", () => {
+    const avatarPossibleColors = ["#b5eeeb", "#c5b5ee", "#dcb5ee"];
+    const avatarColorsGenerate = shallow(
+      <Avatar
+        size="xs"
+        text="Avatar Test"
+        rounded
+        className={"test-class-name"}
+        autoColor
+      />
+    );
+    expect(avatarPossibleColors).toContain(
+      avatarColorsGenerate.prop("style").backgroundColor
+    );
+  });
 });

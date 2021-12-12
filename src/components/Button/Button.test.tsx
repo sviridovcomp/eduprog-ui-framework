@@ -20,5 +20,6 @@ describe("Button testing", () => {
     button.find("button").simulate("click");
 
     expect(isClicked).toBe(true);
+    expect(button.hasClass("Button-clicking"));
   });
 });
