@@ -1,6 +1,6 @@
 import React, { FC, useState } from "react";
 import "./Dropdown.scss";
-import classList from "../../utils/classList";
+import classList from "@utils/classList/classList";
 
 export type DropdownPropsType = {
   /**

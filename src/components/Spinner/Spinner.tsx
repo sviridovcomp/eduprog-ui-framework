@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { defaultProps } from "@utils/defaultProps";
 import "./Spinner.scss";
-import classList from "@utils/classList";
+import classList from "@utils/classList/classList";
 
 export type SpinnerPropsType = defaultProps & {
   color:

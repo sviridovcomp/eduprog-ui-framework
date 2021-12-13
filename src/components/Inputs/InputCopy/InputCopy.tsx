@@ -1,7 +1,7 @@
 import React, { FC, useState } from "react";
 import Input from "../Input/Input";
 import "./InputCopy.scss";
-import classList from "../../../utils/classList";
+import classList from "@utils/classList/classList";
 
 export type InputCopyPropsType = {
   /**

@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import "./Column.scss";
-import classList from "../../../utils/classList";
+import classList from "@utils/classList/classList";
 
 type RowColWidth =
   | number

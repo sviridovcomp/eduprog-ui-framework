@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import "./Island.scss";
-import classList from "../../utils/classList";
+import classList from "@utils/classList/classList";
 
 export type IslandPropsType = {
   /**
