@@ -16,15 +16,15 @@ export declare type DropdownPropsType = {
     /**
      * Убрать стрелочку направления popup
      */
-    clearly: boolean;
+    clearly?: boolean;
     /**
      * Dropdown в полный размер родительского блока
      */
-    fullwidth: boolean;
+    fullwidth?: boolean;
     /**
      * Dropdown скрывается при клике прочие элементы
      */
-    dismissible: boolean;
+    dismissible?: boolean;
 };
 /**
  * Компонент для создания выпадающего списка
