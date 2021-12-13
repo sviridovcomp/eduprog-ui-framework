@@ -18,6 +18,9 @@ module.exports = {
         configFile: path.resolve(__dirname, '../tsconfig.json')
       }),
     ];
+    config.resolve.alias = {
+      styles: path.join(__dirname, "../src/styles")
+    }
     return config;
   }
 };
