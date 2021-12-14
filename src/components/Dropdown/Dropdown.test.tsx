@@ -44,18 +44,55 @@ describe("Dropdown testing", () => {
       "top-right",
     ];
 
-    dropdownDirectionItems.forEach((item) => {
+    dropdownDirectionItems.forEach((direction) => {
       const dropdown = shallow(
-        <Dropdown direction={item} toggle={<Button>Open</Button>}>
+        <Dropdown direction={direction} toggle={<Button>Open</Button>}>
           dropdown-content
         </Dropdown>
       );
 
       expect(
-        dropdown
-          .find(".dropdown-item")
-          .hasClass(`dropdown-item-direction_${item}`)
-      ).toEqual(true);
+        dropdown.find(`.dropdown-item-direction_${direction}`).text()
+      ).toEqual("dropdown-content");
     });
+  });
+
+  it("Dropdown blur rendering", () => {
+    const dropdown = shallow(
+      <Dropdown direction="bottom-center" toggle={<Button>Open</Button>}>
+        dropdown-content
+      </Dropdown>
+    );
+
+    dropdown.find(".dropdown-toggle").simulate("click");
+
+    expect(dropdown.find(".dropdown-transition-active").text()).toEqual(
+      "dropdown-content"
+    );
+
+    dropdown.simulate("blur");
+
+    expect(dropdown.find(".dropdown-transition-active").length).toEqual(0);
+  });
+
+  it("Dropdown additional rendering", () => {
+    const dropdown = shallow(
+      <Dropdown
+        direction="bottom-center"
+        toggle={<Button>Open</Button>}
+        clearly
+        fullwidth
+        dismissible
+      >
+        dropdown-content
+      </Dropdown>
+    );
+
+    expect(dropdown.find(".dropdown-item-clearly").text()).toEqual(
+      "dropdown-content"
+    );
+    expect(dropdown.find(".dropdown-item-fullwidth").text()).toEqual(
+      "dropdown-content"
+    );
   });
 });
