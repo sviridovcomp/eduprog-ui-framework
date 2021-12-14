@@ -4,21 +4,16 @@ import "./Spinner.scss";
 import classList from "@utils/classList/classList";
 
 export type SpinnerPropsType = defaultProps & {
-  color:
-    | "primary"
-    | "secondary"
-    | "accent";
-  mode:
-    | "border"
-    | "growing";
+  color: "primary" | "secondary" | "accent";
+  mode: "border" | "growing";
 };
 
-const Spinner: FC<SpinnerPropsType> = ({ className, mode, color }) => {
+const Spinner: FC<SpinnerPropsType> = ({ className = "", mode, color }) => {
   const rootClasses = [
     "Spinner",
     `Spinner-${mode}`,
     `Spinner-${mode}-${color}`,
-    className ? className : "",
+    className,
   ];
 
   return (
