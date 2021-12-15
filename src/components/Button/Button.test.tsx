@@ -1,7 +1,7 @@
 import Button from "@components/Button/Button";
 import { shallow } from "enzyme";
 import React from "react";
-import {asyncSleep} from "@utils/utils";
+import {asyncSleep} from "@utils/utils/utils";
 
 describe("Button testing", () => {
   it("Button content", () => {
