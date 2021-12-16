@@ -5,7 +5,7 @@ export declare type ButtonPropsType = defaultProps & {
     /**
      * Тип кнопки
      */
-    type?: "default" | "action" | "link" | "pseudo" | "clear" | "raised";
+    view?: "default" | "action" | "link" | "pseudo" | "clear" | "raised";
     /**
      * Размер кнопки
      */
@@ -30,6 +30,7 @@ export declare type ButtonPropsType = defaultProps & {
      * Список произвольных элементов в правом слоте.
      */
     contentRight?: React.ReactNode;
+    type?: "button" | "reset" | "submit";
 };
 /**
  * Компонент создающий кнопки
