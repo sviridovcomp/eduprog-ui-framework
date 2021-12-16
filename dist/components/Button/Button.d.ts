@@ -31,6 +31,7 @@ export declare type ButtonPropsType = defaultProps & {
      */
     contentRight?: React.ReactNode;
     type?: "button" | "reset" | "submit";
+    labelJustifyContent?: "center" | "space-around";
 };
 /**
  * Компонент создающий кнопки
