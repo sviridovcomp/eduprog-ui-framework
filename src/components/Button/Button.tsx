@@ -40,9 +40,11 @@ export type ButtonPropsType = defaultProps & {
   contentRight?: React.ReactNode;
 
   /*
-  * Тип поведения кнопки в форме
-  */
+   * Тип поведения кнопки в форме
+   */
   type?: "button" | "reset" | "submit";
+
+  labelJustifyContent?: "center" | "space-around";
 };
 
 /**
@@ -58,7 +60,8 @@ const Button: FC<ButtonPropsType> = ({
   width = "default",
   contentLeft,
   contentRight,
-  type= "button",
+  type = "button",
+  labelJustifyContent = "center",
 }) => {
   const [active, setActive] = useState(false);
 
@@ -90,15 +93,16 @@ const Button: FC<ButtonPropsType> = ({
         name={name}
         type={type}
       >
-        <span className="Button-label">
-          <span className="Button-label_left">
-            {contentLeft}
-          </span>
+        <span
+          className={classList([
+            "Button-label",
+            `Button-label-justify_${labelJustifyContent}`,
+          ])}
+        >
+          <span className="Button-label_left">{contentLeft}</span>
           <span className="Button-label_center">{children}</span>
 
-          <span className="Button-label_right">
-            {contentRight}
-          </span>
+          <span className="Button-label_right">{contentRight}</span>
         </span>
       </button>
     </div>
