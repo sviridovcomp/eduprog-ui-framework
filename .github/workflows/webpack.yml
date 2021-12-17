@@ -28,8 +28,8 @@ jobs:
         cmd: install
 
     - name: Linting
-      run: yarn lint
-      
+      run: yarn lint:js
+
     - name: Testing
       run: yarn test
 
