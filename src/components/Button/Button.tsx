@@ -7,7 +7,7 @@ export type ButtonPropsType = defaultProps & {
   /**
    * Тип кнопки
    */
-  type?: "default" | "action" | "link" | "pseudo" | "clear" | "raised";
+  view?: "default" | "action" | "link" | "pseudo" | "clear" | "raised";
 
   /**
    * Размер кнопки
@@ -38,6 +38,13 @@ export type ButtonPropsType = defaultProps & {
    * Список произвольных элементов в правом слоте.
    */
   contentRight?: React.ReactNode;
+
+  /*
+   * Тип поведения кнопки в форме
+   */
+  type?: "button" | "reset" | "submit";
+
+  labelJustifyContent?: "center" | "space-around";
 };
 
 /**
@@ -45,7 +52,7 @@ export type ButtonPropsType = defaultProps & {
  */
 const Button: FC<ButtonPropsType> = ({
   children,
-  type = "default",
+  view = "default",
   size = "md",
   onClick,
   className = "",
@@ -53,12 +60,14 @@ const Button: FC<ButtonPropsType> = ({
   width = "default",
   contentLeft,
   contentRight,
+  type = "button",
+  labelJustifyContent = "center",
 }) => {
   const [active, setActive] = useState(false);
 
   const rootClasses = classList([
     "Button",
-    `Button-type_${type}`,
+    `Button-view_${view}`,
     `Button-size_${size}`,
     active ? "Button-clicking" : "",
     `Button-width_${width}`,
@@ -82,16 +91,18 @@ const Button: FC<ButtonPropsType> = ({
         className={`${rootClasses} ${className}`}
         onClick={(event) => clicking(event)}
         name={name}
+        type={type}
       >
-        <span className="Button-label">
-          <span className="Button-label_left">
-            {contentLeft}
-          </span>
+        <span
+          className={classList([
+            "Button-label",
+            `Button-label-justify_${labelJustifyContent}`,
+          ])}
+        >
+          <span className="Button-label_left">{contentLeft}</span>
           <span className="Button-label_center">{children}</span>
 
-          <span className="Button-label_right">
-            {contentRight}
-          </span>
+          <span className="Button-label_right">{contentRight}</span>
         </span>
       </button>
     </div>

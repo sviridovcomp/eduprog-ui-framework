@@ -1,36 +1,36 @@
 Arguments: 
-  /usr/bin/node /usr/local/bin/yarn publish
+  /usr/local/bin/node /usr/local/bin/yarn publish
 
 PATH: 
-  /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/home/vasily-sviridov/code/eduprog/eduprog-ui-framework/node_modules/.bin:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Users/sviri/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/sviri/AppData/Local/Programs/Microsoft VS Code/bin:/home/vasily-sviridov/.python3.10/bin:/home/vasily-sviridov/go/bin:/home/vasily-sviridov/.postgres14/bin:/home/vasily-sviridov/.local/bin:/home/vasily-sviridov/.yarn/bin
+  /home/vasily-sviridov/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/home/vasily-sviridov/code/eduprog/eduprog-ui-framework/node_modules/.bin:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/ProgramData/chocolatey/bin:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/nodejs/:/mnt/c/Users/vasily-sviridov/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/vasily-sviridov/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/vasily-sviridov/AppData/Roaming/npm://home/vasily-sviridov/.poetry/bin/://home/vasily-sviridov/.local/bin/:/home/vasily-sviridov/utils/:/home/vasily-sviridov/go/bin:/var/lib/psql:/home/vasily-sviridov/.python3.9.6/bin:/home/vasily-sviridov/.yarn/bin:/home/vasily-sviridov/.python3.10.0/bin://home/vasily-sviridov/.cargo/bin
 
 Yarn version: 
-  1.22.17
+  1.22.10
 
 Node version: 
-  14.18.2
+  14.17.3
 
 Platform: 
   linux x64
 
 Trace: 
   Error: https://registry.yarnpkg.com/-/user/org.couchdb.user:vasily_sviridov: failed to authenticate: Could not authenticate vasily_sviridov: bad password
-      at Request.params.callback [as _callback] (/usr/local/lib/node_modules/yarn/lib/cli.js:67029:18)
-      at Request.self.callback (/usr/local/lib/node_modules/yarn/lib/cli.js:140883:22)
-      at Request.emit (events.js:400:28)
-      at Request.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:141855:10)
-      at Request.emit (events.js:400:28)
-      at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:141777:12)
-      at Object.onceWrapper (events.js:519:28)
-      at IncomingMessage.emit (events.js:412:35)
-      at endReadableNT (internal/streams/readable.js:1334:12)
+      at Request.params.callback [as _callback] (/usr/local/lib/node_modules/yarn/lib/cli.js:66988:18)
+      at Request.self.callback (/usr/local/lib/node_modules/yarn/lib/cli.js:140662:22)
+      at Request.emit (events.js:375:28)
+      at Request.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:141634:10)
+      at Request.emit (events.js:375:28)
+      at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:141556:12)
+      at Object.onceWrapper (events.js:481:28)
+      at IncomingMessage.emit (events.js:387:35)
+      at endReadableNT (internal/streams/readable.js:1317:12)
       at processTicksAndRejections (internal/process/task_queues.js:82:21)
 
 npm manifest: 
   {
     "name": "eduprog-ui-framework",
     "homepage": "http://edu-prog.github.io/eduprog-ui-framework",
-    "version": "1.0.20",
+    "version": "1.1.6",
     "main": "./dist/index.js",
     "license": "MIT",
     "devDependencies": {

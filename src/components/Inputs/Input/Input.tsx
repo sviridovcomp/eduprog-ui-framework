@@ -185,36 +185,34 @@ const Input: FC<TextInputProps> = ({
 
   return (
     <div className="input">
-      <div className="input">
-        <div
-          className={classList([
-            "input-label",
-            active || value ? "input-label-active" : "",
-          ])}
-        >
-          {label}
-        </div>
+      <div
+        className={classList([
+          "input-label",
+          active || value ? "input-label-active" : "",
+        ])}
+      >
+        {label}
+      </div>
 
-        <div className="input-field">
-          <div className="input-left">{leftAdditional}</div>
+      <div className="input-field">
+        <div className="input-left">{leftAdditional}</div>
 
-          <input
-            className="input-control"
-            type={inputType == "card" ? "tel" : inputType}
-            maxLength={maxLength}
-            placeholder={active ? mask : ""}
-            onFocus={inputFocus}
-            onBlur={inputBlur}
-            value={value}
-            onChange={(event) => inputChange(event)}
-            onPaste={(event) => inputPaste(event)}
-            onKeyDown={(event) => inputKeyDown(event)}
-            pattern={pattern}
-            name={name}
-          />
+        <input
+          className="input-control"
+          type={inputType == "card" ? "tel" : inputType}
+          maxLength={maxLength}
+          placeholder={active ? mask : ""}
+          onFocus={inputFocus}
+          onBlur={inputBlur}
+          value={value}
+          onChange={(event) => inputChange(event)}
+          onPaste={(event) => inputPaste(event)}
+          onKeyDown={(event) => inputKeyDown(event)}
+          pattern={pattern}
+          name={name}
+        />
 
-          <div className="input-right">{rightAdditional}</div>
-        </div>
+        <div className="input-right">{rightAdditional}</div>
       </div>
     </div>
   );

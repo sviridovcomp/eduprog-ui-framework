@@ -19,7 +19,6 @@
   border: 2px;
   border-radius: 0.5rem;
   font-family: $font-family;
-  padding: 0 1.875rem;
   font-size: 1rem;
 
   &-clicking {
@@ -45,12 +44,23 @@
   }
 
   &-label {
+    width: 100%;
     display: flex;
     align-items: center;
     gap: 1rem;
+
+    &-justify {
+      &_center {
+        justify-content: center;
+      }
+
+      &_space-around {
+        justify-content: space-around;
+      }
+    }
   }
 
-  &-type {
+  &-view {
     &_default {
       background-color: $color-lightgray;
     }

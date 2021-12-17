@@ -1,7 +1,7 @@
 {
   "name": "eduprog-ui-framework",
   "homepage": "http://edu-prog.github.io/eduprog-ui-framework",
-  "version": "1.1.0",
+  "version": "1.1.9",
   "main": "./dist/index.js",
   "license": "MIT",
   "devDependencies": {
