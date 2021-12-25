@@ -9,6 +9,7 @@ import Avatar from "@components/Avatar/Avatar";
 import Input from "@components/Inputs/Input/Input";
 import Island from "@components/Island/Island";
 import InputCopy from "@components/Inputs/InputCopy/InputCopy";
+import InputPassword from "@components/Inputs/InputPassword/InputPassword";
 import InputCount from "@components/Inputs/InputCount/InputCount";
 import "./styles/global_utils.scss";
-export { Button, Column, Container, Row, Expand, InputPhone, Dropdown, Dialog, Checkbox, Avatar, Island, Input, InputCount, InputCopy };
+export { Button, Column, Container, Row, Expand, InputPhone, Dropdown, Dialog, Checkbox, Avatar, Island, Input, InputCount, InputCopy, InputPassword, };
