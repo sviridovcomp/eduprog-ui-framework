@@ -1,9 +1,10 @@
 import Button from "../Button";
 import Row from "../../Grid/Row/Row";
 import Column from "../../Grid/Column/Column";
-import { Meta } from "@storybook/addon-docs";
+import {Meta} from "@storybook/addon-docs";
+import Container from "@components/Grid/Container/Container";
 
-<Meta title="Компоненты/Button/Примеры" component={Button} />
+<Meta title="Компоненты/Button/Примеры" component={Button}/>
 
 ## Примеры
 
@@ -12,46 +13,48 @@ import { Meta } from "@storybook/addon-docs";
 Чтобы изменить вид кнопки, установите свойство `view` в одно из следующих значений:
 `"default"`, `"action"`, `"link"`, `"pseudo"`, `"clear"`, `"raised"`.
 
-<Row>
-  <Column ml={5} mr={1}>
-    <Button type="default">Button</Button>
-  </Column>
-  <Column ml={1} mr={1}>
-    <Button type="action">Button</Button>
-  </Column>
-  <Column ml={1} mr={1}>
-    <Button type="link">Button</Button>
-  </Column>
-  <Column ml={1} mr={1}>
-    <Button type="pseudo">Button</Button>
-  </Column>
-  <Column ml={1} mr={1}>
-    <Button type="clear">Button</Button>
-  </Column>
-  <Column ml={1} mr={1}>
-    <Button type="raised">Button</Button>
-  </Column>
-</Row>
+<Container adaptive>
+    <Row>
+        <Column col={2}>
+            <Button view="default">Button</Button>
+        </Column>
+        <Column col={2}>
+            <Button view="action">Button</Button>
+        </Column>
+        <Column col={2}>
+            <Button view="link">Button</Button>
+        </Column>
+        <Column col={2}>
+            <Button view="pseudo">Button</Button>
+        </Column>
+        <Column col={2}>
+            <Button view="clear">Button</Button>
+        </Column>
+        <Column col={2}>
+            <Button view="raised">Button</Button>
+        </Column>
+    </Row>
+</Container>
 
 ```tsx
 <Row>
   <Column>
-    <Button type="default">Button</Button>
+    <Button view="default">Button</Button>
   </Column>
   <Column>
-    <Button type="action">Button</Button>
+    <Button view="action">Button</Button>
   </Column>
   <Column>
-    <Button type="link">Button</Button>
+    <Button view="link">Button</Button>
   </Column>
   <Column>
-    <Button type="pseudo">Button</Button>
+    <Button view="pseudo">Button</Button>
   </Column>
   <Column>
-    <Button type="clear">Button</Button>
+    <Button view="clear">Button</Button>
   </Column>
   <Column>
-    <Button type="raised">Button</Button>
+    <Button view="raised">Button</Button>
   </Column>
 </Row>
 ```

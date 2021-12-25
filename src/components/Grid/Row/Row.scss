@@ -40,3 +40,13 @@
     margin-right: -$space-normal;
   }
 }
+
+@mixin space_generator() {
+  @for $i from 1 to 7 {
+    .ep-row_spacing-#{$i} {
+      gap: $i * 0.5rem;
+    }
+  }
+}
+
+@include space_generator();
