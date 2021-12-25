@@ -19,17 +19,18 @@ type RowColWidth =
   | "auto";
 type RowColumns = RowColWidth | { cols?: RowColWidth };
 
-type MarginWidth = number | "1" | "2" | "3" | "4" | "5" | "6";
+type AdditionalSpacingWidth = number | "1" | "2" | "3" | "4" | "5" | "6";
 
 export type ColumnPropsType = {
   col?: RowColumns;
   xs?: RowColumns;
   md?: RowColumns;
   lg?: RowColumns;
-  ml?: MarginWidth;
-  mt?: MarginWidth;
-  mr?: MarginWidth;
-  mb?: MarginWidth;
+  ml?: AdditionalSpacingWidth;
+  mt?: AdditionalSpacingWidth;
+  mr?: AdditionalSpacingWidth;
+  mb?: AdditionalSpacingWidth;
+  spacing?: AdditionalSpacingWidth;
 };
 
 const Column: FC<ColumnPropsType> = ({
@@ -42,6 +43,7 @@ const Column: FC<ColumnPropsType> = ({
   mr,
   mt,
   mb,
+  spacing,
 }) => {
   const rootClasses = classList([
     "ep-col",
@@ -53,6 +55,7 @@ const Column: FC<ColumnPropsType> = ({
     mr ? `ep-col_mr-${mr}` : "",
     mt ? `ep-col_mt-${mt}` : "",
     mb ? `ep-col_ml-${mb}` : "",
+    spacing ? `ep-col_spacing-${spacing}` : ""
   ]);
   return <div className={rootClasses}>{children}</div>;
 };

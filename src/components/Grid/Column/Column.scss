@@ -38,7 +38,7 @@
   }
 }
 
-@mixin margin_generate($direction) {
+@mixin margin_generator($direction) {
   @for $i from 1 to 7 {
     .ep-col_m#{$direction}-#{$i} {
       @if $direction == "l" {
@@ -54,7 +54,7 @@
   }
 }
 
-@include margin_generate("t");
-@include margin_generate("l");
-@include margin_generate("r");
-@include margin_generate("b");
+@include margin_generator("t");
+@include margin_generator("l");
+@include margin_generator("r");
+@include margin_generator("b");
