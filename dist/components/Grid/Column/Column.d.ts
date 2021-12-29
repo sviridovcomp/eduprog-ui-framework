@@ -4,16 +4,17 @@ declare type RowColWidth = number | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8
 declare type RowColumns = RowColWidth | {
     cols?: RowColWidth;
 };
-declare type MarginWidth = number | "1" | "2" | "3" | "4" | "5" | "6";
+declare type AdditionalSpacingWidth = number | "1" | "2" | "3" | "4" | "5" | "6";
 export declare type ColumnPropsType = {
     col?: RowColumns;
     xs?: RowColumns;
     md?: RowColumns;
     lg?: RowColumns;
-    ml?: MarginWidth;
-    mt?: MarginWidth;
-    mr?: MarginWidth;
-    mb?: MarginWidth;
+    ml?: AdditionalSpacingWidth;
+    mt?: AdditionalSpacingWidth;
+    mr?: AdditionalSpacingWidth;
+    mb?: AdditionalSpacingWidth;
+    spacing?: AdditionalSpacingWidth;
 };
 declare const Column: FC<ColumnPropsType>;
 export default Column;
