@@ -1,6 +1,6 @@
-import Button from "../Button";
-import Row from "../../Grid/Row/Row";
-import Column from "../../Grid/Column/Column";
+import Button from "@components/Button/Button";
+import Row from "@components/Grid/Row/Row";
+import Column from "@components/Grid/Column/Column";
 import {Meta} from "@storybook/addon-docs";
 import Container from "@components/Grid/Container/Container";
 
@@ -14,23 +14,23 @@ import Container from "@components/Grid/Container/Container";
 `"default"`, `"action"`, `"link"`, `"pseudo"`, `"clear"`, `"raised"`.
 
 <Container adaptive>
-    <Row>
-        <Column col={2}>
+    <Row spacing={1}>
+        <Column>
             <Button view="default">Button</Button>
         </Column>
-        <Column col={2}>
+        <Column>
             <Button view="action">Button</Button>
         </Column>
-        <Column col={2}>
+        <Column>
             <Button view="link">Button</Button>
         </Column>
-        <Column col={2}>
+        <Column>
             <Button view="pseudo">Button</Button>
         </Column>
-        <Column col={2}>
+        <Column>
             <Button view="clear">Button</Button>
         </Column>
-        <Column col={2}>
+        <Column>
             <Button view="raised">Button</Button>
         </Column>
     </Row>
