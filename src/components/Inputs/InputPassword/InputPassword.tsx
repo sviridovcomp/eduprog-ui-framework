@@ -1,5 +1,5 @@
 import React, { FC, useState } from "react";
-import Input from "../Input/Input";
+import BaseInput from "../BaseInput/BaseInput";
 import "./InputPassword.scss";
 
 export type InputPasswordPropsType = {
@@ -28,10 +28,14 @@ const InputPassword: FC<InputPasswordPropsType> = ({
   name = "",
 }) => {
   const [passwordVisible, setPasswordVisible] = useState(false);
+  const [value, setValue] = useState("");
+
   const onInputChange = (
     value: string,
     event?: React.ChangeEvent<HTMLInputElement>
   ) => {
+    setValue(value);
+
     if (onChange && event) {
       onChange(value, event);
     }
@@ -39,11 +43,12 @@ const InputPassword: FC<InputPasswordPropsType> = ({
 
   return (
     <div className="input-password">
-      <Input
+      <BaseInput
         onChange={onInputChange}
         inputType={passwordVisible ? "text" : "password"}
         label={label}
         name={name}
+        defaultValue={value}
         rightAdditional={
           <div
             className="input-password-toggler"

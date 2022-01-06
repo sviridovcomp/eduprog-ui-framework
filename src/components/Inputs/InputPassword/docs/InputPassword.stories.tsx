@@ -18,5 +18,5 @@ const Template: ComponentStory<typeof InputPassword> = (args) => (
 export const Playground = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Playground.args = {
-	label: "Password Input",
+	label: "Password BaseInput",
 };

@@ -4,9 +4,12 @@
   position: relative;
   display: inline-block;
 
+  &-fullwidth {
+    width: 100%;
+  }
+
   &-toggle {
     display: inline-block;
-    width: 100%;
   }
 
   &-transition {
@@ -39,10 +42,6 @@
       transform: rotate(135deg);
       top: -0.375rem;
       left: 0.75rem;
-    }
-
-    &-fullwidth {
-      width: 100%;
     }
 
     &-clearly {
@@ -106,8 +105,8 @@
 
     &-content {
       box-shadow: 0 0 0.75rem 0.25rem rgba(0, 0, 0, 0.2);
-      width: 100%;
       border-radius: 0.5rem;
+      width: 100%;
       background-color: #ffffff;
       overflow: hidden;
     }

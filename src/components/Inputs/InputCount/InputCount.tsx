@@ -1,5 +1,5 @@
 import React, { FC, useRef, useState } from "react";
-import Input from "../Input/Input";
+import BaseInput from "../BaseInput/BaseInput";
 import "./InputCount.scss";
 import { defaultProps } from "@utils/defaultProps";
 
@@ -68,14 +68,20 @@ const InputCount: FC<InputCountPropsType> = ({
     }
   };
 
+  const inputChange = (value: string) => {
+    if (/\d/g.test(value)) {
+      setCount(Number(value));
+    }
+  }
+
   return (
     <div className="input-count">
-      <Input
-        inputType="number"
+      <BaseInput
+        inputType="text"
         label={label}
         defaultValue={count.toString()}
-        key={count.toString()}
         name={name}
+        onChange={inputChange}
       />
 
       <div className="input-count-controller">

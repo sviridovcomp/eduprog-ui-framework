@@ -20,6 +20,21 @@ export type CheckboxPropsType = {
   type: "primary" | "secondary" | "accent";
 
   /**
+   * Checkbox располагается во всю ширину родителя
+   */
+  fullwidth?: boolean;
+
+  /**
+   * Отключен ли checkbox
+   */
+  disabled?: boolean;
+
+  /**
+   * Checkbox установлен
+   */
+  checked?: boolean;
+
+  /**
    * Коллбэк вызывается при изменении значения чекбокса
    * @param value - новое значение чекбокса
    */
@@ -33,6 +48,9 @@ const Checkbox: FC<CheckboxPropsType> = ({
   children,
   position = "left",
   type = "primary",
+  fullwidth = false,
+  disabled = false,
+  checked= false,
   onChange,
 }) => {
   const [active, setActive] = useState(false);
@@ -40,6 +58,7 @@ const Checkbox: FC<CheckboxPropsType> = ({
   const rootClasses = classList([
     "checkbox-checkmark",
     type ? `checkbox-checkmark-type_${type}` : "",
+    fullwidth ? "checkbox-fullwidth" : "",
   ]);
 
   const onClick = () => {
@@ -51,16 +70,24 @@ const Checkbox: FC<CheckboxPropsType> = ({
   };
 
   return (
-    <div className="checkbox">
+    <div
+      className={classList(["checkbox", fullwidth ? "checkbox-fullwidth" : ""])}
+    >
       <label htmlFor={checkboxId} className="checkbox-wrapper">
         {position === "left" && (
           <div className="checkbox-additional">{children}</div>
         )}
 
-        <input type="checkbox" id={checkboxId} onClick={onClick} />
+        <input
+          type="checkbox"
+          id={checkboxId}
+          onClick={onClick}
+          disabled={disabled}
+          checked={active || checked}
+        />
 
         <span className="checkbox-fake">
-          <span className={rootClasses}/>
+          <span className={rootClasses} />
         </span>
 
         {position === "right" && (

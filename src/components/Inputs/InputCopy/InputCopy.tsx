@@ -1,5 +1,5 @@
 import React, { FC, useState } from "react";
-import Input from "../Input/Input";
+import BaseInput from "../BaseInput/BaseInput";
 import "./InputCopy.scss";
 import classList from "@utils/classList/classList";
 
@@ -69,7 +69,8 @@ const InputCopy: FC<InputCopyPropsType> = ({
 
   return (
     <div className="input-copy">
-      <Input
+      <BaseInput
+        defaultValue={value}
         inputType="text"
         onChange={onInputChange}
         label={label}

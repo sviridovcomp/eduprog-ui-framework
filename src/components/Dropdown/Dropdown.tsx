@@ -57,8 +57,17 @@ const Dropdown: FC<DropdownPropsType> = ({
   };
 
   return (
-    <div className="dropdown" onBlur={() => dismissible && setActive(false)}>
-      <div className="dropdown-toggle" onClick={onClick}>
+    <div
+      className={classList(["dropdown", fullwidth ? "dropdown-fullwidth" : ""])}
+      onBlur={() => dismissible && setActive(false)}
+    >
+      <div
+        className={classList([
+          "dropdown-toggle",
+          fullwidth ? "dropdown-fullwidth" : "",
+        ])}
+        onClick={onClick}
+      >
         {toggle}
       </div>
 
@@ -73,7 +82,7 @@ const Dropdown: FC<DropdownPropsType> = ({
             "dropdown-item",
             direction ? `dropdown-item-direction_${direction}` : "",
             clearly ? "dropdown-item-clearly" : "",
-            fullwidth ? "dropdown-item-fullwidth" : "",
+            fullwidth ? "dropdown-fullwidth" : "",
           ])}
         >
           <div className="dropdown-item-content">{children}</div>

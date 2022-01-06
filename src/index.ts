@@ -6,7 +6,7 @@ import Dropdown from "@components/Dropdown/Dropdown";
 import Checkbox from "@components/Checkboxes/Checkbox/Checkbox";
 import Dialog from "@components/Dialog/Dialog";
 import Avatar from "@components/Avatar/Avatar";
-import Input from "@components/Inputs/Input/Input";
+import BaseInput from "@components/Inputs/BaseInput/BaseInput";
 import Island from "@components/Island/Island";
 import InputCopy from "@components/Inputs/InputCopy/InputCopy";
 import InputPassword from "@components/Inputs/InputPassword/InputPassword";
@@ -25,7 +25,7 @@ export {
   Checkbox,
   Avatar,
   Island,
-  Input,
+  BaseInput,
   InputCount,
   InputCopy,
   InputPassword,
