@@ -14,6 +14,18 @@ export declare type CheckboxPropsType = {
      */
     type: "primary" | "secondary" | "accent";
     /**
+     * Checkbox располагается во всю ширину родителя
+     */
+    fullwidth?: boolean;
+    /**
+     * Отключен ли checkbox
+     */
+    disabled?: boolean;
+    /**
+     * Checkbox установлен
+     */
+    checked?: boolean;
+    /**
      * Коллбэк вызывается при изменении значения чекбокса
      * @param value - новое значение чекбокса
      */

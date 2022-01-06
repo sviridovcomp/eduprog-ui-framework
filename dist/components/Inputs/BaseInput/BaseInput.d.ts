@@ -1,5 +1,5 @@
-import React, { FC } from "react";
-import "./Input.scss";
+import React from "react";
+import "./BaseInput.scss";
 export declare type TextInputProps = {
     /**
      * Лейбл для поля ввода
@@ -21,6 +21,10 @@ export declare type TextInputProps = {
      * Значение поля ввода по умолчанию
      */
     defaultValue?: string;
+    /**
+     * Событие вызываемое при клике на input
+     */
+    onClick?: () => void;
     /**
      * Событие обновления input
      */
@@ -49,6 +53,18 @@ export declare type TextInputProps = {
      * Имя элемента в DOM
      */
     name?: string;
+    /**
+     * Параметры автокомпилита
+     */
+    autocomplete?: "none" | "cc-number";
+    /**
+     * Курсор, который будет при наведении на input
+     */
+    cursor?: "pointer" | "text";
+    /**
+     * BaseInput доступен только для чтения
+     */
+    readonly?: boolean;
 };
-declare const Input: FC<TextInputProps>;
-export default Input;
+declare const BaseInput: React.ForwardRefExoticComponent<TextInputProps & React.RefAttributes<HTMLInputElement>>;
+export default BaseInput;

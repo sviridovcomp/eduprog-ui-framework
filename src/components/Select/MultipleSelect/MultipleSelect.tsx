@@ -39,6 +39,7 @@ const MultipleSelect: FC<MultipleSelectPropsType> = ({
       label={label}
       defaultValue={selectedOptions.join(", ")}
       cursor="pointer"
+      readonly
       rightAdditional={
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -55,8 +56,6 @@ const MultipleSelect: FC<MultipleSelectPropsType> = ({
   );
 
   const disabledPredicate = (option: string) => {
-    console.log(selectedOptions, maxSelectedOptions)
-
     return (
       maxSelectedOptions !== undefined &&
       selectedOptions.length >= maxSelectedOptions &&
@@ -70,9 +69,9 @@ const MultipleSelect: FC<MultipleSelectPropsType> = ({
     }
 
     if (selectedOptions.includes(option)) {
-      selectedOptions.splice(selectedOptions.indexOf(option), 1);
+      setSelectedOptions((selectedOptions) => selectedOptions.filter((_, i) => i !== selectedOptions.length - 1))
     } else {
-      selectedOptions.push(option);
+      setSelectedOptions([...selectedOptions, option]);
     }
 
     if (onSelect) {
@@ -87,6 +86,7 @@ const MultipleSelect: FC<MultipleSelectPropsType> = ({
         onChange={() => selectOption(option)}
         children={option}
         type="primary"
+        className="multiple-select-checkbox"
         fullwidth
         disabled={disabledPredicate(option)}
       />

@@ -24,6 +24,11 @@ module.exports = {
     config.resolve.alias = {
       styles: path.join(__dirname, "../src/styles")
     }
+    config.module.rules.push({
+      test: /\.css$/,
+      use: ["style-loader", "css-loader"],
+      include: path.resolve(__dirname, "./css")
+    })
     return config;
   }
 };

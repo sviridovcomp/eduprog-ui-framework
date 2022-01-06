@@ -20,5 +20,13 @@ export const Playground = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Playground.args = {
   label: "Select",
-  options: ["options1", "options2", "options3"],
+  options: [
+    "5% - Аптеки",
+    "5% - Ozon.ru",
+    "3% - Пятёрочка",
+    "5% - Спорттовары",
+    "5% - Такси",
+    "5% - Рестораны",
+  ],
+  maxSelectedOptions: 3,
 };
