@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import "./BaseInput.scss";
 export declare type TextInputProps = {
     /**
@@ -70,5 +70,5 @@ export declare type TextInputProps = {
      */
     forceFocus?: boolean;
 };
-declare const BaseInput: React.ForwardRefExoticComponent<TextInputProps & React.RefAttributes<HTMLInputElement>>;
+declare const BaseInput: FC<TextInputProps>;
 export default BaseInput;

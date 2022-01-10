@@ -90,7 +90,7 @@ describe("Dropdown testing", () => {
     expect(dropdown.find(".dropdown-item-clearly").text()).toEqual(
       "dropdown-content"
     );
-    expect(dropdown.find(".dropdown-item-fullwidth").text()).toEqual(
+    expect(dropdown.find(".dropdown-item.dropdown-fullwidth").text()).toEqual(
       "dropdown-content"
     );
   });

@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-export declare type InputCopyPropsType = {
+export declare type InputPhonePropsType = {
     /**
      * Заголовок input
      */
@@ -12,5 +12,5 @@ export declare type InputCopyPropsType = {
 /**
  * InputPhone - поле ввода мобильного телефона
  */
-declare const InputPhone: FC<InputCopyPropsType>;
+declare const InputPhone: FC<InputPhonePropsType>;
 export default InputPhone;
