@@ -1,4 +1,4 @@
-import React, { FC, useRef, useState } from "react";
+import React, { FC, useState } from "react";
 import BaseInput from "../BaseInput/BaseInput";
 import "./InputCount.scss";
 import { defaultProps } from "@utils/defaultProps";
@@ -72,7 +72,7 @@ const InputCount: FC<InputCountPropsType> = ({
     if (/\d/g.test(value)) {
       setCount(Number(value));
     }
-  }
+  };
 
   return (
     <div className="input-count">

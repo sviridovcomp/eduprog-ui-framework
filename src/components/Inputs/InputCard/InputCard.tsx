@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import { FC } from "react";
 import BaseInput from "../BaseInput/BaseInput";
-import { Visa, Mastercard } from "@components/Inputs/InputCard/icons/icons";
+import {
+  Visa,
+  Mastercard,
+  Maestro,
+} from "@components/Inputs/InputCard/icons/icons";
 
 export type InputCardPropsType = {
   label: string;
@@ -35,42 +39,49 @@ const InputCard: FC<InputCardPropsType> = ({ label }) => {
     } as ICardOptions);
   };
 
-  const inputKeyDown = (event: any) => {
+  const inputKeyDown = (
+    event: React.KeyboardEvent<HTMLInputElement> | undefined
+  ) => {
     if (
+      event &&
+      event.currentTarget.selectionStart &&
       card.number &&
       event.key == "Backspace" &&
-      card?.number[event.target.selectionStart - 1] == " "
+      card?.number[event.currentTarget.selectionStart - 1] == " "
     ) {
       setCard({
-        number: card.number.slice(0, event.target.selectionStart - 1),
+        number: card.number.slice(0, event.currentTarget.selectionStart - 1),
       } as ICardOptions);
     }
   };
 
-  enum PaymentService {
-    Visa = "4",
-    MasterCard = "5",
-  }
-
-  const PaymentServiceIcon = (cardNumber: string) => {
+  const PaymentServiceIcon = (cardNumber: string): React.ReactNode => {
     if (cardNumber.length < 1) {
       return;
     }
 
-    const paymentService = cardNumber[0] as PaymentService;
+    const definePaymentService = (cardNumberPrefix: string) => {
+      return cardNumber.startsWith(cardNumberPrefix);
+    };
 
-    if (paymentService == PaymentService.Visa) {
+    if (["4"].some(definePaymentService)) {
       return <Visa />;
-    } else if (paymentService == PaymentService.MasterCard) {
+    } else if (["51", "52", "53", "54", "55"].some(definePaymentService)) {
       return <Mastercard />;
+    } else if (
+      ["50", "56", "57", "58", "63", "67"].some(definePaymentService)
+    ) {
+      return <Maestro />;
     }
+
+    return null;
   };
 
   return (
     <div className="input-card">
       <div className="input-card-number">
         <BaseInput
-          label={"Номер карты"}
+          label={label}
           defaultValue={card.number}
           inputType="card"
           onChange={inputChange}
@@ -80,13 +91,9 @@ const InputCard: FC<InputCardPropsType> = ({ label }) => {
         />
       </div>
 
-      <div className="input-card-expired-date">
+      <div className="input-card-expired-date"></div>
 
-      </div>
-
-      <div className="input-card-cvc">
-
-      </div>
+      <div className="input-card-cvc"></div>
     </div>
   );
 };

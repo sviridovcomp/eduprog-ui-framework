@@ -4,6 +4,7 @@ import BaseInput from "@components/Inputs/BaseInput/BaseInput";
 import Dropdown from "@components/Dropdown/Dropdown";
 import Checkbox from "@components/Checkboxes/Checkbox/Checkbox";
 import { MultipleSelectPropsType } from "@components/Select/MultipleSelect/MultipleSelectProps";
+import { sha256 } from "js-sha256";
 
 const MultipleSelectLargeDevice: FC<MultipleSelectPropsType> = ({
   label,
@@ -48,7 +49,7 @@ const MultipleSelectLargeDevice: FC<MultipleSelectPropsType> = ({
     }
 
     if (selectedOptions.includes(option)) {
-      setSelectedOptions(selectedOptions.filter(item => item !== option));
+      setSelectedOptions(selectedOptions.filter((item) => item !== option));
     } else {
       setSelectedOptions([...selectedOptions, option]);
     }
@@ -58,30 +59,32 @@ const MultipleSelectLargeDevice: FC<MultipleSelectPropsType> = ({
     }
   };
 
-  const SelectPopup = options.map((option, index) => (
-    <div className="multiple-select-item">
+  const SelectPopup = options.map((option) => (
+    <div className="multiple-select-item" key={sha256(option)}>
       <Checkbox
         position="right"
         onChange={() => selectOption(option)}
-        children={option}
         type="primary"
         className="multiple-select-checkbox"
         fullwidth
         disabled={disabledPredicate(option)}
-      />
+      >
+        {option}
+      </Checkbox>
     </div>
   ));
 
   return (
     <div className="multiple-select">
       <Dropdown
-        children={SelectPopup}
         direction="bottom-center"
         toggle={SelectToggle}
         clearly
         dismissible="outside"
         fullwidth
-      />
+      >
+        {SelectPopup}
+      </Dropdown>
     </div>
   );
 };

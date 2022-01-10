@@ -65,6 +65,10 @@ export declare type TextInputProps = {
      * BaseInput доступен только для чтения
      */
     readonly?: boolean;
+    /**
+     *
+     */
+    forceFocus?: boolean;
 };
 declare const BaseInput: React.ForwardRefExoticComponent<TextInputProps & React.RefAttributes<HTMLInputElement>>;
 export default BaseInput;

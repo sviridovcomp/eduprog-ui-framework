@@ -76,7 +76,7 @@ const Checkbox: FC<CheckboxPropsType> = ({
       className={classList([
         "checkbox",
         fullwidth ? "checkbox-fullwidth" : "",
-        ...className?.split(" "),
+        ...className.split(" "),
       ])}
     >
       <label

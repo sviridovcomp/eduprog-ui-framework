@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useState } from "react";
+import React, { FC, useState } from "react";
 import "./BaseInput.scss";
 import classList from "@utils/classList/classList";
 
@@ -92,104 +92,98 @@ export type TextInputProps = {
   forceFocus?: boolean;
 };
 
-const BaseInput = React.forwardRef<HTMLInputElement, TextInputProps>(
-  (
-    {
-      label,
-      inputType = "text",
-      maxLength,
-      mask,
-      defaultValue = "",
-      onChange,
-      onPaste,
-      onKeyDown,
-      leftAdditional,
-      rightAdditional,
-      pattern,
-      name = "",
-      readonly = false,
-      autocomplete = "none",
-      cursor = "text",
-      onClick,
-      forceFocus= false,
-    },
-    ref
-  ) => {
-    const [active, setActive] = useState(false);
+const BaseInput: FC<TextInputProps> = ({
+  label,
+  inputType = "text",
+  maxLength,
+  mask,
+  defaultValue = "",
+  onChange,
+  onPaste,
+  onKeyDown,
+  leftAdditional,
+  rightAdditional,
+  pattern = "",
+  name = "",
+  readonly = false,
+  autocomplete = "none",
+  cursor = "text",
+  onClick,
+  forceFocus = false,
+}) => {
+  const [active, setActive] = useState(false);
 
-    const inputFocus = () => {
-      setActive(!active);
-    };
+  const inputFocus = () => {
+    setActive(!active);
+  };
 
-    const inputBlur = () => {
-      setActive(!active);
-    };
+  const inputBlur = () => {
+    setActive(!active);
+  };
 
-    const inputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-      if (onChange) {
-        onChange(event.target.value, event);
-      }
-    };
+  const inputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (onChange) {
+      onChange(event.target.value, event);
+    }
+  };
 
-    const inputPaste = (event: React.ClipboardEvent<HTMLInputElement>) => {
-      if (onPaste) {
-        onPaste(event);
-      }
-    };
+  const inputPaste = (event: React.ClipboardEvent<HTMLInputElement>) => {
+    if (onPaste) {
+      onPaste(event);
+    }
+  };
 
-    const inputKeyDown = (event: any) => {
-      if (onKeyDown) {
-        onKeyDown(event);
-      }
-    };
+  const inputKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (onKeyDown) {
+      onKeyDown(event);
+    }
+  };
 
-    const inputClicked = () => {
-      if (onClick) {
-        onClick();
-      }
-    };
+  const inputClicked = () => {
+    if (onClick) {
+      onClick();
+    }
+  };
 
-    return (
-      <div className="input">
-        <div
-          className={classList([
-            "input-label",
-            (forceFocus || active || defaultValue) ? "input-label-active" : "",
-          ])}
-        >
-          {label}
-        </div>
+  return (
+    <div className="input">
+      <div
+        className={classList([
+          "input-label",
+          forceFocus || active || defaultValue ? "input-label-active" : "",
+        ])}
+      >
+        {label}
+      </div>
 
-        <div className="input-field">
-          <div className="input-left">{leftAdditional}</div>
+      <div className="input-field">
+        <div className="input-left">{leftAdditional}</div>
 
-          <input
-            className="input-control"
-            type={inputType == "card" ? "tel" : inputType}
-            maxLength={maxLength}
-            placeholder={active ? mask : ""}
-            onFocus={inputFocus}
-            onBlur={inputBlur}
-            value={defaultValue}
-            onClick={() => inputClicked()}
-            onChange={(event) => inputChange(event)}
-            onPaste={(event) => inputPaste(event)}
-            onKeyDown={(event) => inputKeyDown(event)}
-            pattern={pattern}
-            name={name}
-            readOnly={readonly}
-            ref={ref}
-            autoComplete={autocomplete}
-            style={{ cursor: cursor }}
-          />
+        <input
+          className="input-control"
+          type={inputType == "card" ? "tel" : inputType}
+          maxLength={maxLength}
+          placeholder={active ? mask : ""}
+          onFocus={inputFocus}
+          onBlur={inputBlur}
+          value={defaultValue}
+          onClick={() => inputClicked()}
+          onChange={(event) => inputChange(event)}
+          onPaste={(event) => inputPaste(event)}
+          onKeyDown={(event) => inputKeyDown(event)}
+          pattern={pattern}
+          name={name}
+          readOnly={readonly}
+          autoComplete={autocomplete}
+          style={{ cursor: cursor }}
+        />
 
-          <div className="input-right" style={{ cursor: cursor }}>
-            {rightAdditional}
-          </div>
+        <div className="input-right" style={{ cursor: cursor }}>
+          {rightAdditional}
         </div>
       </div>
-    );
-  }
-);
+    </div>
+  );
+};
 
 export default BaseInput;

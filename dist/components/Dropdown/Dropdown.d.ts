@@ -22,9 +22,9 @@ export declare type DropdownPropsType = {
      */
     fullwidth?: boolean;
     /**
-     * Dropdown скрывается при клике прочие элементы
+     * Когда dropdown закрывается
      */
-    dismissible?: boolean;
+    dismissible?: "always" | "toggle" | "outside";
 };
 /**
  * Компонент для создания выпадающего списка

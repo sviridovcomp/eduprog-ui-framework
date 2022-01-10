@@ -1,5 +1,3 @@
-import { FC } from "react";
-import "./MultipleSelect.scss";
 export declare type MultipleSelectPropsType = {
     /**
      * Лейбл для select
@@ -14,10 +12,12 @@ export declare type MultipleSelectPropsType = {
      */
     maxSelectedOptions?: number;
     /**
+     * Имя элемента в DOM
+     */
+    name?: string;
+    /**
      * Событие вызываемое при выборе опции
      * @param values - массив выбранных опций
      */
     onSelect?: (values: Array<string>) => void;
 };
-declare const MultipleSelect: FC<MultipleSelectPropsType>;
-export default MultipleSelect;
