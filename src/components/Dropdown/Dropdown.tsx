@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, {FC, useRef, useState} from "react";
 import "./Dropdown.scss";
 import classList from "@utils/classList/classList";
 
@@ -35,9 +35,9 @@ export type DropdownPropsType = {
   fullwidth?: boolean;
 
   /**
-   * Dropdown скрывается при клике прочие элементы
+   * Когда dropdown закрывается
    */
-  dismissible?: boolean;
+  dismissible?: "always" | "toggle" | "outside";
 };
 
 /**
@@ -49,17 +49,22 @@ const Dropdown: FC<DropdownPropsType> = ({
   direction = "bottom-left",
   clearly = false,
   fullwidth = false,
-  dismissible = true,
+  dismissible = "always",
 }) => {
   const [active, setActive] = useState(false);
+  const dropdownItem = useRef<HTMLDivElement>(null);
   const onClick = () => {
     setActive(!active);
+
+    if (dismissible == "outside") {
+      dropdownItem.current?.focus();
+    }
   };
 
   return (
     <div
       className={classList(["dropdown", fullwidth ? "dropdown-fullwidth" : ""])}
-      onBlur={() => dismissible && setActive(false)}
+      onBlur={() => dismissible == "always" && setActive(false)}
     >
       <div
         className={classList([
@@ -78,6 +83,9 @@ const Dropdown: FC<DropdownPropsType> = ({
         ])}
       >
         <div
+          tabIndex={1}
+          ref={dropdownItem}
+          onBlur={() => dismissible == "outside" && setActive(false) }
           className={classList([
             "dropdown-item",
             direction ? `dropdown-item-direction_${direction}` : "",

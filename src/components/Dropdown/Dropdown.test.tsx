@@ -82,7 +82,6 @@ describe("Dropdown testing", () => {
         toggle={<Button>Open</Button>}
         clearly
         fullwidth
-        dismissible
       >
         dropdown-content
       </Dropdown>

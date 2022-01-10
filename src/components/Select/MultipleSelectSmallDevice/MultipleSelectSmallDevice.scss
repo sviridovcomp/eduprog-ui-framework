@@ -1,0 +1,21 @@
+.multiple-select {
+  &-label {
+    position: absolute;
+  }
+
+  &-value {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 1rem;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    font-size: 1.5rem;
+    box-sizing: border-box;
+    max-height: 1.65rem;
+    z-index: 1;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+}

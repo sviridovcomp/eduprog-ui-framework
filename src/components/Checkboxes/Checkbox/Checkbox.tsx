@@ -2,7 +2,7 @@ import React, { FC, useState } from "react";
 import { useId } from "react-id-generator";
 import "./Checkbox.scss";
 import classList from "@utils/classList/classList";
-import {defaultProps} from "@utils/defaultProps";
+import { defaultProps } from "@utils/defaultProps";
 
 export type CheckboxPropsType = defaultProps & {
   /**
@@ -51,7 +51,7 @@ const Checkbox: FC<CheckboxPropsType> = ({
   type = "primary",
   fullwidth = false,
   disabled = false,
-  checked= false,
+  checked = false,
   className = "",
   onChange,
 }) => {
@@ -73,9 +73,19 @@ const Checkbox: FC<CheckboxPropsType> = ({
 
   return (
     <div
-      className={classList(["checkbox", fullwidth ? "checkbox-fullwidth" : "", ...className?.split(" ")])}
+      className={classList([
+        "checkbox",
+        fullwidth ? "checkbox-fullwidth" : "",
+        ...className?.split(" "),
+      ])}
     >
-      <label htmlFor={checkboxId} className="checkbox-wrapper">
+      <label
+        htmlFor={checkboxId}
+        className={classList([
+          "checkbox-wrapper",
+          fullwidth ? "checkbox-fullwidth" : "",
+        ])}
+      >
         {position === "left" && (
           <div className="checkbox-additional">{children}</div>
         )}

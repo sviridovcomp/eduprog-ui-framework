@@ -85,6 +85,11 @@ export type TextInputProps = {
    * BaseInput доступен только для чтения
    */
   readonly?: boolean;
+
+  /**
+   *
+   */
+  forceFocus?: boolean;
 };
 
 const BaseInput = React.forwardRef<HTMLInputElement, TextInputProps>(
@@ -106,6 +111,7 @@ const BaseInput = React.forwardRef<HTMLInputElement, TextInputProps>(
       autocomplete = "none",
       cursor = "text",
       onClick,
+      forceFocus= false,
     },
     ref
   ) => {
@@ -148,7 +154,7 @@ const BaseInput = React.forwardRef<HTMLInputElement, TextInputProps>(
         <div
           className={classList([
             "input-label",
-            (active || defaultValue) ? "input-label-active" : "",
+            (forceFocus || active || defaultValue) ? "input-label-active" : "",
           ])}
         >
           {label}

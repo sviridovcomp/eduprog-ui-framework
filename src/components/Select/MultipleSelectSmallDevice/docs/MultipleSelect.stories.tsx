@@ -1,19 +1,19 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
-import MultipleSelect from "@components/Select/MultipleSelect/MultipleSelect";
+import MultipleSelectSmallDevice from "@components/Select/MultipleSelectSmallDevice/MultipleSelectSmallDevice";
 import Button from "@components/Button/Button";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "Компоненты/Select/MultipleSelect/Playground",
-  component: MultipleSelect,
+  title: "Компоненты/Select/MultipleSelectSmallDevice/Playground",
+  component: MultipleSelectSmallDevice,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
-} as ComponentMeta<typeof MultipleSelect>;
+} as ComponentMeta<typeof MultipleSelectSmallDevice>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof MultipleSelect> = (args) => (
-  <MultipleSelect {...args} />
+const Template: ComponentStory<typeof MultipleSelectSmallDevice> = (args) => (
+  <MultipleSelectSmallDevice {...args} />
 );
 
 export const Playground = Template.bind({});

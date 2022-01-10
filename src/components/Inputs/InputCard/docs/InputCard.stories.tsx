@@ -16,5 +16,5 @@ const Template: ComponentStory<typeof InputCard> = (args) => <InputCard {...args
 export const Playground = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Playground.args = {
-  label: "BaseInput Card",
+  label: "Input Card",
 };

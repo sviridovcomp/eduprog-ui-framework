@@ -1,32 +1,11 @@
 import React, { FC, useState } from "react";
-import "./MultipleSelect.scss";
+import "./MultipleSelectLargeDevice.scss";
 import BaseInput from "@components/Inputs/BaseInput/BaseInput";
 import Dropdown from "@components/Dropdown/Dropdown";
 import Checkbox from "@components/Checkboxes/Checkbox/Checkbox";
-export type MultipleSelectPropsType = {
-  /**
-   * Лейбл для select
-   */
-  label: string;
+import { MultipleSelectPropsType } from "@components/Select/MultipleSelect/MultipleSelectProps";
 
-  /**
-   * Опции доступные для выбора в select
-   */
-  options: Array<string>;
-
-  /**
-   * Максимальное количество опций, которые можно выбрать
-   */
-  maxSelectedOptions?: number;
-
-  /**
-   * Событие вызываемое при выборе опции
-   * @param values - массив выбранных опций
-   */
-  onSelect?: (values: Array<string>) => void;
-};
-
-const MultipleSelect: FC<MultipleSelectPropsType> = ({
+const MultipleSelectLargeDevice: FC<MultipleSelectPropsType> = ({
   label,
   options,
   maxSelectedOptions = undefined,
@@ -69,7 +48,7 @@ const MultipleSelect: FC<MultipleSelectPropsType> = ({
     }
 
     if (selectedOptions.includes(option)) {
-      setSelectedOptions((selectedOptions) => selectedOptions.filter((_, i) => i !== selectedOptions.length - 1))
+      setSelectedOptions(selectedOptions.filter(item => item !== option));
     } else {
       setSelectedOptions([...selectedOptions, option]);
     }
@@ -100,11 +79,11 @@ const MultipleSelect: FC<MultipleSelectPropsType> = ({
         direction="bottom-center"
         toggle={SelectToggle}
         clearly
-        dismissible={false}
+        dismissible="outside"
         fullwidth
       />
     </div>
   );
 };
 
-export default MultipleSelect;
+export default MultipleSelectLargeDevice;

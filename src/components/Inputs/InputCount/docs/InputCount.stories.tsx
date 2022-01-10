@@ -16,5 +16,5 @@ const Template: ComponentStory<typeof InputCount> = (args) => <InputCount {...ar
 export const Playground = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Playground.args = {
-  label: "Count BaseInput",
+  label: "Count Input",
 };

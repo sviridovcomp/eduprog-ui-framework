@@ -16,5 +16,5 @@ const Template: ComponentStory<typeof InputCopy> = (args) => <InputCopy {...args
 export const Playground = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Playground.args = {
-	label: "Copy BaseInput",
+	label: "Copy Input",
 };
