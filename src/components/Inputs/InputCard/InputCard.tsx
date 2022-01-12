@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { FC } from "react";
 import BaseInput from "../BaseInput/BaseInput";
 import {
-  ICardOptions,
+  ICardProps,
   PaymentServiceIcon,
-} from "@utils/creditCardUtils/assets/creditCardUtils";
+} from "@common/CreditCard";
 
 export type InputCardPropsType = {
   label: string;
@@ -22,11 +22,11 @@ const InputCard: FC<InputCardPropsType> = ({
   showPaymentService = true,
   onChange,
 }) => {
-  const [card, setCard] = useState<ICardOptions>({
+  const [card, setCard] = useState<ICardProps>({
     number: "",
     cvc: "",
     expireDate: "",
-  } as ICardOptions);
+  } as ICardProps);
 
   const inputChange = (
     value: string,
@@ -43,7 +43,7 @@ const InputCard: FC<InputCardPropsType> = ({
 
     setCard({
       number: formattedCardNumber,
-    } as ICardOptions);
+    } as ICardProps);
 
     if (onChange) {
       onChange(card.number, event);
@@ -62,7 +62,7 @@ const InputCard: FC<InputCardPropsType> = ({
     ) {
       setCard({
         number: card.number.slice(0, event.currentTarget.selectionStart - 1),
-      } as ICardOptions);
+      } as ICardProps);
     }
   };
 

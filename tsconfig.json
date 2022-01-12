@@ -22,6 +22,9 @@
     "outDir": "./dist/",
     "baseUrl": ".",
     "paths": {
+      "@common/*": [
+        "./src/common/*"
+      ],
       "@components/*": [
         "./src/components/*"
       ],
@@ -31,7 +34,9 @@
       "@icons/*": [
         "./src/assets/icons/*"
       ],
-      "@image/*": ["./src/assets/img/*"]
+      "@image/*": [
+        "./src/assets/img/*"
+      ]
     }
   },
   "include": [
