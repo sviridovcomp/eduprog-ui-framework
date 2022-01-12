@@ -1,7 +1,7 @@
 import React, { FC, useState } from "react";
 import { importAll, random } from "@utils/utils/utils";
 const images = importAll(
-  require.context("./cardBack", false, /\.(png|jpe?g|svg)$/)
+  require.context("../../../assets/img/cardBacks", false, /\.(png|jpe?g|svg)$/)
 );
 import "./InputCardForm.scss";
 import {
@@ -9,7 +9,7 @@ import {
   PaymentServiceIcon,
   PaymentServiceIconSize,
 } from "@utils/creditCardUtils/assets/creditCardUtils";
-import {CardChip} from "@utils/creditCardUtils/assets/icons/icons";
+import { CardChip } from "@icons/icons";
 import InputCard from "@components/Inputs/InputCard/InputCard";
 
 export type InputCardFormPropsType = {
@@ -37,7 +37,7 @@ const InputCardForm: FC<InputCardFormPropsType> = () => {
       >
         <div className="card-top">
           <div className="card-chip">
-            <CardChip />
+            <CardChip width={48} height={48} />
           </div>
 
           <div className="card-payment-service">
@@ -47,7 +47,11 @@ const InputCardForm: FC<InputCardFormPropsType> = () => {
       </div>
 
       <fieldset>
-        <InputCard label="Номер карты" onChange={cardNumberChange}  showPaymentService={false}/>
+        <InputCard
+          label="Номер карты"
+          onChange={cardNumberChange}
+          showPaymentService={false}
+        />
       </fieldset>
     </div>
   );

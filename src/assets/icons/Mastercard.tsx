@@ -1,41 +1,30 @@
-import React from "react";
+import React, { FC } from "react";
+import { IconProps } from "@icons/IconProps";
 
-const Mastercard = () => {
+const Mastercard: FC<IconProps> = ({ width = 24, height = 24 }) => {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="3rem"
-      height="3rem"
-      viewBox="0 0 152.407 108"
+    <div
+      className="ui-icon"
+      style={{ width: `${width}px`, height: `${height}px` }}
     >
-      <g>
-        <rect width="152.407" height="108" style={{fill: "none"}} />
-        <g>
-          <rect
-            x="60.4117"
-            y="25.6968"
-            width="31.5"
-            height="56.6064"
-            style={{fill: "#ff5f00"}}
-          />
-          <path
-            d="M382.20839,306a35.9375,35.9375,0,0,1,13.7499-28.3032,36,36,0,1,0,0,56.6064A35.938,35.938,0,0,1,382.20839,306Z"
-            transform="translate(-319.79649 -252)"
-            style={{fill: "#eb001b"}}
-          />
-          <path
-            d="M454.20349,306a35.99867,35.99867,0,0,1-58.2452,28.3032,36.00518,36.00518,0,0,0,0-56.6064A35.99867,35.99867,0,0,1,454.20349,306Z"
-            transform="translate(-319.79649 -252)"
-            style={{fill: "#f79e1b"}}
-          />
-          <path
-            d="M450.76889,328.3077v-1.1589h.4673v-.2361h-1.1901v.2361h.4675v1.1589Zm2.3105,0v-1.3973h-.3648l-.41959.9611-.41971-.9611h-.365v1.3973h.2576v-1.054l.3935.9087h.2671l.39351-.911v1.0563Z"
-            transform="translate(-319.79649 -252)"
-            style={{fill: "#f79e1b"}}
-          />
-        </g>
-      </g>
-    </svg>
+      <svg
+        width="100%"
+        height="100%"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M7 19C10.866 19 14 15.866 14 12C14 8.13401 10.866 5 7 5C3.13401 5 0 8.13401 0 12C0 15.866 3.13401 19 7 19Z"
+          fill="#EA001B"
+        />
+        <path
+          d="M17 19C20.866 19 24 15.866 24 12C24 8.13401 20.866 5 17 5C13.134 5 10 8.13401 10 12C10 15.866 13.134 19 17 19Z"
+          fill="#FFA200"
+          fillOpacity="0.8"
+        />
+      </svg>
+    </div>
   );
 };
 

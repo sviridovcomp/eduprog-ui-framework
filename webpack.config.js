@@ -1,5 +1,5 @@
 const path = require("path");
-const {TsconfigPathsPlugin} = require("tsconfig-paths-webpack-plugin");
+const { TsconfigPathsPlugin } = require("tsconfig-paths-webpack-plugin");
 
 module.exports = {
   mode: "production",
@@ -9,14 +9,14 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
     libraryTarget: "umd2",
     clean: true,
-    globalObject: 'this',
+    globalObject: "this",
   },
   resolve: {
     extensions: [".ts", ".tsx"],
     plugins: [new TsconfigPathsPlugin()],
     alias: {
-      styles: path.join(__dirname, "src/styles")
-    }
+      styles: path.join(__dirname, "src/styles"),
+    },
   },
   externals: {
     react: "react",
@@ -37,6 +37,17 @@ module.exports = {
           "css-loader",
           // Compiles Sass to CSS
           "sass-loader",
+        ],
+      },
+      {
+        test: /\.(png|jp(e*)g|svg|gif)$/,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              name: "images/[hash]-[name].[ext]",
+            },
+          },
         ],
       },
     ],

@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "esnext",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -18,10 +22,24 @@
     "outDir": "./dist/",
     "baseUrl": ".",
     "paths": {
-      "@components/*": ["./src/components/*"],
-      "@utils/*": ["./src/utils/*"]
+      "@components/*": [
+        "./src/components/*"
+      ],
+      "@utils/*": [
+        "./src/utils/*"
+      ],
+      "@icons/*": [
+        "./src/assets/icons/*"
+      ],
+      "@image/*": ["./src/assets/img/*"]
     }
   },
-  "include": ["src"],
-  "exclude": ["dist", "node_modules", "**/*.stories.ts"]
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "dist",
+    "node_modules",
+    "**/*.stories.ts"
+  ]
 }
