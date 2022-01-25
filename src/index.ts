@@ -11,6 +11,7 @@ import Island from "@components/Island/Island";
 import InputCopy from "@components/Inputs/InputCopy/InputCopy";
 import InputPassword from "@components/Inputs/InputPassword/InputPassword";
 import InputCount from "@components/Inputs/InputCount/InputCount";
+import InputCard from "@components/Inputs/InputCard/InputCard";
 import "./styles/global_utils.scss";
 
 export {
