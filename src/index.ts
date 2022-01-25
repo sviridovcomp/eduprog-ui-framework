@@ -12,6 +12,7 @@ import InputCopy from "@components/Inputs/InputCopy/InputCopy";
 import InputPassword from "@components/Inputs/InputPassword/InputPassword";
 import InputCount from "@components/Inputs/InputCount/InputCount";
 import InputCard from "@components/Inputs/InputCard/InputCard";
+import Spinner from "@components/Spinner/Spinner";
 import "./styles/global_utils.scss";
 
 export {
@@ -31,4 +32,5 @@ export {
   InputCopy,
   InputPassword,
   InputCard,
+  Spinner,
 };
