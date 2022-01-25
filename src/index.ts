@@ -30,4 +30,5 @@ export {
   InputCount,
   InputCopy,
   InputPassword,
+  InputCard,
 };
