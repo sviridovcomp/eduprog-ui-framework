@@ -11,5 +11,7 @@ import Island from "@components/Island/Island";
 import InputCopy from "@components/Inputs/InputCopy/InputCopy";
 import InputPassword from "@components/Inputs/InputPassword/InputPassword";
 import InputCount from "@components/Inputs/InputCount/InputCount";
+import InputCard from "@components/Inputs/InputCard/InputCard";
+import Spinner from "@components/Spinner/Spinner";
 import "./styles/global_utils.scss";
-export { Button, Column, Container, Row, Expand, InputPhone, Dropdown, Dialog, Checkbox, Avatar, Island, Input, InputCount, InputCopy, InputPassword, };
+export { Button, Column, Container, Row, Expand, InputPhone, Dropdown, Dialog, Checkbox, Avatar, Island, Input, InputCount, InputCopy, InputPassword, InputCard, Spinner, };

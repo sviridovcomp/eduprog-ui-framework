@@ -19,6 +19,7 @@ const Input: FC<TextInputProps> = ({
     if (onChange) {
       onChange(value, event);
     }
+
   };
 
   return <BaseInput onChange={inputChange} defaultValue={value} {...rest} />;
