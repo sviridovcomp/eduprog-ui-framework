@@ -36,4 +36,6 @@ export {
   InputPassword,
   InputCard,
   Spinner,
+  Paragraph,
+  Heading,
 };
