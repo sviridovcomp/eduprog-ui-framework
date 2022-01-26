@@ -13,5 +13,7 @@ import InputPassword from "@components/Inputs/InputPassword/InputPassword";
 import InputCount from "@components/Inputs/InputCount/InputCount";
 import InputCard from "@components/Inputs/InputCard/InputCard";
 import Spinner from "@components/Spinner/Spinner";
+import Paragraph from "@components/Typography/Paragraph/Paragraph";
+import Heading from "@components/Typography/Heading/Heading";
 import "./styles/global_utils.scss";
-export { Button, Column, Container, Row, Expand, InputPhone, Dropdown, Dialog, Checkbox, Avatar, Island, Input, InputCount, InputCopy, InputPassword, InputCard, Spinner, };
+export { Button, Column, Container, Row, Expand, InputPhone, Dropdown, Dialog, Checkbox, Avatar, Island, Input, InputCount, InputCopy, InputPassword, InputCard, Spinner, Paragraph, Heading, };
