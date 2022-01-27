@@ -1,0 +1,50 @@
+@import "~styles/variables/colors";
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 2rem;
+  height: 1rem;
+
+  &-slider {
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    background-color: #ccc;
+    transition: 0.25s;
+    border-radius: 2rem;
+    display: flex;
+    align-items: center;
+
+    &::before {
+      content: "";
+      position: absolute;
+      height: 0.75rem;
+      width: 0.75rem;
+      background-color: #fff;
+      transition: 0.25s;
+      border-radius: 50%;
+      margin-left: 0.125rem;
+      justify-content: left;
+    }
+  }
+
+  input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+
+    &:checked + .switch-slider .switch-slider-primary {
+      background-color: $color-primary;
+    }
+
+    &:checked + .switch-slider {
+      background-color: #545454;
+    }
+
+
+    &:checked + .switch-slider:before {
+      transform: translateX(1rem);
+    }
+  }
+}
