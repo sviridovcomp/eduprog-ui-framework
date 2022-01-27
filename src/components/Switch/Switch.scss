@@ -2,14 +2,15 @@
 
 .switch {
   position: relative;
-  display: inline-block;
+  display: flex;
   width: 2rem;
   height: 1rem;
 
   &-slider {
     cursor: pointer;
-    width: 100%;
-    height: 100%;
+    width: 2rem;
+    height: 1rem;
+    flex: none;
     background-color: #ccc;
     transition: 0.25s;
     border-radius: 2rem;
