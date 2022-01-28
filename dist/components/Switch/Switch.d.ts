@@ -5,6 +5,7 @@ export declare type SwitchProps = defaultProps & {
     label?: string;
     position?: "left" | "right";
     color?: "primary" | "secondary" | "accent";
+    name?: string;
 };
 declare const Switch: FC<SwitchProps>;
 export default Switch;
