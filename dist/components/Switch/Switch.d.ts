@@ -1,6 +1,7 @@
 import { FC } from "react";
 import "./Switch.scss";
-export declare type SwitchProps = {
+import { defaultProps } from "@utils/defaultProps";
+export declare type SwitchProps = defaultProps & {
     label?: string;
     position?: "left" | "right";
     color?: "primary" | "secondary" | "accent";
