@@ -5,13 +5,13 @@
   display: flex;
   flex-wrap: wrap;
   &_align_center {
-    align-items: center;
+    justify-content: center;
   }
   &_align_start {
-    align-items: flex-start;
+    justify-content: flex-start;
   }
   &_align_end {
-    align-items: flex-end;
+    justify-content: flex-end;
   }
   &_adaptive.ep-row {
     @media #{$desktop-m-min} {
