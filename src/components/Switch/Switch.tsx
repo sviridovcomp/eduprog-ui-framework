@@ -1,16 +1,17 @@
 import React, {FC} from "react";
 import "./Switch.scss";
 import classList from "@utils/classList/classList";
+import {defaultProps} from "@utils/defaultProps";
 
-export type SwitchProps = {
+export type SwitchProps = defaultProps & {
 	label?: string;
 	position?: "left" | "right";
 	color?: "primary" | "secondary" | "accent";
 }
 
-const Switch: FC<SwitchProps> = ({label , color, position= "left"}) => {
+const Switch: FC<SwitchProps> = ({style, label , color, position= "left"}) => {
 	return (
-		<label className="switch">
+		<label className="switch" style={style}>
 			{ position == "left" && (
 				<div className="switch-additional">{label}</div>
 			)}

@@ -16,5 +16,9 @@ const Template: ComponentStory<typeof Switch> = (args) => <Switch {...args} />;
 export const Playground = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Playground.args = {
-	label: "label"
+	label: "label",
+	style: {
+		width: "200px",
+		justifyContent: "space-between"
+	}
 };

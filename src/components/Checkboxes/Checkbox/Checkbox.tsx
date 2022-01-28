@@ -1,5 +1,5 @@
 import React, { FC, useState } from "react";
-import { useId } from "react-id-generator";
+import { v4 as uuidv4 } from "uuid";
 import "./Checkbox.scss";
 import classList from "@utils/classList/classList";
 import { defaultProps } from "@utils/defaultProps";
@@ -56,7 +56,7 @@ const Checkbox: FC<CheckboxPropsType> = ({
   onChange,
 }) => {
   const [active, setActive] = useState(false);
-  const [checkboxId] = useId();
+  const [checkboxId] = useState(uuidv4());
   const rootClasses = classList([
     "checkbox-checkmark",
     type ? `checkbox-checkmark-type_${type}` : "",
