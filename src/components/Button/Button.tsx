@@ -86,26 +86,24 @@ const Button: FC<ButtonPropsType> = ({
   };
 
   return (
-    <div>
-      <button
-        className={`${rootClasses} ${className}`}
-        onClick={(event) => clicking(event)}
-        name={name}
-        type={type}
+    <button
+      className={`${rootClasses} ${className}`}
+      onClick={(event) => clicking(event)}
+      name={name}
+      type={type}
+    >
+      <span
+        className={classList([
+          "Button-label",
+          `Button-label-justify_${labelJustifyContent}`,
+        ])}
       >
-        <span
-          className={classList([
-            "Button-label",
-            `Button-label-justify_${labelJustifyContent}`,
-          ])}
-        >
-          <span className="Button-label_left">{contentLeft}</span>
-          <span className="Button-label_center">{children}</span>
+        <span className="Button-label_left">{contentLeft}</span>
+        <span className="Button-label_center">{children}</span>
 
-          <span className="Button-label_right">{contentRight}</span>
-        </span>
-      </button>
-    </div>
+        <span className="Button-label_right">{contentRight}</span>
+      </span>
+    </button>
   );
 };
 
