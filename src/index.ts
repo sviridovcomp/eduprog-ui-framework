@@ -16,6 +16,7 @@ import Spinner from "@components/Spinner/Spinner";
 import Paragraph from "@components/Typography/Paragraph/Paragraph";
 import Heading from "@components/Typography/Heading/Heading";
 import Switch from "@components/Switch/Switch";
+import MultipleSelectLargeDevice from "@components/Select/MultipleSelectLargeDevice/MultipleSelectLargeDevice";
 
 import "./styles/global_utils.scss";
 
@@ -39,5 +40,6 @@ export {
   Spinner,
   Paragraph,
   Heading,
-  Switch
+  Switch,
+  MultipleSelectLargeDevice,
 };
