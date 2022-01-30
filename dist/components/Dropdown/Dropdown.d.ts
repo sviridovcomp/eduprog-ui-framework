@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import "./Dropdown.scss";
-export declare type DropdownPropsType = {
+import { defaultProps } from "@utils/defaultProps";
+export declare type DropdownPropsType = defaultProps & {
     /**
      * Дочерние элементы Dropdown
      */

@@ -1,8 +1,9 @@
-import React, {FC, useRef, useState} from "react";
+import React, { FC, useRef, useState } from "react";
 import "./Dropdown.scss";
 import classList from "@utils/classList/classList";
+import { defaultProps } from "@utils/defaultProps";
 
-export type DropdownPropsType = {
+export type DropdownPropsType = defaultProps & {
   /**
    * Дочерние элементы Dropdown
    */
@@ -50,6 +51,7 @@ const Dropdown: FC<DropdownPropsType> = ({
   clearly = false,
   fullwidth = false,
   dismissible = "always",
+  style,
 }) => {
   const [active, setActive] = useState(false);
   const dropdownItem = useRef<HTMLDivElement>(null);
@@ -65,6 +67,7 @@ const Dropdown: FC<DropdownPropsType> = ({
     <div
       className={classList(["dropdown", fullwidth ? "dropdown-fullwidth" : ""])}
       onBlur={() => dismissible == "always" && setActive(false)}
+      style={style}
     >
       <div
         className={classList([
@@ -85,7 +88,7 @@ const Dropdown: FC<DropdownPropsType> = ({
         <div
           tabIndex={1}
           ref={dropdownItem}
-          onBlur={() => dismissible == "outside" && setActive(false) }
+          onBlur={() => dismissible == "outside" && setActive(false)}
           className={classList([
             "dropdown-item",
             direction ? `dropdown-item-direction_${direction}` : "",
