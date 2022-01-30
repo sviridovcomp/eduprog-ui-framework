@@ -17,8 +17,6 @@ import Paragraph from "@components/Typography/Paragraph/Paragraph";
 import Heading from "@components/Typography/Heading/Heading";
 import Switch from "@components/Switch/Switch";
 import MultipleSelectLargeDevice from "@components/Select/MultipleSelectLargeDevice/MultipleSelectLargeDevice";
-import DatePicker, { Calendar } from "eduprog-datepicker";
-
 import "./styles/global_utils.scss";
 
 export {
@@ -43,6 +41,4 @@ export {
   Heading,
   Switch,
   MultipleSelectLargeDevice,
-  Calendar,
-  DatePicker,
 };
