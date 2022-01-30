@@ -55,7 +55,7 @@ const Checkbox: FC<CheckboxPropsType> = ({
   className = "",
   onChange,
 }) => {
-  const [active, setActive] = useState(false);
+  const [active, setActive] = useState(checked);
   const [checkboxId] = useState(uuidv4());
   const rootClasses = classList([
     "checkbox-checkmark",
@@ -63,8 +63,10 @@ const Checkbox: FC<CheckboxPropsType> = ({
     fullwidth ? "checkbox-fullwidth" : "",
   ]);
 
-  const onClick = () => {
-    setActive(!active);
+  const changing = (event: React.ChangeEvent) => {
+    const checkbox = event.target as HTMLInputElement;
+
+    setActive(checkbox.checked);
 
     if (onChange) {
       onChange(active);
@@ -93,9 +95,9 @@ const Checkbox: FC<CheckboxPropsType> = ({
         <input
           type="checkbox"
           id={checkboxId}
-          onClick={onClick}
+          onChange={changing}
           disabled={disabled}
-          checked={active || checked}
+          checked={active}
         />
 
         <span className="checkbox-fake">
