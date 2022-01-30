@@ -12,7 +12,7 @@ module.exports = {
     globalObject: "this",
   },
   resolve: {
-    extensions: [".ts", ".tsx"],
+    extensions: [".js", ".jsx", ".ts", ".tsx"],
     plugins: [new TsconfigPathsPlugin()],
     alias: {
       styles: path.join(__dirname, "src/styles"),
