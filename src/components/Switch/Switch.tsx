@@ -34,7 +34,7 @@ const Switch: FC<SwitchProps> = ({
     <label className={classList(["switch", className])} style={style}>
       {position == "left" && <div className="switch-additional">{label}</div>}
 
-      <input type="checkbox" onClick={onClick} name={name} />
+      <input type="checkbox" onClick={onClick} name={name} checked={active} />
       <span
         className={classList([
           "switch-slider",
