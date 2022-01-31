@@ -22,8 +22,10 @@ const Switch: FC<SwitchProps> = ({
 }) => {
   const [active, setActive] = useState(false);
 
-  const onClick = () => {
-    setActive(!active);
+  const changing = (event: React.ChangeEvent) => {
+    const checkbox = event.target as HTMLInputElement;
+
+    setActive(checkbox.checked);
 
     if (onChange) {
       onChange();
@@ -34,7 +36,7 @@ const Switch: FC<SwitchProps> = ({
     <label className={classList(["switch", className])} style={style}>
       {position == "left" && <div className="switch-additional">{label}</div>}
 
-      <input type="checkbox" onClick={onClick} name={name} />
+      <input type="checkbox" onChange={changing} name={name} checked={active} />
       <span
         className={classList([
           "switch-slider",
