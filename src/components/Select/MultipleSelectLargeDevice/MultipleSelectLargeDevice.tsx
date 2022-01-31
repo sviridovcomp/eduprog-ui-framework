@@ -9,7 +9,7 @@ import {
 } from "@components/Select/MultipleSelect/MultipleSelectProps";
 import { sha256 } from "js-sha256";
 
-const MultipleSelectLargeDevice: FC<MultipleSelectPropsType<string>> = ({
+const MultipleSelectLargeDevice: FC<MultipleSelectPropsType<any>> = ({
   label,
   options,
   maxSelectedOptions = undefined,
