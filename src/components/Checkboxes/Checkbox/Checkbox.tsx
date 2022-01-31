@@ -37,9 +37,8 @@ export type CheckboxPropsType = defaultProps & {
 
   /**
    * Коллбэк вызывается при изменении значения чекбокса
-   * @param value - новое значение чекбокса
    */
-  onChange?: (value: boolean) => void;
+  onChange?: () => void;
 };
 
 /**
@@ -67,7 +66,7 @@ const Checkbox: FC<CheckboxPropsType> = ({
     setActive(!active);
 
     if (onChange) {
-      onChange(active);
+      onChange();
     }
   };
 

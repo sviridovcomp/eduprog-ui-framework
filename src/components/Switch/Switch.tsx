@@ -8,7 +8,7 @@ export type SwitchProps = defaultProps & {
   position?: "left" | "right";
   color?: "primary" | "secondary" | "accent";
   name?: string;
-  onChange?: (value: boolean) => void;
+  onChange?: () => void;
 };
 
 const Switch: FC<SwitchProps> = ({
@@ -26,7 +26,7 @@ const Switch: FC<SwitchProps> = ({
     setActive(!active);
 
     if (onChange) {
-      onChange(active);
+      onChange();
     }
   };
 

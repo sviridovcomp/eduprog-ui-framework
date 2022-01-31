@@ -3,21 +3,26 @@ import "./MultipleSelectLargeDevice.scss";
 import BaseInput from "@components/Inputs/BaseInput/BaseInput";
 import Dropdown from "@components/Dropdown/Dropdown";
 import Checkbox from "@components/Checkboxes/Checkbox/Checkbox";
-import { MultipleSelectPropsType } from "@components/Select/MultipleSelect/MultipleSelectProps";
+import {
+  MultipleSelectPropsType,
+  MultipleSelectValue,
+} from "@components/Select/MultipleSelect/MultipleSelectProps";
 import { sha256 } from "js-sha256";
 
-const MultipleSelectLargeDevice: FC<MultipleSelectPropsType> = ({
+const MultipleSelectLargeDevice: FC<MultipleSelectPropsType<string>> = ({
   label,
   options,
   maxSelectedOptions = undefined,
   onSelect,
 }) => {
-  const [selectedOptions, setSelectedOptions] = useState<Array<string>>([]);
+  const [selectedOptions, setSelectedOptions] = useState<
+    Array<MultipleSelectValue<string>>
+  >([]);
 
   const SelectToggle = (
     <BaseInput
       label={label}
-      defaultValue={selectedOptions.join(", ")}
+      defaultValue={selectedOptions.map((item) => item.name).join(", ")}
       cursor="pointer"
       readonly
       rightAdditional={
@@ -35,7 +40,7 @@ const MultipleSelectLargeDevice: FC<MultipleSelectPropsType> = ({
     />
   );
 
-  const disabledPredicate = (option: string) => {
+  const disabledPredicate = (option: MultipleSelectValue<string>) => {
     return (
       maxSelectedOptions !== undefined &&
       selectedOptions.length >= maxSelectedOptions &&
@@ -43,24 +48,28 @@ const MultipleSelectLargeDevice: FC<MultipleSelectPropsType> = ({
     );
   };
 
-  const selectOption = (option: string) => {
+  const selectOption = (option: MultipleSelectValue<string>) => {
     if (disabledPredicate(option)) {
       return;
     }
 
     if (selectedOptions.includes(option)) {
-      setSelectedOptions(selectedOptions.filter((item) => item !== option));
+      setSelectedOptions(
+        selectedOptions.filter((item) => item.name !== option.name)
+      );
+      console.log(1);
     } else {
+      console.log(2);
       setSelectedOptions([...selectedOptions, option]);
     }
 
     if (onSelect) {
-      onSelect(selectedOptions);
+      onSelect([...selectedOptions, option]);
     }
   };
 
   const SelectPopup = options.map((option) => (
-    <div className="multiple-select-item" key={sha256(option)}>
+    <div className="multiple-select-item" key={sha256(option.name)}>
       <Checkbox
         position="right"
         onChange={() => selectOption(option)}
@@ -69,7 +78,7 @@ const MultipleSelectLargeDevice: FC<MultipleSelectPropsType> = ({
         fullwidth
         disabled={disabledPredicate(option)}
       >
-        {option}
+        {option.name}
       </Checkbox>
     </div>
   ));

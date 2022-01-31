@@ -6,6 +6,7 @@ export declare type SwitchProps = defaultProps & {
     position?: "left" | "right";
     color?: "primary" | "secondary" | "accent";
     name?: string;
+    onChange?: () => void;
 };
 declare const Switch: FC<SwitchProps>;
 export default Switch;

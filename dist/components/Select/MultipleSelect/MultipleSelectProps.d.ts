@@ -1,4 +1,8 @@
-export declare type MultipleSelectPropsType = {
+export interface MultipleSelectValue<Type> {
+    name: string;
+    value: Type;
+}
+export declare type MultipleSelectPropsType<Type> = {
     /**
      * Лейбл для select
      */
@@ -6,7 +10,7 @@ export declare type MultipleSelectPropsType = {
     /**
      * Опции доступные для выбора в select
      */
-    options: Array<string>;
+    options: Array<MultipleSelectValue<Type>>;
     /**
      * Максимальное количество опций, которые можно выбрать
      */
@@ -19,5 +23,5 @@ export declare type MultipleSelectPropsType = {
      * Событие вызываемое при выборе опции
      * @param values - массив выбранных опций
      */
-    onSelect?: (values: Array<string>) => void;
+    onSelect?: (values: Array<MultipleSelectValue<Type>>) => void;
 };

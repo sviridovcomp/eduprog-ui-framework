@@ -1,10 +1,13 @@
 import React, { FC, useState } from "react";
-import { MultipleSelectPropsType } from "@components/Select/MultipleSelect/MultipleSelectProps";
+import {
+  MultipleSelectPropsType,
+  MultipleSelectValue,
+} from "@components/Select/MultipleSelect/MultipleSelectProps";
 import classList from "@utils/classList/classList";
 import "./MultipleSelectSmallDevice.scss";
 import { sha256 } from "js-sha256";
 
-const MultipleSelectSmallDevice: FC<MultipleSelectPropsType> = ({
+const MultipleSelectSmallDevice: FC<MultipleSelectPropsType<string>> = ({
   label,
   maxSelectedOptions,
   name = "",
@@ -16,14 +19,10 @@ const MultipleSelectSmallDevice: FC<MultipleSelectPropsType> = ({
 
   const selectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const options = event.target.selectedOptions;
-    console.log(options);
+
     setSelectedOptions(
       [...options].map(({ value }) => value).slice(0, maxSelectedOptions)
     );
-
-    if (onSelect) {
-      onSelect(selectedOptions);
-    }
   };
 
   const selectFocus = () => {
@@ -51,9 +50,9 @@ const MultipleSelectSmallDevice: FC<MultipleSelectPropsType> = ({
           size={1}
           multiple
         >
-          {options.map((optionName) => (
-            <option value={optionName} key={sha256(optionName)}>
-              {optionName}
+          {options.map(({ name }) => (
+            <option value={name} key={sha256(name)}>
+              {name}
             </option>
           ))}
         </select>

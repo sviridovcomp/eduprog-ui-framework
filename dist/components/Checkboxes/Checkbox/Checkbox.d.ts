@@ -28,9 +28,8 @@ export declare type CheckboxPropsType = defaultProps & {
     checked?: boolean;
     /**
      * Коллбэк вызывается при изменении значения чекбокса
-     * @param value - новое значение чекбокса
      */
-    onChange?: (value: boolean) => void;
+    onChange?: () => void;
 };
 /**
  * Компонент чекбокса.

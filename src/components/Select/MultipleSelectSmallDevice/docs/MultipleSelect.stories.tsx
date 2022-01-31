@@ -20,12 +20,30 @@ export const Playground = Template.bind({});
 Playground.args = {
   label: "Select",
   options: [
-    "5% - Аптеки",
-    "5% - Ozon.ru",
-    "3% - Пятёрочка",
-    "5% - Спорттовары",
-    "5% - Такси",
-    "5% - Рестораны",
+    {
+      name: "5% - Аптеки",
+      value: "5% - аптеки",
+    },
+    {
+      name: "5% - Ozon.ru",
+      value: "5% - ozon.ru",
+    },
+    {
+      name: "3% - Пятёрочка",
+      value: "fewfew",
+    },
+    {
+      name: "5% - Спорттовары",
+      value: "grewge",
+    },
+    {
+      name: "5% - Такси",
+      value: "fwegfewr",
+    },
+    {
+      name: "5% - Рестораны",
+      value: "fwergerr",
+    },
   ],
   maxSelectedOptions: 3,
 };
