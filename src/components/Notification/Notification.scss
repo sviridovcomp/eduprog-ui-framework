@@ -16,8 +16,8 @@
   box-sizing: border-box;
 
   &-visible {
-    visibility: visible;
-    transform: translate(0, 0);
+    visibility: visible!important;
+    transform: translate(0, 0)!important;
   }
 
   &__icon {
