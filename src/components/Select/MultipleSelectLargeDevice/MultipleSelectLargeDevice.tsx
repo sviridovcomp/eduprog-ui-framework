@@ -57,7 +57,11 @@ const MultipleSelectLargeDevice: FC<MultipleSelectPropsType<any>> = ({
       return;
     }
 
-    if (selectedOptions.includes(option)) {
+    if (
+      selectedOptions.some(
+        (selectedOption) => selectedOption.name == option.name
+      )
+    ) {
       const result = selectedOptions.filter(
         (item) => item.name !== option.name
       );
