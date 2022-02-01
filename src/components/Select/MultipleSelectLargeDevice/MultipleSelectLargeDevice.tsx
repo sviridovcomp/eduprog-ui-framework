@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 import "./MultipleSelectLargeDevice.scss";
 import BaseInput from "@components/Inputs/BaseInput/BaseInput";
 import Dropdown from "@components/Dropdown/Dropdown";
@@ -51,17 +51,8 @@ const MultipleSelectLargeDevice: FC<MultipleSelectPropsType<any>> = ({
       return;
     }
 
-    if (!onChange) {
-      return;
-    }
-
-    if (value?.some((selectedOption) => selectedOption.name == option.name)) {
-      const result = value.filter((item) => item.name !== option.name);
-
-      onChange(result);
-    } else {
-      const result = [...value!, option];
-      onChange(result);
+    if (onChange) {
+      onChange(option);
     }
   };
 
