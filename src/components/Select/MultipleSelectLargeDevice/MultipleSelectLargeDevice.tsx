@@ -63,13 +63,13 @@ const MultipleSelectLargeDevice: FC<MultipleSelectPropsType<any>> = ({
       );
 
       setSelectedOptions(result);
+      console.log(1, result);
       onSelect(result);
-      return;
     } else {
       const result = [...selectedOptions, option];
       setSelectedOptions(result);
+      console.log(2, result);
       onSelect(result);
-      return;
     }
   };
 
