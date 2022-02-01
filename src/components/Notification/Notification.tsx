@@ -83,10 +83,10 @@ const Notification: FC<NotificationPropsType> = ({
       style={{ top: `${offset}px` }}
       className={classNames(
         "notification",
+        { [`notification__stick-to_${stickTo}`]: true },
         {
           "notification-visible": visible,
-        },
-        { [`notification__stick-to_${stickTo}`]: true }
+        }
       )}
       {...swipeableHandlers}
     >
