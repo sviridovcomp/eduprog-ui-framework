@@ -98,12 +98,16 @@ const Button: FC<ButtonPropsType> = ({
       <span
         className={classNames("Button-label")}
         style={{
-          alignItems: labelAlignItems,
           justifyContent: labelJustifyContent,
         }}
       >
         <span className="Button-label_left">{contentLeft}</span>
-        <span className="Button-label_center">{children}</span>
+        <span
+          className="Button-label_center"
+          style={{ alignItems: labelAlignItems }}
+        >
+          {children}
+        </span>
 
         <span className="Button-label_right">{contentRight}</span>
       </span>
