@@ -21,7 +21,7 @@ export declare type MultipleSelectPropsType<Type> = {
     name?: string;
     /**
      * Событие вызываемое при выборе опции
-     * @param values - массив выбранных опций
+     * @param option - массив выбранных опций
      */
     onChange?: (option: MultipleSelectValue<Type>) => void;
     value?: Array<MultipleSelectValue<any>>;

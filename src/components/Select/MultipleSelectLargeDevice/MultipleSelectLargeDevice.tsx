@@ -14,7 +14,7 @@ const MultipleSelectLargeDevice: FC<MultipleSelectPropsType<any>> = ({
   options,
   maxSelectedOptions = undefined,
   onChange,
-  value,
+  value = [],
 }) => {
   const SelectToggle = (
     <BaseInput
@@ -39,10 +39,9 @@ const MultipleSelectLargeDevice: FC<MultipleSelectPropsType<any>> = ({
 
   const disabledPredicate = (option: MultipleSelectValue<any>) => {
     return (
-      value &&
       maxSelectedOptions !== undefined &&
       value.length >= maxSelectedOptions &&
-      !value.includes(option)
+      !value.some((targetOption) => targetOption.name == option.name)
     );
   };
 
