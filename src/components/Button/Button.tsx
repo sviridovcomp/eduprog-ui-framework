@@ -104,7 +104,7 @@ const Button: FC<ButtonPropsType> = ({
         <span className="Button-label_left">{contentLeft}</span>
         <span
           className="Button-label_center"
-          style={{ alignItems: labelAlignItems }}
+          style={{ display: "flex", alignItems: labelAlignItems }}
         >
           {children}
         </span>
