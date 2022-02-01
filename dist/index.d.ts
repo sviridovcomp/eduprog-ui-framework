@@ -17,5 +17,6 @@ import Paragraph from "@components/Typography/Paragraph/Paragraph";
 import Heading from "@components/Typography/Heading/Heading";
 import Switch from "@components/Switch/Switch";
 import MultipleSelectLargeDevice from "@components/Select/MultipleSelectLargeDevice/MultipleSelectLargeDevice";
+import Notification from "@components/Notification/Notification";
 import "./styles/global_utils.scss";
-export { Button, Column, Container, Row, Expand, InputPhone, Dropdown, Dialog, Checkbox, Avatar, Island, Input, InputCount, InputCopy, InputPassword, InputCard, Spinner, Paragraph, Heading, Switch, MultipleSelectLargeDevice, };
+export { Button, Column, Container, Row, Expand, InputPhone, Dropdown, Dialog, Checkbox, Avatar, Island, Input, InputCount, InputCopy, InputPassword, InputCard, Spinner, Paragraph, Heading, Switch, MultipleSelectLargeDevice, Notification, };
