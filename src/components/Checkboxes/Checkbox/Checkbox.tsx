@@ -1,8 +1,8 @@
 import React, { FC, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import "./Checkbox.scss";
-import classList from "@utils/classList/classList";
 import { defaultProps } from "@utils/defaultProps";
+import classNames from "classnames";
 
 export type CheckboxPropsType = defaultProps & {
   /**
@@ -56,11 +56,11 @@ const Checkbox: FC<CheckboxPropsType> = ({
 }) => {
   const [active, setActive] = useState(checked);
   const [checkboxId] = useState(uuidv4());
-  const rootClasses = classList([
+  const rootClasses = classNames(
     "checkbox-checkmark",
-    type ? `checkbox-checkmark-type_${type}` : "",
-    fullwidth ? "checkbox-fullwidth" : "",
-  ]);
+    { [`checkbox-checkmark-type_${type}`]: true },
+    { "checkbox-fullwidth": fullwidth }
+  );
 
   const changing = (event: React.ChangeEvent) => {
     const checkbox = event.target as HTMLInputElement;
@@ -74,18 +74,17 @@ const Checkbox: FC<CheckboxPropsType> = ({
 
   return (
     <div
-      className={classList([
+      className={classNames(
         "checkbox",
-        fullwidth ? "checkbox-fullwidth" : "",
-        ...className.split(" "),
-      ])}
+        { "checkbox-fullwidth": fullwidth },
+        ...className.split(" ")
+      )}
     >
       <label
         htmlFor={checkboxId}
-        className={classList([
-          "checkbox-wrapper",
-          fullwidth ? "checkbox-fullwidth" : "",
-        ])}
+        className={classNames("checkbox-wrapper", {
+          "checkbox-fullwidth": fullwidth,
+        })}
       >
         {position === "left" && (
           <div className="checkbox-additional">{children}</div>

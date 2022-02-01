@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import "./Island.scss";
-import classList from "@utils/classList/classList";
+import classNames from "classnames";
 
 export type IslandPropsType = {
   /**
@@ -32,13 +32,13 @@ const Island: FC<IslandPropsType> = ({
   type = "shadow",
   hoverable = false,
 }) => {
-  const rootClasses = classList([
+  const rootClasses = classNames(
     "island",
-    size ? `island-size_${size}` : "",
-    align ? `island-align_${align}` : "",
-    type ? `island-type_${type}` : "",
-    hoverable ? "island-hoverable" : "",
-  ]);
+    { [`island-size_${size}`]: true },
+    { [`island-align_${align}`]: true },
+    { [`island-type_${type}`]: true },
+    { "island-hoverable": hoverable }
+  );
 
   return <div className={rootClasses}>{children}</div>;
 };

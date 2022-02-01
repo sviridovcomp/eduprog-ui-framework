@@ -2,6 +2,7 @@ import React, { FC, useState } from "react";
 import "./Button.scss";
 import classList from "@utils/classList/classList";
 import { defaultProps } from "@utils/defaultProps";
+import classNames from "classnames";
 
 export type ButtonPropsType = defaultProps & {
   /**
@@ -45,6 +46,8 @@ export type ButtonPropsType = defaultProps & {
   type?: "button" | "reset" | "submit";
 
   labelJustifyContent?: "center" | "space-around";
+
+  labelAlignItems?: "center";
 };
 
 /**
@@ -62,16 +65,17 @@ const Button: FC<ButtonPropsType> = ({
   contentRight,
   type = "button",
   labelJustifyContent = "center",
+  labelAlignItems = "center",
 }) => {
   const [active, setActive] = useState(false);
 
-  const rootClasses = classList([
+  const rootClasses = classNames(
     "Button",
-    `Button-view_${view}`,
-    `Button-size_${size}`,
-    active ? "Button-clicking" : "",
-    `Button-width_${width}`,
-  ]);
+    { [`Button-view_${view}`]: true },
+    { [`Button-size_${size}`]: true },
+    { "Button-clicking": active },
+    { [`Button-width_${width}`]: true }
+  );
 
   const clicking = (event: React.MouseEvent<HTMLButtonElement>) => {
     setActive(true);
@@ -93,10 +97,11 @@ const Button: FC<ButtonPropsType> = ({
       type={type}
     >
       <span
-        className={classList([
-          "Button-label",
-          `Button-label-justify_${labelJustifyContent}`,
-        ])}
+        className={classNames("Button-label")}
+        style={{
+          alignItems: labelAlignItems,
+          justifyContent: labelJustifyContent,
+        }}
       >
         <span className="Button-label_left">{contentLeft}</span>
         <span className="Button-label_center">{children}</span>

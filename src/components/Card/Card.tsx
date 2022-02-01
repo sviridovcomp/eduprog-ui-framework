@@ -7,7 +7,7 @@ const images = importAll(
   require.context("../../assets/img/cardBacks", false, /\.(png|jpe?g|svg)$/)
 );
 import "./Card.scss";
-import classList from "@utils/classList/classList";
+import classNames from "classnames";
 
 export type CardPropsType = {
   card: ICardProps;
@@ -40,7 +40,7 @@ const Card: FC<CardPropsType> = ({
 
   return (
     <div
-      className={classList(["card", flip ? "card-rotate" : ""])}
+      className={classNames("card", { "card-rotate": flip })}
       style={{ background: `url(${images[8]})` }}
     >
       <div className="card-top">

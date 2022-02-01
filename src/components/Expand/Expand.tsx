@@ -1,6 +1,6 @@
 import React, { FC, useState } from "react";
 import "./Expand.scss";
-import classList from "@utils/classList/classList";
+import classNames from "classnames";
 
 export type CollapsePropsType = {
   children: React.ReactNode;
@@ -14,11 +14,11 @@ const Expand: FC<CollapsePropsType> = ({
   transition = "fade",
 }) => {
   const [active, setActive] = useState(false);
-  const collapseTransitionClasses = classList([
+  const collapseTransitionClasses = classNames(
     "collapse-transition",
-    transition ? `collapse-transition_${transition}` : "",
-    active ? "collapse-transition-active" : "",
-  ]);
+    { [`collapse-transition_${transition}`]: true },
+    { "collapse-transition-active": active }
+  );
   const onClick = () => {
     setActive(!active);
   };

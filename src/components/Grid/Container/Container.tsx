@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import "./Container.scss";
-import classList from "@utils/classList/classList";
+import classNames from "classnames";
 
 export type ContainerPropsType = {
   fullwidth?: boolean;
@@ -14,12 +14,12 @@ const Container: FC<ContainerPropsType> = ({
   adaptive,
   fixed,
 }) => {
-  const rootClasses = classList([
+  const rootClasses = classNames(
     "ep-container",
-    fullwidth ? "ep-container_fullwidth" : "",
-    adaptive ? "ep-container_adaptive" : "",
-    fixed ? "ep-container_fixed" : "",
-  ]);
+    { "ep-container_fullwidth": fullwidth },
+    { "ep-container_adaptive": adaptive },
+    { "ep-container_fixed": fixed }
+  );
 
   return <div className={rootClasses}>{children}</div>;
 };

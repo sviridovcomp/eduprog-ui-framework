@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import "./Column.scss";
 import classList from "@utils/classList/classList";
+import classNames from "classnames";
 
 type RowColWidth =
   | number
@@ -45,17 +46,17 @@ const Column: FC<ColumnPropsType> = ({
   mb,
   spacing,
 }) => {
-  const rootClasses = classList([
+  const rootClasses = classNames([
     "ep-col",
-    col ? `ep-col_${col}` : "",
-    xs ? `ep-col_xs-${xs}` : "",
-    md ? `ep-col_md-${md}` : "",
-    lg ? `ep-col_lg-${lg}` : "",
-    ml ? `ep-col_ml-${ml}` : "",
-    mr ? `ep-col_mr-${mr}` : "",
-    mt ? `ep-col_mt-${mt}` : "",
-    mb ? `ep-col_ml-${mb}` : "",
-    spacing ? `ep-col_spacing-${spacing}` : ""
+    { [`ep-col_${col}`]: true },
+    { [`ep-col_xs-${xs}`]: true },
+    { [`ep-col_md-${md}`]: true },
+    { [`ep-col_lg-${lg}`]: true },
+    { [`ep-col_ml-${ml}`]: true },
+    { [`ep-col_mr-${mr}`]: true },
+    { [`ep-col_mt-${mt}`]: true },
+    { [`ep-col_ml-${mb}`]: true },
+    spacing ? `ep-col_spacing-${spacing}` : "",
   ]);
   return <div className={rootClasses}>{children}</div>;
 };

@@ -2,6 +2,7 @@ import React, { FC, useRef, useState } from "react";
 import "./Dropdown.scss";
 import classList from "@utils/classList/classList";
 import { defaultProps } from "@utils/defaultProps";
+import classNames from "classnames";
 
 export type DropdownPropsType = defaultProps & {
   /**
@@ -65,36 +66,34 @@ const Dropdown: FC<DropdownPropsType> = ({
 
   return (
     <div
-      className={classList(["dropdown", fullwidth ? "dropdown-fullwidth" : ""])}
+      className={classNames("dropdown", { "dropdown-fullwidth": fullwidth })}
       onBlur={() => dismissible == "always" && setActive(false)}
       style={style}
     >
       <div
-        className={classList([
-          "dropdown-toggle",
-          fullwidth ? "dropdown-fullwidth" : "",
-        ])}
+        className={classNames("dropdown-toggle", {
+          "dropdown-fullwidth": fullwidth,
+        })}
         onClick={onClick}
       >
         {toggle}
       </div>
 
       <div
-        className={classList([
-          "dropdown-transition",
-          active ? "dropdown-transition-active" : "",
-        ])}
+        className={classNames("dropdown-transition", {
+          "dropdown-transition-active": active,
+        })}
       >
         <div
           tabIndex={1}
           ref={dropdownItem}
           onBlur={() => dismissible == "outside" && setActive(false)}
-          className={classList([
+          className={classNames(
             "dropdown-item",
-            direction ? `dropdown-item-direction_${direction}` : "",
-            clearly ? "dropdown-item-clearly" : "",
-            fullwidth ? "dropdown-fullwidth" : "",
-          ])}
+            { [`dropdown-item-direction_${direction}`]: true },
+            { "dropdown-item-clearly": clearly },
+            { "dropdown-fullwidth": fullwidth }
+          )}
         >
           <div className="dropdown-item-content">{children}</div>
         </div>

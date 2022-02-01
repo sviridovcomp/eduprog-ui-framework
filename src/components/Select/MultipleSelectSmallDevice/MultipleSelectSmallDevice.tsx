@@ -1,11 +1,8 @@
 import React, { FC, useState } from "react";
-import {
-  MultipleSelectPropsType,
-  MultipleSelectValue,
-} from "@components/Select/MultipleSelect/MultipleSelectProps";
-import classList from "@utils/classList/classList";
+import { MultipleSelectPropsType } from "@components/Select/MultipleSelect/MultipleSelectProps";
 import "./MultipleSelectSmallDevice.scss";
 import { sha256 } from "js-sha256";
+import classNames from "classnames";
 
 const MultipleSelectSmallDevice: FC<MultipleSelectPropsType<string>> = ({
   label,
@@ -32,10 +29,7 @@ const MultipleSelectSmallDevice: FC<MultipleSelectPropsType<string>> = ({
   return (
     <div className="input">
       <div
-        className={classList([
-          "input-label",
-          active ? "input-label-active" : "",
-        ])}
+        className={classNames("input-label", { "input-label-active": active })}
       >
         {label}
       </div>

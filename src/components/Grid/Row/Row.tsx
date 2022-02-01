@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import "./Row.scss";
-import classList from "@utils/classList/classList";
+import classNames from "classnames";
 
 export type RowPropsType = {
   align?: "start" | "end" | "center";
@@ -8,10 +8,10 @@ export type RowPropsType = {
 };
 
 const Row: FC<RowPropsType> = ({ children, spacing, align }) => {
-  const rootClasses = classList([
+  const rootClasses = classNames([
     "ep-row",
-    spacing ? `ep-row_spacing-${spacing}` : "",
-    align ? `ep-row_align_${align}` : "",
+    { [`ep-row_spacing-${spacing}`]: true },
+    { [`ep-row_align_${align}`]: true },
   ]);
   return <div className={rootClasses}>{children}</div>;
 };

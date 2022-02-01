@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import "./Avatar.scss";
-import {defaultProps} from "@utils/defaultProps";
+import { defaultProps } from "@utils/defaultProps";
+import classNames from "classnames";
 
 export type AvatarPropsType = defaultProps & {
   /**
@@ -37,12 +38,12 @@ const Avatar: FC<AvatarPropsType> = ({
   autoColor,
   className = "",
 }) => {
-  const rootClasses = [
+  const rootClasses = classNames(
     "avatar",
-    size ? `avatar-size_${size}` : "",
-    rounded ? "avatar-rounded" : "",
-    className,
-  ];
+    { [`avatar-size_${size}`]: true },
+    { "avatar-rounded": rounded },
+    className
+  );
 
   const colors = ["#b5eeeb", "#c5b5ee", "#dcb5ee"];
 
@@ -53,7 +54,7 @@ const Avatar: FC<AvatarPropsType> = ({
 
   return (
     <div
-      className={rootClasses.join(" ")}
+      className={rootClasses}
       style={{
         backgroundColor: autoColor
           ? colors[Math.floor(Math.random() * colors.length)]
