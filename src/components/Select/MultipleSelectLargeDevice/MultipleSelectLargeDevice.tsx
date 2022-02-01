@@ -53,17 +53,19 @@ const MultipleSelectLargeDevice: FC<MultipleSelectPropsType<any>> = ({
       return;
     }
 
-    if (selectedOptions.includes(option)) {
-      setSelectedOptions(
-        selectedOptions.filter((item) => item.name !== option.name)
-      );
-      console.log(1);
-    } else {
-      console.log(2);
-      setSelectedOptions([...selectedOptions, option]);
+    if (!onSelect) {
+      return;
     }
 
-    if (onSelect) {
+    if (selectedOptions.includes(option)) {
+      const result = selectedOptions.filter(
+        (item) => item.name !== option.name
+      );
+
+      setSelectedOptions(result);
+      onSelect(result);
+    } else {
+      setSelectedOptions([...selectedOptions, option]);
       onSelect([...selectedOptions, option]);
     }
   };
