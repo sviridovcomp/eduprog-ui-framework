@@ -69,6 +69,8 @@ const MultipleSelectLargeDevice: FC<MultipleSelectPropsType<any>> = ({
       setSelectedOptions(result);
       onSelect(result);
     }
+
+    console.log(selectedOptions);
   };
 
   const SelectPopup = options.map((option) => (
