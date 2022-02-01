@@ -9,6 +9,7 @@ export declare type NotificationPropsType = {
     onCloseTimeout?: () => void;
     onClose?: () => void;
     title: string;
+    stickTo: "left" | "right";
 };
 declare const Notification: FC<NotificationPropsType>;
 export default Notification;

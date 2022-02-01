@@ -37,6 +37,18 @@
     font-size: 0.8125rem;
   }
 
+  &__stick-to {
+    &_left {
+      left: 1rem;
+      transform: translate(-350px, 0);
+    }
+
+    &_right {
+      right: 1rem;
+      transform: translate(350px, 0);
+    }
+  }
+
   &__closer {
     position: absolute;
     top: 1rem;

@@ -15,6 +15,7 @@ export type NotificationPropsType = {
   onCloseTimeout?: () => void;
   onClose?: () => void;
   title: string;
+  stickTo: "left" | "right";
 };
 
 const Notification: FC<NotificationPropsType> = ({
@@ -26,6 +27,7 @@ const Notification: FC<NotificationPropsType> = ({
   title,
   children,
   onClose,
+  stickTo = "left",
 }) => {
   const autoCloseTimeoutRef = useRef(0);
   const closeTimeoutRef = useRef(0);
@@ -79,9 +81,13 @@ const Notification: FC<NotificationPropsType> = ({
   return (
     <div
       style={{ top: `${offset}px` }}
-      className={classNames("notification", {
-        "notification-visible": visible,
-      })}
+      className={classNames(
+        "notification",
+        {
+          "notification-visible": visible,
+        },
+        { [`notification__stick-to_${stickTo}`]: true }
+      )}
       {...swipeableHandlers}
     >
       <div className="notification__icon">
