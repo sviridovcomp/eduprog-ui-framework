@@ -16,7 +16,7 @@ const MultipleSelectLargeDevice: FC<MultipleSelectPropsType<any>> = ({
   onSelect,
 }) => {
   const [selectedOptions, setSelectedOptions] = useState<
-    Array<MultipleSelectValue<string>>
+    Array<MultipleSelectValue<any>>
   >([]);
 
   const SelectToggle = (
@@ -40,7 +40,7 @@ const MultipleSelectLargeDevice: FC<MultipleSelectPropsType<any>> = ({
     />
   );
 
-  const disabledPredicate = (option: MultipleSelectValue<string>) => {
+  const disabledPredicate = (option: MultipleSelectValue<any>) => {
     return (
       maxSelectedOptions !== undefined &&
       selectedOptions.length >= maxSelectedOptions &&
@@ -48,7 +48,7 @@ const MultipleSelectLargeDevice: FC<MultipleSelectPropsType<any>> = ({
     );
   };
 
-  const selectOption = (option: MultipleSelectValue<string>) => {
+  const selectOption = (option: MultipleSelectValue<any>) => {
     if (disabledPredicate(option)) {
       return;
     }
@@ -64,13 +64,13 @@ const MultipleSelectLargeDevice: FC<MultipleSelectPropsType<any>> = ({
 
       setSelectedOptions(result);
       onSelect(result);
+      return;
     } else {
       const result = [...selectedOptions, option];
       setSelectedOptions(result);
       onSelect(result);
+      return;
     }
-
-    console.log(selectedOptions);
   };
 
   const SelectPopup = options.map((option) => (
