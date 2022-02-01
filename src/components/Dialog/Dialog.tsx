@@ -1,6 +1,5 @@
 import React, { FC, useState } from "react";
 import "./Dialog.scss";
-import classList from "@utils/classList/classList";
 import classNames from "classnames";
 
 export type DialogPropsType = {

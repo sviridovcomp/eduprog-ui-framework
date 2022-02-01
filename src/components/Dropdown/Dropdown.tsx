@@ -1,6 +1,5 @@
 import React, { FC, useRef, useState } from "react";
 import "./Dropdown.scss";
-import classList from "@utils/classList/classList";
 import { defaultProps } from "@utils/defaultProps";
 import classNames from "classnames";
 

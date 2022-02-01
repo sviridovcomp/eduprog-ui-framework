@@ -1,19 +1,30 @@
 import React, { FC } from "react";
 import "./Paragraph.scss";
-import classList from "@utils/classList/classList";
+import { defaultProps } from "@utils/defaultProps";
+import classNames from "classnames";
 
-export type ParagraphPropsType = {
+export type ParagraphPropsType = defaultProps & {
   children: string;
   size: "xs" | "sm" | "md" | "lg" | "xl";
 };
 
-const Paragraph: FC<ParagraphPropsType> = ({ children, size = "md" }) => {
-  const rootClasses = classList([
+const Paragraph: FC<ParagraphPropsType> = ({
+  children,
+  style,
+  className = "",
+  size = "md",
+}) => {
+  const rootClasses = classNames([
     "paragraph",
-    size ? `paragraph-size_${size}` : "",
+    { [`paragraph-size_${size}`]: true },
+    className,
   ]);
 
-  return <p className={rootClasses}>{children}</p>;
+  return (
+    <p style={style} className={rootClasses}>
+      {children}
+    </p>
+  );
 };
 
 export default Paragraph;

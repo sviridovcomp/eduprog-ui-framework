@@ -1,6 +1,7 @@
 import { FC } from "react";
 import "./Paragraph.scss";
-export declare type ParagraphPropsType = {
+import { defaultProps } from "@utils/defaultProps";
+export declare type ParagraphPropsType = defaultProps & {
     children: string;
     size: "xs" | "sm" | "md" | "lg" | "xl";
 };

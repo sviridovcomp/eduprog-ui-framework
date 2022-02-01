@@ -1,6 +1,6 @@
 import React, { FC, useState } from "react";
 import "./BaseInput.scss";
-import classList from "@utils/classList/classList";
+import classNames from "classnames";
 
 export type TextInputProps = {
   /**
@@ -148,10 +148,9 @@ const BaseInput: FC<TextInputProps> = ({
   return (
     <div className="input">
       <div
-        className={classList([
-          "input-label",
-          forceFocus || active || defaultValue ? "input-label-active" : "",
-        ])}
+        className={classNames("input-label", {
+          "input-label-active": forceFocus || active || defaultValue,
+        })}
       >
         {label}
       </div>
