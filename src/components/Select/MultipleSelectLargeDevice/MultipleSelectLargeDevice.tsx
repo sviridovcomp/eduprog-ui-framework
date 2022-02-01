@@ -13,16 +13,13 @@ const MultipleSelectLargeDevice: FC<MultipleSelectPropsType<any>> = ({
   label,
   options,
   maxSelectedOptions = undefined,
-  onSelect,
+  onChange,
+  value,
 }) => {
-  const [selectedOptions, setSelectedOptions] = useState<
-    Array<MultipleSelectValue<any>>
-  >([]);
-
   const SelectToggle = (
     <BaseInput
       label={label}
-      defaultValue={selectedOptions.map((item) => item.name).join(", ")}
+      defaultValue={value?.map((item) => item.name).join(", ")}
       cursor="pointer"
       readonly
       rightAdditional={
@@ -42,9 +39,10 @@ const MultipleSelectLargeDevice: FC<MultipleSelectPropsType<any>> = ({
 
   const disabledPredicate = (option: MultipleSelectValue<any>) => {
     return (
+      value &&
       maxSelectedOptions !== undefined &&
-      selectedOptions.length >= maxSelectedOptions &&
-      !selectedOptions.includes(option)
+      value.length >= maxSelectedOptions &&
+      !value.includes(option)
     );
   };
 
@@ -53,27 +51,17 @@ const MultipleSelectLargeDevice: FC<MultipleSelectPropsType<any>> = ({
       return;
     }
 
-    if (!onSelect) {
+    if (!onChange) {
       return;
     }
 
-    if (
-      selectedOptions.some(
-        (selectedOption) => selectedOption.name == option.name
-      )
-    ) {
-      const result = selectedOptions.filter(
-        (item) => item.name !== option.name
-      );
+    if (value?.some((selectedOption) => selectedOption.name == option.name)) {
+      const result = value.filter((item) => item.name !== option.name);
 
-      setSelectedOptions(result);
-      console.log(1, result);
-      onSelect(result);
+      onChange(result);
     } else {
-      const result = [...selectedOptions, option];
-      setSelectedOptions(result);
-      console.log(2, result);
-      onSelect(result);
+      const result = [...value!, option];
+      onChange(result);
     }
   };
 

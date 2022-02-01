@@ -12,7 +12,7 @@ const MultipleSelectSmallDevice: FC<MultipleSelectPropsType<string>> = ({
   maxSelectedOptions,
   name = "",
   options,
-  onSelect,
+  onChange,
 }) => {
   const [active, setActive] = useState(false);
   const [selectedOptions, setSelectedOptions] = useState<Array<string>>([]);
