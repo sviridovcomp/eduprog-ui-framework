@@ -2,7 +2,7 @@ import React, { FC, useRef, useState } from "react";
 import "./Dropdown.scss";
 import { defaultProps } from "@utils/defaultProps";
 import classNames from "classnames";
-import { useClickOutside } from "eduprog-hooks";
+import { useClickOutside } from "@utils/hooks/useClickOutside";
 
 export type DropdownPropsType = defaultProps & {
   /**
