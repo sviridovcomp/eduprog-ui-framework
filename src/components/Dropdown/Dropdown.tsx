@@ -2,6 +2,7 @@ import React, { FC, useRef, useState } from "react";
 import "./Dropdown.scss";
 import { defaultProps } from "@utils/defaultProps";
 import classNames from "classnames";
+import { useClickOutside } from "eduprog-hooks";
 
 export type DropdownPropsType = defaultProps & {
   /**
@@ -55,12 +56,12 @@ const Dropdown: FC<DropdownPropsType> = ({
 }) => {
   const [active, setActive] = useState(false);
   const dropdownItem = useRef<HTMLDivElement>(null);
+  useClickOutside(dropdownItem, () => {
+    setActive(false);
+  });
+
   const onClick = () => {
     setActive(!active);
-
-    if (dismissible == "outside") {
-      dropdownItem.current?.focus();
-    }
   };
 
   return (
@@ -84,9 +85,7 @@ const Dropdown: FC<DropdownPropsType> = ({
         })}
       >
         <div
-          tabIndex={1}
           ref={dropdownItem}
-          onBlur={() => dismissible == "outside" && setActive(false)}
           className={classNames(
             "dropdown-item",
             { [`dropdown-item-direction_${direction}`]: true },

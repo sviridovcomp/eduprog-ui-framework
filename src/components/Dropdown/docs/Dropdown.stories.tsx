@@ -21,13 +21,8 @@ export const Playground = Template.bind({});
 Playground.args = {
   children: (
     <div>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquam
-      aperiam aspernatur consequuntur corporis culpa deserunt dolorem eligendi
-      enim, eos fugit, hic magnam maxime minima perspiciatis quasi saepe ut
-      voluptates.
+      <Button>Delete</Button>
     </div>
   ),
-	toggle: (
-		<Button>Dropdown</Button>
-	)
+  toggle: <Button>Dropdown</Button>,
 };
