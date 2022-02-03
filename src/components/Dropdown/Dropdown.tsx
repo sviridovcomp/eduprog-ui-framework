@@ -2,7 +2,7 @@ import React, { FC, useRef, useState } from "react";
 import "./Dropdown.scss";
 import { defaultProps } from "@utils/defaultProps";
 import classNames from "classnames";
-import { useClickOutside } from "@utils/hooks/useClickOutside";
+import { useClickAway } from "@utils/hooks/useClickAway";
 
 export type DropdownPropsType = defaultProps & {
   /**
@@ -56,7 +56,7 @@ const Dropdown: FC<DropdownPropsType> = ({
 }) => {
   const [active, setActive] = useState(false);
   const dropdownItem = useRef<HTMLDivElement>(null);
-  useClickOutside(dropdownItem, () => {
+  useClickAway(dropdownItem, () => {
     setActive(false);
   });
 
