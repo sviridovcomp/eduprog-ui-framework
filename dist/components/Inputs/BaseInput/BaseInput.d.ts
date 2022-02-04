@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import "./BaseInput.scss";
-export declare type TextInputProps = {
+import { defaultProps } from "@utils/defaultProps";
+export declare type TextInputProps = defaultProps & {
     /**
      * Лейбл для поля ввода
      */
