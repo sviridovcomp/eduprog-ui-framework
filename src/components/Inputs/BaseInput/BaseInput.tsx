@@ -1,8 +1,9 @@
 import React, { FC, useState } from "react";
 import "./BaseInput.scss";
 import classNames from "classnames";
+import { defaultProps } from "@utils/defaultProps";
 
-export type TextInputProps = {
+export type TextInputProps = defaultProps & {
   /**
    * Лейбл для поля ввода
    */
@@ -110,6 +111,7 @@ const BaseInput: FC<TextInputProps> = ({
   cursor = "text",
   onClick,
   forceFocus = false,
+  className = "",
 }) => {
   const [active, setActive] = useState(false);
 
@@ -159,7 +161,7 @@ const BaseInput: FC<TextInputProps> = ({
         <div className="input-left">{leftAdditional}</div>
 
         <input
-          className="input-control"
+          className={classNames("input-control", className)}
           type={inputType == "card" ? "tel" : inputType}
           maxLength={maxLength}
           placeholder={active ? mask : ""}
@@ -175,6 +177,7 @@ const BaseInput: FC<TextInputProps> = ({
           readOnly={readonly}
           autoComplete={autocomplete}
           style={{ cursor: cursor }}
+          autoFocus={forceFocus}
         />
 
         <div className="input-right" style={{ cursor: cursor }}>
