@@ -70,6 +70,7 @@ export declare type TextInputProps = defaultProps & {
      *
      */
     forceFocus?: boolean;
+    required?: boolean;
 };
 declare const BaseInput: FC<TextInputProps>;
 export default BaseInput;
