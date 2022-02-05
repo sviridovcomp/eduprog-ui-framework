@@ -91,6 +91,8 @@ export type TextInputProps = defaultProps & {
    *
    */
   forceFocus?: boolean;
+
+  required?: boolean;
 };
 
 const BaseInput: FC<TextInputProps> = ({
@@ -112,6 +114,7 @@ const BaseInput: FC<TextInputProps> = ({
   onClick,
   forceFocus = false,
   className = "",
+  required = false,
 }) => {
   const [active, setActive] = useState(false);
 
@@ -178,6 +181,7 @@ const BaseInput: FC<TextInputProps> = ({
           autoComplete={autocomplete}
           style={{ cursor: cursor }}
           autoFocus={forceFocus}
+          required={required}
         />
 
         <div className="input-right" style={{ cursor: cursor }}>

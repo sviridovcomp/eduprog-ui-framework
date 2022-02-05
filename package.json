@@ -87,5 +87,8 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/edu-prog/eduprog-ui-framework.git"
+  },
+  "dependencies": {
+    "@types/classnames": "^2.3.1"
   }
 }
