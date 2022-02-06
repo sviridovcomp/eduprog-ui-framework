@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 import "./Dialog.scss";
 import classNames from "classnames";
 
@@ -9,11 +9,6 @@ export type DialogPropsType = {
   label?: string;
 
   /**
-   * Элемент триггер, при нажатии, на который диалог открывается
-   */
-  toggle: React.ReactNode;
-
-  /**
    * Контент диалога
    */
   children: React.ReactNode;
@@ -22,6 +17,10 @@ export type DialogPropsType = {
    * Размер диалога
    */
   size: "xs" | "sm" | "md" | "lg" | "xl" | "fluid" | "page";
+
+  open?: boolean;
+
+  onClose?: () => void;
 };
 
 /**
@@ -29,35 +28,27 @@ export type DialogPropsType = {
  */
 const Dialog: FC<DialogPropsType> = ({
   label,
-  toggle,
   children,
   size = "md",
+  open = false,
+  onClose,
 }) => {
-  const [active, setActive] = useState(false);
-  const toggleDialog = () => {
-    setActive(!active);
-  };
-
   return (
     <div className="dialog">
-      <div className="dialog-toggle" onClick={toggleDialog}>
-        {toggle}
-      </div>
-
-      {active && (
+      {open && (
         <>
           <div
             className={classNames("dialog-transition_fade", {
-              "dialog-transition_fade-active": active,
+              "dialog-transition_fade-active": open,
             })}
           >
-            <div className="dialog-wrapper" onClick={() => setActive(false)} />
+            <div className="dialog-wrapper" onClick={onClose} />
           </div>
           <div
             className={classNames(
               "dialog-body",
               "dialog-transition_pop",
-              { "dialog-transition_pop-active": active },
+              { "dialog-transition_pop-active": open },
               { [`dialog-body-size_${size}`]: true }
             )}
           >

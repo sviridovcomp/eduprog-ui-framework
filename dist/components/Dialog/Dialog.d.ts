@@ -6,10 +6,6 @@ export declare type DialogPropsType = {
      */
     label?: string;
     /**
-     * Элемент триггер, при нажатии, на который диалог открывается
-     */
-    toggle: React.ReactNode;
-    /**
      * Контент диалога
      */
     children: React.ReactNode;
@@ -17,6 +13,8 @@ export declare type DialogPropsType = {
      * Размер диалога
      */
     size: "xs" | "sm" | "md" | "lg" | "xl" | "fluid" | "page";
+    open?: boolean;
+    onClose?: () => void;
 };
 /**
  * Компонент реализующий всплывающие диалоги
