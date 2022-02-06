@@ -1,5 +1,6 @@
 import React, { FC } from "react";
-export declare type InputPhonePropsType = {
+import { TextInputProps } from "../BaseInput/BaseInput";
+export declare type InputPhonePropsType = TextInputProps & {
     /**
      * Заголовок input
      */

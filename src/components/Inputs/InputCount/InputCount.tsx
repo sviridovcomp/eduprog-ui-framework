@@ -1,9 +1,8 @@
 import React, { FC, useState } from "react";
-import BaseInput from "../BaseInput/BaseInput";
+import BaseInput, { TextInputProps } from "../BaseInput/BaseInput";
 import "./InputCount.scss";
-import { defaultProps } from "@utils/defaultProps";
 
-export type InputCountPropsType = defaultProps & {
+export type InputCountPropsType = TextInputProps & {
   /**
    * заголовок input
    */
@@ -42,6 +41,7 @@ const InputCount: FC<InputCountPropsType> = ({
   step = 1,
   name = "",
   onChange,
+  ...rest
 }) => {
   const [count, setCount] = useState(0);
 
@@ -82,6 +82,7 @@ const InputCount: FC<InputCountPropsType> = ({
         defaultValue={count.toString()}
         name={name}
         onChange={inputChange}
+        {...rest}
       />
 
       <div className="input-count-controller">

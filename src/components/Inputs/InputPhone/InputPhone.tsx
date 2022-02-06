@@ -1,7 +1,7 @@
 import React, { FC, useState } from "react";
-import BaseInput from "../BaseInput/BaseInput";
+import BaseInput, { TextInputProps } from "../BaseInput/BaseInput";
 
-export type InputPhonePropsType = {
+export type InputPhonePropsType = TextInputProps & {
   /**
    * Заголовок input
    */
@@ -19,7 +19,7 @@ export type InputPhonePropsType = {
 /**
  * InputPhone - поле ввода мобильного телефона
  */
-const InputPhone: FC<InputPhonePropsType> = ({ label, onChange }) => {
+const InputPhone: FC<InputPhonePropsType> = ({ label, onChange, ...rest }) => {
   const [phoneNumber, setPhoneNumber] = useState("");
 
   const mappedPhoneNumber = (phoneNumber: string) => {
@@ -107,6 +107,7 @@ const InputPhone: FC<InputPhonePropsType> = ({ label, onChange }) => {
       onPaste={inputPaste}
       onKeyDown={inputKeyDown}
       label={label}
+      {...rest}
     />
   );
 };

@@ -36,6 +36,7 @@ const InputCopy: FC<InputCopyPropsType> = ({
   copyLabel = "Скопировано",
   onChange,
   name = "",
+  ...rest
 }) => {
   const [value, setValue] = useState("");
   const [activePopup, setActivePopup] = useState(false);
@@ -75,6 +76,7 @@ const InputCopy: FC<InputCopyPropsType> = ({
         onChange={onInputChange}
         label={label}
         name={name}
+        {...rest}
         rightAdditional={
           <svg
             className="input-copy-copy"

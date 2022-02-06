@@ -1,6 +1,7 @@
 import React, { FC } from "react";
+import { TextInputProps } from "../BaseInput/BaseInput";
 import "./InputPassword.scss";
-export declare type InputPasswordPropsType = {
+export declare type InputPasswordPropsType = TextInputProps & {
     /**
      * Заголовок input
      */

@@ -1,7 +1,7 @@
 import { FC } from "react";
+import { TextInputProps } from "../BaseInput/BaseInput";
 import "./InputCount.scss";
-import { defaultProps } from "@utils/defaultProps";
-export declare type InputCountPropsType = defaultProps & {
+export declare type InputCountPropsType = TextInputProps & {
     /**
      * заголовок input
      */

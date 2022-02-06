@@ -1,8 +1,8 @@
 import React, { FC, useState } from "react";
-import BaseInput from "../BaseInput/BaseInput";
+import BaseInput, { TextInputProps } from "../BaseInput/BaseInput";
 import "./InputPassword.scss";
 
-export type InputPasswordPropsType = {
+export type InputPasswordPropsType = TextInputProps & {
   /**
    * Заголовок input
    */
@@ -38,6 +38,7 @@ const InputPassword: FC<InputPasswordPropsType> = ({
   required = false,
   pattern,
   validationMessage = "",
+  ...rest
 }) => {
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [value, setValue] = useState("");
@@ -64,6 +65,7 @@ const InputPassword: FC<InputPasswordPropsType> = ({
         required={required}
         pattern={pattern}
         validationMessage={validationMessage}
+        {...rest}
         rightAdditional={
           <div
             className="input-password-toggler"
