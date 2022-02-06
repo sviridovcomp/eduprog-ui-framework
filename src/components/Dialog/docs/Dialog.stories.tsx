@@ -60,5 +60,4 @@ Playground.args = {
       </Expand>
     </div>
   ),
-  toggle: <Button>Dialog</Button>,
 };
