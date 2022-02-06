@@ -150,7 +150,7 @@ const BaseInput: FC<TextInputProps> = ({
   };
 
   const validation = () => {
-    if (defaultValue?.length == 0) {
+    if (required && defaultValue?.length == 0) {
       setValidationStatus(ValidityStatus.Invalid);
       return;
     }
@@ -226,7 +226,6 @@ const BaseInput: FC<TextInputProps> = ({
             autoComplete={autocomplete}
             style={{ cursor: cursor }}
             autoFocus={forceFocus}
-            required={required}
           />
 
           <div className="input-right" style={{ cursor: cursor }}>
