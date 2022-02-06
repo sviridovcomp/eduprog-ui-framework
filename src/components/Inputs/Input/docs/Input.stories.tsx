@@ -17,4 +17,6 @@ export const Playground = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Playground.args = {
   label: "Input",
+  pattern: /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/,
+  validationMessage: "Неправильно введен пароль.",
 };

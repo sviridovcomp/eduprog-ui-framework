@@ -52,6 +52,8 @@ export type TextInputProps = defaultProps & {
    */
   onKeyDown?: (event?: React.KeyboardEvent<HTMLInputElement>) => void;
 
+  onBlur?: () => void;
+
   /**
    * Добавление дополнительных элементов к инпуту слева
    */
@@ -65,7 +67,7 @@ export type TextInputProps = defaultProps & {
   /**
    * Паттерн валидации input
    */
-  pattern?: string;
+  pattern?: RegExp;
 
   /**
    * Имя элемента в DOM
@@ -93,6 +95,11 @@ export type TextInputProps = defaultProps & {
   forceFocus?: boolean;
 
   required?: boolean;
+
+  /**
+   * Сообщение валидатора
+   */
+  validationMessage?: string;
 };
 
 const BaseInput: FC<TextInputProps> = ({
@@ -106,17 +113,27 @@ const BaseInput: FC<TextInputProps> = ({
   onKeyDown,
   leftAdditional,
   rightAdditional,
-  pattern = "",
+  pattern,
   name = "",
   readonly = false,
   autocomplete = "none",
   cursor = "text",
   onClick,
+  onBlur,
   forceFocus = false,
   className = "",
   required = false,
+  validationMessage = "",
 }) => {
+  enum ValidityStatus {
+    Invalid,
+    Valid,
+  }
+
   const [active, setActive] = useState(false);
+  const [validationStatus, setValidationStatus] = useState(
+    ValidityStatus.Valid
+  );
 
   const inputFocus = () => {
     setActive(!active);
@@ -124,6 +141,27 @@ const BaseInput: FC<TextInputProps> = ({
 
   const inputBlur = () => {
     setActive(!active);
+
+    validation();
+
+    if (onBlur) {
+      onBlur();
+    }
+  };
+
+  const validation = () => {
+    if (defaultValue?.length == 0) {
+      setValidationStatus(ValidityStatus.Invalid);
+      return;
+    }
+
+    if (pattern) {
+      if (!pattern.test(defaultValue)) {
+        setValidationStatus(ValidityStatus.Invalid);
+      } else {
+        setValidationStatus(ValidityStatus.Valid);
+      }
+    }
   };
 
   const inputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -151,44 +189,59 @@ const BaseInput: FC<TextInputProps> = ({
   };
 
   return (
-    <div className="input">
-      <div
-        className={classNames("input-label", {
-          "input-label-active": forceFocus || active || defaultValue,
-        })}
-      >
-        {label}
-      </div>
+    <>
+      <div className="input">
+        <div
+          className={classNames("input-label", {
+            "input-label-active": forceFocus || active || defaultValue,
+          })}
+        >
+          {label}
+        </div>
 
-      <div className="input-field">
-        <div className="input-left">{leftAdditional}</div>
+        <div className="input-field">
+          <div className="input-left">{leftAdditional}</div>
 
-        <input
-          className={classNames("input-control", className)}
-          type={inputType == "card" ? "tel" : inputType}
-          maxLength={maxLength}
-          placeholder={active ? mask : ""}
-          onFocus={inputFocus}
-          onBlur={inputBlur}
-          value={defaultValue}
-          onClick={() => inputClicked()}
-          onChange={(event) => inputChange(event)}
-          onPaste={(event) => inputPaste(event)}
-          onKeyDown={(event) => inputKeyDown(event)}
-          pattern={pattern}
-          name={name}
-          readOnly={readonly}
-          autoComplete={autocomplete}
-          style={{ cursor: cursor }}
-          autoFocus={forceFocus}
-          required={required}
-        />
+          <input
+            className={classNames(
+              "input-control",
+              {
+                "input-control-invalid":
+                  validationStatus == ValidityStatus.Invalid,
+              },
+              className
+            )}
+            type={inputType == "card" ? "tel" : inputType}
+            maxLength={maxLength}
+            placeholder={active ? mask : ""}
+            onFocus={inputFocus}
+            onBlur={inputBlur}
+            value={defaultValue}
+            onClick={() => inputClicked()}
+            onChange={(event) => inputChange(event)}
+            onPaste={(event) => inputPaste(event)}
+            onKeyDown={(event) => inputKeyDown(event)}
+            name={name}
+            readOnly={readonly}
+            autoComplete={autocomplete}
+            style={{ cursor: cursor }}
+            autoFocus={forceFocus}
+            required={required}
+          />
 
-        <div className="input-right" style={{ cursor: cursor }}>
-          {rightAdditional}
+          <div className="input-right" style={{ cursor: cursor }}>
+            {rightAdditional}
+          </div>
         </div>
       </div>
-    </div>
+      <div
+        className={classNames("input-validator", {
+          "input-validator-show": validationStatus == ValidityStatus.Invalid,
+        })}
+      >
+        {validationMessage}
+      </div>
+    </>
   );
 };
 

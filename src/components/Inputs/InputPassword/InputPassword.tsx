@@ -16,7 +16,12 @@ export type InputPasswordPropsType = {
     event?: React.ChangeEvent<HTMLInputElement>
   ) => void;
 
+  /**
+   * Название компонента в DOM
+   */
   name?: string;
+
+  required?: boolean;
 };
 
 /**
@@ -26,6 +31,7 @@ const InputPassword: FC<InputPasswordPropsType> = ({
   label,
   onChange,
   name = "",
+  required = false,
 }) => {
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [value, setValue] = useState("");
@@ -49,6 +55,7 @@ const InputPassword: FC<InputPasswordPropsType> = ({
         label={label}
         name={name}
         defaultValue={value}
+        required={required}
         rightAdditional={
           <div
             className="input-password-toggler"
