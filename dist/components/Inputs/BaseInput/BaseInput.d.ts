@@ -76,6 +76,7 @@ export declare type TextInputProps = defaultProps & {
      * Сообщение валидатора
      */
     validationMessage?: string;
+    autoFocus?: boolean;
 };
 declare const BaseInput: FC<TextInputProps>;
 export default BaseInput;

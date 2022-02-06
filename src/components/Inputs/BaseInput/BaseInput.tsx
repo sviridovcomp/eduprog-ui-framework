@@ -216,7 +216,7 @@ const BaseInput: FC<TextInputProps> = ({
             )}
             type={inputType == "card" ? "tel" : inputType}
             maxLength={maxLength}
-            placeholder={active ? mask : ""}
+            placeholder={active || forceFocus ? mask : ""}
             onFocus={inputFocus}
             onBlur={inputBlur}
             value={defaultValue}
