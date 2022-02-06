@@ -38,6 +38,7 @@ export declare type TextInputProps = defaultProps & {
      * Событие нажатия input
      */
     onKeyDown?: (event?: React.KeyboardEvent<HTMLInputElement>) => void;
+    onBlur?: () => void;
     /**
      * Добавление дополнительных элементов к инпуту слева
      */
@@ -49,7 +50,7 @@ export declare type TextInputProps = defaultProps & {
     /**
      * Паттерн валидации input
      */
-    pattern?: string;
+    pattern?: RegExp;
     /**
      * Имя элемента в DOM
      */
@@ -71,6 +72,10 @@ export declare type TextInputProps = defaultProps & {
      */
     forceFocus?: boolean;
     required?: boolean;
+    /**
+     * Сообщение валидатора
+     */
+    validationMessage?: string;
 };
 declare const BaseInput: FC<TextInputProps>;
 export default BaseInput;

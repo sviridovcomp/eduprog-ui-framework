@@ -9,7 +9,11 @@ export declare type InputPasswordPropsType = {
      * Событие обновления input
      */
     onChange?: (value: string, event?: React.ChangeEvent<HTMLInputElement>) => void;
+    /**
+     * Название компонента в DOM
+     */
     name?: string;
+    required?: boolean;
 };
 /**
  * InputCopy позволяет пользователю копировать текст текстового поля
