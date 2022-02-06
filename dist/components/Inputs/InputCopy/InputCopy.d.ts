@@ -1,6 +1,7 @@
 import React, { FC } from "react";
+import { TextInputProps } from "../BaseInput/BaseInput";
 import "./InputCopy.scss";
-export declare type InputCopyPropsType = {
+export declare type InputCopyPropsType = TextInputProps & {
     /**
      * Заголовок input
      */

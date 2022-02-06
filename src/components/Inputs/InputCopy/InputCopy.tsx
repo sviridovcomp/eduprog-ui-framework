@@ -1,9 +1,9 @@
 import React, { FC, useState } from "react";
-import BaseInput from "../BaseInput/BaseInput";
+import BaseInput, { TextInputProps } from "../BaseInput/BaseInput";
 import "./InputCopy.scss";
 import classNames from "classnames";
 
-export type InputCopyPropsType = {
+export type InputCopyPropsType = TextInputProps & {
   /**
    * Заголовок input
    */
