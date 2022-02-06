@@ -22,6 +22,10 @@ export type InputPasswordPropsType = {
   name?: string;
 
   required?: boolean;
+
+  pattern?: RegExp;
+
+  validationMessage?: string;
 };
 
 /**
@@ -32,6 +36,8 @@ const InputPassword: FC<InputPasswordPropsType> = ({
   onChange,
   name = "",
   required = false,
+  pattern,
+  validationMessage = "",
 }) => {
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [value, setValue] = useState("");
@@ -56,6 +62,8 @@ const InputPassword: FC<InputPasswordPropsType> = ({
         name={name}
         defaultValue={value}
         required={required}
+        pattern={pattern}
+        validationMessage={validationMessage}
         rightAdditional={
           <div
             className="input-password-toggler"

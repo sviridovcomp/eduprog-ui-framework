@@ -14,6 +14,8 @@ export declare type InputPasswordPropsType = {
      */
     name?: string;
     required?: boolean;
+    pattern?: RegExp;
+    validationMessage?: string;
 };
 /**
  * InputCopy позволяет пользователю копировать текст текстового поля
