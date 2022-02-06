@@ -100,6 +100,8 @@ export type TextInputProps = defaultProps & {
    * Сообщение валидатора
    */
   validationMessage?: string;
+
+  autoFocus?: boolean;
 };
 
 const BaseInput: FC<TextInputProps> = ({
@@ -120,6 +122,7 @@ const BaseInput: FC<TextInputProps> = ({
   cursor = "text",
   onClick,
   onBlur,
+  autoFocus = false,
   forceFocus = false,
   className = "",
   required = false,
@@ -225,7 +228,7 @@ const BaseInput: FC<TextInputProps> = ({
             readOnly={readonly}
             autoComplete={autocomplete}
             style={{ cursor: cursor }}
-            autoFocus={forceFocus}
+            autoFocus={autoFocus}
           />
 
           <div className="input-right" style={{ cursor: cursor }}>
