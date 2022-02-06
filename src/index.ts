@@ -19,7 +19,6 @@ import Switch from "@components/Switch/Switch";
 import MultipleSelectLargeDevice from "@components/Select/MultipleSelectLargeDevice/MultipleSelectLargeDevice";
 import Notification from "@components/Notification/Notification";
 import BaseInput from "@components/Inputs/BaseInput/BaseInput";
-import "./styles/global_utils.scss";
 
 export {
   Button,
