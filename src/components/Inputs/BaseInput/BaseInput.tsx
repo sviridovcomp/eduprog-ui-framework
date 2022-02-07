@@ -236,13 +236,15 @@ const BaseInput: FC<TextInputProps> = ({
           </div>
         </div>
       </div>
-      <div
-        className={classNames("input-validator", {
-          "input-validator-show": validationStatus == ValidityStatus.Invalid,
-        })}
-      >
-        {validationMessage}
-      </div>
+      {pattern && (
+        <div
+          className={classNames("input-validator", {
+            "input-validator-show": validationStatus == ValidityStatus.Invalid,
+          })}
+        >
+          {validationMessage}
+        </div>
+      )}
     </>
   );
 };

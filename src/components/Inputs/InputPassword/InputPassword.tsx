@@ -43,6 +43,34 @@ const InputPassword: FC<InputPasswordPropsType> = ({
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [value, setValue] = useState("");
 
+  enum ErrorStatus {
+    TooShort,
+    TooEasy,
+    TooEasePickUp,
+  }
+  const [error, setError] = useState<ErrorStatus>();
+
+  const router = new Map([
+    [
+      ErrorStatus.TooShort,
+      ["Пароль слишком короткий", "Используйте хотя бы 6 символов"],
+    ],
+    [
+      ErrorStatus.TooEasy,
+      [
+        "Пароль слишком простой",
+        "Используйте большие и маленькие буквы, добавьте цифры",
+      ],
+    ],
+    [
+      ErrorStatus.TooEasePickUp,
+      [
+        "Пароль легко подобрать",
+        "Замените одну или две маленькие буквы большими, добавьте цифры",
+      ],
+    ],
+  ]);
+
   const onInputChange = (
     value: string,
     event?: React.ChangeEvent<HTMLInputElement>
@@ -51,6 +79,16 @@ const InputPassword: FC<InputPasswordPropsType> = ({
 
     if (onChange && event) {
       onChange(value, event);
+    }
+
+    if (value.length < 6) {
+      setError(ErrorStatus.TooShort);
+    } else if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(value)) {
+      setError(ErrorStatus.TooEasy);
+    } else if (value.toLowerCase().includes("qwe")) {
+      setError(ErrorStatus.TooEasePickUp);
+    } else {
+      setError(undefined);
     }
   };
 
@@ -102,6 +140,19 @@ const InputPassword: FC<InputPasswordPropsType> = ({
           </div>
         }
       />
+
+      <div
+        className="input-password-validate"
+        style={{
+          color: `${error == ErrorStatus.TooEasePickUp ? "orange" : "red"}`,
+        }}
+      >
+        {error != undefined ? router.get(error)![0] : ""}
+      </div>
+
+      <div className="input-password-validate-advice">
+        {error != undefined ? router.get(error)![1] : ""}
+      </div>
     </div>
   );
 };
