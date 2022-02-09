@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import "./BaseInput.scss";
 import classNames from "classnames";
 import { defaultProps } from "@utils/defaultProps";
@@ -151,6 +151,12 @@ const BaseInput: FC<TextInputProps> = ({
       onBlur();
     }
   };
+
+  useEffect(() => {
+    if (defaultValue?.length > 0) {
+      validation();
+    }
+  });
 
   const validation = () => {
     if (required && defaultValue?.length == 0) {

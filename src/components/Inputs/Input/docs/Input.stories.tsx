@@ -18,5 +18,5 @@ export const Playground = Template.bind({});
 Playground.args = {
   label: "Input",
   pattern: /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/,
-  validationMessage: "Неправильно введен пароль.",
+  validationMessage: "Неправильно введен email.",
 };
