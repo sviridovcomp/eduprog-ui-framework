@@ -26,6 +26,8 @@ export type InputPasswordPropsType = TextInputProps & {
   pattern?: RegExp;
 
   validationMessage?: string;
+
+  noValidation?: boolean;
 };
 
 /**
@@ -38,6 +40,7 @@ const InputPassword: FC<InputPasswordPropsType> = ({
   required = false,
   pattern,
   validationMessage = "",
+  noValidation = false,
   ...rest
 }) => {
   const [passwordVisible, setPasswordVisible] = useState(false);
@@ -141,18 +144,21 @@ const InputPassword: FC<InputPasswordPropsType> = ({
         }
       />
 
-      <div
-        className="input-password-validate"
-        style={{
-          color: `${error == ErrorStatus.TooEasePickUp ? "orange" : "red"}`,
-        }}
-      >
-        {error != undefined ? router.get(error)![0] : ""}
-      </div>
-
-      <div className="input-password-validate-advice">
-        {error != undefined ? router.get(error)![1] : ""}
-      </div>
+      {!noValidation && (
+        <>
+          <div
+            className="input-password-validate"
+            style={{
+              color: `${error == ErrorStatus.TooEasePickUp ? "orange" : "red"}`,
+            }}
+          >
+            {error != undefined ? router.get(error)![0] : ""}
+          </div>
+          <div className="input-password-validate-advice">
+            {error != undefined ? router.get(error)![1] : ""}
+          </div>
+        </>
+      )}
     </div>
   );
 };
