@@ -49,6 +49,9 @@ export type ButtonPropsType = defaultProps & {
    */
   labelJustifyContent?: "center" | "space-around";
 
+  /**
+   * Выравнивание лейбла кнопки по высоте
+   */
   labelAlignItems?: "center";
 };
 
