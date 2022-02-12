@@ -39,11 +39,14 @@ export type ButtonPropsType = defaultProps & {
    */
   contentRight?: React.ReactNode;
 
-  /*
+  /**
    * Тип поведения кнопки в форме
    */
   type?: "button" | "reset" | "submit";
 
+  /**
+   * Выравнивание лейбла кнопки по ширине
+   */
   labelJustifyContent?: "center" | "space-around";
 
   labelAlignItems?: "center";
