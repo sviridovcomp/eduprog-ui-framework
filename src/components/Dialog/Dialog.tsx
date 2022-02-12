@@ -23,6 +23,9 @@ export type DialogPropsType = {
    */
   open?: boolean;
 
+  /**
+   * Событие вызываемое при закрытии диалога
+   */
   onClose?: () => void;
 };
 
