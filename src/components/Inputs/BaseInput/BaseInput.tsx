@@ -94,6 +94,9 @@ export type TextInputProps = defaultProps & {
    */
   forceFocus?: boolean;
 
+  /**
+   * Обязательно для заполнения
+   */
   required?: boolean;
 
   /**
