@@ -18,6 +18,9 @@ export type DialogPropsType = {
    */
   size: "xs" | "sm" | "md" | "lg" | "xl" | "fluid" | "page";
 
+  /**
+   * Открыт ли диалог
+   */
   open?: boolean;
 
   onClose?: () => void;
