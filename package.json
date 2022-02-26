@@ -1,7 +1,7 @@
 {
   "name": "eduprog-ui-framework",
   "homepage": "http://edu-prog.github.io/eduprog-ui-framework",
-  "version": "4.0.0",
+  "version": "4.1.0",
   "main": "./dist/index.js",
   "license": "MIT",
   "devDependencies": {
@@ -48,6 +48,7 @@
     "js-sha256": "^0.9.0",
     "prettier": "^2.5.1",
     "react": "^18.0.0-rc.0-next-fe419346d-20220105",
+    "react-device-detect": "^2.1.2",
     "react-dom": "^18.0.0-rc.0-next-fe419346d-20220105",
     "react-swipeable": "^6.2.0",
     "react-test-renderer": "^18.0.0-rc.0-next-fe419346d-20220105",
