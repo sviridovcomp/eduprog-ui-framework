@@ -1,20 +1,14 @@
-import { MultipleSelectValue } from "@components/Select/MultipleSelect/MultipleSelectProps";
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import BaseInput from "@components/Inputs/BaseInput/BaseInput";
 import Dropdown from "@components/Dropdown/Dropdown";
 import { sha256 } from "js-sha256";
 import "./Select.scss";
+import {
+  SelectTypeProps,
+  SelectValue,
+} from "@components/Select/Select/SelectProps";
 
-export type SelectValue<Type> = MultipleSelectValue<Type>;
-
-export type ISelectProps<Type> = {
-  label: string;
-  options: Array<SelectValue<Type>>;
-  defaultValue: SelectValue<Type>;
-  onChange: (option: SelectValue<Type>) => void;
-};
-
-const SelectLargeDevice: FC<ISelectProps<any>> = ({
+const SelectLargeDevice: FC<SelectTypeProps<any>> = ({
   label,
   options,
   defaultValue,
@@ -45,11 +39,13 @@ const SelectLargeDevice: FC<ISelectProps<any>> = ({
 
   const onSelect = (option: SelectValue<any>) => {
     setValue(option);
+  };
 
+  useEffect(() => {
     if (onChange) {
       onChange(value);
     }
-  };
+  }, [value]);
 
   const SelectPopup = (
     <div className="select">
