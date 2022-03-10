@@ -40,6 +40,10 @@ export type DropdownPropsType = defaultProps & {
    * Когда dropdown закрывается
    */
   dismissible?: "always" | "toggle" | "outside";
+
+  onOpen?: () => void;
+
+  onClose?: () => void;
 };
 
 /**
@@ -53,15 +57,29 @@ const Dropdown: FC<DropdownPropsType> = ({
   fullwidth = false,
   dismissible = "always",
   style,
+  onOpen,
+  onClose,
 }) => {
   const [active, setActive] = useState(false);
   const dropdownItem = useRef<HTMLDivElement>(null);
   useClickAway(dropdownItem, () => {
+    if (dismissible != "outside") {
+      return;
+    }
+
     setActive(false);
+ 
+    if (onClose) {
+      onClose();
+    }
   });
 
   const onClick = () => {
     setActive(!active);
+
+    if (onOpen) {
+      onOpen();
+    }
   };
 
   return (
@@ -69,6 +87,8 @@ const Dropdown: FC<DropdownPropsType> = ({
       className={classNames("dropdown", { "dropdown-fullwidth": fullwidth })}
       onBlur={() => dismissible == "always" && setActive(false)}
       style={style}
+      ref={dropdownItem}
+    
     >
       <div
         className={classNames("dropdown-toggle", {
@@ -85,10 +105,9 @@ const Dropdown: FC<DropdownPropsType> = ({
         })}
       >
         <div
-          ref={dropdownItem}
           className={classNames(
             "dropdown-item",
-            { [`dropdown-item-direction_${direction}`]: true },
+            { [`dropdown-item-direction_${direction}`]: direction },
             { "dropdown-item-clearly": clearly },
             { "dropdown-fullwidth": fullwidth }
           )}

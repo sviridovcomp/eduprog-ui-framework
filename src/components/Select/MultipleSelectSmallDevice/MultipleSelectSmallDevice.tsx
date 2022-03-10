@@ -1,5 +1,8 @@
 import React, { FC, useState } from "react";
-import { MultipleSelectPropsType } from "@components/Select/MultipleSelect/MultipleSelectProps";
+import {
+  MultipleSelectPropsType,
+  MultipleSelectValue,
+} from "@components/Select/MultipleSelect/MultipleSelectProps";
 import "./MultipleSelectSmallDevice.scss";
 import { sha256 } from "js-sha256";
 import classNames from "classnames";
@@ -12,14 +15,27 @@ const MultipleSelectSmallDevice: FC<MultipleSelectPropsType<string>> = ({
   onChange,
 }) => {
   const [active, setActive] = useState(false);
-  const [selectedOptions, setSelectedOptions] = useState<Array<string>>([]);
+  const [selectedOptions, setSelectedOptions] = useState<
+    Array<MultipleSelectValue<any>>
+  >([]);
 
   const selectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const options = event.target.selectedOptions;
 
     setSelectedOptions(
-      [...options].map(({ value }) => value).slice(0, maxSelectedOptions)
+      [...options]
+        .map((item) => {
+          return {
+            name: item.label,
+            value: item.value,
+          } as MultipleSelectValue<any>;
+        })
+        .slice(0, maxSelectedOptions)
     );
+
+    if (onChange) {
+      onChange(selectedOptions);
+    }
   };
 
   const selectFocus = () => {
@@ -39,7 +55,7 @@ const MultipleSelectSmallDevice: FC<MultipleSelectPropsType<string>> = ({
           className="input-control"
           onFocus={selectFocus}
           onChange={selectChange}
-          style={{ width: "100%" }}
+          style={{ color: "transparent" }}
           name={name}
           size={1}
           multiple
@@ -52,7 +68,22 @@ const MultipleSelectSmallDevice: FC<MultipleSelectPropsType<string>> = ({
         </select>
 
         <div className="multiple-select-value">
-          {selectedOptions.join(", ")}
+          {selectedOptions
+            .map((selectedOption) => selectedOption.name)
+            .join(", ")}
+        </div>
+
+        <div className="multiple-select-icon">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M24 24H0V0h24v24z" fill="none" opacity=".87" />
+            <path d="M15.88 9.29L12 13.17 8.12 9.29c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41l4.59 4.59c.39.39 1.02.39 1.41 0l4.59-4.59c.39-.39.39-1.02 0-1.41-.39-.38-1.03-.39-1.42 0z" />
+          </svg>
         </div>
       </div>
     </div>

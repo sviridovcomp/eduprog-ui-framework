@@ -40,7 +40,7 @@ const Avatar: FC<AvatarPropsType> = ({
 }) => {
   const rootClasses = classNames(
     "avatar",
-    { [`avatar-size_${size}`]: true },
+    { [`avatar-size_${size}`]: size },
     { "avatar-rounded": rounded },
     className
   );

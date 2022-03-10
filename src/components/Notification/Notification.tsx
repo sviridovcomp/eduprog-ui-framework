@@ -32,7 +32,7 @@ const Notification: FC<NotificationPropsType> = ({
   const autoCloseTimeoutRef = useRef(0);
   const closeTimeoutRef = useRef(0);
 
-  const [isClosing, setIsClosing] = useState(false);
+  const [, setIsClosing] = useState(false);
 
   const startAutoCloseTimer = useCallback(() => {
     autoCloseTimeoutRef.current = window.setTimeout(() => {
@@ -83,7 +83,7 @@ const Notification: FC<NotificationPropsType> = ({
       style={{ top: `${offset}px` }}
       className={classNames(
         "notification",
-        { [`notification__stick-to_${stickTo}`]: true },
+        { [`notification__stick-to_${stickTo}`]: stickTo },
         {
           "notification-visible": visible,
         }

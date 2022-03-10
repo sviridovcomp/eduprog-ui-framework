@@ -39,7 +39,7 @@ const Switch: FC<SwitchProps> = ({
       <input type="checkbox" onChange={changing} name={name} checked={active} />
       <span
         className={classNames("switch-slider", {
-          [`switch-slider-${color}`]: true,
+          [`switch-slider-${color}`]: color,
         })}
       />
 

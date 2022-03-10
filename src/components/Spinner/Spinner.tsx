@@ -11,8 +11,8 @@ export type SpinnerPropsType = defaultProps & {
 const Spinner: FC<SpinnerPropsType> = ({ className = "", mode, color }) => {
   const rootClasses = classNames(
     "Spinner",
-    { [`Spinner-${mode}`]: true },
-    { [`Spinner-${mode}-${color}`]: true },
+    { [`Spinner-${mode}`]: mode },
+    { [`Spinner-${mode}-${color}`]: mode && color },
     className
   );
 

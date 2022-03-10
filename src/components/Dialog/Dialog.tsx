@@ -55,7 +55,7 @@ const Dialog: FC<DialogPropsType> = ({
               "dialog-body",
               "dialog-transition_pop",
               { "dialog-transition_pop-active": open },
-              { [`dialog-body-size_${size}`]: true }
+              { [`dialog-body-size_${size}`]: size }
             )}
           >
             <section className="dialog-header">

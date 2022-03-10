@@ -19,6 +19,7 @@ export type ButtonPropsType = defaultProps & {
    */
   onClick?: (event?: React.MouseEvent<HTMLButtonElement>) => void;
 
+  onMouseDown?: (event?: React.MouseEvent<HTMLButtonElement>) => void;
   /**
    *  Имя кнопки в DOM
    */
@@ -53,6 +54,21 @@ export type ButtonPropsType = defaultProps & {
    * Выравнивание лейбла кнопки по высоте
    */
   labelAlignItems?: "center";
+
+  /**
+   * Выключена ли кнопка
+   */
+  disabled?: boolean;
+
+  /**
+   * Круглая кнопка
+   */
+  rounded?: boolean;
+
+  /**
+   * Прогресс
+   */
+  progress?: boolean;
 };
 
 /**
@@ -63,6 +79,7 @@ const Button: FC<ButtonPropsType> = ({
   view = "default",
   size = "md",
   onClick,
+  onMouseDown,
   className = "",
   name,
   width = "default",
@@ -71,35 +88,46 @@ const Button: FC<ButtonPropsType> = ({
   type = "button",
   labelJustifyContent = "center",
   labelAlignItems = "center",
+  disabled = false,
+  rounded = false,
+  progress = false,
+  style,
 }) => {
-  const [active, setActive] = useState(false);
+  const [pressed, setPressed] = useState(false);
 
   const rootClasses = classNames(
+    { [`${className}`]: className },
     "Button",
-    { [`Button-view_${view}`]: true },
-    { [`Button-size_${size}`]: true },
-    { "Button-clicking": active },
-    { [`Button-width_${width}`]: true }
+    { [`Button-view_${view}`]: view },
+    { [`Button-size_${size}`]: size },
+    { "Button-pressed": pressed },
+    { [`Button-width_${width}`]: width },
+    { "Button-disabled": disabled },
+    { "Button-rounded": rounded },
+    { "Button-progress": progress }
   );
 
-  const clicking = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setActive(true);
+  const pressing = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setPressed(true);
 
     if (onClick) {
       onClick(event);
     }
 
     setTimeout(() => {
-      setActive(false);
+      setPressed(false);
     }, 400);
   };
 
   return (
     <button
-      className={`${rootClasses} ${className}`}
-      onClick={(event) => clicking(event)}
+      className={rootClasses}
+      onClick={(event) => pressing(event)}
+      onMouseDown={(event) => (onMouseDown ? onMouseDown(event) : null)}
       name={name}
       type={type}
+      disabled={disabled}
+      style={style}
     >
       <span
         className={classNames("Button-label")}

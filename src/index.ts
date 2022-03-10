@@ -1,5 +1,5 @@
 import Button from "@components/Button/Button";
-import { Row, Column, Container } from "@components/Grid/Grid";
+import { Row, Column, Container } from "@components/Grid";
 import Expand from "@components/Expand/Expand";
 import InputPhone from "@components/Inputs/InputPhone/InputPhone";
 import Dropdown from "@components/Dropdown/Dropdown";
@@ -16,9 +16,12 @@ import Spinner from "@components/Spinner/Spinner";
 import Paragraph from "@components/Typography/Paragraph/Paragraph";
 import Heading from "@components/Typography/Heading/Heading";
 import Switch from "@components/Switch/Switch";
-import MultipleSelectLargeDevice from "@components/Select/MultipleSelectLargeDevice/MultipleSelectLargeDevice";
 import Notification from "@components/Notification/Notification";
 import BaseInput from "@components/Inputs/BaseInput/BaseInput";
+import MultipleSelect from "@components/Select/MultipleSelect/MultipleSelect";
+import Select from "@components/Select/Select/Select";
+import Carousel from "@components/Carousel";
+import CarouselButton from "@components/Carousel/CarouselButton/CarouselButton";
 
 export {
   Button,
@@ -41,7 +44,10 @@ export {
   Paragraph,
   Heading,
   Switch,
-  MultipleSelectLargeDevice,
+  MultipleSelect,
   Notification,
   BaseInput,
+  Select,
+  Carousel,
+  CarouselButton,
 };

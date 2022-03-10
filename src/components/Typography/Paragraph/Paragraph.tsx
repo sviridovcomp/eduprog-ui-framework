@@ -16,7 +16,7 @@ const Paragraph: FC<ParagraphPropsType> = ({
 }) => {
   const rootClasses = classNames([
     "paragraph",
-    { [`paragraph-size_${size}`]: true },
+    { [`paragraph-size_${size}`]: size },
     className,
   ]);
 

@@ -22,3 +22,8 @@ $transition-type: ease;
     transform: scale(1.2) translate(-50%, -50%);
   }
 }
+
+@keyframes progress-stripes {
+  from { background-position: 1rem 0; }
+  to { background-position: 0 0; }
+}

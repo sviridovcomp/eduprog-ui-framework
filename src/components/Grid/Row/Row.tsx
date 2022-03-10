@@ -10,8 +10,8 @@ export type RowPropsType = {
 const Row: FC<RowPropsType> = ({ children, spacing, align }) => {
   const rootClasses = classNames([
     "ep-row",
-    { [`ep-row_spacing-${spacing}`]: true },
-    { [`ep-row_align_${align}`]: true },
+    { [`ep-row_spacing-${spacing}`]: spacing },
+    { [`ep-row_align_${align}`]: align },
   ]);
   return <div className={rootClasses}>{children}</div>;
 };

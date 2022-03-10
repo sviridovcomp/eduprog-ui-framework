@@ -1,8 +1,7 @@
 import React, { FC, useState } from "react";
 
 import "./InputCardForm.scss";
-import { ICardProps, PaymentServiceIcon } from "@common/CreditCard";
-import { CardChip } from "@icons/icons";
+import { ICardProps } from "@common/CreditCard";
 import InputCard from "@components/Inputs/InputCard/InputCard";
 import Card from "@components/Card/Card";
 

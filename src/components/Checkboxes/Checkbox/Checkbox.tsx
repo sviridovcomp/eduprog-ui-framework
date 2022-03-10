@@ -58,7 +58,7 @@ const Checkbox: FC<CheckboxPropsType> = ({
   const [checkboxId] = useState(uuidv4());
   const rootClasses = classNames(
     "checkbox-checkmark",
-    { [`checkbox-checkmark-type_${type}`]: true },
+    { [`checkbox-checkmark-type_${type}`]: type },
     { "checkbox-fullwidth": fullwidth }
   );
 

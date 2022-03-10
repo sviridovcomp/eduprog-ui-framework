@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useEffect, useState } from "react";
 import "./MultipleSelectLargeDevice.scss";
 import BaseInput from "@components/Inputs/BaseInput/BaseInput";
 import Dropdown from "@components/Dropdown/Dropdown";
@@ -14,15 +14,23 @@ const MultipleSelectLargeDevice: FC<MultipleSelectPropsType<any>> = ({
   options,
   maxSelectedOptions = undefined,
   onChange,
-  value = [],
+  zIndex,
 }) => {
+  const [selectedOptions, setSelectedOptions] = useState<
+    Array<MultipleSelectValue<any>>
+  >([]);
+  const [selectOpened, setSelectOpened] = useState(false);
+
   const SelectToggle = (
     <BaseInput
       label={label}
-      defaultValue={value?.map((item) => item.name).join(", ")}
+      defaultValue={selectedOptions
+        .map((selectedOption) => selectedOption.name)
+        .join(", ")}
       cursor="pointer"
       readonly
       rightAdditional={
+        <span style={{transition: "0.2s transform ease", transform: `rotate(${selectOpened ? "180" : "0"}deg)`}}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           height="24px"
@@ -33,6 +41,7 @@ const MultipleSelectLargeDevice: FC<MultipleSelectPropsType<any>> = ({
           <path d="M24 24H0V0h24v24z" fill="none" opacity=".87" />
           <path d="M15.88 9.29L12 13.17 8.12 9.29c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41l4.59 4.59c.39.39 1.02.39 1.41 0l4.59-4.59c.39-.39.39-1.02 0-1.41-.39-.38-1.03-.39-1.42 0z" />
         </svg>
+        </span>
       }
     />
   );
@@ -40,20 +49,32 @@ const MultipleSelectLargeDevice: FC<MultipleSelectPropsType<any>> = ({
   const disabledPredicate = (option: MultipleSelectValue<any>) => {
     return (
       maxSelectedOptions !== undefined &&
-      value.length >= maxSelectedOptions &&
-      !value.some((targetOption) => targetOption.name == option.name)
+      selectedOptions.length >= maxSelectedOptions &&
+      !selectedOptions.some((targetOption) => targetOption.name == option.name)
     );
   };
 
-  const selectOption = (option: MultipleSelectValue<any>) => {
-    if (disabledPredicate(option)) {
-      return;
-    }
-
-    if (onChange) {
-      onChange(option);
+  const selectOption = (
+    params: MultipleSelectValue<any> | Array<MultipleSelectValue<any>>
+  ) => {
+    if (!(params instanceof Array)) {
+      if (selectedOptions.some((option) => option.name == params.name)) {
+        setSelectedOptions(
+          selectedOptions.filter((option) => {
+            return option.name != params.name;
+          })
+        );
+      } else {
+        setSelectedOptions([...selectedOptions, params]);
+      }
     }
   };
+
+  useEffect(() => {
+    if (onChange && selectedOptions.length != 0) {
+      onChange(selectedOptions);
+    }
+  }, [selectedOptions]);
 
   const SelectPopup = options.map((option) => (
     <div className="multiple-select-item" key={sha256(option.name)}>
@@ -78,6 +99,9 @@ const MultipleSelectLargeDevice: FC<MultipleSelectPropsType<any>> = ({
         clearly
         dismissible="outside"
         fullwidth
+        style={{zIndex: zIndex}}
+        onOpen={() => setSelectOpened(!selectOpened)}
+        onClose={() => setSelectOpened(false)}
       >
         {SelectPopup}
       </Dropdown>

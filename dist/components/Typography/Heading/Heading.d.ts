@@ -9,6 +9,14 @@ export declare type HeadingPropsType = {
      * Размер заголовка
      */
     size: "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
+    /**
+     * Отступ снизу
+     */
+    spacingBottom: number;
+    /**
+     * Отступ сверху
+     */
+    spacingTop: number;
 };
 /**
  * Компонент Заголовок

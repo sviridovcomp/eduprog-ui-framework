@@ -47,15 +47,15 @@ const Column: FC<ColumnPropsType> = ({
 }) => {
   const rootClasses = classNames([
     "ep-col",
-    { [`ep-col_${col}`]: true },
-    { [`ep-col_xs-${xs}`]: true },
-    { [`ep-col_md-${md}`]: true },
-    { [`ep-col_lg-${lg}`]: true },
-    { [`ep-col_ml-${ml}`]: true },
-    { [`ep-col_mr-${mr}`]: true },
-    { [`ep-col_mt-${mt}`]: true },
-    { [`ep-col_ml-${mb}`]: true },
-    { [`ep-col_spacing-${spacing}`]: true },
+    { [`ep-col_${col}`]: col },
+    { [`ep-col_xs-${xs}`]: xs },
+    { [`ep-col_md-${md}`]: md },
+    { [`ep-col_lg-${lg}`]: lg },
+    { [`ep-col_ml-${ml}`]: ml },
+    { [`ep-col_mr-${mr}`]: mr },
+    { [`ep-col_mt-${mt}`]: mt },
+    { [`ep-col_ml-${mb}`]: mb },
+    { [`ep-col_spacing-${spacing}`]: spacing },
   ]);
   return <div className={rootClasses}>{children}</div>;
 };

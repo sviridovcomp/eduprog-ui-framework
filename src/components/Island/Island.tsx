@@ -34,9 +34,9 @@ const Island: FC<IslandPropsType> = ({
 }) => {
   const rootClasses = classNames(
     "island",
-    { [`island-size_${size}`]: true },
-    { [`island-align_${align}`]: true },
-    { [`island-type_${type}`]: true },
+    { [`island-size_${size}`]: size },
+    { [`island-align_${align}`]: align },
+    { [`island-type_${type}`]: type },
     { "island-hoverable": hoverable }
   );
 

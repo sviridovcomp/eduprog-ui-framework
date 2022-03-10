@@ -2,7 +2,7 @@ import React, { FC, useEffect, useState } from "react";
 import BaseInput from "@components/Inputs/BaseInput/BaseInput";
 import Dropdown from "@components/Dropdown/Dropdown";
 import { sha256 } from "js-sha256";
-import "./Select.scss";
+import "./SelectLargeDevice.scss";
 import {
   SelectTypeProps,
   SelectValue,
@@ -13,6 +13,7 @@ const SelectLargeDevice: FC<SelectTypeProps<any>> = ({
   options,
   defaultValue,
   onChange,
+  zIndex,
 }) => {
   const [value, setValue] = useState(defaultValue);
 
@@ -42,7 +43,7 @@ const SelectLargeDevice: FC<SelectTypeProps<any>> = ({
   };
 
   useEffect(() => {
-    if (onChange) {
+    if (onChange && value != undefined) {
       onChange(value);
     }
   }, [value]);
@@ -68,6 +69,7 @@ const SelectLargeDevice: FC<SelectTypeProps<any>> = ({
       clearly
       dismissible="outside"
       fullwidth
+      style={{zIndex: zIndex}}
     >
       {SelectPopup}
     </Dropdown>

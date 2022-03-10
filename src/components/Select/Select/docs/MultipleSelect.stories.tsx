@@ -1,19 +1,17 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
-import MultipleSelect from "@components/Select/MultipleSelectLargeDeviceFasad/MultipleSelect";
+import Select from "@components/Select/Select/Select";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "Компоненты/Select/MultipleSelectFasad/Playground",
-  component: MultipleSelect,
+  title: "Компоненты/Select/Select/Playground",
+  component: Select,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
-} as ComponentMeta<typeof MultipleSelect>;
+} as ComponentMeta<typeof Select>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof MultipleSelect> = (args) => (
-  <MultipleSelect {...args} />
-);
+const Template: ComponentStory<typeof Select> = (args) => <Select {...args} />;
 
 export const Playground = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
@@ -45,5 +43,4 @@ Playground.args = {
       value: "fwergerr",
     },
   ],
-  maxSelectedOptions: 3,
 };

@@ -16,7 +16,7 @@ const Expand: FC<CollapsePropsType> = ({
   const [active, setActive] = useState(false);
   const collapseTransitionClasses = classNames(
     "collapse-transition",
-    { [`collapse-transition_${transition}`]: true },
+    { [`collapse-transition_${transition}`]: transition },
     { "collapse-transition-active": active }
   );
   const onClick = () => {

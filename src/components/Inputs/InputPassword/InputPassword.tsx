@@ -53,26 +53,17 @@ const InputPassword: FC<InputPasswordPropsType> = ({
   }
   const [error, setError] = useState<ErrorStatus>();
 
-  const router = new Map([
-    [
-      ErrorStatus.TooShort,
+  const router = [
       ["Пароль слишком короткий", "Используйте хотя бы 6 символов"],
-    ],
-    [
-      ErrorStatus.TooEasy,
       [
         "Пароль слишком простой",
         "Используйте большие и маленькие буквы, добавьте цифры",
       ],
-    ],
-    [
-      ErrorStatus.TooEasePickUp,
       [
         "Пароль легко подобрать",
         "Замените одну или две маленькие буквы большими, добавьте цифры",
       ],
-    ],
-  ]);
+  ];
 
   const onInputChange = (
     value: string,
@@ -152,10 +143,10 @@ const InputPassword: FC<InputPasswordPropsType> = ({
               color: `${error == ErrorStatus.TooEasePickUp ? "orange" : "red"}`,
             }}
           >
-            {error != undefined ? router.get(error)![0] : ""}
+            {error != undefined ? router[error][0] : ""}
           </div>
           <div className="input-password-validate-advice">
-            {error != undefined ? router.get(error)![1] : ""}
+            {error != undefined ? router[error][1] : ""}
           </div>
         </>
       )}

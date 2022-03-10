@@ -14,6 +14,7 @@ export declare type ButtonPropsType = defaultProps & {
      * Обработчик клика по кнопке
      */
     onClick?: (event?: React.MouseEvent<HTMLButtonElement>) => void;
+    onMouseDown?: (event?: React.MouseEvent<HTMLButtonElement>) => void;
     /**
      *  Имя кнопки в DOM
      */
@@ -42,6 +43,18 @@ export declare type ButtonPropsType = defaultProps & {
      * Выравнивание лейбла кнопки по высоте
      */
     labelAlignItems?: "center";
+    /**
+     * Выключена ли кнопка
+     */
+    disabled?: boolean;
+    /**
+     * Круглая кнопка
+     */
+    rounded?: boolean;
+    /**
+     * Прогресс
+     */
+    progress?: boolean;
 };
 /**
  * Компонент создающий кнопки
