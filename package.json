@@ -1,7 +1,7 @@
 {
   "name": "eduprog-ui-framework",
   "homepage": "http://edu-prog.github.io/eduprog-ui-framework",
-  "version": "4.19.0",
+  "version": "4.21.0",
   "main": "./dist/index.js",
   "license": "MIT",
   "devDependencies": {
@@ -24,6 +24,7 @@
     "@types/jest": "^27.4.0",
     "@types/react": "^17.0.38",
     "@types/react-test-renderer": "^17.0.1",
+    "@types/react-transition-group": "^4.4.4",
     "@types/uuid": "^8.3.4",
     "@typescript-eslint/eslint-plugin": "^5.10.1",
     "@typescript-eslint/parser": "^5.10.1",
@@ -53,6 +54,7 @@
     "react-multi-carousel": "^2.8.0",
     "react-swipeable": "^6.2.0",
     "react-test-renderer": "^18.0.0-rc.0-next-fe419346d-20220105",
+    "react-transition-group": "^4.4.2",
     "sass": "^1.49.0",
     "sass-loader": "^12.4.0",
     "semantic-release": "^19.0.2",
