@@ -5,7 +5,7 @@
     display: inline-block;
   }
 
-  &-wrapper {
+  &-backdrop {
     background-color: rgba(50, 50, 50, 0.5);
     height: 100%;
     width: 100%;
@@ -14,36 +14,15 @@
     top: 50%;
     transform: translate(-50%, -50%);
     z-index: 100;
+    visibility: hidden;
+
+    &-show {
+      visibility: visible;
+    }
   }
 
   &-heading {
     font: $font-heading-4;
-  }
-
-  &-transition_fade {
-    opacity: 0;
-    pointer-events: none;
-    user-select: none;
-
-    &-active {
-      animation: fade 0.5s;
-      opacity: 1;
-      pointer-events: auto;
-      user-select: auto;
-    }
-  }
-
-  &-transition_pop {
-    transform: translate(-50%, -50%) scale(1.2);
-    pointer-events: none;
-    user-select: none;
-
-    &-active {
-      animation: pop 0.5s ease;
-      transform: translate(-50%, -50%) scale(1);
-      pointer-events: auto;
-      user-select: auto;
-    }
   }
 
   &-body {
@@ -62,6 +41,35 @@
     border-radius: 0.5rem;
     overflow: auto;
     overscroll-behavior: contain;
+    visibility: hidden;
+
+    &-animation {
+      &-enter-done {
+        visibility: visible;
+        transition: 0.2s transform cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+        transform: translate(-50%, -50%);
+      }
+
+      &-enter-active {
+        visibility: visible;
+        transform: translate(-50%, -60%);
+      }
+
+      &-exit {
+        transform: translate(-50%, -50%);
+      }
+
+      &-exit-active {
+        visibility: visible;
+        transform: translate(-50%, 100%);
+        transition: 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+
+      &-exit-done {
+        visibility: hidden;
+      }
+    }
 
     &-size {
       &_xs {

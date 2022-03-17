@@ -1,6 +1,10 @@
-import React, { FC } from "react";
+import React, { FC, useRef } from "react";
 import "./Dialog.scss";
 import classNames from "classnames";
+import { CSSTransition } from "react-transition-group";
+import Backdrop from "@components/Backdrop/Backdrop";
+import { useClickAway } from "@utils/hooks/useClickAway";
+import { asyncSleep } from "@utils/utils/utils";
 
 export type DialogPropsType = {
   /**
@@ -39,32 +43,38 @@ const Dialog: FC<DialogPropsType> = ({
   open = false,
   onClose,
 }) => {
+  const modalContent = useRef<HTMLDivElement>(null);
+  useClickAway(modalContent, () => {
+    if (open) {
+      if (onClose) {
+        setTimeout(() => {
+          onClose();
+        }, 100);
+      }
+    }
+  });
+
   return (
     <div className="dialog">
-      {open && (
-        <>
-          <div
-            className={classNames("dialog-transition_fade", {
-              "dialog-transition_fade-active": open,
-            })}
-          >
-            <div className="dialog-wrapper" onClick={onClose} />
-          </div>
-          <div
-            className={classNames(
-              "dialog-body",
-              "dialog-transition_pop",
-              { "dialog-transition_pop-active": open },
-              { [`dialog-body-size_${size}`]: size }
-            )}
-          >
-            <section className="dialog-header">
-              <h2 className="dialog-heading">{label}</h2>
-            </section>
-            <section className="dialog-content">{children}</section>
-          </div>
-        </>
-      )}
+      <div
+        className={classNames("dialog-backdrop", {
+          "dialog-backdrop-show": open,
+        })}
+      />
+
+      <CSSTransition in={open} timeout={100} classNames="dialog-body-animation">
+        <div
+          className={classNames("dialog-body", {
+            [`dialog-body-size_${size}`]: size,
+          })}
+          ref={modalContent}
+        >
+          <section className="dialog-header">
+            <h2 className="dialog-heading">{label}</h2>
+          </section>
+          <section className="dialog-content">{children}</section>
+        </div>
+      </CSSTransition>
     </div>
   );
 };

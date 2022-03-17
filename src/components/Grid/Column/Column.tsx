@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import "./Column.scss";
 import classNames from "classnames";
+import { defaultProps } from "@utils/defaultProps";
 
 type RowColWidth =
   | number
@@ -21,7 +22,7 @@ type RowColumns = RowColWidth | { cols?: RowColWidth };
 
 type AdditionalSpacingWidth = number | "1" | "2" | "3" | "4" | "5" | "6";
 
-export type ColumnPropsType = {
+export type ColumnPropsType = defaultProps & {
   col?: RowColumns;
   xs?: RowColumns;
   md?: RowColumns;
@@ -31,6 +32,7 @@ export type ColumnPropsType = {
   mr?: AdditionalSpacingWidth;
   mb?: AdditionalSpacingWidth;
   spacing?: AdditionalSpacingWidth;
+  onClick?: (event: React.MouseEvent<any>) => void;
 };
 
 const Column: FC<ColumnPropsType> = ({
@@ -44,9 +46,13 @@ const Column: FC<ColumnPropsType> = ({
   mt,
   mb,
   spacing,
+  className = "",
+  onClick,
+  style,
 }) => {
   const rootClasses = classNames([
     "ep-col",
+    className,
     { [`ep-col_${col}`]: col },
     { [`ep-col_xs-${xs}`]: xs },
     { [`ep-col_md-${md}`]: md },
@@ -57,7 +63,11 @@ const Column: FC<ColumnPropsType> = ({
     { [`ep-col_ml-${mb}`]: mb },
     { [`ep-col_spacing-${spacing}`]: spacing },
   ]);
-  return <div className={rootClasses}>{children}</div>;
+  return (
+    <div onClick={onClick} style={style} className={rootClasses}>
+      {children}
+    </div>
+  );
 };
 
 export default Column;

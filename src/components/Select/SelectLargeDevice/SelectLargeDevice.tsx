@@ -67,7 +67,7 @@ const SelectLargeDevice: FC<SelectTypeProps<any>> = ({
       direction="bottom-center"
       toggle={SelectToggle}
       clearly
-      dismissible="outside"
+      dismissible="always"
       fullwidth
       style={{zIndex: zIndex}}
     >

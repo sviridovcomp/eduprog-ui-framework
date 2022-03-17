@@ -1,6 +1,5 @@
-import Visa from "./Visa";
-import Mastercard from "./Mastercard";
-import Maestro from "./Maestro";
-import CardChip from "./CardChip";
+import CloseIcon from "@icons/Close";
+import Done from "@icons/Done";
+import Error from "@icons/Error";
 
-export { Visa, Mastercard, Maestro, CardChip };
+export { CloseIcon, Done, Error };

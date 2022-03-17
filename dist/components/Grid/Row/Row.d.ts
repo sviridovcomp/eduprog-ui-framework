@@ -1,8 +1,10 @@
 import { FC } from "react";
 import "./Row.scss";
-export declare type RowPropsType = {
+import { defaultProps } from "@utils/defaultProps";
+export declare type RowPropsType = defaultProps & {
     align?: "start" | "end" | "center";
     spacing?: "1" | "2" | "3" | "4" | "5" | "6" | number;
+    adaptive?: boolean;
 };
 declare const Row: FC<RowPropsType>;
 export default Row;

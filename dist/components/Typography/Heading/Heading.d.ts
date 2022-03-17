@@ -12,11 +12,11 @@ export declare type HeadingPropsType = {
     /**
      * Отступ снизу
      */
-    spacingBottom: number;
+    mb: number;
     /**
      * Отступ сверху
      */
-    spacingTop: number;
+    mt: number;
 };
 /**
  * Компонент Заголовок

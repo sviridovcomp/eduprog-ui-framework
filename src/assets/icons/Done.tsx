@@ -1,6 +1,6 @@
 import React from "react";
 
-const DoneIcon = () => {
+const Done = () => {
   return (
     <div
       style={{
@@ -23,4 +23,4 @@ const DoneIcon = () => {
   );
 };
 
-export default DoneIcon;
+export default Done;

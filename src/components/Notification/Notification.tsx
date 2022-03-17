@@ -1,9 +1,9 @@
 import React, { FC, useCallback, useEffect, useRef, useState } from "react";
 import "./Notification.scss";
 import classNames from "classnames";
-import DoneIcon from "@icons/DoneIcon";
+import Done from "@icons/Done";
 import CloseIcon from "@icons/Close";
-import ErrorIcon from "@icons/ErrorIcon";
+import Error from "@icons/Error";
 import { useSwipeable } from "react-swipeable";
 
 export type NotificationPropsType = {
@@ -91,8 +91,8 @@ const Notification: FC<NotificationPropsType> = ({
       {...swipeableHandlers}
     >
       <div className="notification__icon">
-        {status == "ok" && <DoneIcon />}
-        {status == "fail" && <ErrorIcon />}
+        {status == "ok" && <Done />}
+        {status == "fail" && <Error />}
       </div>
       <div className="notification__title">{title}</div>
       <div className="notification__content">{children}</div>

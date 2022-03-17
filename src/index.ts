@@ -11,7 +11,6 @@ import Island from "@components/Island/Island";
 import InputCopy from "@components/Inputs/InputCopy/InputCopy";
 import InputPassword from "@components/Inputs/InputPassword/InputPassword";
 import InputCount from "@components/Inputs/InputCount/InputCount";
-import InputCard from "@components/Inputs/InputCard/InputCard";
 import Spinner from "@components/Spinner/Spinner";
 import Paragraph from "@components/Typography/Paragraph/Paragraph";
 import Heading from "@components/Typography/Heading/Heading";
@@ -22,6 +21,8 @@ import MultipleSelect from "@components/Select/MultipleSelect/MultipleSelect";
 import Select from "@components/Select/Select/Select";
 import Carousel from "@components/Carousel";
 import CarouselButton from "@components/Carousel/CarouselButton/CarouselButton";
+import Skeleton from "@components/Skeleton/Skeleton";
+import TextSkeleton from "@components/Skeleton/TextSkeleton";
 
 export {
   Button,
@@ -39,7 +40,6 @@ export {
   InputCount,
   InputCopy,
   InputPassword,
-  InputCard,
   Spinner,
   Paragraph,
   Heading,
@@ -50,4 +50,6 @@ export {
   Select,
   Carousel,
   CarouselButton,
+  Skeleton,
+  TextSkeleton,
 };

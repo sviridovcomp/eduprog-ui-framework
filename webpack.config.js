@@ -7,9 +7,8 @@ module.exports = {
   output: {
     filename: "index.js",
     path: path.resolve(__dirname, "dist"),
-    libraryTarget: "umd2",
+    libraryTarget: "umd",
     clean: true,
-    globalObject: "this",
   },
   resolve: {
     extensions: [".js", ".jsx", ".ts", ".tsx"],
@@ -30,25 +29,8 @@ module.exports = {
       },
       {
         test: /\.s[ac]ss$/i,
-        use: [
-          // Creates `style` nodes from JS strings
-          "style-loader",
-          // Translates CSS into CommonJS
-          "css-loader",
-          // Compiles Sass to CSS
-          "sass-loader",
-        ],
-      },
-      {
-        test: /\.(png|jp(e*)g|svg|gif)$/,
-        use: [
-          {
-            loader: "file-loader",
-            options: {
-              name: "images/[hash]-[name].[ext]",
-            },
-          },
-        ],
+        use: ["style-loader", "css-loader", "sass-loader"],
+        exclude: /node_modules/,
       },
     ],
   },

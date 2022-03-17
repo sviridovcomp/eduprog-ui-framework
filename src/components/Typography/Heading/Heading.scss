@@ -1,27 +1,29 @@
 @import "~styles/variables/variables";
 
 .heading {
-  h1 {
-    font: $font-heading-1;
-  }
+  &-size {
+    &_xxl {
+      font: $font-heading-1;
+    }
 
-  h2 {
-    font: $font-heading-2;
-  }
+    &_xl {
+      font: $font-heading-2;
+    }
 
-  h3 {
-    font: $font-heading-3;
-  }
+    &_lg {
+      font: $font-heading-3;
+    }
 
-  h4 {
-    font: $font-heading-4;
-  }
+    &_md {
+      font: $font-heading-4;
+    }
 
-  h5 {
-    font: $font-heading-5;
-  }
+    &_sm {
+      font: $font-heading-5;
+    }
 
-  h6 {
-    font: $font-heading-6;
+    &_xs {
+      font: $font-heading-6;
+    }
   }
 }

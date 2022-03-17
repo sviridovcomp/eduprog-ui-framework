@@ -1,5 +1,6 @@
 import React, { CSSProperties, FC } from "react";
 import "./Heading.scss";
+import classNames from "classnames";
 
 export type HeadingPropsType = {
   /**
@@ -15,38 +16,36 @@ export type HeadingPropsType = {
   /**
    * Отступ снизу
    */
-  spacingBottom: number;
+  mb: number;
 
   /**
    * Отступ сверху
    */
-  spacingTop: number;
+  mt: number;
 };
 
 /**
  * Компонент Заголовок
  */
 const Heading: FC<HeadingPropsType> = ({
-  children, 
-  size = "xxl", 
-  spacingBottom = 1,
-  spacingTop = 1 
+  children,
+  size = "xxl",
+  mt = 1,
+  mb = 1,
 }) => {
-  const commonStyles = {marginTop: `${spacingTop}rem`, marginBottom: `${spacingBottom}rem`} as CSSProperties;    
-  
+  const commonStyles = {
+    marginTop: `${mt}rem`,
+    marginBottom: `${mb}rem`,
+  } as CSSProperties;
+
   return (
     <div className="heading">
-      {size === "xxl" && <h1 style={commonStyles}>{children}</h1>}
-
-      {size === "xl" && <h2 style={commonStyles}>{children}</h2>}
-
-      {size === "lg" && <h3 style={commonStyles}>{children}</h3>}
-
-      {size === "md" && <h4 style={commonStyles}>{children}</h4>}
-
-      {size === "sm" && <h5 style={commonStyles}>{children}</h5>}
-
-      {size === "xs" && <h6 style={commonStyles}>{children}</h6>}
+      <h1
+        className={classNames({ [`heading-size_${size}`]: size })}
+        style={commonStyles}
+      >
+        {children}
+      </h1>
     </div>
   );
 };

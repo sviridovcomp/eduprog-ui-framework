@@ -3,6 +3,7 @@ import "./Dropdown.scss";
 import { defaultProps } from "@utils/defaultProps";
 import classNames from "classnames";
 import { useClickAway } from "@utils/hooks/useClickAway";
+import { asyncSleep } from "@utils/utils/utils";
 
 export type DropdownPropsType = defaultProps & {
   /**
@@ -85,7 +86,7 @@ const Dropdown: FC<DropdownPropsType> = ({
   return (
     <div
       className={classNames("dropdown", { "dropdown-fullwidth": fullwidth })}
-      onBlur={() => dismissible == "always" && setActive(false)}
+      onBlur={() => dismissible == "always" && asyncSleep(100).then(() => setActive(false))}
       style={style}
       ref={dropdownItem}
     
