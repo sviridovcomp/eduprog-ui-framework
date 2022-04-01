@@ -5,6 +5,7 @@ export interface ISkeletonProps {
     animation?: "wave" | "pulse";
     width?: number;
     height?: number;
+    borderRadius?: number | "auto";
 }
 declare const Skeleton: FC<ISkeletonProps>;
 export default Skeleton;

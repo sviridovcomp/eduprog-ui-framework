@@ -94,6 +94,8 @@ export type TextInputProps = defaultProps & {
    */
   forceFocus?: boolean;
 
+  forceInvalid?: boolean;
+
   /**
    * Обязательно для заполнения
    */
@@ -130,6 +132,7 @@ const BaseInput: FC<TextInputProps> = ({
   className = "",
   required = false,
   validationMessage = "",
+  forceInvalid = false,
 }) => {
   enum ValidityStatus {
     Invalid,
@@ -206,6 +209,8 @@ const BaseInput: FC<TextInputProps> = ({
         <div
           className={classNames("input-label", {
             "input-label-active": forceFocus || active || defaultValue,
+            "input-label-invalid":
+              validationStatus == ValidityStatus.Invalid || forceInvalid,
           })}
         >
           {label}
@@ -219,7 +224,7 @@ const BaseInput: FC<TextInputProps> = ({
               "input-control",
               {
                 "input-control-invalid":
-                  validationStatus == ValidityStatus.Invalid,
+                  validationStatus == ValidityStatus.Invalid || forceInvalid,
               },
               className
             )}

@@ -18,7 +18,6 @@ const PlaygroundComponent: FC<TextInputProps> = (props) => {
     <Input
       defaultValue={value}
       onChange={(value: string) => {
-        console.log(value);
         setValue(value);
       }}
       {...props}

@@ -2,9 +2,7 @@ import React, { FC, useRef } from "react";
 import "./Dialog.scss";
 import classNames from "classnames";
 import { CSSTransition } from "react-transition-group";
-import Backdrop from "@components/Backdrop/Backdrop";
 import { useClickAway } from "@utils/hooks/useClickAway";
-import { asyncSleep } from "@utils/utils/utils";
 
 export type DialogPropsType = {
   /**

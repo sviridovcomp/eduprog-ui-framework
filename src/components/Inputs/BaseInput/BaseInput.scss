@@ -28,6 +28,10 @@
     &-active {
       top: 1rem;
       font-size: 1rem;
+
+      &.input-label-invalid {
+        color: #e31c1c;
+      }
     }
   }
 
@@ -39,9 +43,11 @@
     font-size: 1.5rem;
     vertical-align: top;
     background-color: $color-platinum;
-    transition: background-color $transition-duration $transition-type;
+    transition-property: background-color, border-color;
+    transition-duration: 0.25s;
+    transition-timing-function: ease;
     border-radius: 0.5rem;
-    border: 0;
+    border: 1px solid transparent;
     outline: none;
     padding: 2rem 3rem 1rem 1rem;
     font-family: inherit;
@@ -60,6 +66,11 @@
 
     &:focus {
       background-color: $color-platinum;
+      border: 1px solid $color-darkgray;
+
+      &.input-control-invalid {
+        border: 1px solid #f52222;
+      }
     }
   }
 

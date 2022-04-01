@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import "./Island.scss";
-export declare type IslandPropsType = {
+import { defaultProps } from "@utils/defaultProps";
+export declare type IslandPropsType = defaultProps & {
     /**
      * Дочерние элементы Island
      */
@@ -18,6 +19,8 @@ export declare type IslandPropsType = {
      */
     type?: "shadow" | "border";
     hoverable?: boolean;
+    scalable?: boolean;
+    onClick?: (event: React.MouseEvent) => void;
 };
 /**
  * Island отображают информацию в закругленном блоке с границей

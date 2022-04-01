@@ -4,7 +4,6 @@
 .island {
   display: flex;
   flex-direction: column;
-  padding: 1rem;
   border-radius: 0.5rem;
   width: 100%;
   box-sizing: border-box;
@@ -59,5 +58,9 @@
     box-shadow: 0 2px 8px rgba(18, 17, 36, 0.1),
       0 4px 32px rgba(18, 17, 36, 0.2);
     transform: translateY(-0.25rem);
+  }
+
+  &-scalable:hover {
+    transform: scale(1.03);
   }
 }

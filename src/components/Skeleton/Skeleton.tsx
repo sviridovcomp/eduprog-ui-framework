@@ -25,7 +25,7 @@ const Skeleton: FC<ISkeletonProps> = ({
   );
 
   return (
-    <span style={{ width: width, height: height, borderRadius: borderRadius }} className={rootClasses}>
+    <span style={{ width: width, height: height, borderRadius: `${borderRadius}rem` }} className={rootClasses}>
       {children}
     </span>
   );

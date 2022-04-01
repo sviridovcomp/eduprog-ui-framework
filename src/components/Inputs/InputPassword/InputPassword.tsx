@@ -1,6 +1,7 @@
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import BaseInput, { TextInputProps } from "../BaseInput/BaseInput";
 import "./InputPassword.scss";
+import { SimplePasswords } from "@components/Inputs/InputPassword/InputPasswordUtils";
 
 export type InputPasswordPropsType = TextInputProps & {
   /**
@@ -35,16 +36,15 @@ export type InputPasswordPropsType = TextInputProps & {
  */
 const InputPassword: FC<InputPasswordPropsType> = ({
   label,
-  onChange,
   name = "",
   required = false,
   pattern,
   validationMessage = "",
   noValidation = false,
+  defaultValue,
   ...rest
 }) => {
   const [passwordVisible, setPasswordVisible] = useState(false);
-  const [value, setValue] = useState("");
 
   enum ErrorStatus {
     TooShort,
@@ -54,46 +54,46 @@ const InputPassword: FC<InputPasswordPropsType> = ({
   const [error, setError] = useState<ErrorStatus>();
 
   const router = [
-      ["Пароль слишком короткий", "Используйте хотя бы 6 символов"],
-      [
-        "Пароль слишком простой",
-        "Используйте большие и маленькие буквы, добавьте цифры",
-      ],
-      [
-        "Пароль легко подобрать",
-        "Замените одну или две маленькие буквы большими, добавьте цифры",
-      ],
+    ["Пароль слишком короткий", "Используйте хотя бы 6 символов"],
+    [
+      "Пароль слишком простой",
+      "Используйте большие и маленькие буквы, добавьте цифры",
+    ],
+    [
+      "Пароль легко подобрать",
+      "Замените одну или две маленькие буквы большими, добавьте цифры",
+    ],
   ];
 
-  const onInputChange = (
-    value: string,
-    event?: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    setValue(value);
-
-    if (onChange && event) {
-      onChange(value, event);
+  useEffect(() => {
+    if (defaultValue) {
+      if (defaultValue.length < 6) {
+        setError(ErrorStatus.TooShort);
+      } else if (
+        !/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{6,}$/gm.test(
+          defaultValue
+        )
+      ) {
+        setError(ErrorStatus.TooEasy);
+      } else if (
+        SimplePasswords.some(
+          (password) => password == defaultValue.toLowerCase()
+        )
+      ) {
+        setError(ErrorStatus.TooEasePickUp);
+      } else {
+        setError(undefined);
+      }
     }
-
-    if (value.length < 6) {
-      setError(ErrorStatus.TooShort);
-    } else if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(value)) {
-      setError(ErrorStatus.TooEasy);
-    } else if (value.toLowerCase().includes("qwe")) {
-      setError(ErrorStatus.TooEasePickUp);
-    } else {
-      setError(undefined);
-    }
-  };
+  }, [defaultValue]);
 
   return (
     <div className="input-password">
       <BaseInput
-        onChange={onInputChange}
         inputType={passwordVisible ? "text" : "password"}
         label={label}
         name={name}
-        defaultValue={value}
+        defaultValue={defaultValue}
         required={required}
         pattern={pattern}
         validationMessage={validationMessage}
