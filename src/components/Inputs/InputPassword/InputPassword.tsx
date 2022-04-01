@@ -48,6 +48,7 @@ const InputPassword: FC<InputPasswordPropsType> = ({
 
   enum ErrorStatus {
     TooShort,
+    ForbiddenChars,
     TooEasy,
     TooEasePickUp,
   }
@@ -55,6 +56,7 @@ const InputPassword: FC<InputPasswordPropsType> = ({
 
   const router = [
     ["Пароль слишком короткий", "Используйте хотя бы 6 символов"],
+    ["Пароль содержит запрещенные символы", "Используйте латинские символы"],
     [
       "Пароль слишком простой",
       "Используйте большие и маленькие буквы, добавьте цифры",
@@ -67,7 +69,9 @@ const InputPassword: FC<InputPasswordPropsType> = ({
 
   useEffect(() => {
     if (defaultValue) {
-      if (defaultValue.length < 6) {
+      if (/[а-яА-Я]/gm.test(defaultValue)) {
+        setError(ErrorStatus.ForbiddenChars);
+      } else if (defaultValue.length < 6) {
         setError(ErrorStatus.TooShort);
       } else if (
         !/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{6,}$/gm.test(
