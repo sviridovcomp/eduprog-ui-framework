@@ -4,10 +4,12 @@ const { TsconfigPathsPlugin } = require("tsconfig-paths-webpack-plugin");
 module.exports = {
   mode: "production",
   entry: "./src/index.ts",
+  devtool: false,
   output: {
     filename: "index.js",
     path: path.resolve(__dirname, "dist"),
     libraryTarget: "umd",
+    library: "eduprog-ui-framework",
     clean: true,
   },
   resolve: {

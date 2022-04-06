@@ -40,6 +40,9 @@ const SelectSmallDevice: FC<SelectTypeProps<any>> = ({
           name={name}
           size={1}
         >
+          <option selected disabled>
+            Выберите:
+          </option>
           {options.map(({ name }) => (
             <option value={name} key={sha256(name)}>
               {name}

@@ -250,7 +250,7 @@ const BaseInput: FC<TextInputProps> = ({
           </div>
         </div>
       </div>
-      {pattern && (
+      {pattern && validationStatus == ValidityStatus.Invalid && (
         <div
           className={classNames("input-validator", {
             "input-validator-show": validationStatus == ValidityStatus.Invalid,
