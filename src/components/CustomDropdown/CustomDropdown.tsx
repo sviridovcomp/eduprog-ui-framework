@@ -2,14 +2,15 @@ import { defaultProps } from "@utils/defaultProps";
 import { useClickAway } from "@utils/hooks/useClickAway";
 import classNames from "classnames";
 import React, { FC, useRef } from "react";
+import { CSSTransition } from "react-transition-group";
 import "../Dropdown/Dropdown.scss";
 
 export type CustomDropdownPropsType = defaultProps & {
-    open?: boolean;
-    /**
-     * Направление раскрытия popup
-     */
-    direction:
+  open?: boolean;
+  /**
+   * Направление раскрытия popup
+   */
+  direction:
     | "bottom-left"
     | "bottom-center"
     | "bottom-right"
@@ -17,33 +18,42 @@ export type CustomDropdownPropsType = defaultProps & {
     | "top-center"
     | "top-right";
 
-    /**
-     * Убрать стрелочку направления popup
-     */
-    clearly?: boolean;
+  /**
+   * Убрать стрелочку направления popup
+   */
+  clearly?: boolean;
 
-    /**
-     * Dropdown в полный размер родительского блока
-     */
-    fullwidth?: boolean;
+  /**
+   * Dropdown в полный размер родительского блока
+   */
+  fullwidth?: boolean;
 
-    onClose?: () => void;
-}
+  onClose?: () => void;
+};
 
-const CustomDropdown: FC<CustomDropdownPropsType> = ({open = false, direction, clearly, fullwidth, children, onClose, style}) => {
-    const dropdownRef = useRef(null);
-    useClickAway(dropdownRef, () => {
-        if (onClose) { 
-            onClose();
-        }
-    });
+const CustomDropdown: FC<CustomDropdownPropsType> = ({
+  open = false,
+  direction,
+  clearly,
+  fullwidth,
+  children,
+  onClose,
+  style,
+}) => {
+  const dropdownRef = useRef(null);
+  useClickAway(dropdownRef, () => {
+    if (onClose) {
+      onClose();
+    }
+  });
 
-    return (
-        <div ref={dropdownRef} className="dropdown" style={style}>
-            <div
-        className={classNames("dropdown-transition", {
-          "dropdown-transition-active": open,
-        })}
+  return (
+    <div ref={dropdownRef} className="dropdown" style={style}>
+      <CSSTransition
+        in={open}
+        timeout={250}
+        unmountOnExit
+        classNames="dropdown-transition_fade"
       >
         <div
           className={classNames(
@@ -55,9 +65,9 @@ const CustomDropdown: FC<CustomDropdownPropsType> = ({open = false, direction, c
         >
           <div className="dropdown-item-content">{children}</div>
         </div>
-      </div>
-      </div>
-    );
+      </CSSTransition>
+    </div>
+  );
 };
 
 export default CustomDropdown;

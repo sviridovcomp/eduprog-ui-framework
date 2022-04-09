@@ -1,40 +1,27 @@
 import React, { FC, useState } from "react";
 import "./Expand.scss";
-import classNames from "classnames";
+import { CSSTransition } from "react-transition-group";
 
 export type CollapsePropsType = {
   children: React.ReactNode;
-  toggle: React.ReactNode;
+  open?: boolean;
   transition?: "fade" | "slide";
 };
 
 const Expand: FC<CollapsePropsType> = ({
   children,
-  toggle,
+  open = false,
   transition = "fade",
 }) => {
-  const [active, setActive] = useState(false);
-  const collapseTransitionClasses = classNames(
-    "collapse-transition",
-    { [`collapse-transition_${transition}`]: transition },
-    { "collapse-transition-active": active }
-  );
-  const onClick = () => {
-    setActive(!active);
-  };
-
   return (
-    <div className="collapse">
-      <div className="collapse-toggle" onClick={onClick}>
-        {toggle}
-      </div>
-
-      {active && (
-        <div className={collapseTransitionClasses}>
-          <div className="collapse-content">{children}</div>
-        </div>
-      )}
-    </div>
+    <CSSTransition
+      in={open}
+      timeout={300}
+      unmountOnExit
+      classNames={`collapse-transition_${transition}`}
+    >
+      <div className="collapse-content">{children}</div>
+    </CSSTransition>
   );
 };
 

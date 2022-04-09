@@ -1,4 +1,5 @@
 @import "~styles/variables/variables";
+@import "~styles/variables/animations";
 
 .dialog {
   &-toggle {
@@ -41,34 +42,9 @@
     border-radius: 0.5rem;
     overflow: auto;
     overscroll-behavior: contain;
-    visibility: hidden;
 
     &-animation {
-      &-enter-done {
-        visibility: visible;
-        transition: 0.2s transform cubic-bezier(0.25, 0.46, 0.45, 0.94);
-
-        transform: translate(-50%, -50%);
-      }
-
-      &-enter-active {
-        visibility: visible;
-        transform: translate(-50%, -60%);
-      }
-
-      &-exit {
-        transform: translate(-50%, -50%);
-      }
-
-      &-exit-active {
-        visibility: visible;
-        transform: translate(-50%, 100%);
-        transition: 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      }
-
-      &-exit-done {
-        visibility: hidden;
-      }
+      @include fade-animations(0.3);
     }
 
     &-size {

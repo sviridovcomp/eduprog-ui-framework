@@ -43,12 +43,8 @@ const Dialog: FC<DialogPropsType> = ({
 }) => {
   const modalContent = useRef<HTMLDivElement>(null);
   useClickAway(modalContent, () => {
-    if (open) {
-      if (onClose) {
-        setTimeout(() => {
-          onClose();
-        }, 100);
-      }
+    if (onClose) {
+      onClose();
     }
   });
 
@@ -60,7 +56,12 @@ const Dialog: FC<DialogPropsType> = ({
         })}
       />
 
-      <CSSTransition in={open} timeout={100} classNames="dialog-body-animation">
+      <CSSTransition
+        in={open}
+        unmountOnExit
+        timeout={300}
+        classNames="dialog-body-animation"
+      >
         <div
           className={classNames("dialog-body", {
             [`dialog-body-size_${size}`]: size,

@@ -12,9 +12,7 @@ export default {
 } as ComponentMeta<typeof Expand>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof Expand> = (args) => (
-  <Expand {...args} />
-);
+const Template: ComponentStory<typeof Expand> = (args) => <Expand {...args} />;
 
 export const Playground = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
@@ -27,7 +25,4 @@ Playground.args = {
       reprehenderit temporibus voluptates!
     </div>
   ),
-	toggle: (
-		<Button>Открыть</Button>
-	)
 };

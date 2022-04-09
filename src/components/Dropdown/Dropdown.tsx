@@ -4,6 +4,7 @@ import { defaultProps } from "@utils/defaultProps";
 import classNames from "classnames";
 import { useClickAway } from "@utils/hooks/useClickAway";
 import { asyncSleep } from "@utils/utils/utils";
+import { CSSTransition } from "react-transition-group";
 
 export type DropdownPropsType = defaultProps & {
   /**
@@ -45,6 +46,8 @@ export type DropdownPropsType = defaultProps & {
   onOpen?: () => void;
 
   onClose?: () => void;
+
+  transition: "fade" | "slide";
 };
 
 /**
@@ -60,6 +63,7 @@ const Dropdown: FC<DropdownPropsType> = ({
   style,
   onOpen,
   onClose,
+  transition = "fade",
 }) => {
   const [active, setActive] = useState(false);
   const dropdownItem = useRef<HTMLDivElement>(null);
@@ -69,7 +73,7 @@ const Dropdown: FC<DropdownPropsType> = ({
     }
 
     setActive(false);
- 
+
     if (onClose) {
       onClose();
     }
@@ -86,10 +90,9 @@ const Dropdown: FC<DropdownPropsType> = ({
   return (
     <div
       className={classNames("dropdown", { "dropdown-fullwidth": fullwidth })}
-      onBlur={() => dismissible == "always" && asyncSleep(100).then(() => setActive(false))}
+      onBlur={() => dismissible == "always" && setActive(false)}
       style={style}
       ref={dropdownItem}
-    
     >
       <div
         className={classNames("dropdown-toggle", {
@@ -100,10 +103,11 @@ const Dropdown: FC<DropdownPropsType> = ({
         {toggle}
       </div>
 
-      <div
-        className={classNames("dropdown-transition", {
-          "dropdown-transition-active": active,
-        })}
+      <CSSTransition
+        in={active}
+        timeout={500}
+        unmountOnExit
+        classNames={`dropdown-transition_${transition}`}
       >
         <div
           className={classNames(
@@ -115,7 +119,7 @@ const Dropdown: FC<DropdownPropsType> = ({
         >
           <div className="dropdown-item-content">{children}</div>
         </div>
-      </div>
+      </CSSTransition>
     </div>
   );
 };
