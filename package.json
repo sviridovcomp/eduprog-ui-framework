@@ -1,14 +1,14 @@
 {
   "name": "eduprog-ui-framework",
   "homepage": "http://edu-prog.github.io/eduprog-ui-framework",
-  "version": "4.52.0",
+  "version": "4.53.0",
   "main": "./dist/index.js",
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.17.8",
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
-    "@storybook/addon-actions": "^6.4.20",
+    "@storybook/addon-actions": "^6.4.21",
     "@storybook/addon-docs": "^6.4.20",
     "@storybook/addon-essentials": "^6.4.20",
     "@storybook/addon-links": "^6.4.20",
