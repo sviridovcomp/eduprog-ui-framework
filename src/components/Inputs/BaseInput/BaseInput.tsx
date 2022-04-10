@@ -3,6 +3,12 @@ import "./BaseInput.scss";
 import classNames from "classnames";
 import { defaultProps } from "@utils/defaultProps";
 
+export interface ITextInputValidator {
+  notEmpty?: boolean;
+  pattern?: RegExp;
+  message?: string;
+}
+
 export type TextInputProps = defaultProps & {
   /**
    * Лейбл для поля ввода
@@ -65,11 +71,6 @@ export type TextInputProps = defaultProps & {
   rightAdditional?: React.ReactNode;
 
   /**
-   * Паттерн валидации input
-   */
-  pattern?: RegExp;
-
-  /**
    * Имя элемента в DOM
    */
   name?: string;
@@ -96,17 +97,9 @@ export type TextInputProps = defaultProps & {
 
   forceInvalid?: boolean;
 
-  /**
-   * Обязательно для заполнения
-   */
-  required?: boolean;
-
-  /**
-   * Сообщение валидатора
-   */
-  validationMessage?: string;
-
   autoFocus?: boolean;
+
+  validators?: ITextInputValidator;
 };
 
 const BaseInput: FC<TextInputProps> = ({
@@ -120,7 +113,6 @@ const BaseInput: FC<TextInputProps> = ({
   onKeyDown,
   leftAdditional,
   rightAdditional,
-  pattern,
   name = "",
   readonly = false,
   autocomplete = "none",
@@ -130,9 +122,8 @@ const BaseInput: FC<TextInputProps> = ({
   autoFocus = false,
   forceFocus = false,
   className = "",
-  required = false,
-  validationMessage = "",
   forceInvalid = false,
+  validators,
 }) => {
   enum ValidityStatus {
     Invalid,
@@ -140,6 +131,7 @@ const BaseInput: FC<TextInputProps> = ({
   }
 
   const [active, setActive] = useState(false);
+  const [dirty, setDirty] = useState(false);
   const [validationStatus, setValidationStatus] = useState(
     ValidityStatus.Valid
   );
@@ -151,7 +143,7 @@ const BaseInput: FC<TextInputProps> = ({
   const inputBlur = () => {
     setActive(!active);
 
-    validation();
+    setDirty(true);
 
     if (onBlur) {
       onBlur();
@@ -159,19 +151,18 @@ const BaseInput: FC<TextInputProps> = ({
   };
 
   useEffect(() => {
-    if (defaultValue?.length > 0) {
+    if (dirty) {
       validation();
     }
-  });
+  }, [dirty, defaultValue]);
 
   const validation = () => {
-    if (required && defaultValue?.length == 0) {
+    if (validators?.notEmpty && !defaultValue) {
       setValidationStatus(ValidityStatus.Invalid);
-      return;
     }
 
-    if (pattern) {
-      if (!pattern.test(defaultValue)) {
+    if (validators?.pattern) {
+      if (!validators.pattern.test(defaultValue)) {
         setValidationStatus(ValidityStatus.Invalid);
       } else {
         setValidationStatus(ValidityStatus.Valid);
@@ -250,13 +241,13 @@ const BaseInput: FC<TextInputProps> = ({
           </div>
         </div>
       </div>
-      {pattern && validationStatus == ValidityStatus.Invalid && (
+      {validators && validationStatus == ValidityStatus.Invalid && (
         <div
           className={classNames("input-validator", {
             "input-validator-show": validationStatus == ValidityStatus.Invalid,
           })}
         >
-          {validationMessage}
+          {validators.message}
         </div>
       )}
     </>

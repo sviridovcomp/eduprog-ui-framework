@@ -28,6 +28,7 @@ export declare type DropdownPropsType = defaultProps & {
     dismissible?: "always" | "toggle" | "outside";
     onOpen?: () => void;
     onClose?: () => void;
+    transition?: "fade" | "slide";
 };
 /**
  * Компонент для создания выпадающего списка

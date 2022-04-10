@@ -18,24 +18,26 @@
 
   input {
     display: none;
-    &:checked ~ .checkbox-fake > .checkbox-checkmark-type_primary {
+
+    &:checked ~ .checkbox-fake.checkbox-fake.checkbox-checkmark-type_base {
+      background-color: #545454;
+    }
+
+    &:checked ~ .checkbox-fake.checkbox-checkmark-type_primary {
       background-color: $color-primary;
     }
-    &:checked ~ .checkbox-fake > .checkbox-checkmark-type_secondary {
+    &:checked ~ .checkbox-fake.checkbox-checkmark-type_secondary {
       background-color: $color-secondary;
     }
-    &:checked ~ .checkbox-fake > .checkbox-checkmark-type_accent {
+    &:checked ~ .checkbox-fake.checkbox-checkmark-type_accent {
       background-color: $color-accent;
     }
     &:checked ~ .checkbox-fake > .checkbox-checkmark:after {
       display: flex;
     }
     &:checked ~ .checkbox-fake > .checkbox-checkmark {
-      transform: scale(1);
-    }
-    &:checked ~ .checkbox-fake .checkbox-checkmark > .checkbox-checkmark-icon {
-      visibility: visible;
-      transform: scale(1);
+      transform: translateY(0);
+      color: #fff;
     }
   }
   .checkbox-fake {
@@ -43,7 +45,7 @@
     height: 1.5rem;
     border-radius: 0.5rem;
     background-color: #ecf1f7;
-    transition: all $transition-duration $transition-type;
+    transition: background-color 0.1s;
     cursor: pointer;
     &:hover {
       background-color: darken(#ecf1f7, 5%);
@@ -52,10 +54,17 @@
       display: flex;
       width: 1.5rem;
       height: 1.5rem;
+      justify-content: center;
+      align-items: center;
       border-radius: 0.5rem;
-      transition: transform $transition-duration $transition-type;
-      transform: scale(0);
-      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
+      color: transparent;
+
+      transition: color 0.1s, transform 0.2s;
+      transform: translateY(-5px);
+
+      svg {
+        fill: currentColor;
+      }
     }
   }
 

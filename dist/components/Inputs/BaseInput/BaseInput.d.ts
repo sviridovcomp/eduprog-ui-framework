@@ -1,6 +1,11 @@
 import React, { FC } from "react";
 import "./BaseInput.scss";
 import { defaultProps } from "@utils/defaultProps";
+export interface ITextInputValidator {
+    notEmpty?: boolean;
+    pattern?: RegExp;
+    message?: string;
+}
 export declare type TextInputProps = defaultProps & {
     /**
      * Лейбл для поля ввода
@@ -48,10 +53,6 @@ export declare type TextInputProps = defaultProps & {
      */
     rightAdditional?: React.ReactNode;
     /**
-     * Паттерн валидации input
-     */
-    pattern?: RegExp;
-    /**
      * Имя элемента в DOM
      */
     name?: string;
@@ -72,15 +73,8 @@ export declare type TextInputProps = defaultProps & {
      */
     forceFocus?: boolean;
     forceInvalid?: boolean;
-    /**
-     * Обязательно для заполнения
-     */
-    required?: boolean;
-    /**
-     * Сообщение валидатора
-     */
-    validationMessage?: string;
     autoFocus?: boolean;
+    validators?: ITextInputValidator;
 };
 declare const BaseInput: FC<TextInputProps>;
 export default BaseInput;

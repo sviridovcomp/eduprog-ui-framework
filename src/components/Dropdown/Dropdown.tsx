@@ -47,7 +47,7 @@ export type DropdownPropsType = defaultProps & {
 
   onClose?: () => void;
 
-  transition: "fade" | "slide";
+  transition?: "fade" | "slide";
 };
 
 /**

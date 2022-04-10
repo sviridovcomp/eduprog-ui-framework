@@ -16,6 +16,7 @@ export default {
 
 export const Playground = () => {
   const [open, setOpen] = useState(false);
+  const [expandOpen, setExpandOpen] = useState(false);
 
   return (
     <>
@@ -35,7 +36,11 @@ export const Playground = () => {
             way to get data from outside
           </p>
 
-          <Expand toggle={<Button>Dynamic height change</Button>}>
+          <Button onClick={() => setExpandOpen(!expandOpen)}>
+            Dynamic height change
+          </Button>
+
+          <Expand open={expandOpen}>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab animi
             aperiam asperiores aspernatur atque commodi ea esse, et
             exercitationem fugit harum hic laboriosam magni maiores minima

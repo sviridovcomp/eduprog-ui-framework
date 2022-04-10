@@ -14,9 +14,6 @@ export declare type InputPasswordPropsType = TextInputProps & {
      * Название компонента в DOM
      */
     name?: string;
-    required?: boolean;
-    pattern?: RegExp;
-    validationMessage?: string;
     noValidation?: boolean;
 };
 /**

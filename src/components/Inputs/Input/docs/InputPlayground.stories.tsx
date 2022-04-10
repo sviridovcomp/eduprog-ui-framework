@@ -19,9 +19,11 @@ export const Playground = () => {
     <>
       <Input
         defaultValue={value}
-        pattern={/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/}
+        validators={{
+          notEmpty: true,
+          message: "Укажите действительный email",
+        }}
         onChange={(value: string) => setValue(value)}
-        validationMessage="Укажите действительный email"
         label="Email"
       />
     </>

@@ -22,12 +22,6 @@ export type InputPasswordPropsType = TextInputProps & {
    */
   name?: string;
 
-  required?: boolean;
-
-  pattern?: RegExp;
-
-  validationMessage?: string;
-
   noValidation?: boolean;
 };
 
@@ -37,9 +31,6 @@ export type InputPasswordPropsType = TextInputProps & {
 const InputPassword: FC<InputPasswordPropsType> = ({
   label,
   name = "",
-  required = false,
-  pattern,
-  validationMessage = "",
   noValidation = false,
   defaultValue,
   ...rest
@@ -101,9 +92,6 @@ const InputPassword: FC<InputPasswordPropsType> = ({
         label={label}
         name={name}
         defaultValue={defaultValue}
-        required={required}
-        pattern={pattern}
-        validationMessage={validationMessage}
         {...rest}
         rightAdditional={
           <div

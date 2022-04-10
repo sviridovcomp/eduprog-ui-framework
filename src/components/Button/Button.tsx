@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useState, useRef } from "react";
 import "./Button.scss";
 import { defaultProps } from "@utils/defaultProps";
 import classNames from "classnames";
@@ -20,6 +20,12 @@ export type ButtonPropsType = defaultProps & {
   onClick?: (event?: React.MouseEvent<HTMLButtonElement>) => void;
 
   onMouseDown?: (event?: React.MouseEvent<HTMLButtonElement>) => void;
+
+  onMouseUp?: (event?: React.MouseEvent<HTMLButtonElement>) => void;
+
+  onMouseLeave?: (event?: React.MouseEvent<HTMLButtonElement>) => void;
+
+  onBlur?: (event?: React.FocusEvent<HTMLButtonElement>) => void;
   /**
    *  Имя кнопки в DOM
    */
@@ -79,7 +85,10 @@ const Button: FC<ButtonPropsType> = ({
   view = "default",
   size = "md",
   onClick,
+  onMouseUp,
   onMouseDown,
+  onMouseLeave,
+  onBlur,
   className = "",
   name,
   width = "default",
@@ -93,6 +102,7 @@ const Button: FC<ButtonPropsType> = ({
   progress = false,
   style,
 }) => {
+  const buttonRef = useRef<HTMLButtonElement>(null);
   const [pressed, setPressed] = useState(false);
 
   const rootClasses = classNames(
@@ -107,27 +117,65 @@ const Button: FC<ButtonPropsType> = ({
     { "Button-progress": progress }
   );
 
-  const pressing = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const mouseDown = (event: React.MouseEvent<HTMLButtonElement>) => {
+    if (navigator.userAgent.match(/safari/i)) {
+      event.preventDefault();
+    }
+
     setPressed(true);
+
+    if (onMouseDown) {
+      onMouseDown(event);
+    }
+  };
+
+  const mouseUp = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setPressed(false);
+
+    if (onMouseUp) {
+      onMouseUp(event);
+    }
+  };
+
+  const mouseLeave = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setPressed(false);
+
+    if (onMouseLeave) {
+      onMouseLeave(event);
+    }
+  };
+
+  const click = (event: React.MouseEvent<HTMLButtonElement>) => {
+    if (buttonRef.current != null) {
+      buttonRef.current.focus();
+    }
 
     if (onClick) {
       onClick(event);
     }
+  };
 
-    setTimeout(() => {
-      setPressed(false);
-    }, 400);
+  const blur = (event: React.FocusEvent<HTMLButtonElement>) => {
+    setPressed(false);
+
+    if (onBlur) {
+      onBlur(event);
+    }
   };
 
   return (
     <button
       className={rootClasses}
-      onClick={(event) => pressing(event)}
-      onMouseDown={(event) => (onMouseDown ? onMouseDown(event) : null)}
+      onMouseDown={mouseDown}
+      onMouseUp={mouseUp}
+      onMouseLeave={mouseLeave}
+      onBlur={blur}
+      onClick={click}
       name={name}
       type={type}
       disabled={disabled}
       style={style}
+      ref={buttonRef}
     >
       <span
         className={classNames("Button-label")}
