@@ -23,4 +23,5 @@ import Carousel from "@components/Carousel";
 import CarouselButton from "@components/Carousel/CarouselButton/CarouselButton";
 import Skeleton from "@components/Skeleton/Skeleton";
 import TextSkeleton from "@components/Skeleton/TextSkeleton";
-export { Button, Column, Container, Row, Expand, InputPhone, Dropdown, Dialog, Checkbox, Avatar, Island, Input, InputCount, InputCopy, InputPassword, Spinner, Paragraph, Heading, Switch, MultipleSelect, Notification, BaseInput, Select, Carousel, CarouselButton, Skeleton, TextSkeleton, };
+import Text from "@components/Typography/Text";
+export { Button, Column, Container, Row, Expand, InputPhone, Dropdown, Dialog, Checkbox, Avatar, Island, Input, InputCount, InputCopy, InputPassword, Spinner, Paragraph, Heading, Switch, MultipleSelect, Notification, BaseInput, Select, Carousel, CarouselButton, Skeleton, TextSkeleton, Text, };

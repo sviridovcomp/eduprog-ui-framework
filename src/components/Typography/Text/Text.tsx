@@ -180,6 +180,7 @@ export class Text extends PureComponent<TextProps> {
     }
 
     return (
+      //@ts-ignore
       <ElementType
         ref={this.setTextElement.bind(this)}
         style={{ color: color, ...style }}
