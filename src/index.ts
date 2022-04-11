@@ -23,6 +23,7 @@ import Carousel from "@components/Carousel";
 import CarouselButton from "@components/Carousel/CarouselButton/CarouselButton";
 import Skeleton from "@components/Skeleton/Skeleton";
 import TextSkeleton from "@components/Skeleton/TextSkeleton";
+import Text from "@components/Typography/Text";
 
 export {
   Button,
@@ -52,4 +53,5 @@ export {
   CarouselButton,
   Skeleton,
   TextSkeleton,
+  Text,
 };
