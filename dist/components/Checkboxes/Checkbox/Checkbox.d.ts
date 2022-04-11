@@ -13,7 +13,7 @@ export declare type CheckboxPropsType = defaultProps & {
     /**
      * Цвет чекбокса
      */
-    type: "primary" | "secondary" | "accent";
+    type: "base" | "primary" | "secondary" | "accent";
     /**
      * Checkbox располагается во всю ширину родителя
      */
@@ -30,6 +30,7 @@ export declare type CheckboxPropsType = defaultProps & {
      * Коллбэк вызывается при изменении значения чекбокса
      */
     onChange?: () => void;
+    autoFocus?: boolean;
 };
 /**
  * Компонент чекбокса.

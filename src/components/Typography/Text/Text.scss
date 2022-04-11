@@ -1,0 +1,260 @@
+@import "~styles/variables/variables";
+
+.Text {
+  font-family: $font-family;
+
+  font-weight: 400;
+  color: $color-text;
+  &-align {
+    &_start {
+      text-align: left;
+    }
+
+    &_center {
+      text-align: center;
+    }
+
+    &_end {
+      text-align: right;
+    }
+
+    &_justify {
+      text-align: justify;
+    }
+  }
+
+  &-overflow {
+    &_fade,
+    &_fade-horizontal {
+      position: relative;
+      display: block;
+      overflow: hidden;
+
+      &::after {
+        position: relative;
+        right: 0;
+        bottom: 0;
+
+        content: "\00a0";
+      }
+    }
+
+    &_fade::after {
+      width: 2em;
+      background-image: linear-gradient(
+        270deg,
+        var(--color-bg-default) 35%,
+        transparent
+      );
+    }
+
+    &_fade-horizontal::after {
+      left: 0;
+      background-image: linear-gradient(
+        0deg,
+        var(--color-bg-default) 35%,
+        transparent
+      );
+    }
+
+    &_ellipsis {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+
+      white-space: normal;
+      text-overflow: ellipsis;
+    }
+  }
+
+  &-typography {
+    &_display-xl {
+      font-size: 3.5rem;
+      line-height: 4rem;
+      letter-spacing: normal;
+    }
+    &_display_lg {
+      font-size: 3rem;
+      line-height: 3.5rem;
+      letter-spacing: 0.0065em;
+    }
+    &_display_md {
+      font-size: 2.5rem;
+      line-height: 3rem;
+      letter-spacing: 0.0065em;
+    }
+    &_display_sm {
+      font-size: 2.125rem;
+      line-height: 2.5rem;
+      letter-spacing: 0.0065em;
+    }
+    &_headline-xl {
+      font-size: 2rem;
+      line-height: 2.5rem;
+      letter-spacing: 0.0065em;
+    }
+    &_headline-lg {
+      font-size: 1.75rem;
+      line-height: 2.25rem;
+      letter-spacing: 0.0065em;
+    }
+    &_headline-md {
+      font-size: 1.5rem;
+      line-height: 1.875rem;
+      letter-spacing: 0.0065em;
+    }
+    &_headline-sm {
+      font-size: 1.25rem;
+      line-height: 1.5rem;
+      letter-spacing: 0.0065em;
+    }
+    &_headline-xs {
+      font-size: 1.125rem;
+      line-height: 1.5rem;
+      letter-spacing: 0.0065em;
+    }
+    &_subheader-xl {
+      font-size: 1rem;
+      line-height: 1.25rem;
+      letter-spacing: 0.0065rem;
+    }
+    &_subheader-lg {
+      font-size: 0.9375rem;
+      line-height: 1.125rem;
+      letter-spacing: 0.0065em;
+    }
+    &_subheader-md {
+      font-size: 0.875rem;
+      line-height: 1.125rem;
+      letter-spacing: 0.0065rem;
+    }
+    &_subheader-sm {
+      font-size: 0.8125rem;
+      line-height: 1.125rem;
+      letter-spacing: 0.0065em;
+    }
+    &_body-long-xl {
+      font-size: 1rem;
+      line-height: 1.5rem;
+      letter-spacing: 0.0065em;
+    }
+    &_body-long-lg {
+      font-size: 0.9375rem;
+      line-height: 1.25rem;
+      letter-spacing: 0.0065em;
+    }
+    &_body-long-md {
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+      letter-spacing: 0.0065em;
+    }
+    &_body-long-sm {
+      font-size: 0.8125rem;
+      line-height: 1.125rem;
+      letter-spacing: 0.0065em;
+    }
+    &_body-short-xl {
+      font-size: 1rem;
+      line-height: 1.25rem;
+      letter-spacing: 0.0065em;
+    }
+    &_body-short-lg {
+      font-size: 0.9375rem;
+      line-height: 1.125rem;
+      letter-spacing: 0.0065em;
+    }
+    &_body-short-md {
+      font-size: 0.875rem;
+      line-height: 1.125rem;
+      letter-spacing: 0.0065em;
+    }
+    &_body-short-sm {
+      font-size: 0.8125rem;
+      line-height: 1rem;
+      letter-spacing: 0.0065em;
+    }
+    &_caption-xl {
+      font-size: 0.8125rem;
+      line-height: 1rem;
+      letter-spacing: 0.0065em;
+    }
+    &_caption-lg {
+      font-size: 0.75rem;
+      line-height: 1rem;
+      letter-spacing: 0.0065em;
+    }
+    &_caption-md {
+      font-size: 0.6875rem;
+      line-height: 1rem;
+      letter-spacing: 0.0065em;
+    }
+    &_overline-lg {
+      font-size: 0.75rem;
+      line-height: 1rem;
+      letter-spacing: 0.0065em;
+    }
+    &_overline-md {
+      font-size: 0.6875rem;
+      line-height: 1rem;
+      letter-spacing: 0.0065em;
+    }
+    &_overline-sm {
+      font-size: 0.625rem;
+      line-height: 0.75rem;
+      letter-spacing: 0.0065em;
+    }
+    &_control-xxl {
+      font-size: 1.125rem;
+      line-height: 1.5rem;
+      letter-spacing: 0.0065em;
+    }
+    &_control-xl {
+      font-size: 1rem;
+      line-height: 1.25rem;
+      letter-spacing: 0.0065em;
+    }
+    &_control-lg {
+      font-size: 0.9375rem;
+      line-height: 1.25rem;
+      letter-spacing: 0.0065em;
+    }
+    &_control-md {
+      font-size: 0.875rem;
+      line-height: 1rem;
+      letter-spacing: 0.0065em;
+    }
+    &_control-sm {
+      font-size: 0.8175rem;
+      line-height: 1rem;
+      letter-spacing: 0.0065em;
+    }
+    &_control-xs {
+      font-size: 0.75rem;
+      line-height: 1rem;
+      letter-spacing: 0.0065em;
+    }
+    &_control-xss {
+      font-size: 0.6875rem;
+      line-height: 1rem;
+      letter-spacing: 0.0065em;
+    }
+  }
+
+  &-weight {
+    &_bold {
+      font-weight: 700;
+    }
+
+    &_medium {
+      font-weight: 500;
+    }
+
+    &_light {
+      font-weight: 300;
+    }
+
+    &_regular {
+      font-weight: 400;
+    }
+  }
+}

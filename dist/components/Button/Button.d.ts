@@ -15,6 +15,9 @@ export declare type ButtonPropsType = defaultProps & {
      */
     onClick?: (event?: React.MouseEvent<HTMLButtonElement>) => void;
     onMouseDown?: (event?: React.MouseEvent<HTMLButtonElement>) => void;
+    onMouseUp?: (event?: React.MouseEvent<HTMLButtonElement>) => void;
+    onMouseLeave?: (event?: React.MouseEvent<HTMLButtonElement>) => void;
+    onBlur?: (event?: React.FocusEvent<HTMLButtonElement>) => void;
     /**
      *  Имя кнопки в DOM
      */

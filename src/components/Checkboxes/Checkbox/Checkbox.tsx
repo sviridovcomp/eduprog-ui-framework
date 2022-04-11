@@ -1,5 +1,5 @@
+// @ts-ignore
 import React, { FC, useEffect, useRef, useState, useId } from "react";
-import { v4 as uuidv4 } from "uuid";
 import "./Checkbox.scss";
 import { defaultProps } from "@utils/defaultProps";
 import classNames from "classnames";
