@@ -8,14 +8,15 @@ import { useSwipeable } from "react-swipeable";
 
 export type NotificationPropsType = {
   visible: boolean;
-  offset: number;
-  hasCloser: boolean;
-  status: "ok" | "fail";
+  offset?: number;
+  hasCloser?: boolean;
+  status?: "ok" | "fail";
   onCloserClick?: () => void;
   onCloseTimeout?: () => void;
   onClose?: () => void;
   title: string;
-  stickTo: "left" | "right";
+  stickTo?: "left" | "right";
+  autoCloseDelay?: number;
 };
 
 const Notification: FC<NotificationPropsType> = ({
@@ -28,6 +29,7 @@ const Notification: FC<NotificationPropsType> = ({
   children,
   onClose,
   stickTo = "left",
+  autoCloseDelay = 5000,
 }) => {
   const autoCloseTimeoutRef = useRef(0);
   const closeTimeoutRef = useRef(0);
@@ -39,7 +41,7 @@ const Notification: FC<NotificationPropsType> = ({
       if (onCloseTimeout) {
         onCloseTimeout();
       }
-    }, 5000);
+    }, autoCloseDelay);
   }, [onCloseTimeout]);
 
   const stopAutoCloseTimer = useCallback(() => {
@@ -79,31 +81,33 @@ const Notification: FC<NotificationPropsType> = ({
   });
 
   return (
-    <div
-      style={{ top: `${offset}px` }}
-      className={classNames(
-        "notification",
-        { [`notification__stick-to_${stickTo}`]: stickTo },
-        {
-          "notification-visible": visible,
-        }
-      )}
-      {...swipeableHandlers}
-    >
-      <div className="notification__icon">
-        {status == "ok" && <Done />}
-        {status == "fail" && <Error />}
-      </div>
-      <div className="notification__title">{title}</div>
-      <div className="notification__content">{children}</div>
-
-      {hasCloser && (
-        <div className="notification__closer">
-          <button onClick={onClose}>
-            <CloseIcon />
-          </button>
+    <div {...swipeableHandlers}>
+      <div
+        style={{ top: `${offset}px` }}
+        className={classNames(
+          "notification",
+          { [`notification__stick-to_${stickTo}`]: stickTo },
+          {
+            "notification-visible": visible,
+          }
+        )}
+        {...swipeableHandlers}
+      >
+        <div className="notification__icon">
+          {status == "ok" && <Done />}
+          {status == "fail" && <Error />}
         </div>
-      )}
+        <div className="notification__title">{title}</div>
+        <div className="notification__content">{children}</div>
+
+        {hasCloser && (
+          <div className="notification__closer">
+            <button onClick={onClose}>
+              <CloseIcon />
+            </button>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
