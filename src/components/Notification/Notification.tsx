@@ -81,33 +81,32 @@ const Notification: FC<NotificationPropsType> = ({
   });
 
   return (
-    <div {...swipeableHandlers}>
-      <div
-        style={{ top: `${offset}px` }}
-        className={classNames(
-          "notification",
-          { [`notification__stick-to_${stickTo}`]: stickTo },
-          {
-            "notification-visible": visible,
-          }
-        )}
-        {...swipeableHandlers}
-      >
-        <div className="notification__icon">
-          {status == "ok" && <Done />}
-          {status == "fail" && <Error />}
-        </div>
-        <div className="notification__title">{title}</div>
-        <div className="notification__content">{children}</div>
-
-        {hasCloser && (
-          <div className="notification__closer">
-            <button onClick={onClose}>
-              <CloseIcon />
-            </button>
-          </div>
-        )}
+    <div
+      {...swipeableHandlers}
+      style={{ top: `${offset}px` }}
+      className={classNames(
+        "notification",
+        { [`notification__stick-to_${stickTo}`]: stickTo },
+        {
+          "notification-visible": visible,
+        }
+      )}
+      {...swipeableHandlers}
+    >
+      <div className="notification__icon">
+        {status == "ok" && <Done />}
+        {status == "fail" && <Error />}
       </div>
+      <div className="notification__title">{title}</div>
+      <div className="notification__content">{children}</div>
+
+      {hasCloser && (
+        <div className="notification__closer">
+          <button onClick={onClose}>
+            <CloseIcon />
+          </button>
+        </div>
+      )}
     </div>
   );
 };

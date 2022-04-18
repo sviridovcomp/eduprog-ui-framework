@@ -20,9 +20,8 @@ export type IslandPropsType = defaultProps & {
    * Тема компонента, `shadow` — затенение на границах, `border` — светло-серая обводка
    */
   type?: "shadow" | "border";
-  hoverable?: boolean;
 
-  scalable?: boolean;
+  hoverTranstion?: null | "scale" | "translateY";
 
   onClick?: (event: React.MouseEvent) => void;
 };
@@ -35,11 +34,10 @@ const Island: FC<IslandPropsType> = ({
   size = "md",
   align = "center",
   type = "shadow",
-  hoverable = false,
-  className,
+  hoverTranstion = null,
   style,
-  scalable = false,
   onClick,
+  className,
 }) => {
   const rootClasses = classNames(
     className,
@@ -47,11 +45,14 @@ const Island: FC<IslandPropsType> = ({
     { [`island-size_${size}`]: size },
     { [`island-align_${align}`]: align },
     { [`island-type_${type}`]: type },
-    { "island-hoverable": hoverable },
-    { "island-scalable": scalable}
+    { [`island-hover_${hoverTranstion}`]: hoverTranstion }
   );
 
-  return <div style={style} className={rootClasses} onClick={onClick}>{children}</div>;
+  return (
+    <div style={style} className={rootClasses} onClick={onClick}>
+      {children}
+    </div>
+  );
 };
 
 export default Island;

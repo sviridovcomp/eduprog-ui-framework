@@ -35,11 +35,4 @@ describe("Island testing", () => {
       );
     });
   });
-
-  it("Island hoverable rendering", () => {
-    const island = shallow(<Island hoverable>island-content</Island>);
-    expect(island.find(".island-hoverable").text()).toEqual(
-      "island-content"
-    );
-  });
 });
