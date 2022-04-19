@@ -41,6 +41,8 @@ export type CheckboxPropsType = defaultProps & {
   onChange?: () => void;
 
   autoFocus?: boolean;
+
+  style?: React.CSSProperties;
 };
 
 /**
@@ -56,6 +58,7 @@ const Checkbox: FC<CheckboxPropsType> = ({
   className = "",
   onChange,
   autoFocus,
+  style,
 }) => {
   const checkboxRef = useRef<HTMLInputElement>(null);
   const [pressed, setPressed] = useState(checked || false);
@@ -114,6 +117,7 @@ const Checkbox: FC<CheckboxPropsType> = ({
         />
 
         <span
+          style={style}
           className={classNames("checkbox-fake", {
             [`checkbox-checkmark-type_${type}`]: type,
           })}
