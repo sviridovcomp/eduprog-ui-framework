@@ -3,6 +3,7 @@ import "./Dialog.scss";
 import classNames from "classnames";
 import { CSSTransition } from "react-transition-group";
 import { useClickAway } from "@utils/hooks/useClickAway";
+import Backdrop from "@components/Backdrop/Backdrop";
 
 export type DialogPropsType = {
   /**
@@ -29,6 +30,8 @@ export type DialogPropsType = {
    * Событие вызываемое при закрытии диалога
    */
   onClose?: () => void;
+
+  verticalAlign?: "start" | "center";
 };
 
 /**
@@ -40,6 +43,7 @@ const Dialog: FC<DialogPropsType> = ({
   size = "md",
   open = false,
   onClose,
+  verticalAlign = "center",
 }) => {
   const modalContent = useRef<HTMLDivElement>(null);
   useClickAway(modalContent, () => {
@@ -50,17 +54,13 @@ const Dialog: FC<DialogPropsType> = ({
 
   return (
     <div className="dialog">
-      <div
-        className={classNames("dialog-backdrop", {
-          "dialog-backdrop-show": open,
-        })}
-      />
+      <Backdrop open={open} />
 
       <CSSTransition
         in={open}
         unmountOnExit
-        timeout={300}
-        classNames="dialog-body-animation"
+        timeout={150}
+        classNames={`dialog-body-animation-${verticalAlign}`}
       >
         <div
           className={classNames("dialog-body", {

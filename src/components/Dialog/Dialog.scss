@@ -6,33 +6,16 @@
     display: inline-block;
   }
 
-  &-backdrop {
-    background-color: rgba(50, 50, 50, 0.5);
-    height: 100%;
-    width: 100%;
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 100;
-    visibility: hidden;
-
-    &-show {
-      visibility: visible;
-    }
-  }
-
   &-heading {
     font: $font-heading-4;
   }
 
   &-body {
     display: flex;
-    position: fixed;
+    position: relative;
     justify-content: space-between;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%);
     width: 100%;
     background-color: #ffffff;
     flex-direction: column;
@@ -40,12 +23,58 @@
       cubic-bezier(0.25, 0.46, 0.45, 0.94);
     z-index: 101;
     padding: 1rem;
-    border-radius: 0.5rem;
+    border-radius: 2rem;
     overflow: auto;
     overscroll-behavior: contain;
 
     &-animation {
-      @include fade-animations(0.15);
+      &-start {
+        &-enter {
+          transform: scale(0) translate(-50%, 0);
+        }
+
+        &-enter-active {
+          transform: scale(1) translate(-50%, 0);
+          transition: 0.1s transform ease-in-out;
+        }
+
+        &-enter-done {
+          transform: scale(1) translate(-50%, 0);
+        }
+
+        &-exit {
+          transform: scale(1) translate(-50%, 0);
+        }
+
+        &-exit-active {
+          transform: scale(0) translate(-50%, 0);
+          transition: 0.1s transform ease-in-out;
+        }
+      }
+
+      &-center {
+        &-enter {
+          transform: scale(0) translate(-50%, 50%);
+        }
+
+        &-enter-active {
+          transform: scale(1) translate(-50%, 50%);
+          transition: 0.1s transform ease-in-out;
+        }
+
+        &-enter-done {
+          transform: scale(1) translate(-50%, 50%);
+        }
+
+        &-exit {
+          transform: scale(1) translate(-50%, 50%);
+        }
+
+        &-exit-active {
+          transform: scale(0) translate(-50%, 50%);
+          transition: 0.1s transform ease-in-out;
+        }
+      }
     }
 
     &-size {
