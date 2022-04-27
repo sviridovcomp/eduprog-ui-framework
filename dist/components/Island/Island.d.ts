@@ -18,7 +18,7 @@ export declare type IslandPropsType = defaultProps & {
      * Тема компонента, `shadow` — затенение на границах, `border` — светло-серая обводка
      */
     type?: "shadow" | "border";
-    hoverTranstion?: null | "scale" | "translateY";
+    hoverTransition?: null | "scale" | "translateY";
     onClick?: (event: React.MouseEvent) => void;
 };
 /**

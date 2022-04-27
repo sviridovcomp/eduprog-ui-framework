@@ -21,7 +21,7 @@ export type IslandPropsType = defaultProps & {
    */
   type?: "shadow" | "border";
 
-  hoverTranstion?: null | "scale" | "translateY";
+  hoverTransition?: null | "scale" | "translateY";
 
   onClick?: (event: React.MouseEvent) => void;
 };
@@ -34,7 +34,7 @@ const Island: FC<IslandPropsType> = ({
   size = "md",
   align = "center",
   type = "shadow",
-  hoverTranstion = null,
+  hoverTransition = null,
   style,
   onClick,
   className,
@@ -45,7 +45,7 @@ const Island: FC<IslandPropsType> = ({
     { [`island-size_${size}`]: size },
     { [`island-align_${align}`]: align },
     { [`island-type_${type}`]: type },
-    { [`island-hover_${hoverTranstion}`]: hoverTranstion }
+    { [`island-hover_${hoverTransition}`]: hoverTransition }
   );
 
   return (
