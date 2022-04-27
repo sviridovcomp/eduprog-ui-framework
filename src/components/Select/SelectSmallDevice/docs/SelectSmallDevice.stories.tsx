@@ -22,27 +22,27 @@ Playground.args = {
   options: [
     {
       name: "5% - Аптеки",
-      value: "5% - аптеки",
+      value: "1",
     },
     {
       name: "5% - Ozon.ru",
-      value: "5% - ozon.ru",
+      value: "2",
     },
     {
       name: "3% - Пятёрочка",
-      value: "fewfew",
+      value: "3",
     },
     {
       name: "5% - Спорттовары",
-      value: "grewge",
+      value: "4",
     },
     {
       name: "5% - Такси",
-      value: "fwegfewr",
+      value: "5",
     },
     {
       name: "5% - Рестораны",
-      value: "fwergerr",
+      value: "6",
     },
   ],
 };

@@ -1,32 +1,38 @@
 import { SelectTypeProps } from "@components/Select/Select/SelectProps";
-import React, { FC, useState } from "react";
+// @ts-ignore
+import React, { FC, useState, useId } from "react";
 import "./SelectSmallDevice.scss";
 import "@components/Inputs/BaseInput/BaseInput.scss";
 import classNames from "classnames";
 import { sha256 } from "js-sha256";
+import { v4 as uuid } from "uuid";
 
 const SelectSmallDevice: FC<SelectTypeProps<any>> = ({
   label,
   name,
   options,
+  onChange,
 }) => {
   const [active, setActive] = useState(false);
-  const [selectedOption, setSelectedOption] = useState("");
+  const [selectedOption, setSelectedOption] = useState(options[0]);
+  const selectId = sha256(new Date().getTime().toString());
 
   const selectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const option = event.target.value.toString();
 
-    setSelectedOption(option);
-  };
+    setSelectedOption(
+      options.find((currentOption) => currentOption.name == option)!
+    );
 
-  const selectFocus = () => {
-    setActive(!active);
+    onChange(selectedOption);
   };
 
   return (
     <div className="input">
       <div
-        className={classNames("input-label", { "input-label-active": active })}
+        className={classNames("input-label", {
+          "input-label-active": active || selectedOption,
+        })}
       >
         {label}
       </div>
@@ -34,15 +40,14 @@ const SelectSmallDevice: FC<SelectTypeProps<any>> = ({
       <div className="input-field">
         <select
           className="input-control"
-          onFocus={selectFocus}
+          onFocus={() => setActive(!active)}
+          onBlur={() => setActive(!active)}
           onChange={selectChange}
           style={{ color: "transparent" }}
           name={name}
           size={1}
+          id={selectId}
         >
-          <option selected disabled>
-            Выберите:
-          </option>
           {options.map(({ name }) => (
             <option value={name} key={sha256(name)}>
               {name}
@@ -50,7 +55,7 @@ const SelectSmallDevice: FC<SelectTypeProps<any>> = ({
           ))}
         </select>
 
-        <div className="select-value">{selectedOption}</div>
+        <div className="select-value">{selectedOption.name}</div>
 
         <div className="select-icon">
           <svg

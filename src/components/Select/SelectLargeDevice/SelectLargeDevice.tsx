@@ -1,4 +1,4 @@
-import React, {FC, useEffect, useRef, useState} from "react";
+import React, { FC, useEffect, useRef, useState } from "react";
 import BaseInput from "@components/Inputs/BaseInput/BaseInput";
 import { sha256 } from "js-sha256";
 import "./SelectLargeDevice.scss";
@@ -7,17 +7,16 @@ import {
   SelectValue,
 } from "@components/Select/Select/SelectProps";
 import CustomDropdown from "@components/CustomDropdown/CustomDropdown";
-import {useClickAway} from "@utils/hooks/useClickAway";
+import { useClickAway } from "@utils/hooks/useClickAway";
 
 const SelectLargeDevice: FC<SelectTypeProps<any>> = ({
   label,
   options,
-  defaultValue,
   onChange,
   zIndex,
 }) => {
   const [open, setOpen] = useState(false);
-  const [value, setValue] = useState(defaultValue);
+  const [value, setValue] = useState(options[0]);
 
   const SelectToggle = () => {
     return (
@@ -26,7 +25,7 @@ const SelectLargeDevice: FC<SelectTypeProps<any>> = ({
         defaultValue={value ? value.name : ""}
         cursor="pointer"
         readonly
-        onMouseDown={() => setOpen(!open)}
+        onClick={() => setOpen(!open)}
         rightAdditional={
           <span
             style={{

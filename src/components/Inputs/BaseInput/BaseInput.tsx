@@ -174,9 +174,9 @@ const BaseInput: FC<TextInputProps> = ({
   };
 
   const inputMouseDown = (event: React.MouseEvent) => {
-      if (onMouseDown) {
-          onMouseDown(event);
-      }
+    if (onMouseDown) {
+      onMouseDown(event);
+    }
   };
 
   const inputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -194,12 +194,6 @@ const BaseInput: FC<TextInputProps> = ({
   const inputKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (onKeyDown) {
       onKeyDown(event);
-    }
-  };
-
-  const inputClicked = () => {
-    if (onClick) {
-      onClick();
     }
   };
 
@@ -234,7 +228,7 @@ const BaseInput: FC<TextInputProps> = ({
             onFocus={inputFocus}
             onBlur={inputBlur}
             value={defaultValue}
-            onClick={() => inputClicked()}
+            onClick={onClick}
             onMouseDown={inputMouseDown}
             onChange={(event) => inputChange(event)}
             onPaste={(event) => inputPaste(event)}
