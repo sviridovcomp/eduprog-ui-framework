@@ -75,6 +75,7 @@ export declare type TextInputProps = defaultProps & {
     forceInvalid?: boolean;
     autoFocus?: boolean;
     validators?: ITextInputValidator;
+    onMouseDown?: (event?: React.MouseEvent) => void;
 };
 declare const BaseInput: FC<TextInputProps>;
 export default BaseInput;
