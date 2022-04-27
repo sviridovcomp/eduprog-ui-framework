@@ -29,6 +29,8 @@ export type CustomDropdownPropsType = defaultProps & {
   fullwidth?: boolean;
 
   onClose?: () => void;
+
+  contentStyle?: React.CSSProperties;
 };
 
 const CustomDropdown: FC<CustomDropdownPropsType> = ({
@@ -39,6 +41,7 @@ const CustomDropdown: FC<CustomDropdownPropsType> = ({
   children,
   onClose,
   style,
+  contentStyle,
 }) => {
   const dropdownRef = useRef(null);
   useClickAway(dropdownRef, () => {
@@ -63,7 +66,9 @@ const CustomDropdown: FC<CustomDropdownPropsType> = ({
             { "dropdown-fullwidth": fullwidth }
           )}
         >
-          <div className="dropdown-item-content">{children}</div>
+          <div className="dropdown-item-content" style={contentStyle}>
+            {children}
+          </div>
         </div>
       </CSSTransition>
     </div>

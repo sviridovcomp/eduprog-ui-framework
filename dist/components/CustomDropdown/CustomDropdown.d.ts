@@ -1,5 +1,5 @@
 import { defaultProps } from "@utils/defaultProps";
-import { FC } from "react";
+import React, { FC } from "react";
 import "../Dropdown/Dropdown.scss";
 export declare type CustomDropdownPropsType = defaultProps & {
     open?: boolean;
@@ -16,6 +16,7 @@ export declare type CustomDropdownPropsType = defaultProps & {
      */
     fullwidth?: boolean;
     onClose?: () => void;
+    contentStyle?: React.CSSProperties;
 };
 declare const CustomDropdown: FC<CustomDropdownPropsType>;
 export default CustomDropdown;

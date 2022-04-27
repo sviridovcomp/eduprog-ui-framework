@@ -18,15 +18,15 @@ const CheckboxBlock: FC<CheckboxBlockPropsType> = ({ options, onChange }) => {
     ICheckboxBlockValue<any>[]
   >([]);
 
-  const onChecked = (option: ICheckboxBlockValue<any>) => {
-    if (
-      selectedValue.some((item) => {
-        return item.id == option.id;
-      })
-    ) {
-      setSelectedValue(selectedValue.filter((value) => value.id == option.id));
+  const onChecked = (params: ICheckboxBlockValue<any>) => {
+    console.log(
+      params.id,
+      selectedValue.some((item) => item.id != params.id)
+    );
+    if (selectedValue.some((option) => option.id == params.id)) {
+      setSelectedValue(selectedValue.filter((value) => value.id != params.id));
     } else {
-      setSelectedValue([...selectedValue, option]);
+      setSelectedValue([...selectedValue, params]);
     }
   };
 
@@ -41,14 +41,19 @@ const CheckboxBlock: FC<CheckboxBlockPropsType> = ({ options, onChange }) => {
     <div className="toggle-block">
       {options?.map((option) => (
         <div
+          style={{ width: `calc(100% / ${options.length})` }}
           className={classNames("toggle-block-item", {
             "toggle-block-item-selected": selectedValue.includes(option),
           })}
+          onClick={() => onChecked(option)}
         >
           <Checkbox
             style={{ backgroundColor: "#fff" }}
+            position="right"
+            wrapperStyle={{ userSelect: "none", gap: "1rem" }}
+            checked={selectedValue.includes(option)}
+            disabled
             {...option}
-            onChange={() => onChecked(option)}
           >
             {option.label}
           </Checkbox>

@@ -19,7 +19,7 @@ const MultipleSelectLargeDevice: FC<MultipleSelectPropsType<any>> = ({
   const [selectedOptions, setSelectedOptions] = useState<
     Array<MultipleSelectValue<any>>
   >([]);
-  const [selectOpened, setSelectOpened] = useState(false);
+  const [open, setOpen] = useState(false);
 
   const SelectToggle = (
     <BaseInput
@@ -33,7 +33,8 @@ const MultipleSelectLargeDevice: FC<MultipleSelectPropsType<any>> = ({
         <span
           style={{
             transition: "0.2s transform ease",
-            transform: `rotate(${selectOpened ? "180" : "0"}deg)`,
+            transform: `rotate(${open ? "180" : "0"}deg)`,
+            height: "24px",
           }}
         >
           <svg
@@ -62,35 +63,37 @@ const MultipleSelectLargeDevice: FC<MultipleSelectPropsType<any>> = ({
   const selectOption = (
     params: MultipleSelectValue<any> | Array<MultipleSelectValue<any>>
   ) => {
-    if (!(params instanceof Array)) {
-      if (selectedOptions.some((option) => option.name == params.name)) {
-        setSelectedOptions(
-          selectedOptions.filter((option) => {
-            return option.name != params.name;
-          })
-        );
-      } else {
-        setSelectedOptions([...selectedOptions, params]);
-      }
+    if (params instanceof Array) {
+      return;
+    }
+
+    if (selectedOptions.some((option) => option.name == params.name)) {
+      setSelectedOptions(
+        selectedOptions.filter((option) => {
+          return option.name != params.name;
+        })
+      );
+    } else {
+      setSelectedOptions([...selectedOptions, params]);
     }
   };
 
   useEffect(() => {
-    if (onChange && selectedOptions.length != 0) {
+    if (onChange && selectedOptions) {
       onChange(selectedOptions);
     }
-  }, [selectedOptions]);
+  }, [onChange, selectedOptions]);
 
   const SelectPopup = options.map((option) => (
     <div className="multiple-select-item" key={sha256(option.name)}>
       <Checkbox
         position="right"
         onChange={() => selectOption(option)}
-        checked={selectedOptions.includes(option)}
         type="primary"
         className="multiple-select-checkbox"
         fullwidth
         disabled={disabledPredicate(option)}
+        wrapperStyle={{ userSelect: "none", gap: "1rem" }}
       >
         {option.name}
       </Checkbox>
@@ -106,8 +109,9 @@ const MultipleSelectLargeDevice: FC<MultipleSelectPropsType<any>> = ({
         dismissible="outside"
         fullwidth
         style={{ zIndex: zIndex }}
-        onOpen={() => setSelectOpened(!selectOpened)}
-        onClose={() => setSelectOpened(false)}
+        onOpen={() => setOpen(!open)}
+        onClose={() => setOpen(false)}
+        contentStyle={{ borderRadius: "0.5rem" }}
       >
         {SelectPopup}
       </Dropdown>

@@ -100,6 +100,8 @@ export type TextInputProps = defaultProps & {
   autoFocus?: boolean;
 
   validators?: ITextInputValidator;
+
+  onMouseDown?: (event?: React.MouseEvent) => void;
 };
 
 const BaseInput: FC<TextInputProps> = ({
@@ -118,6 +120,7 @@ const BaseInput: FC<TextInputProps> = ({
   autocomplete = "none",
   cursor = "text",
   onClick,
+  onMouseDown,
   onBlur,
   autoFocus = false,
   forceFocus = false,
@@ -168,6 +171,12 @@ const BaseInput: FC<TextInputProps> = ({
         setValidationStatus(ValidityStatus.Valid);
       }
     }
+  };
+
+  const inputMouseDown = (event: React.MouseEvent) => {
+      if (onMouseDown) {
+          onMouseDown(event);
+      }
   };
 
   const inputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -226,6 +235,7 @@ const BaseInput: FC<TextInputProps> = ({
             onBlur={inputBlur}
             value={defaultValue}
             onClick={() => inputClicked()}
+            onMouseDown={inputMouseDown}
             onChange={(event) => inputChange(event)}
             onPaste={(event) => inputPaste(event)}
             onKeyDown={(event) => inputKeyDown(event)}

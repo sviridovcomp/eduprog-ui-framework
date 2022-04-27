@@ -29,6 +29,7 @@ export declare type DropdownPropsType = defaultProps & {
     onOpen?: () => void;
     onClose?: () => void;
     transition?: "fade" | "slide";
+    contentStyle?: React.CSSProperties;
 };
 /**
  * Компонент для создания выпадающего списка

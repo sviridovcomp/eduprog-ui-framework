@@ -48,6 +48,8 @@ export type DropdownPropsType = defaultProps & {
   onClose?: () => void;
 
   transition?: "fade" | "slide";
+
+  contentStyle?: React.CSSProperties;
 };
 
 /**
@@ -64,6 +66,7 @@ const Dropdown: FC<DropdownPropsType> = ({
   onOpen,
   onClose,
   transition = "fade",
+  contentStyle,
 }) => {
   const [active, setActive] = useState(false);
   const dropdownItem = useRef<HTMLDivElement>(null);
@@ -117,7 +120,9 @@ const Dropdown: FC<DropdownPropsType> = ({
             { "dropdown-fullwidth": fullwidth }
           )}
         >
-          <div className="dropdown-item-content">{children}</div>
+          <div className="dropdown-item-content" style={contentStyle}>
+            {children}
+          </div>
         </div>
       </CSSTransition>
     </div>

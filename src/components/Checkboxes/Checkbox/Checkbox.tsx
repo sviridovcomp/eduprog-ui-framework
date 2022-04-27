@@ -43,6 +43,8 @@ export type CheckboxPropsType = defaultProps & {
   autoFocus?: boolean;
 
   style?: React.CSSProperties;
+
+  wrapperStyle?: React.CSSProperties;
 };
 
 /**
@@ -59,6 +61,7 @@ const Checkbox: FC<CheckboxPropsType> = ({
   onChange,
   autoFocus,
   style,
+  wrapperStyle,
 }) => {
   const checkboxRef = useRef<HTMLInputElement>(null);
   const [pressed, setPressed] = useState(checked || false);
@@ -99,6 +102,7 @@ const Checkbox: FC<CheckboxPropsType> = ({
     >
       <label
         htmlFor={checkboxId}
+        style={wrapperStyle}
         className={classNames("checkbox-wrapper", {
           "checkbox-fullwidth": fullwidth,
         })}

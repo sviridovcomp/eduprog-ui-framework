@@ -12,25 +12,75 @@
 
   &-slider {
     cursor: pointer;
-    width: 2rem;
-    height: 1rem;
     flex: none;
     background-color: #ccc;
     transition: 0.25s;
     border-radius: 2rem;
     display: flex;
     align-items: center;
+    left: 0.125rem;
+
+    &:active::before {
+      padding-right: 0.25rem;
+    }
 
     &::before {
       content: "";
       position: absolute;
-      height: 0.75rem;
-      width: 0.75rem;
       background-color: #fff;
-      transition: 0.25s;
+      transition: 0.25s ease-in-out;
       border-radius: 50%;
       margin-left: 0.125rem;
       justify-content: left;
+    }
+
+    &-size {
+      &_xs {
+        width: 2rem;
+        height: 1rem;
+
+        &::before {
+          width: 0.75rem;
+          height: 0.75rem;
+        }
+      }
+
+      &_sm {
+        width: 2.25rem;
+        height: 1.25rem;
+
+        &::before {
+          width: 0.9rem;
+          height: 0.9rem;
+        }
+      }
+
+      &_md {
+        width: 2.75rem;
+        height: 1.5rem;
+        &::before {
+          width: 1.15rem;
+          height: 1.15rem;
+        }
+      }
+
+      &_lg {
+        width: 3.25rem;
+        height: 1.75rem;
+        &::before {
+          width: 1.35rem;
+          height: 1.35rem;
+        }
+      }
+
+      &_xl {
+        width: 4rem;
+        height: 2rem;
+        &::before {
+          width: 1.55rem;
+          height: 1.55rem;
+        }
+      }
     }
   }
 
@@ -39,17 +89,29 @@
     width: 0;
     height: 0;
 
-    &:checked + .switch-slider .switch-slider-primary {
+    &:checked + .switch-slider.switch-slider-color_primary {
       background-color: $color-primary;
+    }
+
+    &:checked + .switch-slider.switch-slider-color_secondary {
+      background-color: $color-secondary;
+    }
+
+    &:checked + .switch-slider.switch-slider-color_accent {
+      background-color: $color-accent;
     }
 
     &:checked + .switch-slider {
       background-color: #545454;
     }
 
-
     &:checked + .switch-slider:before {
-      transform: translateX(1rem);
+      right: 0.125rem;
+    }
+
+    &:checked + .switch-slider:active::before {
+      margin-left: -0.25rem;
+      padding-right: 0.25rem;
     }
   }
 }

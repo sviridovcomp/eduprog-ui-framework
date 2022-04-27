@@ -31,6 +31,8 @@ export declare type CheckboxPropsType = defaultProps & {
      */
     onChange?: () => void;
     autoFocus?: boolean;
+    style?: React.CSSProperties;
+    wrapperStyle?: React.CSSProperties;
 };
 /**
  * Компонент чекбокса.

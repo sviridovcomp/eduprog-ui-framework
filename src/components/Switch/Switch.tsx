@@ -4,6 +4,7 @@ import { defaultProps } from "@utils/defaultProps";
 import classNames from "classnames";
 
 export type SwitchProps = defaultProps & {
+  size?: "xs" | "sm" | "md" | "lg" | "xl";
   label?: string;
   position?: "left" | "right";
   color?: "primary" | "secondary" | "accent";
@@ -19,6 +20,7 @@ const Switch: FC<SwitchProps> = ({
   className = "",
   name = "",
   onChange,
+  size = "md",
 }) => {
   const [active, setActive] = useState(false);
 
@@ -39,7 +41,8 @@ const Switch: FC<SwitchProps> = ({
       <input type="checkbox" onChange={changing} name={name} checked={active} />
       <span
         className={classNames("switch-slider", {
-          [`switch-slider-${color}`]: color,
+          [`switch-slider-color_${color}`]: color,
+          [`switch-slider-size_${size}`]: size,
         })}
       />
 

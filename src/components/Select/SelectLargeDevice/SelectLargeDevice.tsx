@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from "react";
+import React, {FC, useEffect, useRef, useState} from "react";
 import BaseInput from "@components/Inputs/BaseInput/BaseInput";
 import { sha256 } from "js-sha256";
 import "./SelectLargeDevice.scss";
@@ -7,6 +7,7 @@ import {
   SelectValue,
 } from "@components/Select/Select/SelectProps";
 import CustomDropdown from "@components/CustomDropdown/CustomDropdown";
+import {useClickAway} from "@utils/hooks/useClickAway";
 
 const SelectLargeDevice: FC<SelectTypeProps<any>> = ({
   label,
@@ -25,9 +26,15 @@ const SelectLargeDevice: FC<SelectTypeProps<any>> = ({
         defaultValue={value ? value.name : ""}
         cursor="pointer"
         readonly
-        onClick={() => setOpen(!open)}
+        onMouseDown={() => setOpen(!open)}
         rightAdditional={
-          <span style={{transition: "0.2s transform ease", transform: `rotate(${open ? "180" : "0"}deg)`}}>
+          <span
+            style={{
+              transition: "0.2s transform ease",
+              transform: `rotate(${open ? "180" : "0"}deg)`,
+              height: "24px",
+            }}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               height="24px"
@@ -50,10 +57,10 @@ const SelectLargeDevice: FC<SelectTypeProps<any>> = ({
   };
 
   useEffect(() => {
-    if (onChange && value != undefined) {
+    if (onChange && value) {
       onChange(value);
     }
-  }, [value]);
+  }, [onChange, value]);
 
   const SelectPopup = (
     <div className="select">
@@ -70,17 +77,18 @@ const SelectLargeDevice: FC<SelectTypeProps<any>> = ({
   );
 
   return (
-    <div style={{display: "flex", flexDirection: "column"}}>
-      <SelectToggle/>
+    <div style={{ display: "flex", flexDirection: "column" }}>
+      <SelectToggle />
       <CustomDropdown
         direction="bottom-center"
         clearly
         fullwidth
         onClose={() => setOpen(false)}
         open={open}
-        style={{zIndex: zIndex}}
+        style={{ zIndex: zIndex }}
+        contentStyle={{ borderRadius: "0.5rem" }}
       >
-          {SelectPopup}
+        {SelectPopup}
       </CustomDropdown>
     </div>
   );
