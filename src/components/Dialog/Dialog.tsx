@@ -60,11 +60,12 @@ const Dialog: FC<DialogPropsType> = ({
         in={open}
         unmountOnExit
         timeout={150}
-        classNames={`dialog-body-animation-${verticalAlign}`}
+        classNames={"dialog-body-animation"}
       >
         <div
           className={classNames("dialog-body", {
             [`dialog-body-size_${size}`]: size,
+            [`dialog-body-align_${verticalAlign}`]: verticalAlign,
           })}
           ref={modalContent}
         >

@@ -14,8 +14,6 @@
     display: flex;
     position: relative;
     justify-content: space-between;
-    left: 50%;
-    top: 50%;
     width: 100%;
     background-color: #ffffff;
     flex-direction: column;
@@ -27,53 +25,41 @@
     overflow: auto;
     overscroll-behavior: contain;
 
-    &-animation {
-      &-start {
-        &-enter {
-          transform: scale(0) translate(-50%, 0);
-        }
-
-        &-enter-active {
-          transform: scale(1) translate(-50%, 0);
-          transition: 0.1s transform ease-in-out;
-        }
-
-        &-enter-done {
-          transform: scale(1) translate(-50%, 0);
-        }
-
-        &-exit {
-          transform: scale(1) translate(-50%, 0);
-        }
-
-        &-exit-active {
-          transform: scale(0) translate(-50%, 0);
-          transition: 0.1s transform ease-in-out;
-        }
+    &-align {
+      &_start {
+        left: 0;
+        right: 0;
+        margin: auto;
       }
 
-      &-center {
-        &-enter {
-          transform: scale(0) translate(-50%, 50%);
-        }
+      &_center {
+        left: 0;
+        right: 0;
+        margin: auto;
+      }
+    }
 
-        &-enter-active {
-          transform: scale(1) translate(-50%, 50%);
-          transition: 0.1s transform ease-in-out;
-        }
+    &-animation {
+      &-enter {
+        transform: scale(0.1);
+      }
 
-        &-enter-done {
-          transform: scale(1) translate(-50%, 50%);
-        }
+      &-enter-active {
+        transform: scale(1);
+        transition: 0.15s transform ease-in-out;
+      }
 
-        &-exit {
-          transform: scale(1) translate(-50%, 50%);
-        }
+      &-enter-done {
+        transform: scale(1);
+      }
 
-        &-exit-active {
-          transform: scale(0) translate(-50%, 50%);
-          transition: 0.1s transform ease-in-out;
-        }
+      &-exit {
+        transform: scale(1);
+      }
+
+      &-exit-active {
+        transform: scale(1.25);
+        transition: 0.15s transform ease-in-out;
       }
     }
 
