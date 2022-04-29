@@ -53,7 +53,10 @@ const Dialog: FC<DialogPropsType> = ({
   });
 
   return (
-    <div className="dialog">
+    <div
+      className="dialog"
+      style={open ? { visibility: "visible", opacity: "1" } : {}}
+    >
       <Backdrop open={open} />
 
       <CSSTransition
