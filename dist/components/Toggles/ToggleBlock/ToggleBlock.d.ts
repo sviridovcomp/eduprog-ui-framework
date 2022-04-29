@@ -7,6 +7,7 @@ export interface IToggleBlockOptions<Type> {
 }
 export interface IToggleBlockProps {
     options: Array<IToggleBlockOptions<any>>;
+    style?: React.CSSProperties;
     onChange?: (value?: IToggleBlockOptions<any>) => void;
 }
 declare const ToggleBlock: FC<IToggleBlockProps>;

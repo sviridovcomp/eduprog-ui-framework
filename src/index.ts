@@ -24,6 +24,8 @@ import CarouselButton from "@components/Carousel/CarouselButton/CarouselButton";
 import Skeleton from "@components/Skeleton/Skeleton";
 import TextSkeleton from "@components/Skeleton/TextSkeleton";
 import Text from "@components/Typography/Text";
+import ToggleBlock from "@components/Toggles/ToggleBlock";
+import CheckboxBlock from "@components/Checkboxes/CheckboxBlock";
 
 export {
   Button,
@@ -54,4 +56,6 @@ export {
   Skeleton,
   TextSkeleton,
   Text,
+  ToggleBlock,
+  CheckboxBlock,
 };

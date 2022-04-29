@@ -11,10 +11,12 @@ export interface IToggleBlockOptions<Type> {
 export interface IToggleBlockProps {
   options: Array<IToggleBlockOptions<any>>;
 
+  style?: React.CSSProperties;
+
   onChange?: (value?: IToggleBlockOptions<any>) => void;
 }
 
-const ToggleBlock: FC<IToggleBlockProps> = ({ options, onChange }) => {
+const ToggleBlock: FC<IToggleBlockProps> = ({ options, onChange, style }) => {
   const [selectedValue, setSelectedValue] = useState<IToggleBlockOptions<any>>(
     options[0]
   );
@@ -28,7 +30,7 @@ const ToggleBlock: FC<IToggleBlockProps> = ({ options, onChange }) => {
   };
 
   return (
-    <div className="toggle-block">
+    <div className="toggle-block" style={style}>
       {options.map(({ id, label, value }) => (
         <div
           className={classNames("toggle-block-item", {

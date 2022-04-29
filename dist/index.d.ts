@@ -24,4 +24,6 @@ import CarouselButton from "@components/Carousel/CarouselButton/CarouselButton";
 import Skeleton from "@components/Skeleton/Skeleton";
 import TextSkeleton from "@components/Skeleton/TextSkeleton";
 import Text from "@components/Typography/Text";
-export { Button, Column, Container, Row, Expand, InputPhone, Dropdown, Dialog, Checkbox, Avatar, Island, Input, InputCount, InputCopy, InputPassword, Spinner, Paragraph, Heading, Switch, MultipleSelect, Notification, BaseInput, Select, Carousel, CarouselButton, Skeleton, TextSkeleton, Text, };
+import ToggleBlock from "@components/Toggles/ToggleBlock";
+import CheckboxBlock from "@components/Checkboxes/CheckboxBlock";
+export { Button, Column, Container, Row, Expand, InputPhone, Dropdown, Dialog, Checkbox, Avatar, Island, Input, InputCount, InputCopy, InputPassword, Spinner, Paragraph, Heading, Switch, MultipleSelect, Notification, BaseInput, Select, Carousel, CarouselButton, Skeleton, TextSkeleton, Text, ToggleBlock, CheckboxBlock, };
