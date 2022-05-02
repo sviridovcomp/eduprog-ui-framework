@@ -4,21 +4,28 @@ import "./ToggleBlock.scss";
 
 export interface IToggleBlockOptions<Type> {
   id: string;
-  label?: React.ReactNode;
+  name?: React.ReactNode;
   value?: Type;
 }
 
 export interface IToggleBlockProps {
   options: Array<IToggleBlockOptions<any>>;
 
+  defaultValue?: IToggleBlockOptions<any>;
+
   style?: React.CSSProperties;
 
   onChange?: (value?: IToggleBlockOptions<any>) => void;
 }
 
-const ToggleBlock: FC<IToggleBlockProps> = ({ options, onChange, style }) => {
+const ToggleBlock: FC<IToggleBlockProps> = ({
+  options,
+  onChange,
+  style,
+  defaultValue,
+}) => {
   const [selectedValue, setSelectedValue] = useState<IToggleBlockOptions<any>>(
-    options[0]
+    defaultValue!
   );
 
   const onSelectItem = (item: IToggleBlockOptions<any>) => {
@@ -31,15 +38,15 @@ const ToggleBlock: FC<IToggleBlockProps> = ({ options, onChange, style }) => {
 
   return (
     <div className="toggle-block" style={style}>
-      {options.map(({ id, label, value }) => (
+      {options.map(({ id, name, value }) => (
         <div
           className={classNames("toggle-block-item", {
-            "toggle-block-item-selected": selectedValue?.id == id,
+            "toggle-block-item-selected": selectedValue?.name == name,
           })}
           style={{ width: `calc(100% / ${options.length})` }}
-          onClick={() => onSelectItem({ id: id, label: label, value: value })}
+          onClick={() => onSelectItem({ id: id, name: name, value: value })}
         >
-          {label}
+          {name}
         </div>
       ))}
     </div>

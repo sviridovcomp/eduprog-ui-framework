@@ -22,7 +22,7 @@ Playground.args = {
   options: [
     {
       id: uuid(),
-      label: (
+      name: (
         <>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -46,7 +46,7 @@ Playground.args = {
     },
     {
       id: uuid(),
-      label: (
+      name: (
         <>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -65,7 +65,7 @@ Playground.args = {
     },
     {
       id: uuid(),
-      label: (
+      name: (
         <>
           <svg
             xmlns="http://www.w3.org/2000/svg"

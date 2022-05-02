@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import {
   MultipleSelectPropsType,
   MultipleSelectValue,
@@ -32,11 +32,13 @@ const MultipleSelectSmallDevice: FC<MultipleSelectPropsType<string>> = ({
         })
         .slice(0, maxSelectedOptions)
     );
+  };
 
-    if (onChange) {
+  useEffect(() => {
+    if (onChange && selectedOptions) {
       onChange(selectedOptions);
     }
-  };
+  }, [onChange, selectedOptions]);
 
   const selectFocus = () => {
     setActive(!active);
