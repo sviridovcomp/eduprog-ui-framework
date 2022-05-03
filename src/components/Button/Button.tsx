@@ -7,7 +7,14 @@ export type ButtonPropsType = defaultProps & {
   /**
    * Тип кнопки
    */
-  view?: "default" | "action" | "link" | "pseudo" | "clear" | "raised";
+  view?:
+    | "default"
+    | "action"
+    | "link"
+    | "pseudo"
+    | "clear"
+    | "raised"
+    | "accent";
 
   /**
    * Размер кнопки
