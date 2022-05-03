@@ -1,3 +1,3 @@
 import ToggleBlock from "./ToggleBlock";
 
-export default ToggleBlock
+export default ToggleBlock;

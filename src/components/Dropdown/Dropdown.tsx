@@ -3,7 +3,6 @@ import "./Dropdown.scss";
 import { defaultProps } from "@utils/defaultProps";
 import classNames from "classnames";
 import { useClickAway } from "@utils/hooks/useClickAway";
-import { asyncSleep } from "@utils/utils/utils";
 import { CSSTransition } from "react-transition-group";
 
 export type DropdownPropsType = defaultProps & {
@@ -30,7 +29,7 @@ export type DropdownPropsType = defaultProps & {
 
   /**
    * Убрать стрелочку направления popup
-   */
+   */z
   clearly?: boolean;
 
   /**

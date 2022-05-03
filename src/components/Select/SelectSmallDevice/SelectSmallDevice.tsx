@@ -1,11 +1,9 @@
 import { SelectTypeProps } from "@components/Select/Select/SelectProps";
-// @ts-ignore
-import React, { FC, useState, useId } from "react";
+import React, { FC, useState } from "react";
 import "./SelectSmallDevice.scss";
 import "@components/Inputs/BaseInput/BaseInput.scss";
 import classNames from "classnames";
 import { sha256 } from "js-sha256";
-import { v4 as uuid } from "uuid";
 
 const SelectSmallDevice: FC<SelectTypeProps<any>> = ({
   label,

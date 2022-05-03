@@ -9,7 +9,7 @@ export default {
 } as ComponentMeta<typeof MultipleSelect>;
 
 export const Playground = () => {
-  const [selected, setSelected] = useState([]);
+  const [, setSelected] = useState([]);
 
   return (
     <MultipleSelect

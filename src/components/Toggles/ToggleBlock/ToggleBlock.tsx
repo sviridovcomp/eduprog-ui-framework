@@ -40,6 +40,7 @@ const ToggleBlock: FC<IToggleBlockProps> = ({
     <div className="toggle-block" style={style}>
       {options.map(({ id, name, value }) => (
         <div
+          key={id}
           className={classNames("toggle-block-item", {
             "toggle-block-item-selected": selectedValue?.name == name,
           })}

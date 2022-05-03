@@ -41,6 +41,7 @@ const CheckboxBlock: FC<CheckboxBlockPropsType> = ({ options, onChange }) => {
     <div className="toggle-block">
       {options?.map((option) => (
         <div
+          key={option.id}
           style={{ width: `calc(100% / ${options.length})` }}
           className={classNames("toggle-block-item", {
             "toggle-block-item-selected": selectedValue.includes(option),

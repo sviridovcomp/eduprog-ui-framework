@@ -19,10 +19,12 @@ module.exports = {
   plugins: ["react", "@typescript-eslint"],
   ignorePatterns: ["**/*.scss"],
   rules: {
-    "quotes": ["error", "double"],
+    "quotes": ["warn", "double"],
     "semi": ["error", "always"],
     "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
     "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
+    "@typescript-eslint/ban-ts-comment": "off",
+    "@typescript-eslint/ban-ts-ignore": "off",
   },
   settings: {
     react: {

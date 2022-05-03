@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { ComponentMeta } from "@storybook/react";
 
 import Dialog from "../Dialog";
 import Button from "../../Button/Button";
@@ -20,7 +20,25 @@ export const Playground = () => {
 
   return (
     <>
-      <div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Autem, laboriosam ullam. Eveniet, consequuntur repellendus. Voluptas dicta aperiam aliquid hic quaerat deleniti soluta eum, blanditiis qui, itaque nesciunt alias accusantium quo omnis ab corporis molestiae sapiente mollitia ea numquam vero officiis dolores deserunt. Maiores sequi veritatis modi totam quae quos error temporibus quibusdam voluptatum delectus molestias, natus, similique quis qui at distinctio. A blanditiis, tempore laboriosam nulla recusandae ipsam unde dolores neque excepturi tempora odit, atque facilis itaque distinctio cum cumque velit ipsa delectus eveniet? Nam repellat magni, sunt neque corporis in dolorum asperiores praesentium facilis rem consectetur qui cupiditate! Nobis iure, dolores, doloremque repudiandae dolorem asperiores explicabo fugit voluptatum praesentium, ullam quis. Nisi sit quod expedita error laudantium. Aperiam consectetur iusto nesciunt ab eveniet mollitia inventore, quibusdam similique! Officiis saepe tempore, labore atque dolores repellat doloribus deserunt, vel, eveniet modi ullam molestias temporibus voluptate consequatur fuga exercitationem in. Dolores, sequi!</div>
+      <div>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Autem,
+        laboriosam ullam. Eveniet, consequuntur repellendus. Voluptas dicta
+        aperiam aliquid hic quaerat deleniti soluta eum, blanditiis qui, itaque
+        nesciunt alias accusantium quo omnis ab corporis molestiae sapiente
+        mollitia ea numquam vero officiis dolores deserunt. Maiores sequi
+        veritatis modi totam quae quos error temporibus quibusdam voluptatum
+        delectus molestias, natus, similique quis qui at distinctio. A
+        blanditiis, tempore laboriosam nulla recusandae ipsam unde dolores neque
+        excepturi tempora odit, atque facilis itaque distinctio cum cumque velit
+        ipsa delectus eveniet? Nam repellat magni, sunt neque corporis in
+        dolorum asperiores praesentium facilis rem consectetur qui cupiditate!
+        Nobis iure, dolores, doloremque repudiandae dolorem asperiores explicabo
+        fugit voluptatum praesentium, ullam quis. Nisi sit quod expedita error
+        laudantium. Aperiam consectetur iusto nesciunt ab eveniet mollitia
+        inventore, quibusdam similique! Officiis saepe tempore, labore atque
+        dolores repellat doloribus deserunt, vel, eveniet modi ullam molestias
+        temporibus voluptate consequatur fuga exercitationem in. Dolores, sequi!
+      </div>
       <Button onClick={() => setOpen(true)}>open</Button>
       <Dialog size="xs" label="Тест" open={open} onClose={() => setOpen(false)}>
         <div>

@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 import "./Expand.scss";
 import { CSSTransition } from "react-transition-group";
 
