@@ -29,7 +29,7 @@ export type DropdownPropsType = defaultProps & {
 
   /**
    * Убрать стрелочку направления popup
-   */z
+   */
   clearly?: boolean;
 
   /**
