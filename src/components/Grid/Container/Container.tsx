@@ -6,6 +6,7 @@ export type ContainerPropsType = {
   fullwidth?: boolean;
   adaptive?: boolean;
   fixed?: boolean;
+  style?: React.CSSProperties;
 };
 
 const Container: FC<ContainerPropsType> = ({
@@ -13,6 +14,7 @@ const Container: FC<ContainerPropsType> = ({
   fullwidth,
   adaptive,
   fixed,
+  style,
 }) => {
   const rootClasses = classNames(
     "ep-container",
@@ -21,7 +23,11 @@ const Container: FC<ContainerPropsType> = ({
     { "ep-container_fixed": fixed }
   );
 
-  return <div className={rootClasses}>{children}</div>;
+  return (
+    <div style={style} className={rootClasses}>
+      {children}
+    </div>
+  );
 };
 
 export default Container;
