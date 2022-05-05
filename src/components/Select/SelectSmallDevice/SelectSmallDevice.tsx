@@ -13,7 +13,6 @@ const SelectSmallDevice: FC<SelectTypeProps<any>> = ({
 }) => {
   const [active, setActive] = useState(false);
   const [selectedOption, setSelectedOption] = useState(options[0]);
-  const selectId = sha256(new Date().getTime().toString());
 
   const selectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const option = event.target.value.toString();
@@ -44,7 +43,6 @@ const SelectSmallDevice: FC<SelectTypeProps<any>> = ({
           style={{ color: "transparent" }}
           name={name}
           size={1}
-          id={selectId}
         >
           {options.map(({ name }) => (
             <option value={name} key={sha256(name)}>
