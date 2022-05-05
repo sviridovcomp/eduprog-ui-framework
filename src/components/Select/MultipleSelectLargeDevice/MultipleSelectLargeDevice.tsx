@@ -82,10 +82,10 @@ const MultipleSelectLargeDevice: FC<MultipleSelectPropsType<any>> = ({
     if (onChange && selectedOptions) {
       onChange(selectedOptions);
     }
-  }, [onChange, selectedOptions]);
+  }, [selectedOptions]);
 
-  const SelectPopup = options.map((option) => (
-    <div className="multiple-select-item" key={sha256(option.name)}>
+  const SelectPopup = options.map((option, index) => (
+    <div className="multiple-select-item" key={index}>
       <Checkbox
         position="right"
         onChange={() => selectOption(option)}

@@ -65,7 +65,7 @@ const Checkbox: FC<CheckboxPropsType> = ({
 }) => {
   const checkboxRef = useRef<HTMLInputElement>(null);
   const [pressed, setPressed] = useState(checked || false);
-  const checkboxId = useId();
+  // const checkboxId = useId();
   const rootClasses = classNames(
     "checkbox-checkmark",
 
@@ -101,7 +101,6 @@ const Checkbox: FC<CheckboxPropsType> = ({
       )}
     >
       <label
-        htmlFor={checkboxId}
         style={wrapperStyle}
         className={classNames("checkbox-wrapper", {
           "checkbox-fullwidth": fullwidth,
@@ -113,7 +112,6 @@ const Checkbox: FC<CheckboxPropsType> = ({
 
         <input
           type="checkbox"
-          id={checkboxId}
           onChange={changing}
           disabled={disabled}
           checked={pressed}
