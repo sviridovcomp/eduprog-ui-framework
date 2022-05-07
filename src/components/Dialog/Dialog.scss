@@ -5,13 +5,23 @@
   width: 100%;
   height: 100%;
   position: fixed;
-  top: 0;
   left: 0;
-  display: flex;
-  align-items: center;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.4s ease-in-out;
+  top: 0rem;
+
+  &-align {
+    &_top {
+      top: 1rem;
+    }
+
+    &_center {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &-animation {
+    @include fade-animations(0.25);
+  }
 
   &-body {
     display: flex;
@@ -28,20 +38,6 @@
     overflow: auto;
     overscroll-behavior: contain;
     overflow-y: auto;
-
-    &-align {
-      &_start {
-        left: 0;
-        right: 0;
-        margin: auto;
-      }
-
-      &_center {
-        left: 0;
-        right: 0;
-        margin: auto;
-      }
-    }
 
     &-animation {
       &-enter {

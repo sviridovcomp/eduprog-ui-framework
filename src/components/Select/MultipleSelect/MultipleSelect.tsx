@@ -7,8 +7,7 @@ import MultipleSelectLargeDevice from "@components/Select/MultipleSelectLargeDev
 const MultipleSelect: FC<MultipleSelectPropsType<any>> = (props) => {
   if (isMobile) {
     return <MultipleSelectSmallDevice {...props} />;
-  }
-  if (isBrowser) {
+  } else if (isBrowser) {
     return <MultipleSelectLargeDevice {...props} />;
   }
   return <></>;

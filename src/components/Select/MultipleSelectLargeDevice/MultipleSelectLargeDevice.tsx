@@ -94,6 +94,7 @@ const MultipleSelectLargeDevice: FC<MultipleSelectPropsType<any>> = ({
         fullwidth
         disabled={disabledPredicate(option)}
         wrapperStyle={{ userSelect: "none", gap: "1rem" }}
+        checked={selectedOptions.includes(option)}
       >
         {option.name}
       </Checkbox>

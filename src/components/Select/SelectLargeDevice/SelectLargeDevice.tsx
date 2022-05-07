@@ -58,14 +58,14 @@ const SelectLargeDevice: FC<SelectTypeProps<any>> = ({
     if (onChange && value) {
       onChange(value);
     }
-  }, [onChange, value]);
+  }, [value]);
 
   const SelectPopup = (
     <div className="select">
-      {options.map((option) => (
+      {options.map((option, index) => (
         <div
           className="select-item"
-          key={sha256(option.name)}
+          key={index}
           onClick={() => onSelect(option)}
         >
           {option.name}

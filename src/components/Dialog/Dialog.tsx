@@ -31,7 +31,7 @@ export type DialogPropsType = {
    */
   onClose?: () => void;
 
-  verticalAlign?: "start" | "center";
+  verticalAlign?: "dialog" | "center";
 };
 
 /**
@@ -53,32 +53,40 @@ const Dialog: FC<DialogPropsType> = ({
   });
 
   return (
-    <div
-      className="dialog"
-      style={open ? { visibility: "visible", opacity: "1" } : {}}
+    <CSSTransition
+      unmountOnExit
+      in={open}
+      timeout={150}
+      classNames={"dialog-animation"}
     >
-      <Backdrop open={open} />
-
-      <CSSTransition
-        in={open}
-        unmountOnExit
-        timeout={150}
-        classNames={"dialog-body-animation"}
+      <div
+        className={classNames("dialog", {
+          [`dialog-align_${verticalAlign}`]: verticalAlign,
+        })}
       >
-        <div
-          className={classNames("dialog-body", {
-            [`dialog-body-size_${size}`]: size,
-            [`dialog-body-align_${verticalAlign}`]: verticalAlign,
-          })}
-          ref={modalContent}
+        <Backdrop open={open} />
+
+        <CSSTransition
+          in={open}
+          unmountOnExit
+          timeout={150}
+          classNames={"dialog-body-animation"}
         >
-          <section className="dialog-header">
-            <h2 className="dialog-heading">{label}</h2>
-          </section>
-          <section className="dialog-content">{children}</section>
-        </div>
-      </CSSTransition>
-    </div>
+          <div
+            className={classNames("dialog-body", {
+              [`dialog-body-size_${size}`]: size,
+              [`dialog-body-align_${verticalAlign}`]: verticalAlign,
+            })}
+            ref={modalContent}
+          >
+            <section className="dialog-header">
+              <h2 className="dialog-heading">{label}</h2>
+            </section>
+            <section className="dialog-content">{children}</section>
+          </div>
+        </CSSTransition>
+      </div>
+    </CSSTransition>
   );
 };
 

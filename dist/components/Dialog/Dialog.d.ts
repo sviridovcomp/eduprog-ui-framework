@@ -21,7 +21,7 @@ export declare type DialogPropsType = {
      * Событие вызываемое при закрытии диалога
      */
     onClose?: () => void;
-    verticalAlign?: "start" | "center";
+    verticalAlign?: "dialog" | "center";
 };
 /**
  * Компонент реализующий всплывающие диалоги

@@ -3,7 +3,6 @@ import React, { FC, useState } from "react";
 import "./SelectSmallDevice.scss";
 import "@components/Inputs/BaseInput/BaseInput.scss";
 import classNames from "classnames";
-import { sha256 } from "js-sha256";
 
 const SelectSmallDevice: FC<SelectTypeProps<any>> = ({
   label,
@@ -44,8 +43,8 @@ const SelectSmallDevice: FC<SelectTypeProps<any>> = ({
           name={name}
           size={1}
         >
-          {options.map(({ name }) => (
-            <option value={name} key={sha256(name)}>
+          {options.map(({ name }, index) => (
+            <option value={name} key={index}>
               {name}
             </option>
           ))}

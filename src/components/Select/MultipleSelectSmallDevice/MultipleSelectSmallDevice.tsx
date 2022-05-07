@@ -38,7 +38,7 @@ const MultipleSelectSmallDevice: FC<MultipleSelectPropsType<string>> = ({
     if (onChange && selectedOptions) {
       onChange(selectedOptions);
     }
-  }, [onChange, selectedOptions]);
+  }, [selectedOptions]);
 
   const selectFocus = () => {
     setActive(!active);
@@ -62,8 +62,8 @@ const MultipleSelectSmallDevice: FC<MultipleSelectPropsType<string>> = ({
           size={1}
           multiple
         >
-          {options.map(({ name }) => (
-            <option value={name} key={sha256(name)}>
+          {options.map(({ name }, index) => (
+            <option value={name} key={index}>
               {name}
             </option>
           ))}
