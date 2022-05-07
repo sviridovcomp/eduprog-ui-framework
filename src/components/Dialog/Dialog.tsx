@@ -31,7 +31,7 @@ export type DialogPropsType = {
    */
   onClose?: () => void;
 
-  verticalAlign?: "dialog" | "center";
+  verticalAlign?: "top" | "center";
 };
 
 /**
