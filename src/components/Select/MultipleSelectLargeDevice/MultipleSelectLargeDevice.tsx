@@ -24,9 +24,13 @@ const MultipleSelectLargeDevice: FC<MultipleSelectPropsType<any>> = ({
   const SelectToggle = (
     <BaseInput
       label={label}
-      defaultValue={selectedOptions
-        .map((selectedOption) => selectedOption.name)
-        .join(", ")}
+      defaultValue={
+        !selectedOptions
+          ? ""
+          : selectedOptions
+              .map((selectedOption) => selectedOption.name)
+              .join(", ")
+      }
       cursor="pointer"
       readonly
       rightAdditional={
@@ -94,7 +98,6 @@ const MultipleSelectLargeDevice: FC<MultipleSelectPropsType<any>> = ({
         fullwidth
         disabled={disabledPredicate(option)}
         wrapperStyle={{ userSelect: "none", gap: "1rem" }}
-        checked={selectedOptions.includes(option)}
       >
         {option.name}
       </Checkbox>
