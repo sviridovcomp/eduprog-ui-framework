@@ -31,7 +31,15 @@ export type DialogPropsType = {
    */
   onClose?: () => void;
 
+  /**
+   * Вертикальное выравнивание
+   */
   verticalAlign?: "top" | "center";
+
+  /**
+   * Стили диалога
+   */
+  style?: React.CSSProperties;
 };
 
 /**
@@ -44,6 +52,7 @@ const Dialog: FC<DialogPropsType> = ({
   open = false,
   onClose,
   verticalAlign = "center",
+  style,
 }) => {
   const modalContent = useRef<HTMLDivElement>(null);
   useClickAway(modalContent, () => {
@@ -60,6 +69,7 @@ const Dialog: FC<DialogPropsType> = ({
       classNames={"dialog-animation"}
     >
       <div
+        style={style}
         className={classNames("dialog", {
           [`dialog-align_${verticalAlign}`]: verticalAlign,
         })}
