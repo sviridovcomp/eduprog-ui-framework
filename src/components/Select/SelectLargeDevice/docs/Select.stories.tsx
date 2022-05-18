@@ -45,4 +45,10 @@ Playground.args = {
       value: "fwergerr",
     },
   ],
+  dropdownStyles: {
+    maxHeight: 100,
+    overflowY: "scroll",
+    scrollBehavior: "smooth",
+    scrollbarWidth: "thin",
+  },
 };

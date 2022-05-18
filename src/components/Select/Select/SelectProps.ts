@@ -34,4 +34,6 @@ export type SelectTypeProps<Type> = {
   onChange: (option: SelectValue<Type>) => void;
 
   wrapperStyles?: React.CSSProperties;
+
+  dropdownStyles?: React.CSSProperties;
 };

@@ -16,6 +16,7 @@ const MultipleSelectLargeDevice: FC<MultipleSelectPropsType<any>> = ({
   onChange,
   zIndex,
   wrapperStyles,
+  dropdownStyles,
 }) => {
   const [selectedOptions, setSelectedOptions] = useState<
     Array<MultipleSelectValue<any>>
@@ -107,7 +108,7 @@ const MultipleSelectLargeDevice: FC<MultipleSelectPropsType<any>> = ({
   ));
 
   return (
-    <div className="multiple-select">
+    <div className="multiple-select" style={dropdownStyles}>
       <Dropdown
         direction="bottom-center"
         toggle={SelectToggle}

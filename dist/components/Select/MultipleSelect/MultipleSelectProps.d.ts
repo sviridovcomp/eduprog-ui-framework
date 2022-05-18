@@ -31,4 +31,5 @@ export declare type MultipleSelectPropsType<Type> = {
     onChange?: (option: MultipleSelectValue<Type> | Array<MultipleSelectValue<Type>>) => void;
     value?: Array<MultipleSelectValue<any>>;
     wrapperStyles?: React.CSSProperties;
+    dropdownStyles?: React.CSSProperties;
 };

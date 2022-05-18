@@ -14,6 +14,7 @@ const SelectLargeDevice: FC<SelectTypeProps<any>> = ({
   onChange,
   zIndex,
   wrapperStyles,
+  dropdownStyles,
 }) => {
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState(options[0]);
@@ -63,7 +64,7 @@ const SelectLargeDevice: FC<SelectTypeProps<any>> = ({
   }, [value]);
 
   const SelectPopup = (
-    <div className="select">
+    <div className="select" style={dropdownStyles}>
       {options.map((option, index) => (
         <div
           className="select-item"
