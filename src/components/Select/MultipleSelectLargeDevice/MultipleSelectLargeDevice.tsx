@@ -15,6 +15,7 @@ const MultipleSelectLargeDevice: FC<MultipleSelectPropsType<any>> = ({
   maxSelectedOptions = undefined,
   onChange,
   zIndex,
+  wrapperStyles,
 }) => {
   const [selectedOptions, setSelectedOptions] = useState<
     Array<MultipleSelectValue<any>>
@@ -33,6 +34,7 @@ const MultipleSelectLargeDevice: FC<MultipleSelectPropsType<any>> = ({
       }
       cursor="pointer"
       readonly
+      style={wrapperStyles}
       rightAdditional={
         <span
           style={{

@@ -25,6 +25,7 @@ export const Playground = () => {
         }}
         onChange={(value: string) => setValue(value)}
         label="Email"
+        style={{ borderRadius: 0 }}
       />
     </>
   );

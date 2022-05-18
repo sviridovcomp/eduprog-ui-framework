@@ -1,5 +1,3 @@
-import CSS from "csstype";
-
 export type defaultProps = {
   /**
    * Дополнительный класс
@@ -9,5 +7,5 @@ export type defaultProps = {
   /**
    * Дополнительные стили
    */
-  style?: CSS.Properties;
+  style?: React.CSSProperties;
 }

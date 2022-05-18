@@ -32,4 +32,6 @@ export type SelectTypeProps<Type> = {
    * Событие вызываемое при обновлении value
    */
   onChange: (option: SelectValue<Type>) => void;
+
+  wrapperStyles?: React.CSSProperties;
 };

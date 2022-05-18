@@ -38,4 +38,6 @@ export type MultipleSelectPropsType<Type> = {
   ) => void;
 
   value?: Array<MultipleSelectValue<any>>;
+
+  wrapperStyles?: React.CSSProperties;
 };

@@ -45,4 +45,5 @@ Playground.args = {
       value: "6",
     },
   ],
+  wrapperStyles: { borderRadius: 0 },
 };

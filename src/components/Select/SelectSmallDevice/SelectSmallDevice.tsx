@@ -9,6 +9,7 @@ const SelectSmallDevice: FC<SelectTypeProps<any>> = ({
   name,
   options,
   onChange,
+  wrapperStyles,
 }) => {
   const [active, setActive] = useState(false);
   const [selectedOption, setSelectedOption] = useState(options[0]);
@@ -39,7 +40,7 @@ const SelectSmallDevice: FC<SelectTypeProps<any>> = ({
           onFocus={() => setActive(!active)}
           onBlur={() => setActive(!active)}
           onChange={selectChange}
-          style={{ color: "transparent" }}
+          style={{ color: "transparent", ...wrapperStyles }}
           name={name}
           size={1}
         >

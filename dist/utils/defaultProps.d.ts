@@ -1,4 +1,4 @@
-import CSS from "csstype";
+/// <reference types="react" />
 export declare type defaultProps = {
     /**
      * Дополнительный класс
@@ -7,5 +7,5 @@ export declare type defaultProps = {
     /**
      * Дополнительные стили
      */
-    style?: CSS.Properties;
+    style?: React.CSSProperties;
 };

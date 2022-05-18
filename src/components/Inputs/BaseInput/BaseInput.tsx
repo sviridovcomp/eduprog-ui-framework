@@ -127,6 +127,7 @@ const BaseInput: FC<TextInputProps> = ({
   className = "",
   forceInvalid = false,
   validators,
+  style,
 }) => {
   enum ValidityStatus {
     Invalid,
@@ -236,7 +237,7 @@ const BaseInput: FC<TextInputProps> = ({
             name={name}
             readOnly={readonly}
             autoComplete={autocomplete}
-            style={{ cursor: cursor }}
+            style={{ cursor: cursor, ...style }}
             autoFocus={autoFocus}
           />
 

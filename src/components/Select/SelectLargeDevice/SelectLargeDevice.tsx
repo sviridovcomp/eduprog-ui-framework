@@ -13,6 +13,7 @@ const SelectLargeDevice: FC<SelectTypeProps<any>> = ({
   options,
   onChange,
   zIndex,
+  wrapperStyles,
 }) => {
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState(options[0]);
@@ -25,6 +26,7 @@ const SelectLargeDevice: FC<SelectTypeProps<any>> = ({
         cursor="pointer"
         readonly
         onClick={() => setOpen(!open)}
+        style={wrapperStyles}
         rightAdditional={
           <span
             style={{

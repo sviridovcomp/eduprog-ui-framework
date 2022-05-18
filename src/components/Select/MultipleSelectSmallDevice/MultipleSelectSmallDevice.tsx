@@ -13,6 +13,7 @@ const MultipleSelectSmallDevice: FC<MultipleSelectPropsType<string>> = ({
   name = "",
   options,
   onChange,
+  wrapperStyles,
 }) => {
   const [active, setActive] = useState(false);
   const [selectedOptions, setSelectedOptions] = useState<
@@ -57,7 +58,7 @@ const MultipleSelectSmallDevice: FC<MultipleSelectPropsType<string>> = ({
           className="input-control"
           onFocus={selectFocus}
           onChange={selectChange}
-          style={{ color: "transparent" }}
+          style={{ color: "transparent", ...wrapperStyles }}
           name={name}
           size={1}
           multiple

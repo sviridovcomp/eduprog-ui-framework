@@ -1,3 +1,4 @@
+/// <reference types="react" />
 import { MultipleSelectValue } from "@components/Select/MultipleSelect/MultipleSelectProps";
 export declare type SelectValue<Type> = MultipleSelectValue<Type>;
 export declare type SelectTypeProps<Type> = {
@@ -25,4 +26,5 @@ export declare type SelectTypeProps<Type> = {
      * Событие вызываемое при обновлении value
      */
     onChange: (option: SelectValue<Type>) => void;
+    wrapperStyles?: React.CSSProperties;
 };
