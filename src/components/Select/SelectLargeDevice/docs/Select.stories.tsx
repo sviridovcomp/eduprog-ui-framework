@@ -45,6 +45,10 @@ Playground.args = {
       value: "fwergerr",
     },
   ],
+  defaultValue: {
+    name: "5% - Такси",
+    value: "fwegfewr",
+  },
   dropdownStyles: {
     maxHeight: 100,
     overflowY: "scroll",

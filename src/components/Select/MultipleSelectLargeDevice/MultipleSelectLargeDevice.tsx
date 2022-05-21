@@ -17,10 +17,10 @@ const MultipleSelectLargeDevice: FC<MultipleSelectPropsType<any>> = ({
   zIndex,
   wrapperStyles,
   dropdownStyles,
+  defaultValue = [],
 }) => {
-  const [selectedOptions, setSelectedOptions] = useState<
-    Array<MultipleSelectValue<any>>
-  >([]);
+  const [selectedOptions, setSelectedOptions] =
+    useState<Array<MultipleSelectValue<any>>>(defaultValue);
   const [open, setOpen] = useState(false);
 
   const SelectToggle = (

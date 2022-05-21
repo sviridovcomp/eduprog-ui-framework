@@ -14,11 +14,11 @@ const MultipleSelectSmallDevice: FC<MultipleSelectPropsType<string>> = ({
   options,
   onChange,
   wrapperStyles,
+  defaultValue = [],
 }) => {
   const [active, setActive] = useState(false);
-  const [selectedOptions, setSelectedOptions] = useState<
-    Array<MultipleSelectValue<any>>
-  >([]);
+  const [selectedOptions, setSelectedOptions] =
+    useState<Array<MultipleSelectValue<any>>>(defaultValue);
 
   const selectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const options = event.target.selectedOptions;

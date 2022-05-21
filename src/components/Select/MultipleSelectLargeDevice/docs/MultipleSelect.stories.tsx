@@ -45,5 +45,15 @@ Playground.args = {
       value: "fwergerr",
     },
   ],
+  defaultValue: [
+    {
+      name: "5% - Такси",
+      value: "fwegfewr",
+    },
+    {
+      name: "5% - Рестораны",
+      value: "fwergerr",
+    },
+  ],
   maxSelectedOptions: 3,
 };

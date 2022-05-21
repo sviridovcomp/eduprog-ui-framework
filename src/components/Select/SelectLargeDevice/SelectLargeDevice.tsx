@@ -10,6 +10,7 @@ import CustomDropdown from "@components/CustomDropdown/CustomDropdown";
 
 const SelectLargeDevice: FC<SelectTypeProps<any>> = ({
   label,
+  defaultValue,
   options,
   onChange,
   zIndex,
@@ -17,7 +18,7 @@ const SelectLargeDevice: FC<SelectTypeProps<any>> = ({
   dropdownStyles,
 }) => {
   const [open, setOpen] = useState(false);
-  const [value, setValue] = useState(options[0]);
+  const [value, setValue] = useState(defaultValue ? defaultValue : options[0]);
 
   const SelectToggle = () => {
     return (

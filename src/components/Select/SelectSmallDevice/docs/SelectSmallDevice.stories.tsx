@@ -45,5 +45,9 @@ Playground.args = {
       value: "6",
     },
   ],
+  defaultValue: {
+    name: "5% - Спорттовары",
+    value: "4",
+  },
   wrapperStyles: { borderRadius: 0 },
 };

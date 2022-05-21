@@ -6,13 +6,16 @@ import classNames from "classnames";
 
 const SelectSmallDevice: FC<SelectTypeProps<any>> = ({
   label,
+  defaultValue,
   name,
   options,
   onChange,
   wrapperStyles,
 }) => {
   const [active, setActive] = useState(false);
-  const [selectedOption, setSelectedOption] = useState(options[0]);
+  const [selectedOption, setSelectedOption] = useState(
+    defaultValue ? defaultValue : options[0]
+  );
 
   const selectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const option = event.target.value.toString();
