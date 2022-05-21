@@ -63,8 +63,12 @@ const MultipleSelectSmallDevice: FC<MultipleSelectPropsType<string>> = ({
           size={1}
           multiple
         >
-          {options.map(({ name }, index) => (
-            <option value={name} key={index}>
+          {options.map(({ name, value }, index) => (
+            <option
+              value={name}
+              key={index}
+              selected={selectedOptions.some((option) => option.name == name)}
+            >
               {name}
             </option>
           ))}

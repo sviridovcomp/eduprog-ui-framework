@@ -48,7 +48,7 @@ const SelectSmallDevice: FC<SelectTypeProps<any>> = ({
           size={1}
         >
           {options.map(({ name }, index) => (
-            <option value={name} key={index}>
+            <option value={name} key={index} selected={selectedOption.name == name}>
               {name}
             </option>
           ))}
