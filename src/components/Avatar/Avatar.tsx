@@ -61,7 +61,15 @@ const Avatar: FC<AvatarPropsType> = ({
           : "grey",
       }}
     >
-      {avatarUrl && <img className="avatar-img" src={avatarUrl} alt={text} />}
+      {avatarUrl && (
+        <img
+          className="avatar-img"
+          decoding="async"
+          loading="lazy"
+          src={avatarUrl}
+          alt={text}
+        />
+      )}
 
       {!avatarUrl && <div className="avatar-text">{avatarFormattedText}</div>}
     </div>
