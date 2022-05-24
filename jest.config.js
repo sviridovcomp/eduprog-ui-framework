@@ -7,6 +7,7 @@ module.exports = {
   testEnvironment: 'jsdom',
   setupFiles: [
     '<rootDir>/__tests__/setup.ts',
+    'jest-useragent-mock'
   ],
   moduleNameMapper: {
     '\\.(css|scss)$': 'identity-obj-proxy',

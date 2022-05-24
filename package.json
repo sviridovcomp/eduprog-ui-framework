@@ -1,7 +1,7 @@
 {
   "name": "eduprog-ui-framework",
   "homepage": "http://edu-prog.github.io/eduprog-ui-framework",
-  "version": "4.85.0",
+  "version": "4.86.0",
   "main": "./dist/index.js",
   "license": "MIT",
   "devDependencies": {
@@ -47,6 +47,7 @@
     "husky": "^7.0.4",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.5.1",
+    "jest-useragent-mock": "^0.1.1",
     "js-sha256": "^0.9.0",
     "postcss": "^8.4.12",
     "postcss-loader": "^6.2.1",
@@ -62,6 +63,7 @@
     "sass-loader": "^12.6.0",
     "semantic-release": "^19.0.2",
     "storybook-dark-mode": "^1.0.9",
+    "storybook-react-i18next": "^1.0.20",
     "style-loader": "^3.3.1",
     "ts-jest": "^27.1.4",
     "ts-loader": "^9.2.8",
