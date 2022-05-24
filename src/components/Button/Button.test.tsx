@@ -2,7 +2,6 @@ import Button from "@components/Button/Button";
 import { mount, shallow } from "enzyme";
 import React from "react";
 import { asyncSleep } from "@utils/utils/utils";
-import { clear, mockUserAgent } from "jest-useragent-mock";
 
 describe("Button testing", () => {
   it("Button content", () => {
@@ -37,7 +36,7 @@ describe("Button testing", () => {
     ]);
     const eventMap = new Map<string, boolean>();
 
-    for (let event in Events) {
+    for (const event in Events) {
       eventMap.set(event, false);
     }
 
@@ -59,7 +58,7 @@ describe("Button testing", () => {
     component.simulate("mouseup");
     component.simulate("blur");
 
-    for (let event in Events) {
+    for (const event in Events) {
       expect(eventMap.get(event)).toBeTruthy();
     }
   });
