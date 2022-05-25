@@ -2815,16 +2815,6 @@
     regenerator-runtime "^0.13.7"
     resolve-from "^5.0.0"
 
-"@suin/semantic-release-yarn@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@suin/semantic-release-yarn/-/semantic-release-yarn-1.1.0.tgz#959b1bdcf8b0a596125f731c162465357da9386a"
-  integrity sha512-b7EQ60blRxDzY+Q5Ydz2VKvLD3oPT0EobKh2HWrkmGWJqs+5+Z0DapG0QGTzEoobJUUKj0J+dDQoaTV42jxxTw==
-  dependencies:
-    "@semantic-release/error" "^3.0.0"
-    execa "^5.1.1"
-    read-pkg "5.2.0"
-    semver "^7.3.5"
-
 "@testing-library/dom@^8.5.0":
   version "8.13.0"
   resolved "https://registry.yarnpkg.com/@testing-library/dom/-/dom-8.13.0.tgz#bc00bdd64c7d8b40841e27a70211399ad3af46f5"
@@ -11810,16 +11800,6 @@ read-pkg-up@^7.0.0, read-pkg-up@^7.0.1:
     read-pkg "^5.2.0"
     type-fest "^0.8.1"
 
-read-pkg@5.2.0, read-pkg@^5.0.0, read-pkg@^5.2.0:
-  version "5.2.0"
-  resolved "https://registry.yarnpkg.com/read-pkg/-/read-pkg-5.2.0.tgz#7bf295438ca5a33e56cd30e053b34ee7250c93cc"
-  integrity sha512-Ug69mNOpfvKDAc2Q8DRpMjjzdtrnv9HcSMX+4VsZxD1aZ6ZzrIE7rlzXBtWTyhULSMKg076AW6WR5iZpD0JiOg==
-  dependencies:
-    "@types/normalize-package-data" "^2.4.0"
-    normalize-package-data "^2.5.0"
-    parse-json "^5.0.0"
-    type-fest "^0.6.0"
-
 read-pkg@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/read-pkg/-/read-pkg-1.1.0.tgz#f5ffaa5ecd29cb31c0474bca7d756b6bb29e3f28"
@@ -11828,6 +11808,16 @@ read-pkg@^1.0.0:
     load-json-file "^1.0.0"
     normalize-package-data "^2.3.2"
     path-type "^1.0.0"
+
+read-pkg@^5.0.0, read-pkg@^5.2.0:
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/read-pkg/-/read-pkg-5.2.0.tgz#7bf295438ca5a33e56cd30e053b34ee7250c93cc"
+  integrity sha512-Ug69mNOpfvKDAc2Q8DRpMjjzdtrnv9HcSMX+4VsZxD1aZ6ZzrIE7rlzXBtWTyhULSMKg076AW6WR5iZpD0JiOg==
+  dependencies:
+    "@types/normalize-package-data" "^2.4.0"
+    normalize-package-data "^2.5.0"
+    parse-json "^5.0.0"
+    type-fest "^0.6.0"
 
 read@1, read@^1.0.7, read@~1.0.7:
   version "1.0.7"
