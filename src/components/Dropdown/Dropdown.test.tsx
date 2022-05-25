@@ -54,4 +54,23 @@ describe("Dropdown testing", () => {
       "dropdown-content"
     );
   });
+
+  it("Dropdown click away test", () => {
+    const body = shallow(<div>Lorem</div>);
+
+    const dropdown = shallow(
+      <Dropdown
+        direction="bottom-center"
+        dismissible="outside"
+        toggle={<Button>Open</Button>}
+      >
+        dropdrop-content
+      </Dropdown>
+    );
+
+    dropdown.find(".dropdown-toggle").simulate("click");
+
+    body.simulate("click");
+    expect(dropdown.find(".dropdown-content").exists()).toBeFalsy();
+  });
 });
