@@ -64,18 +64,15 @@ module.exports = {
             },
         ],
         '@semantic-release/changelog',
-        '@semantic-release/npm',
         '@semantic-release/github',
         '@semantic-release/git',
     ],
     verifyConditions: [
-        '@semantic-release/npm',
         '@semantic-release/github',
         '@semantic-release/git',
     ],
     prepare: [
         '@semantic-release/changelog',
-        '@semantic-release/npm',
         {
             path: '@semantic-release/git',
             message:
