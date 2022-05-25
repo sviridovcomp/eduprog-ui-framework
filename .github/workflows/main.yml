@@ -7,20 +7,19 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
-    
-    - uses: actions/checkout@v1
-    
-    - name: Use Node.js 14.x
-      uses: actions/setup-node@v1
-      with:
-        node-version: 14.x
+      - uses: actions/checkout@v1
 
-    - name: yarn install, generate coverage
-      run: |
-        yarn install
-        yarn test:coverage
+      - name: Use Node.js 14.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
 
-    - name: Coveralls
-      uses: coverallsapp/github-action@master
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: yarn install, generate coverage
+        run: |
+          yarn install
+          yarn test:coverage
+
+      - name: Coveralls
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
