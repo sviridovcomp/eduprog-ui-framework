@@ -1,7 +1,7 @@
 {
-  "name": "eduprog-ui-framework",
+  "name": "eduprog-ui",
   "homepage": "http://edu-prog.github.io/eduprog-ui-framework",
-  "version": "1.4.0",
+  "version": "0.0.0-development",
   "main": "./dist/index.js",
   "license": "MIT",
   "devDependencies": {
@@ -37,7 +37,6 @@
     "classnames": "^2.3.1",
     "conventional-changelog-conventionalcommits": "^4.2.3",
     "css-loader": "^6.7.1",
-    "easy-ease": "^1.0.9",
     "eduprog-hooks": "^1.3.0",
     "element-closest": "^3.0.2",
     "enzyme": "^3.11.0",
