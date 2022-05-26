@@ -2,7 +2,7 @@ import React, { FC, useRef, useState } from "react";
 import "./Dropdown.scss";
 import { defaultProps } from "@utils/defaultProps";
 import classNames from "classnames";
-import { useClickAway } from "@utils/hooks/useClickAway";
+import useClickAway from "@utils/hooks/useClickAway";
 import { CSSTransition } from "react-transition-group";
 
 export type DropdownPropsType = defaultProps & {
@@ -49,6 +49,8 @@ export type DropdownPropsType = defaultProps & {
   transition?: "fade" | "slide";
 
   contentStyle?: React.CSSProperties;
+
+  rootClassNames?: string;
 };
 
 /**
@@ -66,6 +68,7 @@ const Dropdown: FC<DropdownPropsType> = ({
   onClose,
   transition = "fade",
   contentStyle,
+  rootClassNames,
 }) => {
   const [active, setActive] = useState(false);
   const dropdownItem = useRef<HTMLDivElement>(null);
@@ -91,7 +94,11 @@ const Dropdown: FC<DropdownPropsType> = ({
 
   return (
     <div
-      className={classNames("dropdown", { "dropdown-fullwidth": fullwidth })}
+      className={classNames(
+        "dropdown",
+        { "dropdown-fullwidth": fullwidth },
+        rootClassNames
+      )}
       onBlur={() => dismissible == "always" && setActive(false)}
       style={style}
       ref={dropdownItem}

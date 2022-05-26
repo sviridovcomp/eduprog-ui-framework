@@ -1,7 +1,8 @@
-import { shallow } from "enzyme";
+import { mount, shallow } from "enzyme";
 import Dropdown from "@components/Dropdown/Dropdown";
 import Button from "@components/Button/Button";
 import React from "react";
+import { debug } from "webpack";
 
 describe("Dropdown testing", () => {
   it("Dropdown direction render", () => {
@@ -56,13 +57,33 @@ describe("Dropdown testing", () => {
   });
 
   it("Dropdown click away test", () => {
-    const body = shallow(<div>Lorem</div>);
+    const component = shallow(
+      <div className="outside">
+        <Dropdown
+          direction="bottom-center"
+          dismissible="outside"
+          toggle={<Button>Open</Button>}
+        >
+          dropdrop-content
+        </Dropdown>
+      </div>
+    );
+
+    component.find(Dropdown).dive().find(".dropdown-toggle").simulate("click");
+    component.find(".outside").simulate("click");
+
+    expect(component.find(".dropdown-content").exists()).toBeFalsy();
+  });
+
+  it("Dropdown onOpen test", () => {
+    let open = false;
 
     const dropdown = shallow(
       <Dropdown
         direction="bottom-center"
         dismissible="outside"
         toggle={<Button>Open</Button>}
+        onOpen={() => (open = true)}
       >
         dropdrop-content
       </Dropdown>
@@ -70,7 +91,24 @@ describe("Dropdown testing", () => {
 
     dropdown.find(".dropdown-toggle").simulate("click");
 
-    body.simulate("click");
-    expect(dropdown.find(".dropdown-content").exists()).toBeFalsy();
+    expect(open).toBeTruthy();
+  });
+
+  it("Dropdown blur", () => {
+    const dropdown = shallow(
+      <Dropdown
+        direction="bottom-center"
+        dismissible="always"
+        toggle={<Button>Open</Button>}
+      >
+        dropdrop-content
+      </Dropdown>
+    );
+
+    dropdown.find(".dropdown-toggle").simulate("click");
+    expect(dropdown.find(".dropdown-item-content").exists()).toBeTruthy();
+
+    dropdown.simulate("blur");
+    expect(dropdown.contains(".dropdown-item-content")).toBeFalsy();
   });
 });

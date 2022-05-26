@@ -1,5 +1,5 @@
 import { defaultProps } from "@utils/defaultProps";
-import { useClickAway } from "@utils/hooks/useClickAway";
+import useClickAway from "@utils/hooks/useClickAway";
 import classNames from "classnames";
 import React, { FC, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
