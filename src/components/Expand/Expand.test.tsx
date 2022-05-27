@@ -10,7 +10,7 @@ describe("Expand tesing", () => {
     expect(component.contains(".collapse-content")).toBeFalsy();
 
     open = true;
-    expect(component.find(".collapse-content").text()).toEqual("content");
+    expect(component.find(".collapse-content").text()).toEqual("Content");
 
     open = false;
     expect(component.contains(".collapse-content")).toBeFalsy();
