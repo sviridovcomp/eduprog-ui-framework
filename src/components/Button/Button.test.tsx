@@ -43,9 +43,9 @@ describe("Button testing", () => {
     const component = shallow(
       <Button
         onClick={() => eventMap.set("click", true)}
-        onMouseDown={() => eventMap.set("mousedown", true)}
-        onMouseLeave={() => eventMap.set("mouseleave", true)}
-        onMouseUp={() => eventMap.set("mouseup", true)}
+        onPointerDown={() => eventMap.set("mousedown", true)}
+        onPointerLeave={() => eventMap.set("mouseleave", true)}
+        onPointerUp={() => eventMap.set("mouseup", true)}
         onBlur={() => eventMap.set("blur", true)}
       >
         Test
@@ -53,9 +53,9 @@ describe("Button testing", () => {
     );
 
     component.simulate("click");
-    component.simulate("mousedown");
-    component.simulate("mouseleave");
-    component.simulate("mouseup");
+    component.simulate("pointerDown");
+    component.simulate("pointerLeave");
+    component.simulate("pointerUp");
     component.simulate("blur");
 
     for (const event in Events) {

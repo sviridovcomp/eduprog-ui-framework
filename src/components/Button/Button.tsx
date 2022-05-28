@@ -24,13 +24,13 @@ export type ButtonPropsType = defaultProps & {
   /**
    * Обработчик клика по кнопке
    */
-  onClick?: (event?: React.MouseEvent<HTMLButtonElement>) => void;
+  onClick?: (event?: React.PointerEvent<HTMLButtonElement>) => void;
 
-  onMouseDown?: (event?: React.MouseEvent<HTMLButtonElement>) => void;
+  onPointerDown?: (event?: React.PointerEvent<HTMLButtonElement>) => void;
 
-  onMouseUp?: (event?: React.MouseEvent<HTMLButtonElement>) => void;
+  onPointerUp?: (event?: React.PointerEvent<HTMLButtonElement>) => void;
 
-  onMouseLeave?: (event?: React.MouseEvent<HTMLButtonElement>) => void;
+  onPointerLeave?: (event?: React.PointerEvent<HTMLButtonElement>) => void;
 
   onBlur?: (event?: React.FocusEvent<HTMLButtonElement>) => void;
   /**
@@ -92,9 +92,9 @@ const Button: FC<ButtonPropsType> = ({
   view = "default",
   size = "md",
   onClick,
-  onMouseUp,
-  onMouseDown,
-  onMouseLeave,
+  onPointerUp,
+  onPointerDown,
+  onPointerLeave,
   onBlur,
   className = "",
   name,
@@ -124,35 +124,35 @@ const Button: FC<ButtonPropsType> = ({
     { "Button-progress": progress }
   );
 
-  const mouseDown = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const pointerDown = (event: React.PointerEvent<HTMLButtonElement>) => {
     if (navigator.userAgent.match(/safari/i)) {
       event.preventDefault();
     }
 
     setPressed(true);
 
-    if (onMouseDown) {
-      onMouseDown(event);
+    if (onPointerDown) {
+      onPointerDown(event);
     }
   };
 
-  const mouseUp = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const pointerUp = (event: React.PointerEvent<HTMLButtonElement>) => {
     setPressed(false);
 
-    if (onMouseUp) {
-      onMouseUp(event);
+    if (onPointerUp) {
+      onPointerUp(event);
     }
   };
 
-  const mouseLeave = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const pointerLeave = (event: React.PointerEvent<HTMLButtonElement>) => {
     setPressed(false);
 
-    if (onMouseLeave) {
-      onMouseLeave(event);
+    if (onPointerLeave) {
+      onPointerLeave(event);
     }
   };
 
-  const click = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const click = (event: React.PointerEvent<HTMLButtonElement>) => {
     if (buttonRef.current != null) {
       buttonRef.current.focus();
     }
@@ -173,9 +173,9 @@ const Button: FC<ButtonPropsType> = ({
   return (
     <button
       className={rootClasses}
-      onMouseDown={mouseDown}
-      onMouseUp={mouseUp}
-      onMouseLeave={mouseLeave}
+      onPointerDown={pointerDown}
+      onPointerUp={pointerUp}
+      onPointerLeave={pointerLeave}
       onBlur={blur}
       onClick={click}
       name={name}

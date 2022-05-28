@@ -38,7 +38,7 @@ export type TextInputProps = defaultProps & {
   /**
    * Событие вызываемое при клике на input
    */
-  onClick?: () => void;
+  onClick?: (event?: React.MouseEvent<HTMLInputElement>) => void;
 
   /**
    * Событие обновления input
@@ -58,7 +58,9 @@ export type TextInputProps = defaultProps & {
    */
   onKeyDown?: (event?: React.KeyboardEvent<HTMLInputElement>) => void;
 
-  onBlur?: () => void;
+  onBlur?: (event?: React.FocusEvent<HTMLInputElement>) => void;
+
+  onFocus?: (event?: React.FocusEvent<HTMLInputElement>) => void;
 
   /**
    * Добавление дополнительных элементов к инпуту слева
@@ -101,7 +103,9 @@ export type TextInputProps = defaultProps & {
 
   validators?: ITextInputValidator;
 
-  onMouseDown?: (event?: React.MouseEvent) => void;
+  onPointerDown?: (event?: React.MouseEvent) => void;
+  onPointerUp?: (event?: React.MouseEvent) => void;
+  onPointerLeave?: (event?: React.MouseEvent) => void;
 };
 
 const BaseInput: FC<TextInputProps> = ({
@@ -120,7 +124,10 @@ const BaseInput: FC<TextInputProps> = ({
   autocomplete = "none",
   cursor = "text",
   onClick,
-  onMouseDown,
+  onPointerDown,
+  onPointerUp,
+  onPointerLeave,
+  onFocus,
   onBlur,
   autoFocus = false,
   forceFocus = false,
@@ -140,17 +147,21 @@ const BaseInput: FC<TextInputProps> = ({
     ValidityStatus.Valid
   );
 
-  const inputFocus = () => {
+  const inputFocus = (event: React.FocusEvent<HTMLInputElement>) => {
     setActive(!active);
+
+    if (onFocus) {
+      onFocus(event);
+    }
   };
 
-  const inputBlur = () => {
+  const inputBlur = (event: React.FocusEvent<HTMLInputElement>) => {
     setActive(!active);
 
     setDirty(true);
 
     if (onBlur) {
-      onBlur();
+      onBlur(event);
     }
   };
 
@@ -174,9 +185,21 @@ const BaseInput: FC<TextInputProps> = ({
     }
   };
 
-  const inputMouseDown = (event: React.MouseEvent) => {
-    if (onMouseDown) {
-      onMouseDown(event);
+  const inputPointerDown = (event: React.PointerEvent<HTMLInputElement>) => {
+    if (onPointerDown) {
+      onPointerDown(event);
+    }
+  };
+
+  const inputPointerUp = (event: React.PointerEvent<HTMLInputElement>) => {
+    if (onPointerUp) {
+      onPointerUp(event);
+    }
+  };
+
+  const inputPointerLeave = (event: React.PointerEvent<HTMLInputElement>) => {
+    if (onPointerLeave) {
+      onPointerLeave(event);
     }
   };
 
@@ -230,10 +253,12 @@ const BaseInput: FC<TextInputProps> = ({
             onBlur={inputBlur}
             value={defaultValue}
             onClick={onClick}
-            onMouseDown={inputMouseDown}
-            onChange={(event) => inputChange(event)}
-            onPaste={(event) => inputPaste(event)}
-            onKeyDown={(event) => inputKeyDown(event)}
+            onPointerDown={inputPointerDown}
+            onPointerUp={inputPointerUp}
+            onPointerLeave={inputPointerLeave}
+            onChange={inputChange}
+            onPaste={inputPaste}
+            onKeyDown={inputKeyDown}
             name={name}
             readOnly={readonly}
             autoComplete={autocomplete}
