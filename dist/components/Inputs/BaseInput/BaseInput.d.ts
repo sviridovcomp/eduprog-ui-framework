@@ -30,7 +30,7 @@ export declare type TextInputProps = defaultProps & {
     /**
      * Событие вызываемое при клике на input
      */
-    onClick?: () => void;
+    onClick?: (event?: React.MouseEvent<HTMLInputElement>) => void;
     /**
      * Событие обновления input
      */
@@ -43,7 +43,8 @@ export declare type TextInputProps = defaultProps & {
      * Событие нажатия input
      */
     onKeyDown?: (event?: React.KeyboardEvent<HTMLInputElement>) => void;
-    onBlur?: () => void;
+    onBlur?: (event?: React.FocusEvent<HTMLInputElement>) => void;
+    onFocus?: (event?: React.FocusEvent<HTMLInputElement>) => void;
     /**
      * Добавление дополнительных элементов к инпуту слева
      */
@@ -75,7 +76,9 @@ export declare type TextInputProps = defaultProps & {
     forceInvalid?: boolean;
     autoFocus?: boolean;
     validators?: ITextInputValidator;
-    onMouseDown?: (event?: React.MouseEvent) => void;
+    onPointerDown?: (event?: React.MouseEvent) => void;
+    onPointerUp?: (event?: React.MouseEvent) => void;
+    onPointerLeave?: (event?: React.MouseEvent) => void;
 };
 declare const BaseInput: FC<TextInputProps>;
 export default BaseInput;
