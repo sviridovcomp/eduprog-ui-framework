@@ -1,5 +1,5 @@
-import * as React from "react";
-interface IProps {
+import React, { FC } from "react";
+export interface IBottomDrawerProps {
     isVisible: boolean;
     onClose: () => void;
     duration?: number;
@@ -10,5 +10,5 @@ interface IProps {
     backdropClassname?: string;
     children: React.ReactNode;
 }
-declare const SlideUpTransition: ({ isVisible, children, onClose, unmountOnExit, mountOnEnter, duration, hideScrollbars, className, }: IProps) => JSX.Element;
-export default SlideUpTransition;
+declare const BottomDrawer: FC<IBottomDrawerProps>;
+export default BottomDrawer;
