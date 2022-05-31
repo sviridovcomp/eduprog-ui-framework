@@ -8,7 +8,7 @@ export const useKeyDown = (callback: () => void, key: keyCode, enabled = true) =
         }
 
         callback();
-    }
+    };
 
     useEffect(() => {
         if (!enabled) {
@@ -21,4 +21,4 @@ export const useKeyDown = (callback: () => void, key: keyCode, enabled = true) =
             window.removeEventListener("keydown", currentCallback);
         };
     });
-}
+};

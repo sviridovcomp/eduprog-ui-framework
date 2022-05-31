@@ -13,7 +13,7 @@ function usePreventScroll(enabled: boolean, contentWrapperClass: string) {
 
     return () => {
       enableBodyScroll(scrollableElement);
-    }
+    };
   }, [enabled]);
 }
 

@@ -20,7 +20,7 @@ function useApplyBottomDrawerStyles(duration: number, hideScrollbars: boolean) {
     return function() {
       const stylesheet = document.querySelector(`style[data-react-bottom-drawer='${identifier}']`);
       if (stylesheet) { stylesheet.remove(); }
-    }
+    };
   }, [duration, hideScrollbars]);
 
   return classNames;
