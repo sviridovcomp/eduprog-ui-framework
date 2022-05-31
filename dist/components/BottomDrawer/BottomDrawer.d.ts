@@ -1,14 +1,25 @@
-import React, { FC } from "react";
+import { FC } from "react";
 export interface IBottomDrawerProps {
-    isVisible: boolean;
+    /**
+     * Открыт ли BottomDrawer
+     */
+    open: boolean;
+    /**
+     * Колбэк, вызываемый при закрытии BottomDrawer
+     */
     onClose: () => void;
+    /**
+     * Продолжительность анимация BottomDrawer
+     */
     duration?: number;
+    /**
+     * Спрятать скроллбары
+     */
     hideScrollbars?: boolean;
     unmountOnExit?: boolean;
     mountOnEnter?: boolean;
     className?: string;
     backdropClassname?: string;
-    children: React.ReactNode;
 }
 declare const BottomDrawer: FC<IBottomDrawerProps>;
 export default BottomDrawer;

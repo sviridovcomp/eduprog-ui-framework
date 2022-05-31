@@ -10,19 +10,33 @@ import clsx from "clsx";
 import React, { FC, useRef, useState } from "react";
 
 export interface IBottomDrawerProps {
-  isVisible: boolean;
+  /**
+   * Открыт ли BottomDrawer
+   */
+  open: boolean;
+
+  /**
+   * Колбэк, вызываемый при закрытии BottomDrawer
+   */
   onClose: () => void;
+
+  /**
+   * Продолжительность анимация BottomDrawer
+   */
   duration?: number;
+
+  /**
+   * Спрятать скроллбары
+   */
   hideScrollbars?: boolean;
   unmountOnExit?: boolean;
   mountOnEnter?: boolean;
   className?: string;
   backdropClassname?: string;
-  children: React.ReactNode;
 }
 
 const BottomDrawer: FC<IBottomDrawerProps> = ({
-  isVisible,
+  open,
   children,
   onClose,
   unmountOnExit = true,
@@ -34,8 +48,8 @@ const BottomDrawer: FC<IBottomDrawerProps> = ({
   const classNames = useApplyBottomDrawerStyles(duration, hideScrollbars);
   const nodeRef = useRef(null);
 
-  useKeyDown(onClose, Key.Escape, isVisible);
-  usePreventScroll(isVisible, classNames.contentWrapper);
+  useKeyDown(onClose, Key.Escape, open);
+  usePreventScroll(open, classNames.contentWrapper);
 
   const [currentDeltaY, setDeltaY] = useState(0);
   const swipeHandlers = useSwipeable({
@@ -70,7 +84,7 @@ const BottomDrawer: FC<IBottomDrawerProps> = ({
     <>
       <Transition
         appear={true}
-        in={isVisible}
+        in={open}
         timeout={{ appear: 0, enter: 0, exit: duration }}
         unmountOnExit={unmountOnExit}
         mountOnEnter={mountOnEnter}

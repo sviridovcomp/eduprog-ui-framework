@@ -4,6 +4,7 @@ import clsx from "clsx";
 import { CSSTransition } from "react-transition-group";
 import useClickAway from "@utils/hooks/useClickAway";
 import Backdrop from "@components/Backdrop/Backdrop";
+import usePreventScroll from "@utils/hooks/usePreventScroll";
 
 export type DialogPropsType = {
   /**
@@ -60,6 +61,7 @@ const Dialog: FC<DialogPropsType> = ({
       onClose();
     }
   });
+  usePreventScroll(open, "dialog-body");
 
   return (
     <CSSTransition

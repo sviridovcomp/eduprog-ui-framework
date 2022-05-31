@@ -20,7 +20,7 @@ export const Playground = () => {
       <BottomDrawer
         duration={250}
         hideScrollbars={true}
-        isVisible={open}
+        open={open}
         onClose={() => setOpen(false)}
       >
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea impedit

@@ -26,6 +26,11 @@ import TextSkeleton from "@components/Skeleton/TextSkeleton";
 import Text from "@components/Typography/Text";
 import ToggleBlock from "@components/Toggles/ToggleBlock";
 import CheckboxBlock from "@components/Checkboxes/CheckboxBlock";
+import BottomDrawer from "@components/BottomDrawer/BottomDrawer";
+
+import useClickAway from "@utils/hooks/useClickAway";
+import useKeyDown from "@utils/hooks/useKeyDown";
+import usePreventScroll from "@utils/hooks/usePreventScroll";
 
 export {
   Button,
@@ -58,4 +63,8 @@ export {
   Text,
   ToggleBlock,
   CheckboxBlock,
+  BottomDrawer,
+  useClickAway,
+  useKeyDown,
+  usePreventScroll,
 };

@@ -15,7 +15,7 @@ export default {
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 
 export const Playground = () => {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
   const [expandOpen, setExpandOpen] = useState(false);
 
   return (
@@ -39,8 +39,8 @@ export const Playground = () => {
         dolores repellat doloribus deserunt, vel, eveniet modi ullam molestias
         temporibus voluptate consequatur fuga exercitationem in. Dolores, sequi!
       </div>
-      <Button onClick={() => setOpen(true)}>open</Button>
-      <Dialog size="xs" label="Тест" open={open} onClose={() => setOpen(false)}>
+      <Button onClick={() => setOpen(!open)}>open</Button>
+      <Dialog size="lg" label="Тест" open={open}>
         <div>
           <p>
             Dialog has <code>Observer</code> in its context to call{" "}
