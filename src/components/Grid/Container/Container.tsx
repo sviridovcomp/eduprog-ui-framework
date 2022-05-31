@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import "./Container.scss";
-import classNames from "classnames";
+import clsx from "clsx";
 
 export type ContainerPropsType = {
   fullwidth?: boolean;
@@ -16,7 +16,7 @@ const Container: FC<ContainerPropsType> = ({
   fixed,
   style,
 }) => {
-  const rootClasses = classNames(
+  const rootClasses = clsx(
     "ep-container",
     { "ep-container_fullwidth": fullwidth },
     { "ep-container_adaptive": adaptive },

@@ -1,3 +1,8 @@
 import { asyncSleep } from "./sleep/asyncSleep";
+import { keyCode } from "./common/types";
 
-export default asyncSleep;
+export {
+    asyncSleep
+};
+
+export type { keyCode };

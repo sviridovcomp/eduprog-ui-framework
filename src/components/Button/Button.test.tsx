@@ -1,5 +1,5 @@
 import Button from "@components/Button/Button";
-import asyncSleep from "@utils/utils";
+import { asyncSleep } from "@utils/utils";
 import { shallow } from "enzyme";
 import React from "react";
 

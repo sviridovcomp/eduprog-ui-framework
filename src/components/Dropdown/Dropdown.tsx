@@ -1,7 +1,7 @@
 import React, { FC, useRef, useState } from "react";
 import "./Dropdown.scss";
 import { defaultProps } from "@utils/defaultProps";
-import classNames from "classnames";
+import clsx from "clsx";
 import useClickAway from "@utils/hooks/useClickAway";
 import { CSSTransition } from "react-transition-group";
 
@@ -94,7 +94,7 @@ const Dropdown: FC<DropdownPropsType> = ({
 
   return (
     <div
-      className={classNames(
+      className={clsx(
         "dropdown",
         { "dropdown-fullwidth": fullwidth },
         rootClassNames
@@ -104,7 +104,7 @@ const Dropdown: FC<DropdownPropsType> = ({
       ref={dropdownItem}
     >
       <div
-        className={classNames("dropdown-toggle", {
+        className={clsx("dropdown-toggle", {
           "dropdown-fullwidth": fullwidth,
         })}
         onClick={onClick}
@@ -119,7 +119,7 @@ const Dropdown: FC<DropdownPropsType> = ({
         classNames={`dropdown-transition_${transition}`}
       >
         <div
-          className={classNames(
+          className={clsx(
             "dropdown-item",
             { [`dropdown-item-direction_${direction}`]: direction },
             { "dropdown-item-clearly": clearly },

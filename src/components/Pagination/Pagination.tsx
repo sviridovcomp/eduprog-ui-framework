@@ -2,7 +2,7 @@ import { FC, useState } from "react";
 import Button from "@components/Button";
 import React from "react";
 import "./Pagination.scss";
-import classNames from "classnames";
+import clsx from "clsx";
 import _ from "lodash";
 
 export interface IPaginationProps {
@@ -25,7 +25,7 @@ const Pagination: FC<IPaginationProps> = ({
           <li key={page}>
             <Button
               onClick={() => setSelectedPage(page)}
-              className={classNames("Pagination-button", {
+              className={clsx("Pagination-button", {
                 "Pagination-button_selected": selectedPage == page,
               })}
             >

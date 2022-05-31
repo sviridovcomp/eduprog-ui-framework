@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import clsx from "clsx";
 import React, { FC, useEffect, useState } from "react";
 import Checkbox, { CheckboxPropsType } from "../Checkbox/Checkbox";
 
@@ -43,7 +43,7 @@ const CheckboxBlock: FC<CheckboxBlockPropsType> = ({ options, onChange }) => {
         <div
           key={option.id}
           style={{ width: `calc(100% / ${options.length})` }}
-          className={classNames("toggle-block-item", {
+          className={clsx("toggle-block-item", {
             "toggle-block-item-selected": selectedValue.includes(option),
           })}
           onClick={() => onChecked(option)}

@@ -2,7 +2,7 @@ import { SelectTypeProps } from "@components/Select/Select/SelectProps";
 import React, { FC, useState } from "react";
 import "./SelectSmallDevice.scss";
 import "@components/Inputs/BaseInput/BaseInput.scss";
-import classNames from "classnames";
+import clsx from "clsx";
 
 const SelectSmallDevice: FC<SelectTypeProps<any>> = ({
   label,
@@ -30,7 +30,7 @@ const SelectSmallDevice: FC<SelectTypeProps<any>> = ({
   return (
     <div className="input">
       <div
-        className={classNames("input-label", {
+        className={clsx("input-label", {
           "input-label-active": active || selectedOption,
         })}
       >
@@ -48,7 +48,11 @@ const SelectSmallDevice: FC<SelectTypeProps<any>> = ({
           size={1}
         >
           {options.map(({ name }, index) => (
-            <option value={name} key={index} selected={selectedOption.name == name}>
+            <option
+              value={name}
+              key={index}
+              selected={selectedOption.name == name}
+            >
               {name}
             </option>
           ))}

@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import classNames from "classnames";
+import clsx from "clsx";
 import "./Progress.scss";
 
 export interface IProgressProps {
@@ -15,7 +15,7 @@ const Progress: FC<IProgressProps> = ({
   striped = false,
   animated = false,
 }) => {
-  const rootClasses = classNames(
+  const rootClasses = clsx(
     "progress-bar",
     {
       [`progress-color_${color}`]: color,

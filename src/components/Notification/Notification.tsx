@@ -1,6 +1,6 @@
 import React, { FC, useCallback, useEffect, useRef, useState } from "react";
 import "./Notification.scss";
-import classNames from "classnames";
+import clsx from "clsx";
 import Done from "@icons/Done";
 import CloseIcon from "@icons/Close";
 import Error from "@icons/Error";
@@ -84,7 +84,7 @@ const Notification: FC<NotificationPropsType> = ({
     <div
       {...swipeableHandlers}
       style={{ top: `${offset}px` }}
-      className={classNames(
+      className={clsx(
         "notification",
         { [`notification__stick-to_${stickTo}`]: stickTo },
         {

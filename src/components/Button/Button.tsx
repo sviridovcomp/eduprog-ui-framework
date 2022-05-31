@@ -1,7 +1,7 @@
 import React, { FC, useState, useRef } from "react";
 import "./Button.scss";
 import { defaultProps } from "@utils/defaultProps";
-import classNames from "classnames";
+import clsx from "clsx";
 
 export type ButtonPropsType = defaultProps & {
   /**
@@ -112,7 +112,7 @@ const Button: FC<ButtonPropsType> = ({
   const buttonRef = useRef<HTMLButtonElement>(null);
   const [pressed, setPressed] = useState(false);
 
-  const rootClasses = classNames(
+  const rootClasses = clsx(
     { [`${className}`]: className },
     "Button",
     { [`Button-view_${view}`]: view },
@@ -185,7 +185,7 @@ const Button: FC<ButtonPropsType> = ({
       ref={buttonRef}
     >
       <span
-        className={classNames("Button-label")}
+        className="Button-label"
         style={{
           justifyContent: labelJustifyContent,
         }}

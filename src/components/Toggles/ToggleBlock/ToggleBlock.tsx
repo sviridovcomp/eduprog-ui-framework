@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import clsx from "clsx";
 import React, { FC, useState } from "react";
 import "./ToggleBlock.scss";
 
@@ -41,7 +41,7 @@ const ToggleBlock: FC<IToggleBlockProps> = ({
       {options.map(({ id, name, value }) => (
         <div
           key={id}
-          className={classNames("toggle-block-item", {
+          className={clsx("toggle-block-item", {
             "toggle-block-item-selected": selectedValue?.name == name,
           })}
           style={{ width: `calc(100% / ${options.length})` }}

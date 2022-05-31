@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import "./Avatar.scss";
 import { defaultProps } from "@utils/defaultProps";
-import classNames from "classnames";
+import clsx from "clsx";
 
 export type AvatarPropsType = defaultProps & {
   /**
@@ -38,7 +38,7 @@ const Avatar: FC<AvatarPropsType> = ({
   autoColor,
   className = "",
 }) => {
-  const rootClasses = classNames(
+  const rootClasses = clsx(
     "avatar",
     { [`avatar-size_${size}`]: size },
     { "avatar-rounded": rounded },

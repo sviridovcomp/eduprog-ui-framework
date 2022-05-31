@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { defaultProps } from "@utils/defaultProps";
 import "./Spinner.scss";
-import classNames from "classnames";
+import clsx from "clsx";
 
 export type SpinnerPropsType = defaultProps & {
   color: "primary" | "secondary" | "accent";
@@ -9,7 +9,7 @@ export type SpinnerPropsType = defaultProps & {
 };
 
 const Spinner: FC<SpinnerPropsType> = ({ className = "", mode, color }) => {
-  const rootClasses = classNames(
+  const rootClasses = clsx(
     "Spinner",
     { [`Spinner-${mode}`]: mode },
     { [`Spinner-${mode}-${color}`]: mode && color },

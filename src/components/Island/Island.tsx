@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import "./Island.scss";
-import classNames from "classnames";
+import clsx from "clsx";
 import { defaultProps } from "@utils/defaultProps";
 
 export type IslandPropsType = defaultProps & {
@@ -39,7 +39,7 @@ const Island: FC<IslandPropsType> = ({
   onClick,
   className,
 }) => {
-  const rootClasses = classNames(
+  const rootClasses = clsx(
     className,
     "island",
     { [`island-size_${size}`]: size },

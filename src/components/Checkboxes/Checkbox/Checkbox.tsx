@@ -2,7 +2,7 @@
 import React, { FC, useEffect, useRef, useState, useId } from "react";
 import "./Checkbox.scss";
 import { defaultProps } from "@utils/defaultProps";
-import classNames from "classnames";
+import clsx from "clsx";
 
 export type CheckboxPropsType = defaultProps & {
   /**
@@ -66,7 +66,7 @@ const Checkbox: FC<CheckboxPropsType> = ({
   const checkboxRef = useRef<HTMLInputElement>(null);
   const [pressed, setPressed] = useState(checked || false);
   const checkboxId = useId();
-  const rootClasses = classNames(
+  const rootClasses = clsx(
     "checkbox-checkmark",
 
     { "checkbox-fullwidth": fullwidth }
@@ -94,7 +94,7 @@ const Checkbox: FC<CheckboxPropsType> = ({
 
   return (
     <div
-      className={classNames(
+      className={clsx(
         "checkbox",
         { "checkbox-fullwidth": fullwidth },
         ...className.split(" ")
@@ -102,7 +102,7 @@ const Checkbox: FC<CheckboxPropsType> = ({
     >
       <label
         style={wrapperStyle}
-        className={classNames("checkbox-wrapper", {
+        className={clsx("checkbox-wrapper", {
           "checkbox-fullwidth": fullwidth,
         })}
         htmlFor={`${checkboxId}-checkbox`}
@@ -122,7 +122,7 @@ const Checkbox: FC<CheckboxPropsType> = ({
 
         <span
           style={style}
-          className={classNames("checkbox-fake", {
+          className={clsx("checkbox-fake", {
             [`checkbox-checkmark-type_${type}`]: type,
           })}
         >

@@ -1,6 +1,6 @@
 import React, { CSSProperties, FC } from "react";
 import "./Heading.scss";
-import classNames from "classnames";
+import clsx from "clsx";
 
 export type HeadingPropsType = {
   /**
@@ -41,7 +41,7 @@ const Heading: FC<HeadingPropsType> = ({
   return (
     <div className="heading">
       <h1
-        className={classNames({ [`heading-size_${size}`]: size })}
+        className={clsx({ [`heading-size_${size}`]: size })}
         style={commonStyles}
       >
         {children}

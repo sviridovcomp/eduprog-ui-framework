@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import clsx from "clsx";
 import React, {
   ElementType,
   ReactNode,
@@ -184,7 +184,7 @@ export class Text extends PureComponent<TextProps> {
       <ElementType
         ref={this.setTextElement.bind(this)}
         style={{ color: color, ...style }}
-        className={classNames(
+        className={clsx(
           "Text",
           { [`Text-align_${align}`]: align },
           { [`Text-overflow_${overflow}`]: overflow },

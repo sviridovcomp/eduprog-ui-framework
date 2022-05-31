@@ -1,6 +1,5 @@
 import React, { FC, useEffect, useState } from "react";
 import BaseInput from "@components/Inputs/BaseInput/BaseInput";
-import { sha256 } from "js-sha256";
 import "./SelectLargeDevice.scss";
 import {
   SelectTypeProps,

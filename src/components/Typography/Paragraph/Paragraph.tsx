@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import "./Paragraph.scss";
 import { defaultProps } from "@utils/defaultProps";
-import classNames from "classnames";
+import clsx from "clsx";
 
 export type ParagraphPropsType = defaultProps & {
   children: string;
@@ -14,7 +14,7 @@ const Paragraph: FC<ParagraphPropsType> = ({
   className = "",
   size = "md",
 }) => {
-  const rootClasses = classNames([
+  const rootClasses = clsx([
     "paragraph",
     { [`paragraph-size_${size}`]: size },
     className,

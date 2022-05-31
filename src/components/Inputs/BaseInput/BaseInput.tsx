@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useState } from "react";
 import "./BaseInput.scss";
-import classNames from "classnames";
+import clsx from "clsx";
 import { defaultProps } from "@utils/defaultProps";
 
 export interface ITextInputValidator {
@@ -225,7 +225,7 @@ const BaseInput: FC<TextInputProps> = ({
     <>
       <div className="input">
         <div
-          className={classNames("input-label", {
+          className={clsx("input-label", {
             "input-label-active": forceFocus || active || defaultValue,
             "input-label-invalid":
               validationStatus == ValidityStatus.Invalid || forceInvalid,
@@ -238,7 +238,7 @@ const BaseInput: FC<TextInputProps> = ({
           <div className="input-left">{leftAdditional}</div>
 
           <input
-            className={classNames(
+            className={clsx(
               "input-control",
               {
                 "input-control-invalid":
@@ -273,7 +273,7 @@ const BaseInput: FC<TextInputProps> = ({
       </div>
       {validators && validationStatus == ValidityStatus.Invalid && (
         <div
-          className={classNames("input-validator", {
+          className={clsx("input-validator", {
             "input-validator-show": validationStatus == ValidityStatus.Invalid,
           })}
         >

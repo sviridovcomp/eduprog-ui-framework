@@ -1,6 +1,6 @@
 import { defaultProps } from "@utils/defaultProps";
 import useClickAway from "@utils/hooks/useClickAway";
-import classNames from "classnames";
+import clsx from "clsx";
 import React, { FC, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
 import "../Dropdown/Dropdown.scss";
@@ -59,7 +59,7 @@ const CustomDropdown: FC<CustomDropdownPropsType> = ({
         classNames="dropdown-transition_fade"
       >
         <div
-          className={classNames(
+          className={clsx(
             "dropdown-item",
             { [`dropdown-item-direction_${direction}`]: direction },
             { "dropdown-item-clearly": clearly },

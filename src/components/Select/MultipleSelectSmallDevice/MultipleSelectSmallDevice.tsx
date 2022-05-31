@@ -4,8 +4,7 @@ import {
   MultipleSelectValue,
 } from "@components/Select/MultipleSelect/MultipleSelectProps";
 import "./MultipleSelectSmallDevice.scss";
-import { sha256 } from "js-sha256";
-import classNames from "classnames";
+import clsx from "clsx";
 
 const MultipleSelectSmallDevice: FC<MultipleSelectPropsType<string>> = ({
   label,
@@ -47,9 +46,7 @@ const MultipleSelectSmallDevice: FC<MultipleSelectPropsType<string>> = ({
 
   return (
     <div className="input">
-      <div
-        className={classNames("input-label", { "input-label-active": active })}
-      >
+      <div className={clsx("input-label", { "input-label-active": active })}>
         {label}
       </div>
 

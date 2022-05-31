@@ -1,6 +1,6 @@
 import React, { FC, useRef } from "react";
 import "./Dialog.scss";
-import classNames from "classnames";
+import clsx from "clsx";
 import { CSSTransition } from "react-transition-group";
 import useClickAway from "@utils/hooks/useClickAway";
 import Backdrop from "@components/Backdrop/Backdrop";
@@ -70,7 +70,7 @@ const Dialog: FC<DialogPropsType> = ({
     >
       <div
         style={style}
-        className={classNames("dialog", {
+        className={clsx("dialog", {
           [`dialog-align_${verticalAlign}`]: verticalAlign,
         })}
       >
@@ -83,7 +83,7 @@ const Dialog: FC<DialogPropsType> = ({
           classNames={"dialog-body-animation"}
         >
           <div
-            className={classNames("dialog-body", {
+            className={clsx("dialog-body", {
               [`dialog-body-size_${size}`]: size,
               [`dialog-body-align_${verticalAlign}`]: verticalAlign,
             })}

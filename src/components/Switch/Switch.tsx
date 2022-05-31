@@ -1,7 +1,7 @@
 import React, { FC, useState } from "react";
 import "./Switch.scss";
 import { defaultProps } from "@utils/defaultProps";
-import classNames from "classnames";
+import clsx from "clsx";
 
 export type SwitchProps = defaultProps & {
   size?: "xs" | "sm" | "md" | "lg" | "xl";
@@ -35,12 +35,12 @@ const Switch: FC<SwitchProps> = ({
   };
 
   return (
-    <label className={classNames("switch", className)} style={style}>
+    <label className={clsx("switch", className)} style={style}>
       {position == "left" && <div className="switch-additional">{label}</div>}
 
       <input type="checkbox" onChange={changing} name={name} checked={active} />
       <span
-        className={classNames("switch-slider", {
+        className={clsx("switch-slider", {
           [`switch-slider-color_${color}`]: color,
           [`switch-slider-size_${size}`]: size,
         })}

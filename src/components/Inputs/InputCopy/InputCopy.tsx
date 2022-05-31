@@ -1,7 +1,7 @@
 import React, { FC, useState } from "react";
 import BaseInput, { TextInputProps } from "../BaseInput/BaseInput";
 import "./InputCopy.scss";
-import classNames from "classnames";
+import clsx from "clsx";
 
 export type InputCopyPropsType = TextInputProps & {
   /**
@@ -97,7 +97,7 @@ const InputCopy: FC<InputCopyPropsType> = ({
         }
       />
       <div
-        className={classNames("popup-coppied", {
+        className={clsx("popup-coppied", {
           "popup-coppied-active": activePopup,
         })}
       >

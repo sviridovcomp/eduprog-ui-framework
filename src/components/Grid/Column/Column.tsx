@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import "./Column.scss";
-import classNames from "classnames";
+import clsx from "clsx";
 import { defaultProps } from "@utils/defaultProps";
 
 type RowColWidth =
@@ -50,7 +50,7 @@ const Column: FC<ColumnPropsType> = ({
   onClick,
   style,
 }) => {
-  const rootClasses = classNames([
+  const rootClasses = clsx([
     "ep-col",
     className,
     { [`ep-col_${col}`]: col },

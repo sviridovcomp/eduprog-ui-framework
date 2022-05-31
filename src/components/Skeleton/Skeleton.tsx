@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import "./Skeleton.scss";
-import classNames from "classnames";
+import clsx from "clsx";
 
 export interface ISkeletonProps {
   variant?: "text" | "circular" | "rectangular";
@@ -18,14 +18,21 @@ const Skeleton: FC<ISkeletonProps> = ({
   height,
   children,
 }) => {
-  const rootClasses = classNames(
+  const rootClasses = clsx(
     "Skeleton",
     { [`Skeleton-variant_${variant}`]: variant },
     { [`Skeleton-animation_${animation}`]: animation }
   );
 
   return (
-    <span style={{ width: width, height: height, borderRadius: `${borderRadius}rem` }} className={rootClasses}>
+    <span
+      style={{
+        width: width,
+        height: height,
+        borderRadius: `${borderRadius}rem`,
+      }}
+      className={rootClasses}
+    >
       {children}
     </span>
   );

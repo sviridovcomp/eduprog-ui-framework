@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import Button from "@components/Button";
 import "./CarouselButton.scss";
 import { defaultProps } from "@utils/defaultProps";
-import classNames from "classnames";
+import clsx from "clsx";
 
 export interface ICarouselButtonProps extends defaultProps {
   direction?: "left" | "right";
@@ -27,7 +27,7 @@ const CarouselButton: FC<ICarouselButtonProps> = ({
         transform: `rotate(${directionRouting.get(direction)}deg)`,
         ...style,
       }}
-      className={classNames("CarouselButton", { [`${className}`]: className })}
+      className={clsx("CarouselButton", { [`${className}`]: className })}
       onClick={onClick}
     >
       <svg
