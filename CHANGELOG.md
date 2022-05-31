@@ -1,3 +1,11 @@
+## [1.4.0](https://github.com/edu-prog/eduprog-ui-framework/compare/v1.3.0...v1.4.0) (2022-05-31)
+
+
+### 🧩 Features
+
+* created new component BottomDrawer ([24db0d0](https://github.com/edu-prog/eduprog-ui-framework/commit/24db0d0c0b4d91bd5e02678ab5a125a843e97b23))
+* created new component BottomDrawer ([c40a97d](https://github.com/edu-prog/eduprog-ui-framework/commit/c40a97d4c26b1b53e443c8a2b7f26f5d10a84730))
+
 ## [1.3.0](https://github.com/edu-prog/eduprog-ui-framework/compare/v1.2.0...v1.3.0) (2022-05-28)
 
 
