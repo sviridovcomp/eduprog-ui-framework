@@ -19,11 +19,11 @@ export interface ICustomizations {
 }
 
 export const getClassNames = (identifier: string) => ({
-  backdrop: `rbd-${identifier}-db`,
-  drawer: `rbd-${identifier}-dr`,
-  handleWrapper: `rbd-${identifier}-hw`,
-  handle: `rbd-${identifier}-h`,
-  contentWrapper: `rbd-${identifier}-cw`,
+  backdrop: `bottom-backdrop-${identifier}-db`,
+  drawer: `bottom-backdrop-${identifier}-dr`,
+  handleWrapper: `bottom-backdrop-${identifier}-hw`,
+  handle: `bottom-backdrop-${identifier}-h`,
+  contentWrapper: `bottom-backdrop-${identifier}-cw`,
 });
 
 const BottomDrawerStyles = (

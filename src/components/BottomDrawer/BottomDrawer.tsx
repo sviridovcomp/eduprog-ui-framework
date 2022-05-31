@@ -51,13 +51,12 @@ const BottomDrawer: FC<IBottomDrawerProps> = ({
       { leading: true }
     ),
     onSwiping: ({ deltaY }) => {
-      console.log(deltaY);
       setDeltaY(deltaY);
     },
   });
 
   const getTransforms = (): React.CSSProperties | undefined => {
-    if (currentDeltaY < 0) {
+    if (currentDeltaY <= 0) {
       return undefined;
     }
 
