@@ -10,7 +10,7 @@ export default {
 } as ComponentMeta<typeof MultipleSelect>;
 
 export const Playground = () => {
-  const [selected, setSelected] = useState([]);
+  const [selected, setSelected] = useState(new Map());
 
   return (
     <MultipleSelect
@@ -23,7 +23,6 @@ export const Playground = () => {
       label={"Выберите категории кэшбека"}
       zIndex={9999}
       onChange={(value) => {
-        // @ts-ignore
         setSelected(value);
         console.log(selected);
       }}
