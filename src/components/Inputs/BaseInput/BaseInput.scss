@@ -15,6 +15,10 @@
   }
 
   &-label {
+    width: 90%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
     position: absolute;
     z-index: 1;
     top: 50%;

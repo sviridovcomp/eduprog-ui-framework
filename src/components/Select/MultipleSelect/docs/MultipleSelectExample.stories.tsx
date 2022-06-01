@@ -10,7 +10,7 @@ export default {
 } as ComponentMeta<typeof MultipleSelect>;
 
 export const Playground = () => {
-  const [, setSelected] = useState([]);
+  const [selected, setSelected] = useState([]);
 
   return (
     <MultipleSelect
@@ -25,6 +25,7 @@ export const Playground = () => {
       onChange={(value) => {
         // @ts-ignore
         setSelected(value);
+        console.log(selected);
       }}
     ></MultipleSelect>
   );

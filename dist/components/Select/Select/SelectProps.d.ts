@@ -1,5 +1,5 @@
-/// <reference types="react" />
 import { MultipleSelectValue } from "@components/Select/MultipleSelect/MultipleSelectProps";
+import React from "react";
 export declare type SelectValue<Type> = MultipleSelectValue<Type>;
 export declare type SelectTypeProps<Type> = {
     /**
@@ -9,7 +9,7 @@ export declare type SelectTypeProps<Type> = {
     /**
      * Опции в селекторе
      */
-    options: Array<SelectValue<Type>>;
+    options: Array<[string, Type]>;
     /**
      * zIndex popup
      */
@@ -17,7 +17,7 @@ export declare type SelectTypeProps<Type> = {
     /**
      * Значение по умолчанию
      */
-    defaultValue: SelectValue<Type>;
+    defaultValue: [string, Type];
     /**
      * Имя элемента в DOM
      */
@@ -25,7 +25,7 @@ export declare type SelectTypeProps<Type> = {
     /**
      * Событие вызываемое при обновлении value
      */
-    onChange: (option: SelectValue<Type>) => void;
+    onChange: (option: [string, Type]) => void;
     wrapperStyles?: React.CSSProperties;
     dropdownStyles?: React.CSSProperties;
 };
