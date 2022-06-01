@@ -1,6 +1,7 @@
 import { ComponentMeta } from "@storybook/react";
 import React, { useState } from "react";
 import MultipleSelect from "../MultipleSelect";
+import { KeyValue } from "@utils/utils/common/types";
 
 export default {
   title: "Компоненты/Select/MultipleSelect/Examples",
@@ -13,10 +14,12 @@ export const Playground = () => {
 
   return (
     <MultipleSelect
-      options={[
-        { name: "Ozon", value: 1 },
-        { name: "Пятерочка", value: 2 },
-      ]}
+      options={
+        new Map([
+          ["5% - Аптеки", 1],
+          ["5% - Ozon", 2],
+        ])
+      }
       label={"Выберите категории кэшбека"}
       zIndex={9999}
       onChange={(value) => {

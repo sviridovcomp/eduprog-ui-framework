@@ -1,8 +1,5 @@
 import React, { FC, useEffect, useState } from "react";
-import {
-  MultipleSelectPropsType,
-  MultipleSelectValue,
-} from "@components/Select/MultipleSelect/MultipleSelectProps";
+import { MultipleSelectPropsType } from "@components/Select/MultipleSelect/MultipleSelectProps";
 import "./MultipleSelectSmallDevice.scss";
 import clsx from "clsx";
 
@@ -13,25 +10,24 @@ const MultipleSelectSmallDevice: FC<MultipleSelectPropsType<string>> = ({
   options,
   onChange,
   wrapperStyles,
-  defaultValue = [],
+  defaultValue = new Map(),
 }) => {
   const [active, setActive] = useState(false);
   const [selectedOptions, setSelectedOptions] =
-    useState<Array<MultipleSelectValue<any>>>(defaultValue);
+    useState<Map<string, any>>(defaultValue);
 
   const selectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const options = event.target.selectedOptions;
 
-    setSelectedOptions(
-      [...options]
-        .map((item) => {
-          return {
-            name: item.label,
-            value: item.value,
-          } as MultipleSelectValue<any>;
-        })
-        .slice(0, maxSelectedOptions)
-    );
+    [...options].forEach(({ label, value }) => {
+      if (maxSelectedOptions && [...selectedOptions].length >= maxSelectedOptions) {
+        return;
+      }
+
+      setSelectedOptions(new Map(selectedOptions.set(label, value)));
+    });
+
+    console.log(selectedOptions);
   };
 
   useEffect(() => {
@@ -60,21 +56,19 @@ const MultipleSelectSmallDevice: FC<MultipleSelectPropsType<string>> = ({
           size={1}
           multiple
         >
-          {options.map(({ name, value }, index) => (
+          {[...options].map(([label], index) => (
             <option
-              value={name}
+              value={label}
               key={index}
-              selected={selectedOptions.some((option) => option.name == name)}
+              selected={selectedOptions.has(label)}
             >
-              {name}
+              {label}
             </option>
           ))}
         </select>
 
         <div className="multiple-select-value">
-          {selectedOptions
-            .map((selectedOption) => selectedOption.name)
-            .join(", ")}
+          {[...selectedOptions].map(([label]) => label).join(", ")}
         </div>
 
         <div className="multiple-select-icon">

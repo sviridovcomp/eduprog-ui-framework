@@ -7,6 +7,7 @@ import {
   MultipleSelectPropsType,
   MultipleSelectValue,
 } from "@components/Select/MultipleSelect/MultipleSelectProps";
+import { KeyValue } from "@utils/utils/common/types";
 
 const MultipleSelectLargeDevice: FC<MultipleSelectPropsType<any>> = ({
   label,
@@ -16,10 +17,10 @@ const MultipleSelectLargeDevice: FC<MultipleSelectPropsType<any>> = ({
   zIndex,
   wrapperStyles,
   dropdownStyles,
-  defaultValue = [],
+  defaultValue = new Map(),
 }) => {
   const [selectedOptions, setSelectedOptions] =
-    useState<Array<MultipleSelectValue<any>>>(defaultValue);
+    useState<Map<string, any>>(defaultValue);
   const [open, setOpen] = useState(false);
 
   const SelectToggle = (
@@ -28,9 +29,7 @@ const MultipleSelectLargeDevice: FC<MultipleSelectPropsType<any>> = ({
       defaultValue={
         !selectedOptions
           ? ""
-          : selectedOptions
-              .map((selectedOption) => selectedOption.name)
-              .join(", ")
+          : [...selectedOptions].map(option => option[0]).join(", ")
       }
       cursor="pointer"
       readonly
@@ -58,30 +57,27 @@ const MultipleSelectLargeDevice: FC<MultipleSelectPropsType<any>> = ({
     />
   );
 
-  const disabledPredicate = (option: MultipleSelectValue<any>) => {
+  const disabledPredicate = (optionKey: string) => {
     return (
       maxSelectedOptions !== undefined &&
-      selectedOptions.length >= maxSelectedOptions &&
-      !selectedOptions.some((targetOption) => targetOption.name == option.name)
+      [...selectedOptions].length >= maxSelectedOptions &&
+      !selectedOptions?.has(optionKey)
     );
   };
 
-  const selectOption = (
-    params: MultipleSelectValue<any> | Array<MultipleSelectValue<any>>
-  ) => {
-    if (params instanceof Array) {
-      return;
-    }
-
-    if (selectedOptions.some((option) => option.name == params.name)) {
-      setSelectedOptions(
-        selectedOptions.filter((option) => {
-          return option.name != params.name;
-        })
-      );
+  const selectOption = (optionKey: string) => {
+    console.log(selectedOptions);
+    if (
+      selectedOptions?.has(optionKey) &&
+      selectedOptions?.delete(optionKey)
+    ) {
+      setSelectedOptions(new Map(selectedOptions));
     } else {
-      setSelectedOptions([...selectedOptions, params]);
+      setSelectedOptions(
+        new Map(selectedOptions?.set(optionKey, options.get(optionKey)))
+      );
     }
+    console.log(selectedOptions);
   };
 
   useEffect(() => {
@@ -90,18 +86,18 @@ const MultipleSelectLargeDevice: FC<MultipleSelectPropsType<any>> = ({
     }
   }, [selectedOptions]);
 
-  const SelectPopup = options.map((option, index) => (
+  const SelectPopup = [...options].map((option, index) => (
     <div className="multiple-select-item" key={index}>
       <Checkbox
         position="right"
-        onChange={() => selectOption(option)}
+        onChange={() => selectOption(option[0])}
         type="primary"
         className="multiple-select-checkbox"
         fullwidth
-        disabled={disabledPredicate(option)}
+        disabled={disabledPredicate(option[0])}
         wrapperStyle={{ userSelect: "none", gap: "1rem" }}
       >
-        {option.name}
+        {option[0]}
       </Checkbox>
     </div>
   ));

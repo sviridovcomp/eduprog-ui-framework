@@ -19,41 +19,13 @@ export const Playground = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Playground.args = {
   label: "Select",
-  options: [
-    {
-      name: "5% - Аптеки",
-      value: "5% - аптеки",
-    },
-    {
-      name: "5% - Ozon.ru",
-      value: "5% - ozon.ru",
-    },
-    {
-      name: "3% - Пятёрочка",
-      value: "fewfew",
-    },
-    {
-      name: "5% - Спорттовары",
-      value: "grewge",
-    },
-    {
-      name: "5% - Такси",
-      value: "fwegfewr",
-    },
-    {
-      name: "5% - Рестораны",
-      value: "fwergerr",
-    },
-  ],
-  defaultValue: [
-    {
-      name: "5% - Такси",
-      value: "fwegfewr",
-    },
-    {
-      name: "5% - Рестораны",
-      value: "fwergerr",
-    },
-  ],
+  options: new Map([
+    ["5% - Аптеки", "5% - аптеки"],
+    ["5% - Ozon.ru", "5% - ozon.ru"],
+    ["3% - Пятёрочка", "fewfew"],
+    ["5% - Спорттовары", "grewge"],
+    ["5% - Такси", "fwegfewr"],
+    ["5% - Рестораны", "fwergerr"],
+  ]),
   maxSelectedOptions: 3,
 };

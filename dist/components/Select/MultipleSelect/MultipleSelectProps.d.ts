@@ -1,4 +1,4 @@
-/// <reference types="react" />
+import React from "react";
 export declare type MultipleSelectValue<Type> = {
     name: string;
     value: Type;
@@ -11,7 +11,7 @@ export declare type MultipleSelectPropsType<Type> = {
     /**
      * Опции доступные для выбора в select
      */
-    options: Array<MultipleSelectValue<Type>>;
+    options: Map<string, Type>;
     /**
      * zIndex popup
      */
@@ -28,8 +28,8 @@ export declare type MultipleSelectPropsType<Type> = {
      * Событие вызываемое при выборе опции
      * @param option - массив выбранных опций
      */
-    onChange?: (option: MultipleSelectValue<Type> | Array<MultipleSelectValue<Type>>) => void;
-    defaultValue?: Array<MultipleSelectValue<any>>;
+    onChange?: (option: Map<string, Type>) => void;
+    defaultValue?: Map<string, Type>;
     wrapperStyles?: React.CSSProperties;
     dropdownStyles?: React.CSSProperties;
 };
