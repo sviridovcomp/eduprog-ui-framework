@@ -3,7 +3,6 @@ import BaseInput from "@components/Inputs/BaseInput/BaseInput";
 import "./SelectLargeDevice.scss";
 import {
   SelectTypeProps,
-  SelectValue,
 } from "@components/Select/Select/SelectProps";
 import CustomDropdown from "@components/CustomDropdown/CustomDropdown";
 
@@ -23,10 +22,10 @@ const SelectLargeDevice: FC<SelectTypeProps<any>> = ({
     return (
       <BaseInput
         label={label}
-        defaultValue={value ? value.name : ""}
+        defaultValue={value ? value[0] : ""}
         cursor="pointer"
         readonly
-        onClick={() => setOpen(!open)}
+        onPointerDown={() => setOpen(true)}
         style={wrapperStyles}
         rightAdditional={
           <span
@@ -52,7 +51,7 @@ const SelectLargeDevice: FC<SelectTypeProps<any>> = ({
     );
   };
 
-  const onSelect = (option: SelectValue<any>) => {
+  const onSelect = (option: [string, any]) => {
     setValue(option);
     setOpen(false);
   };
@@ -65,13 +64,13 @@ const SelectLargeDevice: FC<SelectTypeProps<any>> = ({
 
   const SelectPopup = (
     <div className="select" style={dropdownStyles}>
-      {options.map((option, index) => (
+      {options.map(([name, value], index) => (
         <div
           className="select-item"
           key={index}
-          onClick={() => onSelect(option)}
+          onClick={() => onSelect([name, value])}
         >
-          {option.name}
+          {name}
         </div>
       ))}
     </div>

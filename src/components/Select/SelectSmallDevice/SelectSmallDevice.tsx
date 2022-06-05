@@ -1,5 +1,5 @@
 import { SelectTypeProps } from "@components/Select/Select/SelectProps";
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import "./SelectSmallDevice.scss";
 import "@components/Inputs/BaseInput/BaseInput.scss";
 import clsx from "clsx";
@@ -19,13 +19,17 @@ const SelectSmallDevice: FC<SelectTypeProps<any>> = ({
 
   const selectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const option = event.target.value.toString();
-
-    setSelectedOption(
-      options.find((currentOption) => currentOption.name == option)!
-    );
-
-    onChange(selectedOption);
+    const currentOption = options.find(([name]) => name == option);
+    if (currentOption) {
+      setSelectedOption(currentOption);
+    }
   };
+
+  useEffect(() => {
+    if (onChange && selectedOption) {
+      onChange(selectedOption);
+    }
+  }, [selectedOption]);
 
   return (
     <div className="input">
@@ -47,18 +51,18 @@ const SelectSmallDevice: FC<SelectTypeProps<any>> = ({
           name={name}
           size={1}
         >
-          {options.map(({ name }, index) => (
+          {options.map(([name], index) => (
             <option
               value={name}
               key={index}
-              selected={selectedOption.name == name}
+              selected={selectedOption[0] == name}
             >
               {name}
             </option>
           ))}
         </select>
 
-        <div className="select-value">{selectedOption.name}</div>
+        <div className="select-value">{selectedOption[0]}</div>
 
         <div className="select-icon">
           <svg
