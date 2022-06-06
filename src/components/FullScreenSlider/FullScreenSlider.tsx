@@ -96,6 +96,7 @@ const FullScreenSlider: FC<FullScreenSliderProps> = ({
             >
               {slides.map((slide, index) => (
                 <div
+                  key={index}
                   style={{ zIndex: slides.length - index }}
                   className={clsx(
                     "FullScreenSlider-content",
