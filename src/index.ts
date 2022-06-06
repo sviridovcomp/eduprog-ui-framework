@@ -27,6 +27,7 @@ import Text from "@components/Typography/Text";
 import ToggleBlock from "@components/Toggles/ToggleBlock";
 import CheckboxBlock from "@components/Checkboxes/CheckboxBlock";
 import BottomDrawer from "@components/BottomDrawer/BottomDrawer";
+import FullScreenSlider from "@components/FullScreenSlider/FullScreenSlider";
 
 import useClickAway from "@utils/hooks/useClickAway";
 import useKeyDown from "@utils/hooks/useKeyDown";
@@ -64,6 +65,8 @@ export {
   ToggleBlock,
   CheckboxBlock,
   BottomDrawer,
+  FullScreenSlider,
+  
   useClickAway,
   useKeyDown,
   usePreventScroll,
