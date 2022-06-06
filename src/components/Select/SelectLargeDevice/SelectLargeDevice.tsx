@@ -1,10 +1,8 @@
 import React, { FC, useEffect, useState } from "react";
 import BaseInput from "@components/Inputs/BaseInput/BaseInput";
 import "./SelectLargeDevice.scss";
-import {
-  SelectTypeProps,
-} from "@components/Select/Select/SelectProps";
-import CustomDropdown from "@components/CustomDropdown/CustomDropdown";
+import { SelectTypeProps } from "@components/Select/Select/SelectProps";
+import Popup from "@components/Popup/Popup";
 
 const SelectLargeDevice: FC<SelectTypeProps<any>> = ({
   label,
@@ -79,7 +77,7 @@ const SelectLargeDevice: FC<SelectTypeProps<any>> = ({
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
       <SelectToggle />
-      <CustomDropdown
+      <Popup
         direction="bottom-center"
         clearly
         fullwidth
@@ -89,7 +87,7 @@ const SelectLargeDevice: FC<SelectTypeProps<any>> = ({
         contentStyle={{ borderRadius: "0.5rem" }}
       >
         {SelectPopup}
-      </CustomDropdown>
+      </Popup>
     </div>
   );
 };
