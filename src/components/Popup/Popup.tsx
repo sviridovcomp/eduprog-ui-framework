@@ -5,7 +5,7 @@ import React, { FC, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
 import "../Dropdown/Dropdown.scss";
 
-export type CustomDropdownPropsType = defaultProps & {
+export type PopupProps = defaultProps & {
   open?: boolean;
   /**
    * Направление раскрытия popup
@@ -33,7 +33,7 @@ export type CustomDropdownPropsType = defaultProps & {
   contentStyle?: React.CSSProperties;
 };
 
-const CustomDropdown: FC<CustomDropdownPropsType> = ({
+const Popup: FC<PopupProps> = ({
   open = false,
   direction,
   clearly,
@@ -75,4 +75,4 @@ const CustomDropdown: FC<CustomDropdownPropsType> = ({
   );
 };
 
-export default CustomDropdown;
+export default Popup;
