@@ -106,6 +106,7 @@ const FullScreenSlider: FC<FullScreenSliderProps> = ({
                   return;
                 }
 
+                // @ts-ignore
                 const elementSize = event.target.offsetWidth;
                 if (event.clientX > elementSize / 2) {
                   nextSlide();
