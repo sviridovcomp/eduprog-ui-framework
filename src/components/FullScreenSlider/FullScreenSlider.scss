@@ -10,6 +10,7 @@
     bottom: 0;
     right: 0;
     overflow: auto;
+    background-color: #fff;
   }
 
   &-control {
@@ -18,13 +19,67 @@
     height: 100%;
   }
 
+  &-counter {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    gap: 0.25rem;
+    top: 0;
+    height: 56px;
+    cursor: pointer;
+    background: linear-gradient(180deg, #00000029, #0000);
+    z-index: 6;
+
+    &-item {
+      align-items: center;
+      height: 100%;
+      position: relative;
+
+      &-static {
+        background-color: #fff;
+        border-radius: 0.25rem;
+        height: 2px;
+        opacity: 0.32;
+        position: absolute;
+        top: 1rem;
+        width: 100%;
+      }
+
+      &-processing {
+        animation: activate 20000ms linear;
+        background-color: #fff;
+        display: block;
+        position: absolute;
+        left: 0;
+        height: 2px;
+        opacity: 1;
+        top: 1rem;
+        width: 100%;
+        z-index: 7;
+      }
+
+      &-active {
+        opacity: 1;
+      }
+    }
+  }
+
   &-content {
     position: fixed;
     width: 100%;
     height: 100%;
   }
+}
 
-  &-active {
-    z-index: 9999 !important;
+@keyframes activate {
+  0% {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
   }
 }
+
+// TODO: pc-viewport 395x594

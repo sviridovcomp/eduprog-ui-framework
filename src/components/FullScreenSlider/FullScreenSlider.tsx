@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import _ from "lodash";
-import React, { FC, useEffect, useState } from "react";
+import React, { FC, useEffect, useRef, useState } from "react";
 import { useSwipeable } from "react-swipeable";
 import "./FullScreenSlider.scss";
 
@@ -11,15 +11,22 @@ export interface IFullScreenSliderLayout {
 export type FullScreenSliderProps = {
   open?: boolean;
 
-  slides: IFullScreenSliderLayout[];
+  slides: React.ReactNode[];
+
+  onClose?: () => void;
 };
 
 const FullScreenSlider: FC<FullScreenSliderProps> = ({
   open = false,
   slides,
+  onClose,
 }) => {
   const [slideIndex, setSlideIndex] = useState(0);
-  const [deltaX, setDeltaX] = useState(0);
+  const [deltaY, setDeltaY] = useState(0);
+
+  const getLastSlideIndex = () => slides.length - 1;
+
+  const slidesCount = () => slides.length;
 
   const getNextSlideIndex = () => {
     return Math.abs(slideIndex + 1) % slides.length;
@@ -30,88 +37,110 @@ const FullScreenSlider: FC<FullScreenSliderProps> = ({
   };
 
   const nextSlide = () => {
+    const nextSlide = getNextSlideIndex();
+    if (!nextSlide) {
+      return onClose && onClose();
+    }
     setSlideIndex(getNextSlideIndex());
   };
 
   const prevSlide = () => {
+    const prevSlide = getPrevSlideIndex();
+    console.log(prevSlide, getLastSlideIndex());
+    if (prevSlide == getLastSlideIndex()) {
+      return onClose && onClose();
+    }
     setSlideIndex(getPrevSlideIndex());
   };
 
   const swipeableHandlers = useSwipeable({
-    onSwipedLeft: _.debounce(
+    onSwipedUp: _.debounce(
       ({ velocity }) => {
-        setDeltaX(0);
+        setDeltaY(0);
 
         if (velocity > 0.5) {
-          nextSlide();
+          onClose && onClose();
         }
       },
       500,
       { leading: true }
     ),
-    onSwipedRight: _.debounce(
+    onSwipedDown: _.debounce(
       ({ velocity }) => {
-        setDeltaX(0);
+        setDeltaY(0);
 
         if (velocity > 0.5) {
-          prevSlide();
+          onClose && onClose();
         }
       },
       500,
       { leading: true }
     ),
-    onSwiping: ({ deltaX }) => {
-      setDeltaX(deltaX);
+    onSwiping: ({ deltaY }) => {
+      setDeltaY(deltaY);
     },
   });
 
+  // useEffect(() => {
+  //   if (open) {
+  //     setInterval(() => {
+  //       nextSlide();
+  //     }, 20000);
+  //   }
+  // }, [open, slideIndex]);
+
   useEffect(() => {
-    console.log(deltaX);
-  }, [deltaX]);
+    console.log(deltaY);
+  }, [deltaY]);
 
   return (
     <div className="FullScreenSlider">
       {open && (
         <>
-          <div
-            className="FullScreenSlider-wrapper"
-            style={
-              deltaX > 0
-                ? {
-                    background: `url(${
-                      slides[getPrevSlideIndex()]
-                    }) center center / cover no-repeat fixed`,
-                  }
-                : {
-                    background: `url(${
-                      slides[getNextSlideIndex()]
-                    }) center center / cover no-repeat fixed`,
-                  }
-            }
-          >
+          <div className="FullScreenSlider-wrapper">
             <div
               className="FullScreenSlider-control"
               {...swipeableHandlers}
-              style={{ transform: `translate3d(${deltaX}px, 0, 0)` }}
+              onClick={(event: React.MouseEvent) => {
+                if (deltaY) {
+                  return;
+                }
+
+                const elementSize = event.target.offsetWidth;
+                if (event.clientX > elementSize / 2) {
+                  nextSlide();
+                } else {
+                  prevSlide();
+                }
+              }}
+              style={{ transform: `translate3d(0, ${deltaY}px, 0)` }}
             >
-              {slides.map((slide, index) => (
-                <div
-                  key={index}
-                  style={{ zIndex: slides.length - index }}
-                  className={clsx(
-                    "FullScreenSlider-content",
-                    index == slideIndex && "FullScreenSlider-active"
-                  )}
-                >
+              <div className="FullScreenSlider-counter">
+                {_.range(slidesCount()).map((item) => (
                   <div
+                    key={item}
+                    className="FullScreenSlider-counter-item"
                     style={{
-                      background: `url(${slide}) center center / cover no-repeat fixed`,
-                      width: "100%",
-                      height: "100%",
+                      width: `calc(100%/${slidesCount()} - 0.5rem)`,
                     }}
-                  />
-                </div>
-              ))}
+                  >
+                    <div
+                      className={clsx(
+                        "FullScreenSlider-counter-item-static",
+                        slideIndex > item &&
+                          "FullScreenSlider-counter-item-active"
+                      )}
+                    ></div>
+                    {slideIndex == item && (
+                      <div className="FullScreenSlider-counter-item-processing"></div>
+                    )}
+                  </div>
+                ))}
+              </div>
+
+              <div className="FullScreenSlider-content">
+                {slides[slideIndex]}
+              </div>
             </div>
           </div>
         </>
