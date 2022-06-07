@@ -83,7 +83,7 @@ const SelectLargeDevice: FC<SelectTypeProps<any>> = ({
         fullwidth
         onClose={() => setOpen(false)}
         open={open}
-        style={{ zIndex: zIndex }}
+        rootStyle={{ zIndex: zIndex }}
         contentStyle={{ borderRadius: "0.5rem" }}
       >
         {SelectPopup}

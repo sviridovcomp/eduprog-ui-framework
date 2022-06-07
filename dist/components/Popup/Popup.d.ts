@@ -1,7 +1,6 @@
-import { defaultProps } from "@utils/defaultProps";
 import React, { FC } from "react";
 import "../Dropdown/Dropdown.scss";
-export declare type PopupProps = defaultProps & {
+export declare type PopupProps = {
     open?: boolean;
     /**
      * Направление раскрытия popup
@@ -17,6 +16,11 @@ export declare type PopupProps = defaultProps & {
     fullwidth?: boolean;
     onClose?: () => void;
     contentStyle?: React.CSSProperties;
+    contentClassName?: string;
+    wrapperStyle?: React.CSSProperties;
+    wrapperClassName?: string;
+    rootStyle?: React.CSSProperties;
+    rootClassName?: string;
 };
 declare const Popup: FC<PopupProps>;
 export default Popup;
