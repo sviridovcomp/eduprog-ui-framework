@@ -5,7 +5,7 @@ import React, { FC, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
 import "../Dropdown/Dropdown.scss";
 
-export type PopupProps = defaultProps & {
+export type PopupProps = {
   open?: boolean;
   /**
    * Направление раскрытия popup
@@ -31,6 +31,16 @@ export type PopupProps = defaultProps & {
   onClose?: () => void;
 
   contentStyle?: React.CSSProperties;
+
+  contentClassName?: string;
+
+  wrapperStyle?: React.CSSProperties;
+
+  wrapperClassName?: string;
+
+  rootStyle?: React.CSSProperties;
+
+  rootClassName?: string;
 };
 
 const Popup: FC<PopupProps> = ({
@@ -40,8 +50,12 @@ const Popup: FC<PopupProps> = ({
   fullwidth,
   children,
   onClose,
-  style,
   contentStyle,
+  rootStyle,
+  contentClassName,
+  wrapperClassName,
+  wrapperStyle,
+  rootClassName,
 }) => {
   const dropdownRef = useRef(null);
   useClickAway(dropdownRef, () => {
@@ -51,7 +65,11 @@ const Popup: FC<PopupProps> = ({
   });
 
   return (
-    <div ref={dropdownRef} className="dropdown" style={style}>
+    <div
+      ref={dropdownRef}
+      className={clsx(rootClassName, "dropdown")}
+      style={rootStyle}
+    >
       <CSSTransition
         in={open}
         timeout={250}
@@ -59,14 +77,19 @@ const Popup: FC<PopupProps> = ({
         classNames="dropdown-transition_fade"
       >
         <div
+          style={wrapperStyle}
           className={clsx(
+            wrapperClassName,
             "dropdown-item",
             { [`dropdown-item-direction_${direction}`]: direction },
             { "dropdown-item-clearly": clearly },
             { "dropdown-fullwidth": fullwidth }
           )}
         >
-          <div className="dropdown-item-content" style={contentStyle}>
+          <div
+            className={clsx(contentClassName, "dropdown-item-content")}
+            style={contentStyle}
+          >
             {children}
           </div>
         </div>
