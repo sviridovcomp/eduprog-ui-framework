@@ -49,9 +49,9 @@ const BottomDrawerStyles = (
     bottom: 0;
     width: 100vw;
     background: white;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-    transition: transform ${duration}ms;
+    border-radius: 1rem 1rem 0 0;
+    transition: transform ${duration}ms ease;
+    will-change: transform;
   }
   .${classNames.handleWrapper} {
     display: flex;

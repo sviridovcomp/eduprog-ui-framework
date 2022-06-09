@@ -13,6 +13,7 @@ module.exports = {
     "@storybook/addon-actions",
     "@storybook/addon-a11y",
     "storybook-dark-mode",
+    "storybook-addon-performance/register",
   ],
   core: {
     builder: "webpack5",

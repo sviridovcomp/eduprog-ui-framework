@@ -1,12 +1,18 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-
 import BottomDrawer from "../BottomDrawer";
+import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
   title: "Компоненты/BottomDrawer/Playground",
   component: BottomDrawer,
+  parameters: {
+    viewport: {
+      viewports: INITIAL_VIEWPORTS,
+      defaultViewport: "iphone6",
+    },
+  },
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
 } as ComponentMeta<typeof BottomDrawer>;
 

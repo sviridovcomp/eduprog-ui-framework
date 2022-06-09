@@ -1,27 +1,55 @@
 import Button from "@components/Button";
-import { ComponentMeta } from "@storybook/react";
-import React, { useState } from "react";
+import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
+import { ComponentMeta, ComponentStory } from "@storybook/react";
+import React, { useEffect, useState } from "react";
 import BottomDrawer from "../BottomDrawer";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "Компоненты/BottomDrawer/Example",
+  title: "Components/BottomDrawer/Example",
   component: BottomDrawer,
+  parameters: {
+    viewport: {
+      viewports: INITIAL_VIEWPORTS,
+      defaultViewport: "iphone6",
+    },
+  },
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
 } as ComponentMeta<typeof BottomDrawer>;
 
-export const Playground = () => {
+const Template: ComponentStory<typeof BottomDrawer> = ({
+  onClose,
+  open: propsOpen,
+  backdropClassname,
+  className,
+  duration,
+  hideScrollbars,
+  mountOnEnter,
+  unmountOnExit,
+}) => {
   const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    setOpen(propsOpen);
+  }, [propsOpen]);
 
   return (
     <>
-      <Button onClick={() => setOpen(!open)}>Open</Button>
+      <Button onClick={() => setOpen(!open)}>Open Bottom Drawer</Button>
 
       <BottomDrawer
-        duration={250}
-        hideScrollbars={true}
+        duration={duration}
+        hideScrollbars={hideScrollbars}
         open={open}
-        onClose={() => setOpen(false)}
+        onClose={() => {
+          setOpen(false);
+
+          onClose && onClose();
+        }}
+        backdropClassname={backdropClassname}
+        className={className}
+        mountOnEnter={mountOnEnter}
+        unmountOnExit={unmountOnExit}
       >
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea impedit
         tenetur blanditiis dolorem temporibus est quasi laborum facere labore,
@@ -60,3 +88,5 @@ export const Playground = () => {
     </>
   );
 };
+
+export const Playground = Template.bind({});
