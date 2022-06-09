@@ -1,9 +1,10 @@
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
-import { DocsPage } from "@storybook-addons/docs";
+import { DocsPage, DocsContainer } from '@storybook/addon-docs';
 
 export const parameters = {
   docs: {
-    container: DocsPage,
+    container: DocsContainer,
+        page: DocsPage,
   },
   actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {

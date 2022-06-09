@@ -13,11 +13,6 @@ export const BackdropStyles = {
   exited: { display: "none" },
 };
 
-export interface ICustomizations {
-  duration: number;
-  hideScrollbars: boolean;
-}
-
 export const getClassNames = (identifier: string) => ({
   backdrop: `bottom-backdrop-${identifier}-db`,
   drawer: `bottom-backdrop-${identifier}-dr`,
@@ -25,73 +20,3 @@ export const getClassNames = (identifier: string) => ({
   handle: `bottom-backdrop-${identifier}-h`,
   contentWrapper: `bottom-backdrop-${identifier}-cw`,
 });
-
-const BottomDrawerStyles = (
-  identifier: string,
-  { duration, hideScrollbars }: ICustomizations
-) => {
-  const classNames = getClassNames(identifier);
-  return `
-  .${classNames.backdrop} {
-    position: fixed;
-    z-index: 10;
-    background: rgba(0, 0, 0, 0.5);
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    transition: opacity ${duration}ms;
-  }
-  .${classNames.drawer} {
-    position: fixed;
-    z-index: 11;
-    left: 0;
-    bottom: 0;
-    width: 100vw;
-    background: white;
-    border-radius: 1rem 1rem 0 0;
-    transition: transform ${duration}ms ease;
-    will-change: transform;
-  }
-  .${classNames.handleWrapper} {
-    display: flex;
-    justify-content: center;
-    padding: 10px 0;
-  }
-  .${classNames.handle} {
-    background: #e3e3e3;
-    height: 5px;
-    width: 70px;
-    border-radius: 5px;
-  }
-  .${classNames.contentWrapper} {
-    padding: 0 10px;
-    max-height: calc(70vh - 25px);
-    overflow-x: hidden;
-    overflow-y: auto;
-    ${
-      hideScrollbars
-        ? `
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-    `
-        : ""
-    }
-  }
-  ${
-    hideScrollbars
-      ? `
-  .${classNames.contentWrapper}::-webkit-scrollbar {
-    width: 0px;
-    background: transparent;
-  }
-  `
-      : ""
-  }
-    
-`
-    .split("\n")
-    .map((l) => l.trim())
-    .join("");
-};
-export default BottomDrawerStyles;

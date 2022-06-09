@@ -4,14 +4,19 @@ import { ComponentMeta, ComponentStory } from "@storybook/react";
 import React, { useEffect, useState } from "react";
 import BottomDrawer from "../BottomDrawer";
 
+import BottomDrawerDocs from "./BottomDrawerDocs.mdx";
+
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "Components/BottomDrawer/Example",
+  title: "Components/BottomDrawer",
   component: BottomDrawer,
   parameters: {
     viewport: {
       viewports: INITIAL_VIEWPORTS,
       defaultViewport: "iphone6",
+    },
+    docs: {
+      page: BottomDrawerDocs,
     },
   },
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
