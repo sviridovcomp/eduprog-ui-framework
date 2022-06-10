@@ -1,4 +1,6 @@
 import Button from "@components/Button";
+import Input from "@components/Inputs/Input/Input";
+import InputPassword from "@components/Inputs/InputPassword/InputPassword";
 import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import React, { useEffect, useState } from "react";
@@ -22,39 +24,19 @@ export default {
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
 } as ComponentMeta<typeof BottomDrawer>;
 
-const Template: ComponentStory<typeof BottomDrawer> = ({
-  onClose,
-  open: propsOpen,
-  backdropClassname,
-  className,
-  duration,
-  hideScrollbars,
-  mountOnEnter,
-  unmountOnExit,
-}) => {
+const PlaygroundTemplate: ComponentStory<typeof BottomDrawer> = (props) => {
   const [open, setOpen] = useState(false);
-
-  useEffect(() => {
-    setOpen(propsOpen);
-  }, [propsOpen]);
 
   return (
     <>
       <Button onClick={() => setOpen(!open)}>Open Bottom Drawer</Button>
 
       <BottomDrawer
-        duration={duration}
-        hideScrollbars={hideScrollbars}
+        {...props}
         open={open}
         onClose={() => {
           setOpen(false);
-
-          onClose && onClose();
         }}
-        backdropClassname={backdropClassname}
-        className={className}
-        mountOnEnter={mountOnEnter}
-        unmountOnExit={unmountOnExit}
       >
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea impedit
         tenetur blanditiis dolorem temporibus est quasi laborum facere labore,
@@ -94,4 +76,54 @@ const Template: ComponentStory<typeof BottomDrawer> = ({
   );
 };
 
-export const Playground = Template.bind({});
+export const Playground = PlaygroundTemplate.bind({});
+
+const MobileFormTemplate: ComponentStory<typeof BottomDrawer> = (props) => {
+  interface IForm {
+    login: string;
+    password: string;
+  }
+  const [open, setOpen] = useState(false);
+  const [form, setForm] = useState<IForm>({ login: "", password: "" });
+
+  return (
+    <>
+      <Button onClick={() => setOpen(!open)}>Open Bottom Drawer</Button>
+
+      <BottomDrawer
+        {...props}
+        open={open}
+        onClose={() => {
+          setOpen(false);
+        }}
+      >
+        <form
+          style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}
+          onSubmit={(event) => {
+            event.preventDefault();
+            alert(JSON.stringify(form));
+            setOpen(false);
+          }}
+        >
+          <Input
+            label="login"
+            defaultValue={form.login}
+            onChange={(value: string) => setForm({ ...form, login: value })}
+          />
+
+          <InputPassword
+            label="password"
+            defaultValue={form.password}
+            onChange={(value: string) => setForm({ ...form, password: value })}
+          />
+
+          <Button type="submit" view="action" size="xl" width="available">
+            Sign in
+          </Button>
+        </form>
+      </BottomDrawer>
+    </>
+  );
+};
+
+export const MobileForm = MobileFormTemplate.bind({});

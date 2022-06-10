@@ -11,11 +11,6 @@ describe("Checkbox testing", () => {
     expect(component.contains(`input[type="checkbox"]`)).toBeFalsy();
   });
 
-  it("Checkbox autofocus test", () => {
-    const component = shallow(<Checkbox type="base" autoFocus={true} />);
-    expect(component.find(`input[type="checkbox"]`)).toHaveFocus;
-  });
-
   it("Checkbox pressing test", () => {
     let active = false;
     const component = shallow(

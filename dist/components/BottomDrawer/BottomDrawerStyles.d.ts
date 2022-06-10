@@ -26,10 +26,6 @@ export declare const BackdropStyles: {
         display: string;
     };
 };
-export interface ICustomizations {
-    duration: number;
-    hideScrollbars: boolean;
-}
 export declare const getClassNames: (identifier: string) => {
     backdrop: string;
     drawer: string;
@@ -37,5 +33,3 @@ export declare const getClassNames: (identifier: string) => {
     handle: string;
     contentWrapper: string;
 };
-declare const BottomDrawerStyles: (identifier: string, { duration, hideScrollbars }: ICustomizations) => string;
-export default BottomDrawerStyles;

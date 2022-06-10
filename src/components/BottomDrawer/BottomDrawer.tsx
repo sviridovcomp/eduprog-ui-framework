@@ -43,6 +43,7 @@ const BottomDrawer: FC<IBottomDrawerProps> = ({
   hideScrollbars = false,
   className = "",
 }) => {
+  const nodeRef = useRef(null);
   usePreventScroll(open, "BottomDrawer-content");
 
   const [currentDeltaY, setDeltaY] = useState(0);
@@ -82,36 +83,39 @@ const BottomDrawer: FC<IBottomDrawerProps> = ({
         timeout={{ appear: 0, enter: 0, exit: duration }}
         unmountOnExit={unmountOnExit}
         mountOnEnter={mountOnEnter}
+        refNode={nodeRef}
       >
         {(state) => (
-          <div className="BottomDrawer" {...swipeHandlers}>
-            <div
-              onClick={onClose}
-              className={"BottomDrawer-backdrop"}
-              // @ts-ignore
-              style={BackdropStyles[state]}
-            />
-
-            <div
-              className="BottomDrawer-curtain"
-              style={{
-                ...(TransitionStyles as any)[state],
-                ...getTransforms(),
-              }}
-            >
+          <div ref={nodeRef}>
+            <div {...swipeHandlers} className="BottomDrawer">
               <div
-                className="BottomDrawer-handle"
+                onClick={onClose}
+                className={"BottomDrawer-backdrop"}
                 // @ts-ignore
                 style={BackdropStyles[state]}
               />
 
               <div
-                className={clsx(
-                  "BottomDrawer-content",
-                  hideScrollbars && "BottomDrawer-content-hide-scrollbars"
-                )}
+                className="BottomDrawer-curtain"
+                style={{
+                  ...(TransitionStyles as any)[state],
+                  ...getTransforms(),
+                }}
               >
-                <div className="BottomDrawer-content-inner">{children}</div>
+                <div
+                  className="BottomDrawer-handle"
+                  // @ts-ignore
+                  style={BackdropStyles[state]}
+                />
+
+                <div
+                  className={clsx(
+                    "BottomDrawer-content",
+                    hideScrollbars && "BottomDrawer-content-hide-scrollbars"
+                  )}
+                >
+                  <div className="BottomDrawer-content-inner">{children}</div>
+                </div>
               </div>
             </div>
           </div>

@@ -33,14 +33,20 @@
 
   &-handle {
     position: absolute;
-    top: -0.5rem;
+    top: -1.1875rem;
     left: 50%;
     transform: translateX(-50%);
     width: 40px;
-    height: 2px;
-    background-color: #fff;
-    pointer-events: none;
-    border-radius: 0.25rem;
+    padding: 0.5rem 1rem;
+    will-change: opacity;
+
+    &::before {
+      content: "";
+      display: block;
+      height: 3px;
+      border-radius: 100px;
+      background-color: $color-background;
+    }
   }
 
   &-content {
