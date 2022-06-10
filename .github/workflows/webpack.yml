@@ -23,16 +23,24 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: Updation depencencies
-        uses: Borales/actions-yarn@v2.3.0
+        uses: Borales/actions-yarn@v3.0.0
         with:
           cmd: install
 
       - name: Linting
-        run: yarn lint:js
-
+        uses: borales/actions-yarn@v3.0.0
+        with:
+          cmd: lint:js
+          
       - name: Testing
-        run: yarn test
+        uses: borales/actions-yarn@v3.0.0
+        with:
+          cmd: test
 
       - name: Build
-        run: |
-          npx webpack
+        uses: borales/actions-yarn@v3.0.0
+        with:
+          cmd: build
+          
+          
+          

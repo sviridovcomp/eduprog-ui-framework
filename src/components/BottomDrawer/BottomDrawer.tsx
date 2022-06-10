@@ -1,13 +1,11 @@
 import _ from "lodash";
 import { useSwipeable } from "react-swipeable";
 import { Transition } from "react-transition-group";
-import useKeyDown from "@utils/hooks/useKeyDown";
 import usePreventScroll from "@utils/hooks/usePreventScroll";
 import { BackdropStyles, TransitionStyles } from "./BottomDrawerStyles";
-import useApplyBottomDrawerStyles from "./useApplyBottomDrawerStyles";
-import { Key } from "ts-keycode-enum";
 import clsx from "clsx";
 import React, { FC, useRef, useState } from "react";
+import "./BottomDrawer.scss";
 
 export interface IBottomDrawerProps {
   /**
@@ -45,11 +43,8 @@ const BottomDrawer: FC<IBottomDrawerProps> = ({
   hideScrollbars = false,
   className = "",
 }) => {
-  const classNames = useApplyBottomDrawerStyles(duration, hideScrollbars);
   const nodeRef = useRef(null);
-
-  useKeyDown(onClose, Key.Escape, open);
-  usePreventScroll(open, classNames.contentWrapper);
+  usePreventScroll(open, "BottomDrawer-content");
 
   const [currentDeltaY, setDeltaY] = useState(0);
   const swipeHandlers = useSwipeable({
@@ -88,47 +83,39 @@ const BottomDrawer: FC<IBottomDrawerProps> = ({
         timeout={{ appear: 0, enter: 0, exit: duration }}
         unmountOnExit={unmountOnExit}
         mountOnEnter={mountOnEnter}
-        nodeRef={nodeRef}
+        refNode={nodeRef}
       >
         {(state) => (
           <div ref={nodeRef}>
-            <div
-              onClick={onClose}
-              className={clsx(
-                className && `${className}__backdrop`,
-                classNames.backdrop
-              )}
-              // @ts-ignore
-              style={BackdropStyles[state]}
-            />
-            <div
-              className={clsx(className, classNames.drawer)}
-              style={{
-                ...(TransitionStyles as any)[state],
-                ...getTransforms(),
-              }}
-            >
+            <div {...swipeHandlers} className="BottomDrawer">
               <div
-                {...swipeHandlers}
-                className={clsx(
-                  className && `${className}__handle-wrapper`,
-                  classNames.handleWrapper
-                )}
+                onClick={onClose}
+                className={"BottomDrawer-backdrop"}
+                // @ts-ignore
+                style={BackdropStyles[state]}
+              />
+
+              <div
+                className="BottomDrawer-curtain"
+                style={{
+                  ...(TransitionStyles as any)[state],
+                  ...getTransforms(),
+                }}
               >
                 <div
-                  className={clsx(
-                    className && `${className}__handle`,
-                    classNames.handle
-                  )}
+                  className="BottomDrawer-handle"
+                  // @ts-ignore
+                  style={BackdropStyles[state]}
                 />
-              </div>
-              <div
-                className={clsx(
-                  className && `${className}__content`,
-                  classNames.contentWrapper
-                )}
-              >
-                {children}
+
+                <div
+                  className={clsx(
+                    "BottomDrawer-content",
+                    hideScrollbars && "BottomDrawer-content-hide-scrollbars"
+                  )}
+                >
+                  <div className="BottomDrawer-content-inner">{children}</div>
+                </div>
               </div>
             </div>
           </div>

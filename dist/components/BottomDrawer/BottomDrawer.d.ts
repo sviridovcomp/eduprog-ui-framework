@@ -1,4 +1,5 @@
 import { FC } from "react";
+import "./BottomDrawer.scss";
 export interface IBottomDrawerProps {
     /**
      * Открыт ли BottomDrawer
