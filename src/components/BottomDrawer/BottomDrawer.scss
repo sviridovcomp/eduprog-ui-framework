@@ -12,23 +12,30 @@
   right: 0;
   overflow: hidden;
 
-  &-backdrop {
-    position: fixed;
-    background-color: rgba(0, 0, 0, 0.5);
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    // touch-action: none;
-    will-change: opacity;
-  }
-
   &-curtain {
     position: relative;
     max-height: calc(100% - 2rem);
     display: flex;
     flex-direction: column;
-    will-change: transform;
+    transition: transform 0.25s ease;
+
+    &-animation {
+      &-enter {
+        transform: translate3d(0, 100%, 0);
+      }
+
+      &-enter-active {
+        transform: translate3d(0, 0, 0);
+      }
+
+      &-exit {
+        transform: translate3d(0, 100%, 0);
+      }
+
+      &-exit-active {
+        transform: translate3d(0, 0, 0);
+      }
+    }
   }
 
   &-handle {

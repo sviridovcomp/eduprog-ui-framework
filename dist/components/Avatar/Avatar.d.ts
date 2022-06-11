@@ -18,6 +18,9 @@ export declare type AvatarPropsType = defaultProps & {
      * Size
      */
     size?: "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
+    /**
+     * Autocolor if there is no image
+     */
     autoColor?: boolean;
 };
 declare const Avatar: FC<AvatarPropsType>;

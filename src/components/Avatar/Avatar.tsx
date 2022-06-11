@@ -24,6 +24,9 @@ export type AvatarPropsType = defaultProps & {
    */
   size?: "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
 
+  /**
+   * Autocolor if there is no image
+   */
   autoColor?: boolean;
 };
 

@@ -4,6 +4,7 @@ import { ComponentMeta } from "@storybook/react";
 import Dialog from "../Dialog";
 import Button from "../../Button/Button";
 import Expand from "../../Expand/Expand";
+import useKeyDown from "@utils/hooks/useKeyDown";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -15,7 +16,7 @@ export default {
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 
 export const Playground = () => {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const [expandOpen, setExpandOpen] = useState(false);
 
   return (
@@ -39,8 +40,8 @@ export const Playground = () => {
         dolores repellat doloribus deserunt, vel, eveniet modi ullam molestias
         temporibus voluptate consequatur fuga exercitationem in. Dolores, sequi!
       </div>
-      <Button onClick={() => setOpen(!open)}>open</Button>
-      <Dialog size="lg" label="Тест" open={open}>
+      <Button onPointerDown={() => setOpen(!open)}>open</Button>
+      <Dialog size="lg" label="Тест" open={open} onClose={() => setOpen(false)}>
         <div>
           <p>
             Dialog has <code>Observer</code> in its context to call{" "}
@@ -55,7 +56,7 @@ export const Playground = () => {
             way to get data from outside
           </p>
 
-          <Button onClick={() => setExpandOpen(!expandOpen)}>
+          <Button onPointerDown={() => setExpandOpen(!expandOpen)}>
             Dynamic height change
           </Button>
 

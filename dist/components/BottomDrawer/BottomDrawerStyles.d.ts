@@ -26,10 +26,3 @@ export declare const BackdropStyles: {
         display: string;
     };
 };
-export declare const getClassNames: (identifier: string) => {
-    backdrop: string;
-    drawer: string;
-    handleWrapper: string;
-    handle: string;
-    contentWrapper: string;
-};
