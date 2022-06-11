@@ -5,7 +5,7 @@ import clsx from "clsx";
 
 export type ButtonPropsType = defaultProps & {
   /**
-   * Тип кнопки
+   * Button view
    */
   view?:
     | "default"
@@ -17,76 +17,85 @@ export type ButtonPropsType = defaultProps & {
     | "accent";
 
   /**
-   * Размер кнопки
+   * Button size
    */
   size?: "xs" | "sm" | "md" | "lg" | "xl";
 
   /**
-   * Обработчик клика по кнопке
+   * onClick event handler
    */
   onClick?: (event?: React.PointerEvent<HTMLButtonElement>) => void;
 
+  /**
+   * onPointerDown event handler
+   */
   onPointerDown?: (event?: React.PointerEvent<HTMLButtonElement>) => void;
 
+  /**
+   * onPointerUp event handler
+   */
   onPointerUp?: (event?: React.PointerEvent<HTMLButtonElement>) => void;
 
+  /**
+   * onPointerLeave event handler
+   */
   onPointerLeave?: (event?: React.PointerEvent<HTMLButtonElement>) => void;
 
+  /**
+   * onBlur event handler
+   */
   onBlur?: (event?: React.FocusEvent<HTMLButtonElement>) => void;
   /**
-   *  Имя кнопки в DOM
+   * Button name in the DOM
    */
   name?: string;
 
   /**
-   * Управление шириной кнопки. При значении 'available' растягивает кнопку на ширину родителя
+   * Controls the width of the button. When 'available' it stretches the button by the width of the parent
    */
   width?: "default" | "available";
 
   /**
-   * Список произвольных элементов в левом слоте.
+   * The list of arbitrary items in the left slot.
    */
   contentLeft?: React.ReactNode;
 
   /**
-   * Список произвольных элементов в правом слоте.
+   * The list of arbitrary items in the right slot.
    */
   contentRight?: React.ReactNode;
 
   /**
-   * Тип поведения кнопки в форме
+   * Button type
    */
   type?: "button" | "reset" | "submit";
 
   /**
-   * Выравнивание лейбла кнопки по ширине
+   * Button label alignment by width
    */
   labelJustifyContent?: "center" | "space-around";
 
   /**
-   * Выравнивание лейбла кнопки по высоте
+   * Button label alignment by height
    */
   labelAlignItems?: "center";
 
   /**
-   * Выключена ли кнопка
+   * Inactive button state: state when the button is displayed but not available for user actions
    */
   disabled?: boolean;
 
   /**
-   * Круглая кнопка
+   * Rounded button
    */
   rounded?: boolean;
 
   /**
-   * Прогресс
+   * Styling to visually highlight progress
    */
   progress?: boolean;
 };
 
-/**
- * Компонент создающий кнопки
- */
 const Button: FC<ButtonPropsType> = ({
   children,
   view = "default",

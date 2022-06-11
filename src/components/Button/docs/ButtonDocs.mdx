@@ -1,0 +1,61 @@
+<!-- ButtonDocs.mdx -->
+
+import Button from "@components/Button/Button";
+import Row from "@components/Grid/Row/Row";
+import Column from "@components/Grid/Column/Column";
+import { Meta, Canvas } from "@storybook/addon-docs";
+import Container from "@components/Grid/Container/Container";
+
+# Button
+
+Component to creating button.
+
+```ts
+import { Button } from "eduprog-ui";
+```
+
+## Examples
+
+### Button view
+
+To change the appearance of the button, set the `view` to one of the following values:
+`"default"`, `"action"`, `"link"`, `"pseudo"`, `"clear"`, `"raised"`.
+
+<Canvas withSource="open">
+  <Container adaptive>
+    <Row spacing={1}>
+      <Column>
+        <Button view="default">Button</Button>
+      </Column>
+      <Column>
+        <Button view="action">Button</Button>
+      </Column>
+      <Column>
+        <Button view="link">Button</Button>
+      </Column>
+      <Column>
+        <Button view="pseudo">Button</Button>
+      </Column>
+      <Column>
+        <Button view="clear">Button</Button>
+      </Column>
+      <Column>
+        <Button view="raised">Button</Button>
+      </Column>
+    </Row>
+  </Container>
+</Canvas>
+
+### Button size
+
+To resize the button, set the the `"size"` property to one of the following values: `"xl"`, `"lg"`, `"md"`, `"sm"`, `"xs"`.
+
+<Canvas withSource="open">
+  <div style={{ display: "flex", gap: "0.25rem" }}>
+    <Button size="xl">Button</Button>
+    <Button size="lg">Button</Button>
+    <Button size="md">Button</Button>
+    <Button size="sm">Button</Button>
+    <Button size="xs">Button</Button>
+  </div>
+</Canvas>
