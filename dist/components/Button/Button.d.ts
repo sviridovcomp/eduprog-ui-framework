@@ -3,11 +3,11 @@ import "./Button.scss";
 import { defaultProps } from "@utils/defaultProps";
 export declare type ButtonPropsType = defaultProps & {
     /**
-     * Button view
+     * View mode
      */
     view?: "default" | "action" | "link" | "pseudo" | "clear" | "raised" | "accent";
     /**
-     * Button size
+     * Size
      */
     size?: "xs" | "sm" | "md" | "lg" | "xl";
     /**
@@ -39,11 +39,11 @@ export declare type ButtonPropsType = defaultProps & {
      */
     width?: "auto" | "available";
     /**
-     * The list of arbitrary items in the left slot.
+     * Left additional content
      */
     contentLeft?: React.ReactNode;
     /**
-     * The list of arbitrary items in the right slot.
+     * Right additional content
      */
     contentRight?: React.ReactNode;
     /**
@@ -70,6 +70,14 @@ export declare type ButtonPropsType = defaultProps & {
      * Styling to visually highlight progress
      */
     progress?: boolean;
+    /**
+     * Button label styles
+     */
+    labelStyles?: React.CSSProperties;
+    /**
+     * Button label additional class
+     */
+    labelClassName?: string;
 };
 declare const Button: FC<ButtonPropsType>;
 export default Button;

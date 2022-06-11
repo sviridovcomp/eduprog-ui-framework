@@ -5,7 +5,7 @@ import clsx from "clsx";
 
 export type ButtonPropsType = defaultProps & {
   /**
-   * Button view
+   * View mode
    */
   view?:
     | "default"
@@ -17,7 +17,7 @@ export type ButtonPropsType = defaultProps & {
     | "accent";
 
   /**
-   * Button size
+   * Size
    */
   size?: "xs" | "sm" | "md" | "lg" | "xl";
 
@@ -56,12 +56,12 @@ export type ButtonPropsType = defaultProps & {
   width?: "auto" | "available";
 
   /**
-   * The list of arbitrary items in the left slot.
+   * Left additional content
    */
   contentLeft?: React.ReactNode;
 
   /**
-   * The list of arbitrary items in the right slot.
+   * Right additional content
    */
   contentRight?: React.ReactNode;
 
@@ -94,6 +94,16 @@ export type ButtonPropsType = defaultProps & {
    * Styling to visually highlight progress
    */
   progress?: boolean;
+
+  /**
+   * Button label styles
+   */
+  labelStyles?: React.CSSProperties;
+
+  /**
+   * Button label additional class
+   */
+  labelClassName?: string;
 };
 
 const Button: FC<ButtonPropsType> = ({

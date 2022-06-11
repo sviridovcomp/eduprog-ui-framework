@@ -5,31 +5,28 @@ import clsx from "clsx";
 
 export type AvatarPropsType = defaultProps & {
   /**
-   * Круглый аватар
+   * Rounded mode
    */
   rounded?: boolean;
 
   /**
-   * Ссылка на картинку аватара
+   * Link to avatar picture
    */
   avatarUrl?: string;
 
   /**
-   * Имя (Аватар показывает первые буквы имени, если изображения нет)
+   * Name (Avatar shows first letters of name if there is no image)
    */
   text: string;
 
   /**
-   * Размер аватара
+   * Size
    */
-  size: "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
+  size?: "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
 
   autoColor?: boolean;
 };
 
-/**
- * Компонент для показа аватара пользователя
- */
 const Avatar: FC<AvatarPropsType> = ({
   rounded = false,
   avatarUrl,
