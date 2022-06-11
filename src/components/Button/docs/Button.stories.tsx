@@ -42,3 +42,39 @@ const ViewTemplate: ComponentStory<typeof Button> = (args) => {
 };
 
 export const View = ViewTemplate.bind({});
+
+const SizeTemplate: ComponentStory<typeof Button> = (args) => {
+  return (
+    <div style={{ display: "flex", gap: "0.25rem" }}>
+      <Button size="xl">Button</Button>
+      <Button size="lg">Button</Button>
+      <Button size="md">Button</Button>
+      <Button size="sm">Button</Button>
+      <Button size="xs">Button</Button>
+    </div>
+  );
+};
+
+export const Size = SizeTemplate.bind({});
+
+const WidthTemplate: ComponentStory<typeof Button> = (args) => {
+  return (
+    <div
+      style={{
+        width: "100%",
+        display: "flex",
+        flexDirection: "column",
+        gap: "0.25rem",
+      }}
+    >
+      <div>
+        <Button width="available">Button</Button>
+      </div>
+      <div>
+        <Button width="auto">Button</Button>
+      </div>
+    </div>
+  );
+};
+
+export const Width = WidthTemplate.bind({});

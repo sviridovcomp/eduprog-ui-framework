@@ -3,7 +3,7 @@
 import Button from "@components/Button/Button";
 import Row from "@components/Grid/Row/Row";
 import Column from "@components/Grid/Column/Column";
-import { Meta, Canvas } from "@storybook/addon-docs";
+import { Meta, Canvas, Props } from "@storybook/addon-docs";
 import Container from "@components/Grid/Container/Container";
 
 # Button
@@ -59,3 +59,32 @@ To resize the button, set the the `"size"` property to one of the following valu
     <Button size="xs">Button</Button>
   </div>
 </Canvas>
+
+### Button weight
+
+To change the width of the button, set the `width` property to one of the following values:
+
+- `auto` — the width is determined by the width of the text. The width of the button cannot be greater than the width of the container. If the width of the text is larger than the width of the container, the text is trimmed with an ellipsis.
+- `available` — the width is determined by the width of the container. If the width of the text is larger than the width of the container, the text is trimmed with an ellipsis.
+
+<Canvas>
+  <div
+    style={{
+      width: "100%",
+      display: "flex",
+      flexDirection: "column",
+      gap: "0.25rem",
+    }}
+  >
+    <div>
+      <Button width="auto">Button</Button>
+    </div>
+    <div>
+      <Button width="available">Button</Button>
+    </div>
+  </div>
+</Canvas>
+
+## Properties
+
+<Props of={Button} />

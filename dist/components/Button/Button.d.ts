@@ -37,7 +37,7 @@ export declare type ButtonPropsType = defaultProps & {
     /**
      * Controls the width of the button. When 'available' it stretches the button by the width of the parent
      */
-    width?: "default" | "available";
+    width?: "auto" | "available";
     /**
      * The list of arbitrary items in the left slot.
      */
