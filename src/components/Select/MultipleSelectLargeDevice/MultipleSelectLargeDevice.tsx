@@ -2,7 +2,7 @@ import React, { FC, useEffect, useState } from "react";
 import "./MultipleSelectLargeDevice.scss";
 import BaseInput from "@components/Inputs/BaseInput/BaseInput";
 import Dropdown from "@components/Dropdown/Dropdown";
-import Checkbox from "@components/Checkboxes/Checkbox/Checkbox";
+import Checkbox from "@components/Checkbox";
 import {
   MultipleSelectPropsType,
   MultipleSelectValue,

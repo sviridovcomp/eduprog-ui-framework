@@ -1,20 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 
-import ToggleBlock from "../ToggleBlock";
+import TabsWithToggles, { TabsWithTogglesOptions } from "../TabsWithToggles";
 import { v4 as uuid } from "uuid";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "Компоненты/Toggles/ToggleBlock",
-  component: ToggleBlock,
+  title: "Components/Tabs/TabsWithToggles",
+  component: TabsWithToggles,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
-} as ComponentMeta<typeof ToggleBlock>;
+} as ComponentMeta<typeof TabsWithToggles>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof ToggleBlock> = (args) => (
-  <ToggleBlock {...args} />
-);
+const Template: ComponentStory<typeof TabsWithToggles> = (args) => {
+  const [option, setOption] = useState<TabsWithTogglesOptions<number>>();
+
+  return (
+    <>
+      <TabsWithToggles
+        {...args}
+        onChange={(data) => {
+          setOption(data);
+          args.onChange && args.onChange(data);
+        }}
+      />
+      Selected value: {option?.name}
+    </>
+  );
+};
 
 export const Playground = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args

@@ -4,7 +4,6 @@ import { ComponentMeta } from "@storybook/react";
 import Dialog from "../Dialog";
 import Button from "../../Button/Button";
 import Expand from "../../Expand/Expand";
-import useKeyDown from "@utils/hooks/useKeyDown";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {

@@ -7,7 +7,7 @@ import CheckboxDocs from "./CheckboxDocs.mdx";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "<Components/Checkboxes/Checkbox",
+  title: "Components/Checkbox",
   component: Checkbox,
   parameters: {
     docs: {

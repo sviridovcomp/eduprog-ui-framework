@@ -1,8 +1,7 @@
-import { mount, shallow } from "enzyme";
+import { shallow } from "enzyme";
 import Dropdown from "@components/Dropdown/Dropdown";
 import Button from "@components/Button/Button";
 import React from "react";
-import { debug } from "webpack";
 
 describe("Dropdown testing", () => {
   it("Dropdown direction render", () => {

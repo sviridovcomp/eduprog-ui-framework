@@ -1,40 +1,42 @@
 import clsx from "clsx";
-import React, { FC, useState } from "react";
-import "./ToggleBlock.scss";
+import React, { FC, useEffect, useState } from "react";
+import "./TabsWithToggles.scss";
 
-export interface IToggleBlockOptions<Type> {
+export interface TabsWithTogglesOptions<Type> {
   id: string;
   name?: React.ReactNode;
   value?: Type;
 }
 
 export interface IToggleBlockProps {
-  options: Array<IToggleBlockOptions<any>>;
+  options: Array<TabsWithTogglesOptions<any>>;
 
-  defaultValue?: IToggleBlockOptions<any>;
+  defaultValue?: TabsWithTogglesOptions<any>;
 
   style?: React.CSSProperties;
 
-  onChange?: (value?: IToggleBlockOptions<any>) => void;
+  onChange?: (value?: TabsWithTogglesOptions<any>) => void;
 }
 
-const ToggleBlock: FC<IToggleBlockProps> = ({
+const TabsWithToggles: FC<IToggleBlockProps> = ({
   options,
   onChange,
   style,
   defaultValue,
 }) => {
-  const [selectedValue, setSelectedValue] = useState<IToggleBlockOptions<any>>(
-    defaultValue!
-  );
+  const [selectedValue, setSelectedValue] = useState<
+    TabsWithTogglesOptions<any>
+  >(defaultValue!);
 
-  const onSelectItem = (item: IToggleBlockOptions<any>) => {
+  const onSelectItem = (item: TabsWithTogglesOptions<any>) => {
     setSelectedValue(item);
+  };
 
+  useEffect(() => {
     if (onChange) {
       onChange(selectedValue);
     }
-  };
+  }, [selectedValue]);
 
   return (
     <div className="toggle-block" style={style}>
@@ -54,4 +56,4 @@ const ToggleBlock: FC<IToggleBlockProps> = ({
   );
 };
 
-export default ToggleBlock;
+export default TabsWithToggles;

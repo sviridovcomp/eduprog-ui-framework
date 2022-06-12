@@ -1,8 +1,6 @@
 import clsx from "clsx";
 import React, { FC, useEffect, useState } from "react";
-import Checkbox, {
-  CheckboxPropsType,
-} from "../../Checkboxes/Checkbox/Checkbox";
+import Checkbox, { CheckboxPropsType } from "../../Checkbox/Checkbox";
 
 export type TabsWithCheckboxesValue<Type> = CheckboxPropsType & {
   id: string;

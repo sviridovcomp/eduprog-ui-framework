@@ -3,7 +3,7 @@ import { Row, Column, Container } from "@components/Grid";
 import Expand from "@components/Expand/Expand";
 import InputPhone from "@components/Inputs/InputPhone/InputPhone";
 import Dropdown from "@components/Dropdown/Dropdown";
-import Checkbox from "@components/Checkboxes/Checkbox/Checkbox";
+import Checkbox from "@components/Checkbox";
 import Dialog from "@components/Dialog/Dialog";
 import Avatar from "@components/Avatar/Avatar";
 import Input from "@components/Inputs/Input/Input";
@@ -24,7 +24,7 @@ import CarouselButton from "@components/Carousel/CarouselButton/CarouselButton";
 import Skeleton from "@components/Skeleton/Skeleton";
 import TextSkeleton from "@components/Skeleton/TextSkeleton";
 import Text from "@components/Typography/Text";
-import ToggleBlock from "@components/Toggles/ToggleBlock";
+import ToggleBlock from "@components/Tabs/TabsWithToggles";
 import TabsWithCheckboxes, {
   TabsWithCheckboxesValue,
 } from "@components/Tabs/TabsWithCheckboxes/TabsWithCheckboxes";

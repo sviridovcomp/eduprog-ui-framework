@@ -28,8 +28,9 @@ const Template: ComponentStory<typeof TabsWithCheckbox> = (args) => {
       />
 
       <div>
+        Selected value:
         {options?.map((option) => (
-          <div>{option.label}</div>
+          <div key={option.id}>{option.label}</div>
         ))}
       </div>
     </>

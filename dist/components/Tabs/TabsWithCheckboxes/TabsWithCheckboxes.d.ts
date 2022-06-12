@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { CheckboxPropsType } from "../../Checkboxes/Checkbox/Checkbox";
+import { CheckboxPropsType } from "../../Checkbox/Checkbox";
 export declare type TabsWithCheckboxesValue<Type> = CheckboxPropsType & {
     id: string;
     label?: React.ReactNode;
@@ -11,7 +11,7 @@ export declare type TabsWithCheckboxProps = {
      */
     options?: Array<TabsWithCheckboxesValue<any>>;
     /**
-     * Callback
+     * onChange callback handler
      */
     onChange?: (value: TabsWithCheckboxesValue<any>[]) => void;
 };
