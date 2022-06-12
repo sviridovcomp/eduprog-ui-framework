@@ -5,7 +5,7 @@ import Checkbox from "./Checkbox";
 describe("Checkbox testing", () => {
   it("Checkbox initial", () => {
     let active = true;
-    const component = shallow(<Checkbox type="base" checked={active} />);
+    const component = shallow(<Checkbox view="base" checked={active} />);
     expect(component.find(`input[type="checkbox"]`).exists()).toBeTruthy();
     active = false;
     expect(component.contains(`input[type="checkbox"]`)).toBeFalsy();
@@ -14,7 +14,7 @@ describe("Checkbox testing", () => {
   it("Checkbox pressing test", () => {
     let active = false;
     const component = shallow(
-      <Checkbox type="base" onChange={() => (active = !active)} />
+      <Checkbox view="base" onChange={() => (active = !active)} />
     );
 
     expect(active).toBeFalsy();

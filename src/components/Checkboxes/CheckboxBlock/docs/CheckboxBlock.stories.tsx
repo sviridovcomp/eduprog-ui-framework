@@ -21,7 +21,7 @@ export const Playground = Template.bind({});
 Playground.args = {
   options: [
     {
-      type: "base",
+      view: "base",
       id: uuid(),
       label: (
         <>
@@ -46,7 +46,7 @@ Playground.args = {
       value: 1,
     },
     {
-      type: "base",
+      view: "base",
       id: uuid(),
       label: (
         <>
@@ -66,7 +66,7 @@ Playground.args = {
       value: 2,
     },
     {
-      type: "base",
+      view: "base",
       id: uuid(),
       label: (
         <>

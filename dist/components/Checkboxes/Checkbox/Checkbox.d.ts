@@ -3,39 +3,39 @@ import "./Checkbox.scss";
 import { defaultProps } from "@utils/defaultProps";
 export declare type CheckboxPropsType = defaultProps & {
     /**
-     * контент слева или справа чекбокса
+     * Content to the right or left of the Checkbox
      */
     children?: React.ReactNode;
     /**
-     * Положение `children`
+     * layout of `children`
      */
     position?: "left" | "right";
     /**
-     * Цвет чекбокса
+     * View
      */
-    type: "base" | "primary" | "secondary" | "accent";
+    view: "base" | "primary" | "secondary" | "accent";
     /**
-     * Checkbox располагается во всю ширину родителя
+     * Controls the width of the checkbox. When 'available' it stretches the checkbox by the width of the parent
      */
-    fullwidth?: boolean;
+    width?: "auto" | "available";
     /**
-     * Отключен ли checkbox
+     * Inactive checkbox state: state when the checkbox is displayed but not available for user actions
      */
     disabled?: boolean;
     /**
-     * Checkbox установлен
+     * Switch state: on or off
      */
     checked?: boolean;
     /**
-     * Коллбэк вызывается при изменении значения чекбокса
+     * Callback is called when the value of the checkbox changes
      */
     onChange?: () => void;
+    /**
+     * Automatic focus on checkbox
+     */
     autoFocus?: boolean;
     style?: React.CSSProperties;
     wrapperStyle?: React.CSSProperties;
 };
-/**
- * Компонент чекбокса.
- */
 declare const Checkbox: FC<CheckboxPropsType>;
 export default Checkbox;

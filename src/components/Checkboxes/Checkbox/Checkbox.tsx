@@ -6,40 +6,43 @@ import clsx from "clsx";
 
 export type CheckboxPropsType = defaultProps & {
   /**
-   * контент слева или справа чекбокса
+   * Content to the right or left of the Checkbox
    */
   children?: React.ReactNode;
 
   /**
-   * Положение `children`
+   * layout of `children`
    */
   position?: "left" | "right";
 
   /**
-   * Цвет чекбокса
+   * View
    */
-  type: "base" | "primary" | "secondary" | "accent";
+  view: "base" | "primary" | "secondary" | "accent";
 
   /**
-   * Checkbox располагается во всю ширину родителя
+   * Controls the width of the checkbox. When 'available' it stretches the checkbox by the width of the parent
    */
-  fullwidth?: boolean;
+  width?: "auto" | "available";
 
   /**
-   * Отключен ли checkbox
+   * Inactive checkbox state: state when the checkbox is displayed but not available for user actions
    */
   disabled?: boolean;
 
   /**
-   * Checkbox установлен
+   * Switch state: on or off
    */
   checked?: boolean;
 
   /**
-   * Коллбэк вызывается при изменении значения чекбокса
+   * Callback is called when the value of the checkbox changes
    */
   onChange?: () => void;
 
+  /**
+   * Automatic focus on checkbox
+   */
   autoFocus?: boolean;
 
   style?: React.CSSProperties;
@@ -47,14 +50,11 @@ export type CheckboxPropsType = defaultProps & {
   wrapperStyle?: React.CSSProperties;
 };
 
-/**
- * Компонент чекбокса.
- */
 const Checkbox: FC<CheckboxPropsType> = ({
   children,
   position = "left",
-  type = "base",
-  fullwidth = false,
+  view = "base",
+  width = "auto",
   disabled = false,
   checked = false,
   className = "",
@@ -69,7 +69,7 @@ const Checkbox: FC<CheckboxPropsType> = ({
   const rootClasses = clsx(
     "checkbox-checkmark",
 
-    { "checkbox-fullwidth": fullwidth }
+    { [`checkbox-fullwidth_${width}`]: width }
   );
 
   useEffect(() => {
@@ -96,14 +96,14 @@ const Checkbox: FC<CheckboxPropsType> = ({
     <div
       className={clsx(
         "checkbox",
-        { "checkbox-fullwidth": fullwidth },
+        { [`checkbox-fullwidth_${width}`]: width },
         ...className.split(" ")
       )}
     >
       <label
         style={wrapperStyle}
         className={clsx("checkbox-wrapper", {
-          "checkbox-fullwidth": fullwidth,
+          [`checkbox-fullwidth_${width}`]: width,
         })}
         htmlFor={`${checkboxId}-checkbox`}
       >
@@ -123,7 +123,7 @@ const Checkbox: FC<CheckboxPropsType> = ({
         <span
           style={style}
           className={clsx("checkbox-fake", {
-            [`checkbox-checkmark-type_${type}`]: type,
+            [`checkbox-checkmark-view_${view}`]: view,
           })}
         >
           <span className={rootClasses}>

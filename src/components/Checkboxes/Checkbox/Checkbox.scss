@@ -4,7 +4,7 @@
   display: inline-block;
   box-sizing: border-box;
 
-  &-fullwidth {
+  &-fullwidth_available {
     width: 100%;
   }
 
@@ -19,17 +19,17 @@
   input {
     display: none;
 
-    &:checked ~ .checkbox-fake.checkbox-fake.checkbox-checkmark-type_base {
+    &:checked ~ .checkbox-fake.checkbox-fake.checkbox-checkmark-view_base {
       background-color: #545454 !important;
     }
 
-    &:checked ~ .checkbox-fake.checkbox-checkmark-type_primary {
+    &:checked ~ .checkbox-fake.checkbox-checkmark-view_primary {
       background-color: $color-primary !important;
     }
-    &:checked ~ .checkbox-fake.checkbox-checkmark-type_secondary {
+    &:checked ~ .checkbox-fake.checkbox-checkmark-view_secondary {
       background-color: $color-secondary !important;
     }
-    &:checked ~ .checkbox-fake.checkbox-checkmark-type_accent {
+    &:checked ~ .checkbox-fake.checkbox-checkmark-view_accent {
       background-color: $color-accent !important;
     }
     &:checked ~ .checkbox-fake > .checkbox-checkmark:after {

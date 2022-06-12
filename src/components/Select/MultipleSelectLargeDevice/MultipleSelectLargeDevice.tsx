@@ -29,7 +29,7 @@ const MultipleSelectLargeDevice: FC<MultipleSelectPropsType<any>> = ({
       defaultValue={
         !selectedOptions
           ? ""
-          : [...selectedOptions].map(option => option[0]).join(", ")
+          : [...selectedOptions].map((option) => option[0]).join(", ")
       }
       cursor="pointer"
       readonly
@@ -67,10 +67,7 @@ const MultipleSelectLargeDevice: FC<MultipleSelectPropsType<any>> = ({
 
   const selectOption = (optionKey: string) => {
     console.log(selectedOptions);
-    if (
-      selectedOptions?.has(optionKey) &&
-      selectedOptions?.delete(optionKey)
-    ) {
+    if (selectedOptions?.has(optionKey) && selectedOptions?.delete(optionKey)) {
       setSelectedOptions(new Map(selectedOptions));
     } else {
       setSelectedOptions(
@@ -91,9 +88,9 @@ const MultipleSelectLargeDevice: FC<MultipleSelectPropsType<any>> = ({
       <Checkbox
         position="right"
         onChange={() => selectOption(option[0])}
-        type="primary"
+        view="primary"
         className="multiple-select-checkbox"
-        fullwidth
+        width="available"
         disabled={disabledPredicate(option[0])}
         wrapperStyle={{ userSelect: "none", gap: "1rem" }}
       >
