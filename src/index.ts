@@ -25,7 +25,9 @@ import Skeleton from "@components/Skeleton/Skeleton";
 import TextSkeleton from "@components/Skeleton/TextSkeleton";
 import Text from "@components/Typography/Text";
 import ToggleBlock from "@components/Toggles/ToggleBlock";
-import CheckboxBlock from "@components/Checkboxes/CheckboxBlock";
+import TabsWithCheckboxes, {
+  TabsWithCheckboxesValue,
+} from "@components/Tabs/TabsWithCheckboxes/TabsWithCheckboxes";
 import BottomDrawer from "@components/BottomDrawer/BottomDrawer";
 import FullScreenSlider from "@components/FullScreenSlider/FullScreenSlider";
 
@@ -63,11 +65,11 @@ export {
   TextSkeleton,
   Text,
   ToggleBlock,
-  CheckboxBlock,
+  TabsWithCheckboxes,
   BottomDrawer,
   FullScreenSlider,
-  
   useClickAway,
   useKeyDown,
   usePreventScroll,
 };
+export type { TabsWithCheckboxesValue };

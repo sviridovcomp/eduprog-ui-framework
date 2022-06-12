@@ -18,7 +18,7 @@ export type CheckboxPropsType = defaultProps & {
   /**
    * View mode
    */
-  view: "base" | "primary" | "secondary" | "accent";
+  view: "default" | "primary" | "secondary" | "accent";
 
   /**
    * Controls the width of the checkbox. When 'available' it stretches the checkbox by the width of the parent
@@ -53,7 +53,7 @@ export type CheckboxPropsType = defaultProps & {
 const Checkbox: FC<CheckboxPropsType> = ({
   children,
   position = "left",
-  view = "base",
+  view = "default",
   width = "auto",
   disabled = false,
   checked = false,

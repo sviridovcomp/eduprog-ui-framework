@@ -11,9 +11,9 @@ export declare type CheckboxPropsType = defaultProps & {
      */
     position?: "left" | "right";
     /**
-     * View
+     * View mode
      */
-    view: "base" | "primary" | "secondary" | "accent";
+    view: "default" | "primary" | "secondary" | "accent";
     /**
      * Controls the width of the checkbox. When 'available' it stretches the checkbox by the width of the parent
      */

@@ -1,27 +1,47 @@
-import React from "react";
+import React, { useState } from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
-import CheckboxBlock from "../CheckboxBlock";
+import TabsWithCheckbox, {
+  TabsWithCheckboxesValue,
+} from "../TabsWithCheckboxes";
 import { v4 as uuid } from "uuid";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "Компоненты/Checkboxes/CheckboxBlock/Playground",
-  component: CheckboxBlock,
+  title: "Components/Tabs/TabsWithCheckbox",
+  component: TabsWithCheckbox,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
-} as ComponentMeta<typeof CheckboxBlock>;
+} as ComponentMeta<typeof TabsWithCheckbox>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof CheckboxBlock> = (args) => (
-  <CheckboxBlock {...args} />
-);
+const Template: ComponentStory<typeof TabsWithCheckbox> = (args) => {
+  const [options, setOptions] = useState<TabsWithCheckboxesValue<number>[]>([]);
+
+  return (
+    <>
+      <TabsWithCheckbox
+        {...args}
+        onChange={(data) => {
+          setOptions(data);
+          args.onChange && args.onChange(data);
+        }}
+      />
+
+      <div>
+        {options?.map((option) => (
+          <div>{option.label}</div>
+        ))}
+      </div>
+    </>
+  );
+};
 
 export const Playground = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Playground.args = {
   options: [
     {
-      view: "base",
+      view: "default",
       id: uuid(),
       label: (
         <>
@@ -46,7 +66,7 @@ Playground.args = {
       value: 1,
     },
     {
-      view: "base",
+      view: "default",
       id: uuid(),
       label: (
         <>
@@ -66,7 +86,7 @@ Playground.args = {
       value: 2,
     },
     {
-      view: "base",
+      view: "default",
       id: uuid(),
       label: (
         <>

@@ -1,28 +1,36 @@
 import clsx from "clsx";
 import React, { FC, useEffect, useState } from "react";
-import Checkbox, { CheckboxPropsType } from "../Checkbox/Checkbox";
+import Checkbox, {
+  CheckboxPropsType,
+} from "../../Checkboxes/Checkbox/Checkbox";
 
-export type ICheckboxBlockValue<Type> = CheckboxPropsType & {
+export type TabsWithCheckboxesValue<Type> = CheckboxPropsType & {
   id: string;
   label?: React.ReactNode;
   value?: Type;
 };
 
-export type CheckboxBlockPropsType = {
-  options?: Array<ICheckboxBlockValue<any>>;
-  onChange?: (value: ICheckboxBlockValue<any>[]) => void;
+export type TabsWithCheckboxProps = {
+  /**
+   * Options
+   */
+  options?: Array<TabsWithCheckboxesValue<any>>;
+
+  /**
+   * onChange callback handler
+   */
+  onChange?: (value: TabsWithCheckboxesValue<any>[]) => void;
 };
 
-const CheckboxBlock: FC<CheckboxBlockPropsType> = ({ options, onChange }) => {
+const TabsWithCheckboxes: FC<TabsWithCheckboxProps> = ({
+  options,
+  onChange,
+}) => {
   const [selectedValue, setSelectedValue] = useState<
-    ICheckboxBlockValue<any>[]
+    TabsWithCheckboxesValue<any>[]
   >([]);
 
-  const onChecked = (params: ICheckboxBlockValue<any>) => {
-    console.log(
-      params.id,
-      selectedValue.some((item) => item.id != params.id)
-    );
+  const onChecked = (params: TabsWithCheckboxesValue<any>) => {
     if (selectedValue.some((option) => option.id == params.id)) {
       setSelectedValue(selectedValue.filter((value) => value.id != params.id));
     } else {
@@ -31,8 +39,7 @@ const CheckboxBlock: FC<CheckboxBlockPropsType> = ({ options, onChange }) => {
   };
 
   useEffect(() => {
-    if (onChange && selectedValue.length != 0) {
-      console.log(selectedValue);
+    if (onChange) {
       onChange(selectedValue);
     }
   }, [selectedValue]);
@@ -64,4 +71,4 @@ const CheckboxBlock: FC<CheckboxBlockPropsType> = ({ options, onChange }) => {
   );
 };
 
-export default CheckboxBlock;
+export default TabsWithCheckboxes;

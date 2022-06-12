@@ -29,7 +29,7 @@ const ViewTemplate = () => {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "0.25rem" }}>
       <div>
-        <Checkbox view="base" checked />
+        <Checkbox view="default" checked />
       </div>
       <div>
         <Checkbox view="primary" checked />

@@ -19,7 +19,7 @@
   input {
     display: none;
 
-    &:checked ~ .checkbox-fake.checkbox-fake.checkbox-checkmark-view_base {
+    &:checked ~ .checkbox-fake.checkbox-fake.checkbox-checkmark-view_default {
       background-color: #545454 !important;
     }
 

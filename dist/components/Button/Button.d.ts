@@ -11,23 +11,23 @@ export declare type ButtonPropsType = defaultProps & {
      */
     size?: "xs" | "sm" | "md" | "lg" | "xl";
     /**
-     * onClick event handler
+     * onClick event callback handler
      */
     onClick?: (event?: React.PointerEvent<HTMLButtonElement>) => void;
     /**
-     * onPointerDown event handler
+     * onPointerDown event callback handler
      */
     onPointerDown?: (event?: React.PointerEvent<HTMLButtonElement>) => void;
     /**
-     * onPointerUp event handler
+     * onPointerUp event callback handler
      */
     onPointerUp?: (event?: React.PointerEvent<HTMLButtonElement>) => void;
     /**
-     * onPointerLeave event handler
+     * onPointerLeave event callback handler
      */
     onPointerLeave?: (event?: React.PointerEvent<HTMLButtonElement>) => void;
     /**
-     * onBlur event handler
+     * onBlur event callback handler
      */
     onBlur?: (event?: React.FocusEvent<HTMLButtonElement>) => void;
     /**
