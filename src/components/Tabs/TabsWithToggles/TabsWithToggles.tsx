@@ -1,21 +1,20 @@
 import clsx from "clsx";
 import React, { FC, useEffect, useState } from "react";
+import { TabsValue } from "../TabsTypes";
 import "./TabsWithToggles.scss";
 
-export interface TabsWithTogglesOptions<Type> {
-  id: string;
-  name?: React.ReactNode;
-  value?: Type;
-}
-
 export interface IToggleBlockProps {
-  options: Array<TabsWithTogglesOptions<any>>;
+  /**
+   * Options
+   */
+  options: Array<TabsValue>;
 
-  defaultValue?: TabsWithTogglesOptions<any>;
+  /** defaultValue*/
+  defaultValue?: TabsValue;
 
   style?: React.CSSProperties;
 
-  onChange?: (value?: TabsWithTogglesOptions<any>) => void;
+  onChange?: (value?: TabsValue) => void;
 }
 
 const TabsWithToggles: FC<IToggleBlockProps> = ({
@@ -24,11 +23,9 @@ const TabsWithToggles: FC<IToggleBlockProps> = ({
   style,
   defaultValue,
 }) => {
-  const [selectedValue, setSelectedValue] = useState<
-    TabsWithTogglesOptions<any>
-  >(defaultValue!);
+  const [selectedValue, setSelectedValue] = useState<TabsValue>(defaultValue!);
 
-  const onSelectItem = (item: TabsWithTogglesOptions<any>) => {
+  const onSelectItem = (item: TabsValue) => {
     setSelectedValue(item);
   };
 
@@ -40,16 +37,16 @@ const TabsWithToggles: FC<IToggleBlockProps> = ({
 
   return (
     <div className="toggle-block" style={style}>
-      {options.map(({ id, name, value }) => (
+      {options.map((option, index) => (
         <div
-          key={id}
+          key={index}
           className={clsx("toggle-block-item", {
-            "toggle-block-item-selected": selectedValue?.name == name,
+            "toggle-block-item-selected": selectedValue?.key == option.key,
           })}
           style={{ width: `calc(100% / ${options.length})` }}
-          onClick={() => onSelectItem({ id: id, name: name, value: value })}
+          onClick={() => onSelectItem(option)}
         >
-          {name}
+          {option.label}
         </div>
       ))}
     </div>

@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 
-import TabsWithToggles, { TabsWithTogglesOptions } from "../TabsWithToggles";
+import TabsWithToggles from "../TabsWithToggles";
 import { v4 as uuid } from "uuid";
+import { TabsValue } from "@components/Tabs/TabsTypes";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -13,7 +14,7 @@ export default {
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: ComponentStory<typeof TabsWithToggles> = (args) => {
-  const [option, setOption] = useState<TabsWithTogglesOptions<number>>();
+  const [option, setOption] = useState<TabsValue>();
 
   return (
     <>
@@ -24,7 +25,7 @@ const Template: ComponentStory<typeof TabsWithToggles> = (args) => {
           args.onChange && args.onChange(data);
         }}
       />
-      Selected value: {option?.name}
+      Selected value: {option?.label}
     </>
   );
 };
@@ -34,8 +35,8 @@ export const Playground = Template.bind({});
 Playground.args = {
   options: [
     {
-      id: uuid(),
-      name: (
+      key: uuid(),
+      label: (
         <>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -58,8 +59,8 @@ Playground.args = {
       value: 1,
     },
     {
-      id: uuid(),
-      name: (
+      key: uuid(),
+      label: (
         <>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -77,8 +78,8 @@ Playground.args = {
       value: 2,
     },
     {
-      id: uuid(),
-      name: (
+      key: uuid(),
+      label: (
         <>
           <svg
             xmlns="http://www.w3.org/2000/svg"

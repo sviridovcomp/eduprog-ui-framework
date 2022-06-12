@@ -1,36 +1,34 @@
 import clsx from "clsx";
 import React, { FC, useEffect, useState } from "react";
 import Checkbox, { CheckboxPropsType } from "../../Checkbox/Checkbox";
-
-export type TabsWithCheckboxesValue<Type> = CheckboxPropsType & {
-  id: string;
-  label?: React.ReactNode;
-  value?: Type;
-};
+import { TabsValue } from "../TabsTypes";
 
 export type TabsWithCheckboxProps = {
   /**
    * Options
    */
-  options?: Array<TabsWithCheckboxesValue<any>>;
+  options?: Array<TabsValue>;
 
   /**
    * onChange callback handler
    */
-  onChange?: (value: TabsWithCheckboxesValue<any>[]) => void;
+  onChange?: (value: TabsValue[]) => void;
+
+  checkboxProps?: CheckboxPropsType;
 };
 
 const TabsWithCheckboxes: FC<TabsWithCheckboxProps> = ({
   options,
   onChange,
+  checkboxProps,
 }) => {
-  const [selectedValue, setSelectedValue] = useState<
-    TabsWithCheckboxesValue<any>[]
-  >([]);
+  const [selectedValue, setSelectedValue] = useState<TabsValue[]>([]);
 
-  const onChecked = (params: TabsWithCheckboxesValue<any>) => {
-    if (selectedValue.some((option) => option.id == params.id)) {
-      setSelectedValue(selectedValue.filter((value) => value.id != params.id));
+  const onChecked = (params: TabsValue) => {
+    if (selectedValue.some((option) => option.key == params.key)) {
+      setSelectedValue(
+        selectedValue.filter((value) => value.key != params.key)
+      );
     } else {
       setSelectedValue([...selectedValue, params]);
     }
@@ -46,7 +44,7 @@ const TabsWithCheckboxes: FC<TabsWithCheckboxProps> = ({
     <div className="toggle-block">
       {options?.map((option) => (
         <div
-          key={option.id}
+          key={option.key}
           style={{ width: `calc(100% / ${options.length})` }}
           className={clsx("toggle-block-item", {
             "toggle-block-item-selected": selectedValue.includes(option),
@@ -54,12 +52,13 @@ const TabsWithCheckboxes: FC<TabsWithCheckboxProps> = ({
           onClick={() => onChecked(option)}
         >
           <Checkbox
+            view="default"
             style={{ backgroundColor: "#fff" }}
             position="right"
             wrapperStyle={{ userSelect: "none", gap: "1rem" }}
             checked={selectedValue.includes(option)}
             disabled
-            {...option}
+            {...checkboxProps}
           >
             {option.label}
           </Checkbox>

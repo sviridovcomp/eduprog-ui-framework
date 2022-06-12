@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
-import TabsWithCheckbox, {
-  TabsWithCheckboxesValue,
-} from "../TabsWithCheckboxes";
+import TabsWithCheckbox from "../TabsWithCheckboxes";
 import { v4 as uuid } from "uuid";
+import { TabsValue } from "@components/Tabs/TabsTypes";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -15,7 +14,7 @@ export default {
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: ComponentStory<typeof TabsWithCheckbox> = (args) => {
-  const [options, setOptions] = useState<TabsWithCheckboxesValue<number>[]>([]);
+  const [options, setOptions] = useState<TabsValue[]>([]);
 
   return (
     <>
@@ -25,12 +24,15 @@ const Template: ComponentStory<typeof TabsWithCheckbox> = (args) => {
           setOptions(data);
           args.onChange && args.onChange(data);
         }}
+        checkboxProps={{
+          view: "accent",
+        }}
       />
 
       <div>
         Selected value:
         {options?.map((option) => (
-          <div key={option.id}>{option.label}</div>
+          <div key={option.key}>{option.label}</div>
         ))}
       </div>
     </>
@@ -42,8 +44,7 @@ export const Playground = Template.bind({});
 Playground.args = {
   options: [
     {
-      view: "default",
-      id: uuid(),
+      key: uuid(),
       label: (
         <>
           <svg
@@ -67,8 +68,7 @@ Playground.args = {
       value: 1,
     },
     {
-      view: "default",
-      id: uuid(),
+      key: uuid(),
       label: (
         <>
           <svg
@@ -87,8 +87,7 @@ Playground.args = {
       value: 2,
     },
     {
-      view: "default",
-      id: uuid(),
+      key: uuid(),
       label: (
         <>
           <svg

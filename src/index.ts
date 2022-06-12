@@ -25,9 +25,8 @@ import Skeleton from "@components/Skeleton/Skeleton";
 import TextSkeleton from "@components/Skeleton/TextSkeleton";
 import Text from "@components/Typography/Text";
 import ToggleBlock from "@components/Tabs/TabsWithToggles";
-import TabsWithCheckboxes, {
-  TabsWithCheckboxesValue,
-} from "@components/Tabs/TabsWithCheckboxes/TabsWithCheckboxes";
+import TabsWithCheckboxes from "@components/Tabs/TabsWithCheckboxes/TabsWithCheckboxes";
+import { TabsValue } from "@components/Tabs/TabsTypes";
 import BottomDrawer from "@components/BottomDrawer/BottomDrawer";
 import FullScreenSlider from "@components/FullScreenSlider/FullScreenSlider";
 
@@ -72,4 +71,4 @@ export {
   useKeyDown,
   usePreventScroll,
 };
-export type { TabsWithCheckboxesValue };
+export type { TabsValue };

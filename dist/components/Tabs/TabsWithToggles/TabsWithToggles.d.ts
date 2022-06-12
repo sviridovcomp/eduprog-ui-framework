@@ -1,15 +1,15 @@
 import React, { FC } from "react";
+import { TabsValue } from "../TabsTypes";
 import "./TabsWithToggles.scss";
-export interface TabsWithTogglesOptions<Type> {
-    id: string;
-    name?: React.ReactNode;
-    value?: Type;
-}
 export interface IToggleBlockProps {
-    options: Array<TabsWithTogglesOptions<any>>;
-    defaultValue?: TabsWithTogglesOptions<any>;
+    /**
+     * Options
+     */
+    options: Array<TabsValue>;
+    /** defaultValue*/
+    defaultValue?: TabsValue;
     style?: React.CSSProperties;
-    onChange?: (value?: TabsWithTogglesOptions<any>) => void;
+    onChange?: (value?: TabsValue) => void;
 }
 declare const TabsWithToggles: FC<IToggleBlockProps>;
 export default TabsWithToggles;
