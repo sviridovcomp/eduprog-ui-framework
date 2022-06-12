@@ -3,10 +3,17 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import Checkbox from "../Checkbox";
 
+import CheckboxDocs from "./CheckboxDocs.mdx";
+
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "Компоненты/Checkboxes/Checkbox/Playground",
+  title: "<Components/Checkboxes/Checkbox",
   component: Checkbox,
+  parameters: {
+    docs: {
+      page: CheckboxDocs,
+    },
+  },
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
 } as ComponentMeta<typeof Checkbox>;
 
