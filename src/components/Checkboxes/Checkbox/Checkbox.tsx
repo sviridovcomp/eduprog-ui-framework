@@ -16,7 +16,7 @@ export type CheckboxPropsType = defaultProps & {
   position?: "left" | "right";
 
   /**
-   * View
+   * View mode
    */
   view: "base" | "primary" | "secondary" | "accent";
 

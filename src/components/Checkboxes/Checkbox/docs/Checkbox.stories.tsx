@@ -18,12 +18,30 @@ export default {
 } as ComponentMeta<typeof Checkbox>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof Checkbox> = (args) => (
+const PlaygroundTemplate: ComponentStory<typeof Checkbox> = (args) => (
   <Checkbox {...args} />
 );
 
-export const Playground = Template.bind({});
+export const Playground = PlaygroundTemplate.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
-Playground.args = {
-  children: <div>checkbox</div>,
+
+const ViewTemplate = () => {
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: "0.25rem" }}>
+      <div>
+        <Checkbox view="base" checked />
+      </div>
+      <div>
+        <Checkbox view="primary" checked />
+      </div>
+      <div>
+        <Checkbox view="secondary" checked />
+      </div>
+      <div>
+        <Checkbox view="accent" checked />
+      </div>
+    </div>
+  );
 };
+
+export const View = ViewTemplate.bind({});
