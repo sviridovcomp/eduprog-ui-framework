@@ -17,6 +17,9 @@ export interface IToggleBlockProps {
   onChange?: (value?: TabsValue) => void;
 }
 
+/**
+ * Single-selection tabs
+ */
 const TabsWithToggles: FC<IToggleBlockProps> = ({
   options,
   onChange,

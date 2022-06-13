@@ -17,6 +17,9 @@ export type TabsWithCheckboxProps = {
   checkboxProps?: CheckboxPropsType;
 };
 
+/**
+ * Multiple choice tabs
+ */
 const TabsWithCheckboxes: FC<TabsWithCheckboxProps> = ({
   options,
   onChange,

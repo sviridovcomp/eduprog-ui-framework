@@ -24,9 +24,6 @@ const Template: ComponentStory<typeof TabsWithCheckbox> = (args) => {
           setOptions(data);
           args.onChange && args.onChange(data);
         }}
-        checkboxProps={{
-          view: "accent",
-        }}
       />
 
       <div>
@@ -42,6 +39,9 @@ const Template: ComponentStory<typeof TabsWithCheckbox> = (args) => {
 export const Playground = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Playground.args = {
+  checkboxProps: {
+    view: "primary",
+  },
   options: [
     {
       key: uuid(),
