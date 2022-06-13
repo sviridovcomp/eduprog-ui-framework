@@ -19,7 +19,7 @@ const Template: ComponentStory<typeof Expand> = (args) => {
     <div>
       <Button onClick={() => setOpen(!open)}>Open</Button>
 
-      <Expand open={open} transition="slide">
+      <Expand open={open} {...args}>
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum
         corporis, quae voluptas quaerat veniam ipsam, rem qui unde magni ducimus
         quas placeat tenetur doloribus. Explicabo accusantium officiis accusamus
