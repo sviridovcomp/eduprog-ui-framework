@@ -1,55 +1,10 @@
-// import { Meta } from "@storybook/addon-docs";
-// import { Row, Column, Container } from "@components/Grid";
-
-// <Meta title="Компоненты/Grid" />
-
-// <Container adaptive>
-//   <Row col={12}>
-//     <Column col={1}>
-//       <div style={{ height: "100vh", backgroundColor: "#6320ee" }} />
-//     </Column>
-//     <Column col={1}>
-//       <div style={{ height: "100vh", backgroundColor: "#6320ee" }} />
-//     </Column>
-//     <Column col={1}>
-//       <div style={{ height: "100vh", backgroundColor: "#6320ee" }} />
-//     </Column>
-//     <Column col={1}>
-//       <div style={{ height: "100vh", backgroundColor: "#6320ee" }} />
-//     </Column>
-//     <Column col={1}>
-//       <div style={{ height: "100vh", backgroundColor: "#6320ee" }} />
-//     </Column>
-//     <Column col={1}>
-//       <div style={{ height: "100vh", backgroundColor: "#6320ee" }} />
-//     </Column>
-//     <Column col={1}>
-//       <div style={{ height: "100vh", backgroundColor: "#6320ee" }} />
-//     </Column>
-//     <Column col={1}>
-//       <div style={{ height: "100vh", backgroundColor: "#6320ee" }} />
-//     </Column>
-//     <Column col={1}>
-//       <div style={{ height: "100vh", backgroundColor: "#6320ee" }} />
-//     </Column>
-//     <Column col={1}>
-//       <div style={{ height: "100vh", backgroundColor: "#6320ee" }} />
-//     </Column>
-//     <Column col={1}>
-//       <div style={{ height: "100vh", backgroundColor: "#6320ee" }} />
-//     </Column>
-//     <Column col={1}>
-//       <div style={{ height: "100vh", backgroundColor: "#6320ee" }} />
-//     </Column>
-//   </Row>
-// </Container>
+/* eslint-disable react/prop-types */
 
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { Container, Row, Column } from "@components/Grid";
-import _ from "lodash";
+import range from "lodash/range";
 import Island from "@components/Island/Island";
-import Input from "@components/Inputs/Input/Input";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -62,8 +17,10 @@ const PlaygroundTemplate: ComponentStory<typeof Container> = (props) => {
   return (
     <Container adaptive>
       <Row adaptive>
-        {_.range(props.colsCount).map(() => (
-          <Column col={props.colSize}>
+        {/* @ts-ignore */}
+        {_.range(props.colsCount).map((currentCol) => (
+          // @ts-ignore
+          <Column key={currentCol} col={props.colSize}>
             <div
               style={{
                 height: "100vh",
@@ -80,6 +37,8 @@ const PlaygroundTemplate: ComponentStory<typeof Container> = (props) => {
 
 export const Playground = PlaygroundTemplate.bind({});
 Playground.args = {
+  // eslint-disable-line react/prop-types
+  // @ts-ignore
   colsCount: 12,
   colSize: 1,
 };
@@ -88,7 +47,7 @@ const AdaptiveFormTemplate = () => {
   return (
     <Container adaptive>
       <Row>
-        {_.range(10).map((_, index) => (
+        {range(10).map((_, index) => (
           <Column
             lg={4}
             md={6}

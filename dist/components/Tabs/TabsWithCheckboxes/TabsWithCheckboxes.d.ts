@@ -12,5 +12,8 @@ export declare type TabsWithCheckboxProps = {
     onChange?: (value: TabsValue[]) => void;
     checkboxProps?: CheckboxPropsType;
 };
+/**
+ * Multiple choice tabs
+ */
 declare const TabsWithCheckboxes: FC<TabsWithCheckboxProps>;
 export default TabsWithCheckboxes;

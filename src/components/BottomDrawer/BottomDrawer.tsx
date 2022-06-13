@@ -1,10 +1,10 @@
-import _ from "lodash";
+import debounce from "lodash/debounce";
 import { useSwipeable } from "react-swipeable";
 import { Transition } from "react-transition-group";
 import usePreventScroll from "@utils/hooks/usePreventScroll";
 import { TransitionStyles } from "./BottomDrawerStyles";
 import clsx from "clsx";
-import React, { FC, useRef, useState } from "react";
+import React, { FC, useState } from "react";
 import "./BottomDrawer.scss";
 import Backdrop from "@components/Backdrop/Backdrop";
 
@@ -42,13 +42,12 @@ const BottomDrawer: FC<IBottomDrawerProps> = ({
   mountOnEnter = true,
   duration = 250,
   hideScrollbars = false,
-  className = "",
 }) => {
   usePreventScroll(open, "BottomDrawer-content");
 
   const [currentDeltaY, setDeltaY] = useState(0);
   const swipeHandlers = useSwipeable({
-    onSwipedDown: _.debounce(
+    onSwipedDown: debounce(
       ({ velocity }) => {
         setDeltaY(0);
 
@@ -80,7 +79,8 @@ const BottomDrawer: FC<IBottomDrawerProps> = ({
       in={open}
       appear={true}
       timeout={{ appear: 0, enter: 0, exit: duration }}
-      unmountOnExit
+      unmountOnExit={unmountOnExit}
+      mountOnEnter={mountOnEnter}
     >
       {(state) => (
         <div className="BottomDrawer" {...swipeHandlers}>
@@ -89,6 +89,7 @@ const BottomDrawer: FC<IBottomDrawerProps> = ({
           <div
             className="BottomDrawer-curtain"
             style={{
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
               ...(TransitionStyles as any)[state],
               ...getTransforms(),
             }}

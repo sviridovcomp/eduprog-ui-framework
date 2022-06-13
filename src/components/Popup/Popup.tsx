@@ -1,4 +1,3 @@
-import { defaultProps } from "@utils/defaultProps";
 import useClickAway from "@utils/hooks/useClickAway";
 import clsx from "clsx";
 import React, { FC, useRef } from "react";

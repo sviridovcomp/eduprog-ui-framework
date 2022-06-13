@@ -4,6 +4,7 @@ import { isBrowser, isMobile } from "react-device-detect";
 import MultipleSelectSmallDevice from "@components/Select/MultipleSelectSmallDevice/MultipleSelectSmallDevice";
 import MultipleSelectLargeDevice from "@components/Select/MultipleSelectLargeDevice/MultipleSelectLargeDevice";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const MultipleSelect: FC<MultipleSelectPropsType<any>> = (props) => {
   if (isMobile) {
     return <MultipleSelectSmallDevice {...props} />;

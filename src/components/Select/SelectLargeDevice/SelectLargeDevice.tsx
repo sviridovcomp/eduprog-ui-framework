@@ -4,6 +4,7 @@ import "./SelectLargeDevice.scss";
 import { SelectTypeProps } from "@components/Select/Select/SelectProps";
 import Popup from "@components/Popup/Popup";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const SelectLargeDevice: FC<SelectTypeProps<any>> = ({
   label,
   defaultValue,
@@ -49,6 +50,7 @@ const SelectLargeDevice: FC<SelectTypeProps<any>> = ({
     );
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const onSelect = (option: [string, any]) => {
     setValue(option);
     setOpen(false);

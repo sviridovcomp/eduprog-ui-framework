@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import Skeleton from "@components/Skeleton/Skeleton";
 import { v4 as uuid } from "uuid";
-import _ from "lodash";
+import range from "lodash/range";
 
 export interface ITextSkeletonProps {
   height?: number;
@@ -16,7 +16,7 @@ const TextSkeleton: FC<ITextSkeletonProps> = ({
 }) => {
   return (
     <div className="Skeleton-Group">
-      {_.range(1, rows).map(() => (
+      {range(1, rows).map(() => (
         <Skeleton
           key={uuid()}
           height={height}

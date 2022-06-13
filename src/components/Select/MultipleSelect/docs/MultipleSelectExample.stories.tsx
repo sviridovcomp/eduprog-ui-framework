@@ -1,7 +1,6 @@
 import { ComponentMeta } from "@storybook/react";
 import React, { useState } from "react";
 import MultipleSelect from "../MultipleSelect";
-import { KeyValue } from "@utils/utils/common/types";
 
 export default {
   title: "Компоненты/Select/MultipleSelect/Examples",

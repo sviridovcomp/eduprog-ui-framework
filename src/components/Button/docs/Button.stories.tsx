@@ -28,7 +28,7 @@ Playground.args = {
   children: "Button",
 };
 
-const ViewTemplate: ComponentStory<typeof Button> = (args) => {
+const ViewTemplate: ComponentStory<typeof Button> = () => {
   return (
     <div style={{ display: "flex", gap: "0.25rem" }}>
       <Button view="default">Button</Button>
@@ -43,7 +43,7 @@ const ViewTemplate: ComponentStory<typeof Button> = (args) => {
 
 export const View = ViewTemplate.bind({});
 
-const SizeTemplate: ComponentStory<typeof Button> = (args) => {
+const SizeTemplate: ComponentStory<typeof Button> = () => {
   return (
     <div style={{ display: "flex", gap: "0.25rem" }}>
       <Button size="xl">Button</Button>
@@ -57,7 +57,7 @@ const SizeTemplate: ComponentStory<typeof Button> = (args) => {
 
 export const Size = SizeTemplate.bind({});
 
-const WidthTemplate: ComponentStory<typeof Button> = (args) => {
+const WidthTemplate: ComponentStory<typeof Button> = () => {
   return (
     <div
       style={{

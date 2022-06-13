@@ -3,12 +3,9 @@ import "./MultipleSelectLargeDevice.scss";
 import BaseInput from "@components/Inputs/BaseInput/BaseInput";
 import Dropdown from "@components/Dropdown/Dropdown";
 import Checkbox from "@components/Checkbox";
-import {
-  MultipleSelectPropsType,
-  MultipleSelectValue,
-} from "@components/Select/MultipleSelect/MultipleSelectProps";
-import { KeyValue } from "@utils/utils/common/types";
+import { MultipleSelectPropsType } from "@components/Select/MultipleSelect/MultipleSelectProps";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const MultipleSelectLargeDevice: FC<MultipleSelectPropsType<any>> = ({
   label,
   options,
@@ -20,7 +17,8 @@ const MultipleSelectLargeDevice: FC<MultipleSelectPropsType<any>> = ({
   defaultValue = new Map(),
 }) => {
   const [selectedOptions, setSelectedOptions] =
-    useState<Map<string, any>>(defaultValue);
+    useState<Map<string, any>>(defaultValue); // eslint-disable-line @typescript-eslint/no-explicit-any
+
   const [open, setOpen] = useState(false);
 
   const SelectToggle = (

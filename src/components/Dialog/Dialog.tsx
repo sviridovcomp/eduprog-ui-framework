@@ -1,8 +1,7 @@
-import React, { FC, useRef } from "react";
+import React, { FC } from "react";
 import "./Dialog.scss";
 import clsx from "clsx";
 import { CSSTransition } from "react-transition-group";
-import useClickAway from "@utils/hooks/useClickAway";
 import Backdrop from "@components/Backdrop/Backdrop";
 import usePreventScroll from "@utils/hooks/usePreventScroll";
 

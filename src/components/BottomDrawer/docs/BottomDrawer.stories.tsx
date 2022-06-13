@@ -3,7 +3,7 @@ import Input from "@components/Inputs/Input/Input";
 import InputPassword from "@components/Inputs/InputPassword/InputPassword";
 import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import BottomDrawer from "../BottomDrawer";
 
 import BottomDrawerDocs from "./BottomDrawerDocs.mdx";

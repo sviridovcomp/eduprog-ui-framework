@@ -3,7 +3,7 @@ import Button from "@components/Button";
 import React from "react";
 import "./Pagination.scss";
 import clsx from "clsx";
-import _ from "lodash";
+import range from "lodash/range";
 
 export interface IPaginationProps {
   count?: number;
@@ -20,7 +20,7 @@ const Pagination: FC<IPaginationProps> = ({
 
   return (
     <ul className="Pagination">
-      {_.range(1, siblingCount == undefined ? count : siblingCount).map(
+      {range(1, siblingCount == undefined ? count : siblingCount).map(
         (page) => (
           <li key={page}>
             <Button

@@ -11,5 +11,8 @@ export interface IToggleBlockProps {
     style?: React.CSSProperties;
     onChange?: (value?: TabsValue) => void;
 }
+/**
+ * Single-selection tabs
+ */
 declare const TabsWithToggles: FC<IToggleBlockProps>;
 export default TabsWithToggles;

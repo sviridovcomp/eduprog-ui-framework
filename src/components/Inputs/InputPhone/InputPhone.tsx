@@ -51,6 +51,7 @@ const InputPhone: FC<InputPhonePropsType> = ({ label, onChange, ...rest }) => {
     return formattedValue;
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const inputChange = (value: string, event: any): void => {
     const { selectionStart } = event.target as HTMLInputElement;
     const inputNumbersValue = value.replace(/\D/g, "");
@@ -78,6 +79,7 @@ const InputPhone: FC<InputPhonePropsType> = ({ label, onChange, ...rest }) => {
     }
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const inputPaste = (event: any) => {
     const input = event.target as HTMLInputElement;
     const inputNumbersValue = input.value.replace(/\D/g, "");

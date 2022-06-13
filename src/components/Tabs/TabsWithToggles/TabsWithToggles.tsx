@@ -26,7 +26,9 @@ const TabsWithToggles: FC<IToggleBlockProps> = ({
   style,
   defaultValue,
 }) => {
-  const [selectedValue, setSelectedValue] = useState<TabsValue>(defaultValue!);
+  const [selectedValue, setSelectedValue] = useState<TabsValue | undefined>(
+    defaultValue
+  );
 
   const onSelectItem = (item: TabsValue) => {
     setSelectedValue(item);
