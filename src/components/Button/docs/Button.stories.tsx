@@ -2,6 +2,7 @@ import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import Button from "../Button";
+import CarouselButton from "@components/Carousel/CarouselButton/CarouselButton";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -102,3 +103,9 @@ Width.parameters = {
     },
   },
 };
+
+const CarouselButtonTemplate: ComponentStory<typeof CarouselButton> = (
+  args
+) => <CarouselButton {...args} />;
+
+export const CarouselButtons = CarouselButtonTemplate.bind({});

@@ -1,3 +1,4 @@
 import Carousel from "react-multi-carousel";
+import CarouselButton from "./CarouselButton";
 import "./Carousel.scss";
-export default Carousel;
+export { Carousel, CarouselButton };

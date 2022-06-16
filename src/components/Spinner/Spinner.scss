@@ -1,37 +1,62 @@
 @import "~styles/variables/colors";
 
 .Spinner {
+  &-size {
+    &_xs {
+      width: 0.75rem;
+      height: 0.75rem;
+    }
+
+    &_sm {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+
+    &_md {
+      width: 2rem;
+      height: 2rem;
+    }
+
+    &_lg {
+      width: 2.75rem;
+      height: 2.75rem;
+    }
+
+    &_xl {
+      width: 3.25rem;
+      height: 3.25rem;
+    }
+  }
+
   &-border {
     display: inline-block;
-    width: 2rem;
-    height: 2rem;
     vertical-align: -0.125em;
     border-width: 0.25rem;
     border-style: solid;
     border-radius: 50%;
     border-right-color: transparent;
     animation: 0.75s linear infinite spinner-border-animation;
+    border-right-color: transparent !important;
+    border-color: currentColor;
+
     &-primary {
       border-color: $color-primary;
-      border-right-color: transparent;
     }
     &-secondary {
       border-color: $color-secondary;
-      border-right-color: transparent;
     }
     &-accent {
       border-color: $color-accent;
-      border-right-color: transparent;
     }
   }
   &-growing {
     display: inline-block;
-    width: 2.125rem;
-    height: 2.125rem;
     vertical-align: -0.125rem;
     border-radius: 50%;
     opacity: 0;
     animation: 0.75s ease infinite spinner-growing-animation;
+    background-color: currentColor;
+
     &-primary {
       background-color: $color-primary;
     }

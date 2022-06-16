@@ -6,3 +6,4 @@ export declare const Playground: ComponentStory<React.FC<import("../Button").But
 export declare const View: ComponentStory<React.FC<import("../Button").ButtonPropsType>>;
 export declare const Size: ComponentStory<React.FC<import("../Button").ButtonPropsType>>;
 export declare const Width: ComponentStory<React.FC<import("../Button").ButtonPropsType>>;
+export declare const CarouselButtons: ComponentStory<React.FC<import("@components/Carousel/CarouselButton/CarouselButton").ICarouselButtonProps>>;
