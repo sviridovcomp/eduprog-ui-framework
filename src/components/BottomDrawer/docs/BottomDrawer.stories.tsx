@@ -3,12 +3,9 @@ import Input from "@components/Inputs/Input/Input";
 import InputPassword from "@components/Inputs/InputPassword/InputPassword";
 import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import BottomDrawer from "../BottomDrawer";
 
-import BottomDrawerDocs from "./BottomDrawerDocs.mdx";
-
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
   title: "Components/BottomDrawer",
   component: BottomDrawer,
@@ -17,11 +14,7 @@ export default {
       viewports: INITIAL_VIEWPORTS,
       defaultViewport: "iphone6",
     },
-    docs: {
-      page: BottomDrawerDocs,
-    },
   },
-  // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
 } as ComponentMeta<typeof BottomDrawer>;
 
 const PlaygroundTemplate: ComponentStory<typeof BottomDrawer> = (props) => {

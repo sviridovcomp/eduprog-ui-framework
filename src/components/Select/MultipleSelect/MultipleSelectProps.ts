@@ -1,4 +1,3 @@
-import { KeyValue } from "@utils/utils/common/types";
 import React from "react";
 
 export type MultipleSelectValue<Type> = {

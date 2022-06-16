@@ -1,50 +1,44 @@
-import React, { FC, useRef } from "react";
+import React, { FC } from "react";
 import "./Dialog.scss";
 import clsx from "clsx";
 import { CSSTransition } from "react-transition-group";
-import useClickAway from "@utils/hooks/useClickAway";
 import Backdrop from "@components/Backdrop/Backdrop";
 import usePreventScroll from "@utils/hooks/usePreventScroll";
 
 export type DialogPropsType = {
   /**
-   * Заголовок диалога
+   * Headline
    */
   label?: string;
 
   /**
-   * Контент диалога
-   */
-  children: React.ReactNode;
-
-  /**
-   * Размер диалога
+   * Size
    */
   size: "xs" | "sm" | "md" | "lg" | "xl" | "fluid" | "page";
 
   /**
-   * Открыт ли диалог
+   * Makes the dialog visible
    */
   open?: boolean;
 
   /**
-   * Событие вызываемое при закрытии диалога
+   * Event triggered by closing the dialog
    */
   onClose?: () => void;
 
   /**
-   * Вертикальное выравнивание
+   * Vertical alignment
    */
   verticalAlign?: "top" | "center";
 
   /**
-   * Стили диалога
+   * Styles of dialog
    */
   style?: React.CSSProperties;
 };
 
 /**
- * Компонент реализующий всплывающие диалоги
+ * Component to creating dialog windows
  */
 const Dialog: FC<DialogPropsType> = ({
   label,
@@ -55,12 +49,6 @@ const Dialog: FC<DialogPropsType> = ({
   verticalAlign = "center",
   style,
 }) => {
-  const modalContent = useRef<HTMLDivElement>(null);
-  useClickAway(modalContent, () => {
-    if (onClose) {
-      onClose();
-    }
-  });
   usePreventScroll(open, "dialog-body");
 
   return (
@@ -76,7 +64,7 @@ const Dialog: FC<DialogPropsType> = ({
           [`dialog-align_${verticalAlign}`]: verticalAlign,
         })}
       >
-        <Backdrop open={open} />
+        <Backdrop open={open} onClick={onClose} />
 
         <CSSTransition
           in={open}
@@ -89,7 +77,6 @@ const Dialog: FC<DialogPropsType> = ({
               [`dialog-body-size_${size}`]: size,
               [`dialog-body-align_${verticalAlign}`]: verticalAlign,
             })}
-            ref={modalContent}
           >
             <section className="dialog-header">
               <h2 className="dialog-heading">{label}</h2>

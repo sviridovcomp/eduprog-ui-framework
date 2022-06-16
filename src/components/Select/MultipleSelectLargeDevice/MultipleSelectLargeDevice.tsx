@@ -1,14 +1,11 @@
 import React, { FC, useEffect, useState } from "react";
 import "./MultipleSelectLargeDevice.scss";
 import BaseInput from "@components/Inputs/BaseInput/BaseInput";
-import Dropdown from "@components/Dropdown/Dropdown";
-import Checkbox from "@components/Checkboxes/Checkbox/Checkbox";
-import {
-  MultipleSelectPropsType,
-  MultipleSelectValue,
-} from "@components/Select/MultipleSelect/MultipleSelectProps";
-import { KeyValue } from "@utils/utils/common/types";
+import Menu from "@components/Menu/Menu";
+import Checkbox from "@components/Checkbox";
+import { MultipleSelectPropsType } from "@components/Select/MultipleSelect/MultipleSelectProps";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const MultipleSelectLargeDevice: FC<MultipleSelectPropsType<any>> = ({
   label,
   options,
@@ -20,7 +17,8 @@ const MultipleSelectLargeDevice: FC<MultipleSelectPropsType<any>> = ({
   defaultValue = new Map(),
 }) => {
   const [selectedOptions, setSelectedOptions] =
-    useState<Map<string, any>>(defaultValue);
+    useState<Map<string, any>>(defaultValue); // eslint-disable-line @typescript-eslint/no-explicit-any
+
   const [open, setOpen] = useState(false);
 
   const SelectToggle = (
@@ -29,7 +27,7 @@ const MultipleSelectLargeDevice: FC<MultipleSelectPropsType<any>> = ({
       defaultValue={
         !selectedOptions
           ? ""
-          : [...selectedOptions].map(option => option[0]).join(", ")
+          : [...selectedOptions].map((option) => option[0]).join(", ")
       }
       cursor="pointer"
       readonly
@@ -67,10 +65,7 @@ const MultipleSelectLargeDevice: FC<MultipleSelectPropsType<any>> = ({
 
   const selectOption = (optionKey: string) => {
     console.log(selectedOptions);
-    if (
-      selectedOptions?.has(optionKey) &&
-      selectedOptions?.delete(optionKey)
-    ) {
+    if (selectedOptions?.has(optionKey) && selectedOptions?.delete(optionKey)) {
       setSelectedOptions(new Map(selectedOptions));
     } else {
       setSelectedOptions(
@@ -91,9 +86,9 @@ const MultipleSelectLargeDevice: FC<MultipleSelectPropsType<any>> = ({
       <Checkbox
         position="right"
         onChange={() => selectOption(option[0])}
-        type="primary"
+        view="primary"
         className="multiple-select-checkbox"
-        fullwidth
+        width="available"
         disabled={disabledPredicate(option[0])}
         wrapperStyle={{ userSelect: "none", gap: "1rem" }}
       >
@@ -104,7 +99,7 @@ const MultipleSelectLargeDevice: FC<MultipleSelectPropsType<any>> = ({
 
   return (
     <div className="multiple-select" style={dropdownStyles}>
-      <Dropdown
+      <Menu
         direction="bottom-center"
         toggle={SelectToggle}
         clearly
@@ -116,7 +111,7 @@ const MultipleSelectLargeDevice: FC<MultipleSelectPropsType<any>> = ({
         contentStyle={{ borderRadius: "0.5rem" }}
       >
         {SelectPopup}
-      </Dropdown>
+      </Menu>
     </div>
   );
 };

@@ -14,13 +14,16 @@ const MultipleSelectSmallDevice: FC<MultipleSelectPropsType<string>> = ({
 }) => {
   const [active, setActive] = useState(false);
   const [selectedOptions, setSelectedOptions] =
-    useState<Map<string, any>>(defaultValue);
+    useState<Map<string, any>>(defaultValue); // eslint-disable-line @typescript-eslint/no-explicit-any
 
   const selectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const options = event.target.selectedOptions;
 
     [...options].forEach(({ label, value }) => {
-      if (maxSelectedOptions && [...selectedOptions].length > maxSelectedOptions) {
+      if (
+        maxSelectedOptions &&
+        [...selectedOptions].length > maxSelectedOptions
+      ) {
         return;
       }
 

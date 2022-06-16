@@ -1,23 +1,14 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { TextInputProps } from "../BaseInput/BaseInput";
 import "./InputPassword.scss";
 export declare type InputPasswordPropsType = TextInputProps & {
     /**
-     * Заголовок input
+     * Is textfield validation required
      */
-    label: string;
-    /**
-     * Событие обновления input
-     */
-    onChange?: (value: string, event?: React.ChangeEvent<HTMLInputElement>) => void;
-    /**
-     * Название компонента в DOM
-     */
-    name?: string;
-    noValidation?: boolean;
+    isValidation?: boolean;
 };
 /**
- * InputCopy позволяет пользователю копировать текст текстового поля
+ * InputPassword is a great solution for entering your password
  */
 declare const InputPassword: FC<InputPasswordPropsType>;
 export default InputPassword;

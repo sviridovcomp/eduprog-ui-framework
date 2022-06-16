@@ -1,9 +1,13 @@
 import React, { FC, useEffect, useState } from "react";
 import BaseInput from "@components/Inputs/BaseInput/BaseInput";
 import "./SelectLargeDevice.scss";
-import { SelectTypeProps } from "@components/Select/Select/SelectProps";
+import {
+  SelectTypeProps,
+  SelectValue,
+} from "@components/Select/Select/SelectProps";
 import Popup from "@components/Popup/Popup";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const SelectLargeDevice: FC<SelectTypeProps<any>> = ({
   label,
   defaultValue,
@@ -20,7 +24,7 @@ const SelectLargeDevice: FC<SelectTypeProps<any>> = ({
     return (
       <BaseInput
         label={label}
-        defaultValue={value ? value[0] : ""}
+        defaultValue={value ? value.key : ""}
         cursor="pointer"
         readonly
         onPointerDown={() => setOpen(true)}
@@ -49,26 +53,27 @@ const SelectLargeDevice: FC<SelectTypeProps<any>> = ({
     );
   };
 
-  const onSelect = (option: [string, any]) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const onSelect = (option: SelectValue<any>) => {
     setValue(option);
     setOpen(false);
   };
 
   useEffect(() => {
-    if (onChange && value) {
+    if (onChange) {
       onChange(value);
     }
   }, [value]);
 
   const SelectPopup = (
     <div className="select" style={dropdownStyles}>
-      {options.map(([name, value], index) => (
+      {options.map(({ key, value }, index) => (
         <div
           className="select-item"
           key={index}
-          onClick={() => onSelect([name, value])}
+          onClick={() => onSelect({ key: key, value: value })}
         >
-          {name}
+          {key}
         </div>
       ))}
     </div>

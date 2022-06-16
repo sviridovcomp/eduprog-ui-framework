@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 
 export interface IInputAutocompleteProps {
-  options?: Map<string, any>;
+  options?: Map<string, any>; // eslint-disable-line @typescript-eslint/no-explicit-any
 }
 
 const InputAutocomplete: FC<IInputAutocompleteProps> = () => {

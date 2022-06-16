@@ -12,11 +12,3 @@ export const BackdropStyles = {
   exiting: { opacity: "0" },
   exited: { display: "none" },
 };
-
-export const getClassNames = (identifier: string) => ({
-  backdrop: `bottom-backdrop-${identifier}-db`,
-  drawer: `bottom-backdrop-${identifier}-dr`,
-  handleWrapper: `bottom-backdrop-${identifier}-hw`,
-  handle: `bottom-backdrop-${identifier}-h`,
-  contentWrapper: `bottom-backdrop-${identifier}-cw`,
-});

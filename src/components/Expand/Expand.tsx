@@ -2,21 +2,36 @@ import React, { FC } from "react";
 import "./Expand.scss";
 import { CSSTransition } from "react-transition-group";
 
-export type CollapsePropsType = {
-  children: React.ReactNode;
+export type ExpandProps = {
+  /**
+   * Make the expand open
+   */
   open?: boolean;
+
+  /**
+   * Transition when opening
+   */
   transition?: "fade" | "slide";
+
+  /**
+   * Transition duration
+   */
+  duration?: number;
 };
 
-const Expand: FC<CollapsePropsType> = ({
+/**
+ * Component to show expandable content
+ */
+const Expand: FC<ExpandProps> = ({
   children,
   open = false,
   transition = "fade",
+  duration = 250,
 }) => {
   return (
     <CSSTransition
       in={open}
-      timeout={300}
+      timeout={duration}
       unmountOnExit
       classNames={`collapse-transition_${transition}`}
     >

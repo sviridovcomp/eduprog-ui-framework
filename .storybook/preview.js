@@ -1,10 +1,12 @@
-import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
-import { DocsPage, DocsContainer } from '@storybook/addon-docs';
+import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
+import { DocsPage, DocsContainer } from "@storybook/addon-docs";
+import EduprogTheme from "./EduprogTheme";
 
 export const parameters = {
   docs: {
     container: DocsContainer,
-        page: DocsPage,
+    page: DocsPage,
+    theme: EduprogTheme,
   },
   actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {

@@ -2,36 +2,91 @@ import React, { FC, useState } from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import Input from "../Input";
-import { TextInputProps } from "@components/Inputs/BaseInput/BaseInput";
 
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "Компоненты/Inputs/Input",
+  title: "Components/Inputs/Input",
   component: Input,
-  // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
 } as ComponentMeta<typeof Input>;
 
-const PlaygroundComponent: FC<TextInputProps> = (props) => {
+const PlaygroundTemplate: ComponentStory<typeof Input> = (args) => {
   const [value, setValue] = useState("");
 
   return (
     <Input
+      {...args}
       defaultValue={value}
-      onChange={(value: string) => {
+      onChange={(value: string, event) => {
         setValue(value);
+
+        args.onChange && args.onChange(value, event);
       }}
-      {...props}
     />
   );
 };
 
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof Input> = (args) => (
-  <PlaygroundComponent {...args} />
-);
-
-export const Playground = Template.bind({});
+export const Playground = PlaygroundTemplate.bind({});
 Playground.args = {
   label: "Email",
   cursor: "pointer",
+};
+
+const MaskTemplate: ComponentStory<typeof Input> = (args) => {
+  const [value, setValue] = useState("");
+
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+      <Input
+        {...args}
+        mask="ivanov@gmail.com"
+        defaultValue={value}
+        onChange={(value: string, event) => {
+          setValue(value);
+
+          args.onChange && args.onChange(value, event);
+        }}
+      />
+    </div>
+  );
+};
+
+export const Mask = MaskTemplate.bind({});
+Mask.args = {
+  label: "Email:",
+};
+
+const ValidationTemplate: ComponentStory<typeof Input> = (args) => {
+  const [value, setValue] = useState("");
+
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+      <Input
+        {...args}
+        validators={{
+          notEmpty: true,
+          pattern: /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/,
+          message: "Enter correct email",
+        }}
+        defaultValue={value}
+        onChange={(value: string, event) => {
+          setValue(value);
+
+          args.onChange && args.onChange(value, event);
+        }}
+      />
+    </div>
+  );
+};
+
+export const Validation = ValidationTemplate.bind({});
+Validation.args = {
+  label: "Email",
+};
+// @ts-ignore
+Validation.parameters = {
+  docs: {
+    description: {
+      story:
+        "Add validation to your Input using the `validators` object using the `ITextInputValidator` interface (show sample source code)",
+    },
+  },
 };

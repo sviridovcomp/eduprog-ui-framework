@@ -1,26 +1,18 @@
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import BaseInput, { TextInputProps } from "../BaseInput/BaseInput";
 
-export type InputPhonePropsType = TextInputProps & {
-  /**
-   * Заголовок input
-   */
-  label: string;
-
-  /**
-   * Событие обновления input
-   */
-  onChange?: (
-    value: string,
-    event?: React.ChangeEvent<HTMLInputElement>
-  ) => void;
-};
+export type InputPhonePropsType = TextInputProps;
 
 /**
- * InputPhone - поле ввода мобильного телефона
+ * InputPhone allows to input a phone number
  */
-const InputPhone: FC<InputPhonePropsType> = ({ label, onChange, ...rest }) => {
-  const [phoneNumber, setPhoneNumber] = useState("");
+const InputPhone: FC<InputPhonePropsType> = ({
+  label,
+  onChange,
+  defaultValue = "",
+  ...rest
+}) => {
+  const [phoneNumber, setPhoneNumber] = useState(defaultValue);
 
   const mappedPhoneNumber = (phoneNumber: string) => {
     let formattedValue: string;
@@ -51,6 +43,7 @@ const InputPhone: FC<InputPhonePropsType> = ({ label, onChange, ...rest }) => {
     return formattedValue;
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const inputChange = (value: string, event: any): void => {
     const { selectionStart } = event.target as HTMLInputElement;
     const inputNumbersValue = value.replace(/\D/g, "");
@@ -72,16 +65,13 @@ const InputPhone: FC<InputPhonePropsType> = ({ label, onChange, ...rest }) => {
     }
 
     setPhoneNumber(formattedInputValue);
-
-    if (onChange) {
-      onChange(phoneNumber, event);
-    }
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const inputPaste = (event: any) => {
-    const input = event.target as HTMLInputElement;
+    const input = event?.target as HTMLInputElement;
     const inputNumbersValue = input.value.replace(/\D/g, "");
-    const pasted = event.clipboardData;
+    const pasted = event?.clipboardData;
     if (pasted) {
       const pastedText = pasted.getData("Text");
       if (/\D/g.test(pastedText)) {
@@ -93,11 +83,19 @@ const InputPhone: FC<InputPhonePropsType> = ({ label, onChange, ...rest }) => {
   const inputKeyDown = (
     event: React.KeyboardEvent<HTMLInputElement> | undefined
   ) => {
-    const inputValue = phoneNumber.replace(/\D/g, "");
+    const input = event?.target as HTMLInputElement;
+    const inputValue = input.value.replace(/\D/g, "");
+    
     if (event?.key == "Backspace" && inputValue.length == 1) {
       setPhoneNumber("");
     }
   };
+
+  useEffect(() => {
+    if (onChange) {
+      onChange(phoneNumber);
+    }
+  }, [phoneNumber]);
 
   return (
     <BaseInput

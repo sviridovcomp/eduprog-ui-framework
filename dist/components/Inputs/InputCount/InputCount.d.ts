@@ -3,29 +3,20 @@ import { TextInputProps } from "../BaseInput/BaseInput";
 import "./InputCount.scss";
 export declare type InputCountPropsType = TextInputProps & {
     /**
-     * заголовок input
-     */
-    label: string;
-    /**
-     * Минимальное значение в input
+     * Minimum value
      */
     min?: number;
     /**
-     * Максимальное значение в input
+     * Maximum value (`Infinity` by default)
      */
     max?: number;
     /**
-     * Шаг для счетчика
+     * Step for buttons
      */
     step?: number;
-    /**
-     * Имя элемента в DOM
-     */
-    name?: string;
-    /**
-     * Событие обновления input
-     */
-    onChange: (value: string) => void;
 };
+/**
+ * InputCount is a good choice to input integer numbers
+ */
 declare const InputCount: FC<InputCountPropsType>;
 export default InputCount;

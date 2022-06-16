@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ComponentMeta } from "@storybook/react";
+import { ComponentMeta, ComponentStory } from "@storybook/react";
 
 import Dialog from "../Dialog";
 import Button from "../../Button/Button";
@@ -7,40 +7,30 @@ import Expand from "../../Expand/Expand";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "Компоненты/Dialog/Playground",
+  title: "Components/Dialog",
   component: Dialog,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
 } as ComponentMeta<typeof Dialog>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 
-export const Playground = () => {
-  const [open, setOpen] = useState(true);
+const PlaygroundTemplate: ComponentStory<typeof Dialog> = (args) => {
+  const [open, setOpen] = useState(false);
   const [expandOpen, setExpandOpen] = useState(false);
 
   return (
     <>
-      <div>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Autem,
-        laboriosam ullam. Eveniet, consequuntur repellendus. Voluptas dicta
-        aperiam aliquid hic quaerat deleniti soluta eum, blanditiis qui, itaque
-        nesciunt alias accusantium quo omnis ab corporis molestiae sapiente
-        mollitia ea numquam vero officiis dolores deserunt. Maiores sequi
-        veritatis modi totam quae quos error temporibus quibusdam voluptatum
-        delectus molestias, natus, similique quis qui at distinctio. A
-        blanditiis, tempore laboriosam nulla recusandae ipsam unde dolores neque
-        excepturi tempora odit, atque facilis itaque distinctio cum cumque velit
-        ipsa delectus eveniet? Nam repellat magni, sunt neque corporis in
-        dolorum asperiores praesentium facilis rem consectetur qui cupiditate!
-        Nobis iure, dolores, doloremque repudiandae dolorem asperiores explicabo
-        fugit voluptatum praesentium, ullam quis. Nisi sit quod expedita error
-        laudantium. Aperiam consectetur iusto nesciunt ab eveniet mollitia
-        inventore, quibusdam similique! Officiis saepe tempore, labore atque
-        dolores repellat doloribus deserunt, vel, eveniet modi ullam molestias
-        temporibus voluptate consequatur fuga exercitationem in. Dolores, sequi!
-      </div>
       <Button onClick={() => setOpen(!open)}>open</Button>
-      <Dialog size="lg" label="Тест" open={open}>
+
+      <Dialog
+        {...args}
+        open={open}
+        onClose={() => {
+          setOpen(false);
+
+          args.onClose && args.onClose();
+        }}
+      >
         <div>
           <p>
             Dialog has <code>Observer</code> in its context to call{" "}
@@ -55,7 +45,7 @@ export const Playground = () => {
             way to get data from outside
           </p>
 
-          <Button onClick={() => setExpandOpen(!expandOpen)}>
+          <Button onPointerDown={() => setExpandOpen(!expandOpen)}>
             Dynamic height change
           </Button>
 
@@ -86,10 +76,12 @@ export const Playground = () => {
           </Expand>
         </div>
       </Dialog>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia aliquam
-      labore quibusdam minima sequi excepturi atque pariatur, esse at qui
-      dolorum soluta perspiciatis voluptas veritatis distinctio alias dolore nam
-      ad.
     </>
   );
+};
+
+export const Playground = PlaygroundTemplate.bind({});
+Playground.args = {
+  label: "Label",
+  size: "md",
 };

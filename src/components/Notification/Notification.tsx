@@ -7,7 +7,7 @@ import Error from "@icons/Error";
 import { useSwipeable } from "react-swipeable";
 
 export type NotificationPropsType = {
-  visible: boolean;
+  open: boolean;
   offset?: number;
   hasCloser?: boolean;
   status?: "ok" | "fail";
@@ -20,7 +20,7 @@ export type NotificationPropsType = {
 };
 
 const Notification: FC<NotificationPropsType> = ({
-  visible = false,
+  open = false,
   offset = 12,
   hasCloser = true,
   status = "ok",
@@ -56,14 +56,14 @@ const Notification: FC<NotificationPropsType> = ({
   );
 
   useEffect(() => {
-    if (visible) {
+    if (open) {
       startAutoCloseTimer();
     }
 
     return () => {
       stopAutoCloseTimer();
     };
-  }, [startAutoCloseTimer, stopAutoCloseTimer, visible]);
+  }, [startAutoCloseTimer, stopAutoCloseTimer, open]);
 
   const swipeableHandlers = useSwipeable({
     onSwiped: ({ dir }) => {
@@ -88,7 +88,7 @@ const Notification: FC<NotificationPropsType> = ({
         "notification",
         { [`notification__stick-to_${stickTo}`]: stickTo },
         {
-          "notification-visible": visible,
+          "notification-visible": open,
         }
       )}
       {...swipeableHandlers}

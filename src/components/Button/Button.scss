@@ -121,6 +121,9 @@
   }
 
   &-size {
+    &_xs {
+      height: 1.5rem;
+    }
     &_sm {
       height: 1.875rem;
     }

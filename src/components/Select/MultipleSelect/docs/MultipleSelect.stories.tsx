@@ -1,24 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import MultipleSelect from "@components/Select/MultipleSelect/MultipleSelect";
 
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "Компоненты/Select/MultipleSelect/Playground",
+  title: "Components/Select/MultipleSelect",
   component: MultipleSelect,
-  // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
 } as ComponentMeta<typeof MultipleSelect>;
 
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof MultipleSelect> = (args) => (
-  <MultipleSelect {...args} />
-);
+const Template: ComponentStory<typeof MultipleSelect> = (args) => {
+  const [options, setOptions] = useState([]);
+
+  return (
+    <>
+      <MultipleSelect
+        {...args}
+        onChange={(value: any) => {
+          setOptions(value);
+        }}
+      />
+      <p style={{ color: "#fff", fontFamily: "Nunito" }}>
+        Selected values:{" "}
+        {[...options].map((option) => (
+          <li key={option[0]}>{option[0]}</li>
+        ))}
+      </p>
+    </>
+  );
+};
 
 export const Playground = Template.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
 Playground.args = {
-  label: "Select",
+  label: "Выберите категории кэшбэка:",
   options: new Map([
     ["5% - Аптеки", "5% - аптеки"],
     ["5% - Ozon.ru", "5% - ozon.ru"],

@@ -1,11 +1,12 @@
-import _ from "lodash";
+import debounce from "lodash/debounce";
 import { useSwipeable } from "react-swipeable";
 import { Transition } from "react-transition-group";
 import usePreventScroll from "@utils/hooks/usePreventScroll";
-import { BackdropStyles, TransitionStyles } from "./BottomDrawerStyles";
+import { TransitionStyles } from "./BottomDrawerStyles";
 import clsx from "clsx";
-import React, { FC, useRef, useState } from "react";
+import React, { FC, useState } from "react";
 import "./BottomDrawer.scss";
+import Backdrop from "@components/Backdrop/Backdrop";
 
 export interface IBottomDrawerProps {
   /**
@@ -33,6 +34,9 @@ export interface IBottomDrawerProps {
   backdropClassname?: string;
 }
 
+/**
+ * This component creates a bottom curtain for mobile devices. 
+ */
 const BottomDrawer: FC<IBottomDrawerProps> = ({
   open,
   children,
@@ -41,14 +45,12 @@ const BottomDrawer: FC<IBottomDrawerProps> = ({
   mountOnEnter = true,
   duration = 250,
   hideScrollbars = false,
-  className = "",
 }) => {
-  const nodeRef = useRef(null);
   usePreventScroll(open, "BottomDrawer-content");
 
   const [currentDeltaY, setDeltaY] = useState(0);
   const swipeHandlers = useSwipeable({
-    onSwipedDown: _.debounce(
+    onSwipedDown: debounce(
       ({ velocity }) => {
         setDeltaY(0);
 
@@ -76,52 +78,39 @@ const BottomDrawer: FC<IBottomDrawerProps> = ({
   };
 
   return (
-    <>
-      <Transition
-        appear={true}
-        in={open}
-        timeout={{ appear: 0, enter: 0, exit: duration }}
-        unmountOnExit={unmountOnExit}
-        mountOnEnter={mountOnEnter}
-        refNode={nodeRef}
-      >
-        {(state) => (
-          <div ref={nodeRef}>
-            <div {...swipeHandlers} className="BottomDrawer">
-              <div
-                onClick={onClose}
-                className={"BottomDrawer-backdrop"}
-                // @ts-ignore
-                style={BackdropStyles[state]}
-              />
+    <Transition
+      in={open}
+      appear={true}
+      timeout={{ appear: 0, enter: 0, exit: duration }}
+      unmountOnExit={unmountOnExit}
+      mountOnEnter={mountOnEnter}
+    >
+      {(state) => (
+        <div className="BottomDrawer" {...swipeHandlers}>
+          <Backdrop open={open} onClick={onClose} />
 
-              <div
-                className="BottomDrawer-curtain"
-                style={{
-                  ...(TransitionStyles as any)[state],
-                  ...getTransforms(),
-                }}
-              >
-                <div
-                  className="BottomDrawer-handle"
-                  // @ts-ignore
-                  style={BackdropStyles[state]}
-                />
+          <div
+            className="BottomDrawer-curtain"
+            style={{
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              ...(TransitionStyles as any)[state],
+              ...getTransforms(),
+            }}
+          >
+            <div className="BottomDrawer-handle" />
 
-                <div
-                  className={clsx(
-                    "BottomDrawer-content",
-                    hideScrollbars && "BottomDrawer-content-hide-scrollbars"
-                  )}
-                >
-                  <div className="BottomDrawer-content-inner">{children}</div>
-                </div>
-              </div>
+            <div
+              className={clsx(
+                "BottomDrawer-content",
+                hideScrollbars && "BottomDrawer-content-hide-scrollbars"
+              )}
+            >
+              <div className="BottomDrawer-content-inner">{children}</div>
             </div>
           </div>
-        )}
-      </Transition>
-    </>
+        </div>
+      )}
+    </Transition>
   );
 };
 

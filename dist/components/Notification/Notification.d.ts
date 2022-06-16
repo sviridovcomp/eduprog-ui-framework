@@ -1,7 +1,7 @@
 import { FC } from "react";
 import "./Notification.scss";
 export declare type NotificationPropsType = {
-    visible: boolean;
+    open: boolean;
     offset?: number;
     hasCloser?: boolean;
     status?: "ok" | "fail";

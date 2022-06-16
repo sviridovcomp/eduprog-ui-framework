@@ -3,25 +3,28 @@ import "./Avatar.scss";
 import { defaultProps } from "@utils/defaultProps";
 export declare type AvatarPropsType = defaultProps & {
     /**
-     * Круглый аватар
+     * Rounded mode
      */
     rounded?: boolean;
     /**
-     * Ссылка на картинку аватара
+     * Link to avatar picture
      */
     avatarUrl?: string;
     /**
-     * Имя (Аватар показывает первые буквы имени, если изображения нет)
+     * Name (Avatar shows first letters of name if there is no image)
      */
     text: string;
     /**
-     * Размер аватара
+     * Size
      */
-    size: "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
+    size?: "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
+    /**
+     * Autocolor if there is no image
+     */
     autoColor?: boolean;
 };
 /**
- * Компонент для показа аватара пользователя
+ * Component to creating user avatars. It can be photo, icon or first letters of name.
  */
 declare const Avatar: FC<AvatarPropsType>;
 export default Avatar;
