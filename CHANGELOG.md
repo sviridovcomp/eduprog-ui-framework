@@ -1,3 +1,16 @@
+### [1.4.1](https://github.com/edu-prog/eduprog-ui-framework/compare/v1.4.0...v1.4.1) (2022-06-16)
+
+
+### 🔧 Fixes
+
+* fix passing eslint ([f2c39fa](https://github.com/edu-prog/eduprog-ui-framework/commit/f2c39fa3f523193433512d14070d7b1689792033))
+
+
+### 📚 Docs
+
+* update docs ([4335761](https://github.com/edu-prog/eduprog-ui-framework/commit/4335761b6eab64be776deae7727f8c71493c7437))
+* updated docs ([afc5d13](https://github.com/edu-prog/eduprog-ui-framework/commit/afc5d130f7fd1ae876c0679304c1e639d631abe6))
+
 ## [1.4.0](https://github.com/edu-prog/eduprog-ui-framework/compare/v1.3.0...v1.4.0) (2022-05-31)
 
 
