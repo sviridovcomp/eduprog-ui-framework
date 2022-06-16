@@ -1,5 +1,5 @@
 import { shallow } from "enzyme";
-import Dropdown from "@components/Dropdown/Dropdown";
+import Menu from "./Menu";
 import Button from "@components/Button/Button";
 import React from "react";
 
@@ -24,9 +24,9 @@ describe("Dropdown testing", () => {
 
     dropdownDirectionItems.forEach((direction) => {
       const dropdown = shallow(
-        <Dropdown direction={direction} toggle={<Button>Open</Button>}>
+        <Menu direction={direction} toggle={<Button>Open</Button>}>
           dropdown-content
-        </Dropdown>
+        </Menu>
       );
 
       expect(
@@ -37,14 +37,14 @@ describe("Dropdown testing", () => {
 
   it("Dropdown additional rendering", () => {
     const dropdown = shallow(
-      <Dropdown
+      <Menu
         direction="bottom-center"
         toggle={<Button>Open</Button>}
         clearly
         fullwidth
       >
         dropdown-content
-      </Dropdown>
+      </Menu>
     );
 
     expect(dropdown.find(".dropdown-item-clearly").text()).toEqual(
@@ -58,17 +58,17 @@ describe("Dropdown testing", () => {
   it("Dropdown click away test", () => {
     const component = shallow(
       <div className="outside">
-        <Dropdown
+        <Menu
           direction="bottom-center"
           dismissible="outside"
           toggle={<Button>Open</Button>}
         >
           dropdrop-content
-        </Dropdown>
+        </Menu>
       </div>
     );
 
-    component.find(Dropdown).dive().find(".dropdown-toggle").simulate("click");
+    component.find(Menu).dive().find(".dropdown-toggle").simulate("click");
     component.find(".outside").simulate("click");
 
     expect(component.find(".dropdown-content").exists()).toBeFalsy();
@@ -78,14 +78,14 @@ describe("Dropdown testing", () => {
     let open = false;
 
     const dropdown = shallow(
-      <Dropdown
+      <Menu
         direction="bottom-center"
         dismissible="outside"
         toggle={<Button>Open</Button>}
         onOpen={() => (open = true)}
       >
         dropdrop-content
-      </Dropdown>
+      </Menu>
     );
 
     dropdown.find(".dropdown-toggle").simulate("click");
@@ -95,13 +95,13 @@ describe("Dropdown testing", () => {
 
   it("Dropdown blur", () => {
     const dropdown = shallow(
-      <Dropdown
+      <Menu
         direction="bottom-center"
         dismissible="always"
         toggle={<Button>Open</Button>}
       >
         dropdrop-content
-      </Dropdown>
+      </Menu>
     );
 
     dropdown.find(".dropdown-toggle").simulate("click");

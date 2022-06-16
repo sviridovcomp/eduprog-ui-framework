@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useState } from "react";
 import "./MultipleSelectLargeDevice.scss";
 import BaseInput from "@components/Inputs/BaseInput/BaseInput";
-import Dropdown from "@components/Dropdown/Dropdown";
+import Menu from "@components/Menu/Menu";
 import Checkbox from "@components/Checkbox";
 import { MultipleSelectPropsType } from "@components/Select/MultipleSelect/MultipleSelectProps";
 
@@ -99,7 +99,7 @@ const MultipleSelectLargeDevice: FC<MultipleSelectPropsType<any>> = ({
 
   return (
     <div className="multiple-select" style={dropdownStyles}>
-      <Dropdown
+      <Menu
         direction="bottom-center"
         toggle={SelectToggle}
         clearly
@@ -111,7 +111,7 @@ const MultipleSelectLargeDevice: FC<MultipleSelectPropsType<any>> = ({
         contentStyle={{ borderRadius: "0.5rem" }}
       >
         {SelectPopup}
-      </Dropdown>
+      </Menu>
     </div>
   );
 };

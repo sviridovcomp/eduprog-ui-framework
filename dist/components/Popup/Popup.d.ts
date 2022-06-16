@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import "../Dropdown/Dropdown.scss";
+import "../Menu/Menu.scss";
 export declare type PopupProps = {
     open?: boolean;
     /**

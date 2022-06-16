@@ -2,7 +2,7 @@ import Button from "@components/Button/Button";
 import { Row, Column, Container } from "@components/Grid";
 import Expand from "@components/Expand/Expand";
 import InputPhone from "@components/Inputs/InputPhone/InputPhone";
-import Dropdown from "@components/Dropdown/Dropdown";
+import Menu from "@components/Menu/Menu";
 import Checkbox from "@components/Checkbox";
 import Dialog from "@components/Dialog/Dialog";
 import Avatar from "@components/Avatar/Avatar";
@@ -39,7 +39,7 @@ export {
   Row,
   Expand,
   InputPhone,
-  Dropdown,
+  Menu,
   Dialog,
   Checkbox,
   Avatar,

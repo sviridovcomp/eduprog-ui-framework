@@ -1,23 +1,18 @@
 import React, { FC, useRef, useState } from "react";
-import "./Dropdown.scss";
+import "./Menu.scss";
 import { defaultProps } from "@utils/defaultProps";
 import clsx from "clsx";
 import useClickAway from "@utils/hooks/useClickAway";
 import { CSSTransition } from "react-transition-group";
 
-export type DropdownPropsType = defaultProps & {
+export type MenuPropsType = defaultProps & {
   /**
-   * Дочерние элементы Dropdown
-   */
-  children: React.ReactNode;
-
-  /**
-   * Элемент триггер, по клику, на который открывается popup
+   * Trigger element, on clicking on which a popup opens
    */
   toggle: React.ReactNode;
 
   /**
-   * Направление раскрытия popup
+   * Direction of popup opening
    */
   direction:
     | "bottom-left"
@@ -28,17 +23,17 @@ export type DropdownPropsType = defaultProps & {
     | "top-right";
 
   /**
-   * Убрать стрелочку направления popup
+   * Remove the popup direction arrow
    */
   clearly?: boolean;
 
   /**
-   * Dropdown в полный размер родительского блока
+   * Dropdown to the full size of the parent unit
    */
   fullwidth?: boolean;
 
   /**
-   * Когда dropdown закрывается
+   * When the dropdown closes
    */
   dismissible?: "always" | "toggle" | "outside";
 
@@ -54,9 +49,9 @@ export type DropdownPropsType = defaultProps & {
 };
 
 /**
- * Компонент для создания выпадающего списка
+ * Component for creating a drop-down list
  */
-const Dropdown: FC<DropdownPropsType> = ({
+const Menu: FC<MenuPropsType> = ({
   children,
   toggle,
   direction = "bottom-left",
@@ -135,4 +130,4 @@ const Dropdown: FC<DropdownPropsType> = ({
   );
 };
 
-export default Dropdown;
+export default Menu;
