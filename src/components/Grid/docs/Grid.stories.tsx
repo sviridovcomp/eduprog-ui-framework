@@ -10,6 +10,14 @@ import Island from "@components/Island/Island";
 export default {
   title: "Components/Grid",
   Component: Container,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "Responsive layout grid adapts to screen size and orientation, ensuring consistency across layouts.",
+      },
+    },
+  },
 } as ComponentMeta<typeof Row>;
 
 // @ts-ignore
@@ -18,7 +26,7 @@ const PlaygroundTemplate: ComponentStory<typeof Container> = (props) => {
     <Container adaptive>
       <Row adaptive>
         {/* @ts-ignore */}
-        {_.range(props.colsCount).map((currentCol) => (
+        {range(props.colsCount).map((currentCol) => (
           // @ts-ignore
           <Column key={currentCol} col={props.colSize}>
             <div
@@ -45,7 +53,7 @@ Playground.args = {
 
 const AdaptiveFormTemplate = () => {
   return (
-    <Container adaptive>
+    <Container adaptive style={{ color: "#fff", fontFamily: "Nunito" }}>
       <Row>
         {range(10).map((_, index) => (
           <Column
@@ -62,6 +70,7 @@ const AdaptiveFormTemplate = () => {
                     style={{
                       width: "100%",
                       height: 272,
+                      borderRadius: "1rem",
                       background:
                         "url('https://eda.yandex.ru/images/1387779/12efe6f1332d68c9de511c58b4f9ed55-680x500.png') center center / cover no-repeat",
                     }}
@@ -84,3 +93,12 @@ const AdaptiveFormTemplate = () => {
 };
 
 export const AdaptiveForm = AdaptiveFormTemplate.bind({});
+// @ts-ignore
+AdaptiveForm.parameters = {
+  docs: {
+    description: {
+      story:
+        "Below you can see an example of adaptive layout using the grid system:",
+    },
+  },
+};

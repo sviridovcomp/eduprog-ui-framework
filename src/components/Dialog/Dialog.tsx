@@ -37,6 +37,9 @@ export type DialogPropsType = {
   style?: React.CSSProperties;
 };
 
+/**
+ * Component to creating dialog windows
+ */
 const Dialog: FC<DialogPropsType> = ({
   label,
   children,

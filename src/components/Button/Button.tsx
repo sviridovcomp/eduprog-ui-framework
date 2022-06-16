@@ -106,6 +106,9 @@ export type ButtonPropsType = defaultProps & {
   labelClassName?: string;
 };
 
+/**
+ * Component to creating button.
+ */
 const Button: FC<ButtonPropsType> = ({
   children,
   view = "default",

@@ -50,6 +50,9 @@ export type CheckboxPropsType = defaultProps & {
   wrapperStyle?: React.CSSProperties;
 };
 
+/**
+ * Component to creating checkboxes.
+ */
 const Checkbox: FC<CheckboxPropsType> = ({
   children,
   position = "left",

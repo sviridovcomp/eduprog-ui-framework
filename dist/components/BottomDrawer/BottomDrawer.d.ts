@@ -22,5 +22,8 @@ export interface IBottomDrawerProps {
     className?: string;
     backdropClassname?: string;
 }
+/**
+ * This component creates a bottom curtain for mobile devices.
+ */
 declare const BottomDrawer: FC<IBottomDrawerProps>;
 export default BottomDrawer;

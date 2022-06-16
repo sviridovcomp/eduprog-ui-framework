@@ -23,5 +23,8 @@ export declare type AvatarPropsType = defaultProps & {
      */
     autoColor?: boolean;
 };
+/**
+ * Component to creating user avatars. It can be photo, icon or first letters of name.
+ */
 declare const Avatar: FC<AvatarPropsType>;
 export default Avatar;

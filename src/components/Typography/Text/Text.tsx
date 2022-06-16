@@ -50,56 +50,58 @@ export type TextTypographyValue =
 
 export interface TextProps {
   /**
-   * Тип элемента для отображения как (строка или компонент).
+   * Type of element to display as (string or component).
    */
   as?: ElementType;
 
   /**
-   * Основной контент
+   * Main content
    */
   children?: ReactNode;
 
   /**
-   * Дополнительный класс
+   * Additional class
    */
   className?: string;
 
   /**
-   * Задает выравнивание текста в компоненте.
+   * Sets the alignment of the text in the component.
    */
   align?: TextAlignValue;
 
   /**
-   * Задает отображение переполненного текста
+   * Sets the display of overflow text
    */
   overflow?: TextOverflowValue;
 
   /**
-   * Максимальное количество строк текста (работает в связке с overflow)
+   * Maximum number of lines of text (works in conjunction with overflow)
    */
   maxLines?: number;
 
   /**
-   * Дополнительные стили
+   * Additional styles
    */
   style?: CSSProperties;
 
   /**
-   * Цвет текста
+   * Text color
    */
-  color?: string;
+  color: string;
 
   /**
-   * Задает типографику текста в компоненте.
+   * Sets the typography of the text in the component.
    */
   typography?: TextTypographyValue;
 
+  /**
+   * Sets the weigth of the text in the component.
+   */
   weight?: "bold" | "light" | "medium" | "regular";
 }
 
 /**
- * Базовый примитив представления текстовых данных.
- * @param { TextProps }  props
+ * A basic primitive for representing textual data.
  */
 export class Text extends PureComponent<TextProps> {
   private static getLineHeight(textElement: HTMLElement) {

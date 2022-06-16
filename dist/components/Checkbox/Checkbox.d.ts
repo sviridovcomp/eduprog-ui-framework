@@ -37,5 +37,8 @@ export declare type CheckboxPropsType = defaultProps & {
     style?: React.CSSProperties;
     wrapperStyle?: React.CSSProperties;
 };
+/**
+ * Component to creating checkboxes.
+ */
 declare const Checkbox: FC<CheckboxPropsType>;
 export default Checkbox;

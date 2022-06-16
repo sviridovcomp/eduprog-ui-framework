@@ -7,7 +7,7 @@ import "../Dropdown/Dropdown.scss";
 export type PopupProps = {
   open?: boolean;
   /**
-   * Направление раскрытия popup
+   * Direction
    */
   direction:
     | "bottom-left"
@@ -18,30 +18,54 @@ export type PopupProps = {
     | "top-right";
 
   /**
-   * Убрать стрелочку направления popup
+   * Remove the arrow pointing in the direction of the popup
    */
   clearly?: boolean;
 
   /**
-   * Dropdown в полный размер родительского блока
+   * Popup to the full size of the parent block
    */
   fullwidth?: boolean;
 
+  /**
+   * onClose callback handler
+   */
   onClose?: () => void;
 
+  /**
+   * Content styles
+   */
   contentStyle?: React.CSSProperties;
 
+  /**
+   * Content className
+   */
   contentClassName?: string;
 
+  /**
+   * Wrapper styles
+   */
   wrapperStyle?: React.CSSProperties;
 
+  /**
+   * Wrapper className
+   */
   wrapperClassName?: string;
 
+  /**
+   * Root styles
+   */
   rootStyle?: React.CSSProperties;
 
+  /**
+   * Root className
+   */
   rootClassName?: string;
 };
 
+/**
+ * A Popup can be used to display some content on top of another.
+ */
 const Popup: FC<PopupProps> = ({
   open = false,
   direction,

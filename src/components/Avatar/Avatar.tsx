@@ -30,10 +30,13 @@ export type AvatarPropsType = defaultProps & {
   autoColor?: boolean;
 };
 
+/**
+ * Component to creating user avatars. It can be photo, icon or first letters of name.
+ */
 const Avatar: FC<AvatarPropsType> = ({
   rounded = false,
   avatarUrl,
-  text,
+  text = "undefined",
   size = "md",
   autoColor,
   className = "",
@@ -47,11 +50,15 @@ const Avatar: FC<AvatarPropsType> = ({
 
   const colors = ["#b5eeeb", "#c5b5ee", "#dcb5ee"];
 
-  const avatarFormattedText =
-    size == "xs" || size == "sm"
-      ? text.split(" ")[0][0]
-      : `${text.split(" ")[0][0]}${text.split(" ")[1][0]}`;
-
+  const avatarFormattedText = () => {
+    if (/\S\s\S/gm.test(text)) {
+      return size == "xs" || size == "sm"
+        ? text.split(" ")[0][0]
+        : `${text.split(" ")[0][0]}${text.split(" ")[1][0]}`;
+    } else {
+      return text[0];
+    }
+  };
   return (
     <div
       className={rootClasses}
@@ -71,7 +78,7 @@ const Avatar: FC<AvatarPropsType> = ({
         />
       )}
 
-      {!avatarUrl && <div className="avatar-text">{avatarFormattedText}</div>}
+      {!avatarUrl && <div className="avatar-text">{avatarFormattedText()}</div>}
     </div>
   );
 };

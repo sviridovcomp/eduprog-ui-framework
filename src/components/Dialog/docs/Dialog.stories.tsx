@@ -5,17 +5,10 @@ import Dialog from "../Dialog";
 import Button from "../../Button/Button";
 import Expand from "../../Expand/Expand";
 
-import DialogDocs from "./DialogDocs.mdx";
-
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
   title: "Components/Dialog",
   component: Dialog,
-  parameters: {
-    docs: {
-      page: DialogDocs,
-    },
-  },
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
 } as ComponentMeta<typeof Dialog>;
 

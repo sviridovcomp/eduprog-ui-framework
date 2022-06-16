@@ -12,8 +12,6 @@ import InputCopy from "@components/Inputs/InputCopy/InputCopy";
 import InputPassword from "@components/Inputs/InputPassword/InputPassword";
 import InputCount from "@components/Inputs/InputCount/InputCount";
 import Spinner from "@components/Spinner/Spinner";
-import Paragraph from "@components/Typography/Paragraph/Paragraph";
-import Heading from "@components/Typography/Heading/Heading";
 import Switch from "@components/Switch/Switch";
 import Notification from "@components/Notification/Notification";
 import BaseInput from "@components/Inputs/BaseInput/BaseInput";
@@ -51,8 +49,6 @@ export {
   InputCopy,
   InputPassword,
   Spinner,
-  Paragraph,
-  Heading,
   Switch,
   MultipleSelect,
   Notification,

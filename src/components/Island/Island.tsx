@@ -5,29 +5,38 @@ import { defaultProps } from "@utils/defaultProps";
 
 export type IslandPropsType = defaultProps & {
   /**
-   * Дочерние элементы Island
-   */
-  children: React.ReactNode;
-  /**
-   * Размер компонента
+   * Size
    */
   size?: "xs" | "sm" | "md" | "lg" | "xl";
   /**
-   * Выравнивание компонента
+   * Align
    */
   align?: "left" | "center" | "right";
   /**
-   * Тема компонента, `shadow` — затенение на границах, `border` — светло-серая обводка
+   * Component theme
+   *
+   * `shadow` - shading on borders
+   *
+   * `border` - light grey outline
    */
   type?: "shadow" | "border";
 
+  /**
+   * The transition that will be made when hovering over Island.
+   *
+   * `scale` — Island will be smoothly enlarged
+   * `translateY` — Island will be lifted up
+   */
   hoverTransition?: null | "scale" | "translateY";
 
+  /**
+   * onClick callback handler
+   */
   onClick?: (event: React.MouseEvent) => void;
 };
 
 /**
- * Island отображают информацию в закругленном блоке с границей
+ * Island displays information in a rounded block with a border
  */
 const Island: FC<IslandPropsType> = ({
   children,

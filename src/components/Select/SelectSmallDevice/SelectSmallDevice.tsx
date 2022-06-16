@@ -20,7 +20,7 @@ const SelectSmallDevice: FC<SelectTypeProps<any>> = ({
 
   const selectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const option = event.target.value.toString();
-    const currentOption = options.find(([name]) => name == option);
+    const currentOption = options.find(({ key: name }) => name == option);
     if (currentOption) {
       setSelectedOption(currentOption);
     }
@@ -52,7 +52,7 @@ const SelectSmallDevice: FC<SelectTypeProps<any>> = ({
           name={name}
           size={1}
         >
-          {options.map(([name], index) => (
+          {options.map(({ key: name }, index) => (
             <option
               value={name}
               key={index}

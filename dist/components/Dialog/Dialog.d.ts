@@ -26,5 +26,8 @@ export declare type DialogPropsType = {
      */
     style?: React.CSSProperties;
 };
+/**
+ * Component to creating dialog windows
+ */
 declare const Dialog: FC<DialogPropsType>;
 export default Dialog;

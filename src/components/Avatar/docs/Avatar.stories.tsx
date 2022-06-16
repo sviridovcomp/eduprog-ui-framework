@@ -2,27 +2,17 @@ import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import Avatar from "../Avatar";
-import AvatarDocs from "./AvatarDocs.mdx";
 
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
   title: "Components/Avatar",
   component: Avatar,
-  parameters: {
-    docs: {
-      page: AvatarDocs,
-    },
-  },
-  // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
 } as ComponentMeta<typeof Avatar>;
 
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const PlaygroundTemplate: ComponentStory<typeof Avatar> = (args) => (
   <Avatar {...args} />
 );
 
 export const Playground = PlaygroundTemplate.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
 Playground.args = {
   text: "Name Surname",
 };
@@ -32,6 +22,18 @@ const AutoColorTemplate: ComponentStory<typeof Avatar> = (args) => {
 };
 
 export const AutoColor = AutoColorTemplate.bind({});
+// @ts-ignore
+AutoColor.parameters = {
+  docs: {
+    description: {
+      story:
+        "To create a coloured avatar with a random colour palette, set `autoColor` property.",
+    },
+  },
+};
+AutoColor.args = {
+  text: "Name Surname",
+};
 
 const SizeTemplate = () => {
   return (
@@ -46,3 +48,12 @@ const SizeTemplate = () => {
 };
 
 export const Size = SizeTemplate.bind({});
+// @ts-ignore
+Size.parameters = {
+  docs: {
+    description: {
+      story:
+        "To change the size of the avatar, set `size` property to `xs`, `sm`, `md`, `lg`, `xl`.",
+    },
+  },
+};

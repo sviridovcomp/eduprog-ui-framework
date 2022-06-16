@@ -1,6 +1,5 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import ButtonDocs from "./ButtonDocs.mdx";
 
 import Button from "../Button";
 
@@ -8,11 +7,6 @@ import Button from "../Button";
 export default {
   title: "Components/Button",
   component: Button,
-  parameters: {
-    docs: {
-      page: ButtonDocs,
-    },
-  },
 
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
 } as ComponentMeta<typeof Button>;
@@ -42,6 +36,15 @@ const ViewTemplate: ComponentStory<typeof Button> = () => {
 };
 
 export const View = ViewTemplate.bind({});
+// @ts-ignore
+View.parameters = {
+  docs: {
+    description: {
+      story:
+        "To change the appearance of the button, set the `view` to one of the following values: `default`, `action`, `link`, `pseudo`, `clear`, `raised`.",
+    },
+  },
+};
 
 const SizeTemplate: ComponentStory<typeof Button> = () => {
   return (
@@ -56,6 +59,15 @@ const SizeTemplate: ComponentStory<typeof Button> = () => {
 };
 
 export const Size = SizeTemplate.bind({});
+// @ts-ignore
+Size.parameters = {
+  docs: {
+    description: {
+      story:
+        "To resize the button, set the the `size` property to one of the following values: `xl`, `lg`, `md`, `sm`, `xs`.",
+    },
+  },
+};
 
 const WidthTemplate: ComponentStory<typeof Button> = () => {
   return (
@@ -78,3 +90,15 @@ const WidthTemplate: ComponentStory<typeof Button> = () => {
 };
 
 export const Width = WidthTemplate.bind({});
+// @ts-ignore
+Width.parameters = {
+  docs: {
+    description: {
+      story:
+        "To change the width of the button, set the `width` property to one of the following values: \
+        <ul> \
+        <li>`auto` — the width is determined by the width of the text. The width of the button cannot be greater than the width of the container. If the width of the text is larger than the width of the container, the text is trimmed with an ellipsis.</li> \
+        <li>`available` — the width is determined by the width of the container. If the width of the text is larger than the width of the container, the text is trimmed with an ellipsis.</li></ul>",
+    },
+  },
+};

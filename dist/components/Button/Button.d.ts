@@ -79,5 +79,8 @@ export declare type ButtonPropsType = defaultProps & {
      */
     labelClassName?: string;
 };
+/**
+ * Component to creating button.
+ */
 declare const Button: FC<ButtonPropsType>;
 export default Button;

@@ -20,7 +20,7 @@ export declare type InputCopyPropsType = TextInputProps & {
     name?: string;
 };
 /**
- * InputCopy позволяет пользователю копировать текст текстового поля
+ * InputCopy alows user to copy a text of textfield
  */
 declare const InputCopy: FC<InputCopyPropsType>;
 export default InputCopy;

@@ -4,24 +4,35 @@ import clsx from "clsx";
 import { defaultProps } from "@utils/defaultProps";
 
 export interface ITextInputValidator {
+  /**
+   * Textfield must not be empty
+   */
   notEmpty?: boolean;
+
+  /**
+   * Regex pattern the value must match to be valid
+   */
   pattern?: RegExp;
+
+  /**
+   * Message to be displayed if textfield value is not correct
+   */
   message?: string;
 }
 
 export type TextInputProps = defaultProps & {
   /**
-   * Лейбл для поля ввода
+   * Label for the textfield
    */
   label: string;
 
   /**
-   * Максимальная длина текста в поле ввода
+   * Maximum length (number of characters) of value
    */
   maxLength?: number;
 
   /**
-   * Тип поля ввода
+   * Type of form control
    */
   inputType?: "text" | "tel" | "email" | "password" | "number" | "card";
 
@@ -31,17 +42,17 @@ export type TextInputProps = defaultProps & {
   mask?: string;
 
   /**
-   * Значение поля ввода по умолчанию
+   * The initial value of the control
    */
   defaultValue?: string;
 
   /**
-   * Событие вызываемое при клике на input
+   * onClick callback handler
    */
   onClick?: (event?: React.MouseEvent<HTMLInputElement>) => void;
 
   /**
-   * Событие обновления input
+   * onChange callback handler
    */
   onChange?: (
     value: string,
@@ -49,62 +60,88 @@ export type TextInputProps = defaultProps & {
   ) => void;
 
   /**
-   * Событие обновления input
+   * onPaste callback handler
    */
   onPaste?: (event?: React.ClipboardEvent<HTMLInputElement>) => void;
 
   /**
-   * Событие нажатия input
+   * onKeyDown callback handler
    */
   onKeyDown?: (event?: React.KeyboardEvent<HTMLInputElement>) => void;
 
+  /**
+   * onBlur callback handler
+   */
   onBlur?: (event?: React.FocusEvent<HTMLInputElement>) => void;
 
+  /**
+   * onFocus callback handler
+   */
   onFocus?: (event?: React.FocusEvent<HTMLInputElement>) => void;
 
   /**
-   * Добавление дополнительных элементов к инпуту слева
+   * Adding additional elements to the textfield on the left
    */
   leftAdditional?: React.ReactNode;
 
   /**
-   * Добавление дополнительных элементов к инпуту справа
+   * Adding additional elements to the textfield on the right
    */
   rightAdditional?: React.ReactNode;
 
   /**
-   * Имя элемента в DOM
+   * Name of the form control. Submitted with the form as part of a name/value pair
    */
   name?: string;
 
   /**
-   * Параметры автокомпилита
+   * Hint for form autofill feature
    */
   autocomplete?: "none" | "cc-number";
 
   /**
-   * Курсор, который будет при наведении на input
+   * Cursor that will when hovering over textfield
    */
   cursor?: "pointer" | "text";
 
   /**
-   * BaseInput доступен только для чтения
+   * The value of TextField is not editable
    */
   readonly?: boolean;
 
   /**
-   *
+   * Force make textfield focused
    */
   forceFocus?: boolean;
 
+  /**
+   * Force make textfield invalid
+   */
   forceInvalid?: boolean;
 
+  /**
+   *  if present, indicates that the input should automatically have focus when the page has finished loading
+   */
   autoFocus?: boolean;
 
+  /**
+   * Validating a textfield
+   */
   validators?: ITextInputValidator;
 
+  /**
+   * onPointerDown callback handler
+   */
   onPointerDown?: (event?: React.MouseEvent) => void;
+
+  /**
+   * onPointerUp callback handler
+   */
   onPointerUp?: (event?: React.MouseEvent) => void;
+
+  /**
+   * onPointerLeave callback handler
+   */
   onPointerLeave?: (event?: React.MouseEvent) => void;
 };
 
