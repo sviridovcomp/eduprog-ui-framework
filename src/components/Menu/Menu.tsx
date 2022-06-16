@@ -2,7 +2,7 @@ import React, { FC, useRef, useState } from "react";
 import "./Menu.scss";
 import { defaultProps } from "@utils/defaultProps";
 import clsx from "clsx";
-import useClickAway from "@utils/hooks/useClickAway";
+import { useClickAway } from "@utils/hooks/useClickAway";
 import { CSSTransition } from "react-transition-group";
 
 export type MenuPropsType = defaultProps & {

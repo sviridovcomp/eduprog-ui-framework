@@ -35,6 +35,39 @@ Playground.args = {
   color: "primary",
 };
 
+const WithAnimationTemplate: ComponentStory<typeof Progress> = (args) => {
+  const [value, setValue] = useState(0);
+
+  useEffect(() => {
+    const fillingProgressBar = setInterval(() => {
+      if (value >= 100) {
+        setValue(100);
+        return;
+      }
+      setValue(value + random(1, 5));
+    }, 100);
+    return () => clearInterval(fillingProgressBar);
+  }, [value]);
+
+  return <Progress {...args} value={value} />;
+};
+
+export const WithAnimation = WithAnimationTemplate.bind({});
+WithAnimation.args = {
+  color: "secondary",
+  animated: true,
+  striped: true,
+};
+// @ts-ignore
+WithAnimation.parameters = {
+  docs: {
+    description: {
+      story:
+        "You can enhance the perception of the loading effect of the content by using animations on Progress. To do this, set `animated` for your Progress.",
+    },
+  },
+};
+
 const GradientTemplate: ComponentStory<typeof Progress> = (args) => {
   const [value, setValue] = useState(0);
 
@@ -52,8 +85,16 @@ const GradientTemplate: ComponentStory<typeof Progress> = (args) => {
   return <Progress {...args} value={value} />;
 };
 
-
 export const Gradient = GradientTemplate.bind({});
 Gradient.args = {
   color: "linear-gradient(to right, #ff0000, #ffbb00, #ffff00)",
+};
+// @ts-ignore
+Gradient.parameters = {
+  docs: {
+    description: {
+      story:
+        "Set component's input property `color` to get more complex color combinations.",
+    },
+  },
 };

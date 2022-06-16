@@ -1,3 +1,3 @@
-import { useClickAway } from "./useClickAway";
+import { useClickAway, ClickAwayListener } from "./useClickAway";
 
-export default useClickAway;
+export { useClickAway, ClickAwayListener };
