@@ -3,8 +3,6 @@
   box-sizing: border-box;
 
   &-wrapper {
-    
-
     &::after {
       position: absolute;
       content: "";
@@ -18,7 +16,5 @@
 
   &-control {
     cursor: pointer;
-    position: absolute;
-    opacity: 0;
   }
 }
