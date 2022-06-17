@@ -1,3 +1,10 @@
+## [1.5.0](https://github.com/edu-prog/eduprog-ui-framework/compare/v1.4.1...v1.5.0) (2022-06-17)
+
+
+### 🧩 Features
+
+* create `Pagination` component ([7216334](https://github.com/edu-prog/eduprog-ui-framework/commit/7216334c7fb8893e36eabbebf56e3e2e1fa50539))
+
 ### [1.4.1](https://github.com/edu-prog/eduprog-ui-framework/compare/v1.4.0...v1.4.1) (2022-06-16)
 
 
