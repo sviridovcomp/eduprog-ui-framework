@@ -27,6 +27,7 @@ import TabsWithCheckboxes from "@components/Tabs/TabsWithCheckboxes/TabsWithChec
 import { TabsValue } from "@components/Tabs/TabsTypes";
 import BottomDrawer from "@components/BottomDrawer/BottomDrawer";
 import FullScreenSlider from "@components/FullScreenSlider/FullScreenSlider";
+import { RadioBoxValueProps, RadioBox, Radio } from "@components/RadioBox";
 
 import { useClickAway, ClickAwayListener } from "@utils/hooks/useClickAway";
 import useKeyDown from "@utils/hooks/useKeyDown";
@@ -67,5 +68,8 @@ export {
   ClickAwayListener,
   useKeyDown,
   usePreventScroll,
+  RadioBox,
+  Radio
 };
-export type { TabsValue };
+
+export type { TabsValue, RadioBoxValueProps };

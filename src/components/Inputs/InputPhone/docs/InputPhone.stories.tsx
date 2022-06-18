@@ -12,13 +12,13 @@ export default {
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: ComponentStory<typeof InputPhone> = (args) => {
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState("79850104388");
 
   return (
     <InputPhone
-      onChange={(data) => {
-        setValue(data);
-        console.log("update: ", value);
+      defaultValue={value}
+      onChange={(value) => {
+        setValue(value);
       }}
       {...args}
     />
