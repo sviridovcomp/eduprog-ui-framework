@@ -1,8 +1,9 @@
 import clsx from "clsx";
-import _ from "lodash";
-import React, { FC, useEffect, useRef, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { useSwipeable } from "react-swipeable";
 import "./FullScreenSlider.scss";
+import range from "lodash/range";
+import debounce from "lodash/debounce";
 
 export interface IFullScreenSliderLayout {
   image: string;
@@ -54,7 +55,7 @@ const FullScreenSlider: FC<FullScreenSliderProps> = ({
   };
 
   const swipeableHandlers = useSwipeable({
-    onSwipedUp: _.debounce(
+    onSwipedUp: debounce(
       ({ velocity }) => {
         setDeltaY(0);
 
@@ -65,7 +66,7 @@ const FullScreenSlider: FC<FullScreenSliderProps> = ({
       500,
       { leading: true }
     ),
-    onSwipedDown: _.debounce(
+    onSwipedDown: debounce(
       ({ velocity }) => {
         setDeltaY(0);
 
@@ -117,7 +118,7 @@ const FullScreenSlider: FC<FullScreenSliderProps> = ({
               style={{ transform: `translate3d(0, ${deltaY}px, 0)` }}
             >
               <div className="FullScreenSlider-counter">
-                {_.range(slidesCount()).map((item) => (
+                {range(slidesCount()).map((item) => (
                   <div
                     key={item}
                     className="FullScreenSlider-counter-item"

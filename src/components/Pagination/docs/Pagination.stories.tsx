@@ -1,20 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import Pagination from "../Pagination";
 
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "Компоненты/Pagination/Playground",
+  title: "Components/Pagination",
   component: Pagination,
-  // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
 } as ComponentMeta<typeof Pagination>;
 
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof Pagination> = (args) => (
-  <Pagination {...args} />
-);
+const PlaygroundTemplate: ComponentStory<typeof Pagination> = (args) => {
+  const [page, setPage] = useState(1);
+  return (
+    <>
+      <Pagination
+        {...args}
+        defaultValue={page}
+        onChange={(page) => {
+          setPage(page);
+          args.onChange && args.onChange(page);
+        }}
+      />
+      <p style={{ color: "#fff", fontFamily: "Nunito" }}>
+        Selected page: {page}
+      </p>
+    </>
+  );
+};
 
-export const Playground = Template.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
-Playground.args = {};
+export const Playground = PlaygroundTemplate.bind({});
+Playground.args = {
+  count: 200,
+  siblingCount: 10,
+};

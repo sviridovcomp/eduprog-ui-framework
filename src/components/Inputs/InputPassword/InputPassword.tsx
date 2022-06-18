@@ -5,33 +5,18 @@ import { SimplePasswords } from "@components/Inputs/InputPassword/InputPasswordU
 
 export type InputPasswordPropsType = TextInputProps & {
   /**
-   * Заголовок input
+   * Is textfield validation required
    */
-  label: string;
-
-  /**
-   * Событие обновления input
-   */
-  onChange?: (
-    value: string,
-    event?: React.ChangeEvent<HTMLInputElement>
-  ) => void;
-
-  /**
-   * Название компонента в DOM
-   */
-  name?: string;
-
-  noValidation?: boolean;
+  isValidation?: boolean;
 };
 
 /**
- * InputCopy позволяет пользователю копировать текст текстового поля
+ * InputPassword is a great solution for entering your password
  */
 const InputPassword: FC<InputPasswordPropsType> = ({
   label,
   name = "",
-  noValidation = false,
+  isValidation = false,
   defaultValue,
   ...rest
 }) => {
@@ -50,7 +35,7 @@ const InputPassword: FC<InputPasswordPropsType> = ({
     ["Пароль слишком короткий", "Используйте хотя бы 6 символов"],
     [
       "Пароль содержит запрещённые символы",
-      "Для пароля можно использовать только буквы латинского алфавита, цифры и символы: `!@#$%^&*()_=+[]{};:\"\\|,.",
+      'Для пароля можно использовать только буквы латинского алфавита, цифры и символы: `!@#$%^&*()_=+[]{};:"\\|,.',
     ],
     [
       "Пароль слишком простой",
@@ -131,7 +116,7 @@ const InputPassword: FC<InputPasswordPropsType> = ({
         }
       />
 
-      {!noValidation && (
+      {isValidation && (
         <>
           <div
             className="input-password-validate"

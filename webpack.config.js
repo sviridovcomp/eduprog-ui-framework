@@ -1,6 +1,7 @@
 const path = require("path");
 const { TsconfigPathsPlugin } = require("tsconfig-paths-webpack-plugin");
 
+
 module.exports = {
   mode: "production",
   entry: "./src/index.ts",
@@ -27,7 +28,7 @@ module.exports = {
       {
         test: /\.(ts|tsx)?$/,
         use: ["ts-loader"],
-        exclude: /node_modules/
+        exclude: /node_modules/,
       },
       {
         test: /\.s[ac]ss$/i,

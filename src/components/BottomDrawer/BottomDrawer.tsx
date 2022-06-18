@@ -1,13 +1,12 @@
-import _ from "lodash";
+import debounce from "lodash/debounce";
 import { useSwipeable } from "react-swipeable";
 import { Transition } from "react-transition-group";
-import useKeyDown from "@utils/hooks/useKeyDown";
 import usePreventScroll from "@utils/hooks/usePreventScroll";
-import { BackdropStyles, TransitionStyles } from "./BottomDrawerStyles";
-import useApplyBottomDrawerStyles from "./useApplyBottomDrawerStyles";
-import { Key } from "ts-keycode-enum";
+import { TransitionStyles } from "./BottomDrawerStyles";
 import clsx from "clsx";
-import React, { FC, useRef, useState } from "react";
+import React, { FC, useState } from "react";
+import "./BottomDrawer.scss";
+import Backdrop from "@components/Backdrop/Backdrop";
 
 export interface IBottomDrawerProps {
   /**
@@ -35,6 +34,9 @@ export interface IBottomDrawerProps {
   backdropClassname?: string;
 }
 
+/**
+ * This component creates a bottom curtain for mobile devices. 
+ */
 const BottomDrawer: FC<IBottomDrawerProps> = ({
   open,
   children,
@@ -43,17 +45,12 @@ const BottomDrawer: FC<IBottomDrawerProps> = ({
   mountOnEnter = true,
   duration = 250,
   hideScrollbars = false,
-  className = "",
 }) => {
-  const classNames = useApplyBottomDrawerStyles(duration, hideScrollbars);
-  const nodeRef = useRef(null);
-
-  useKeyDown(onClose, Key.Escape, open);
-  usePreventScroll(open, classNames.contentWrapper);
+  usePreventScroll(open, "BottomDrawer-content");
 
   const [currentDeltaY, setDeltaY] = useState(0);
   const swipeHandlers = useSwipeable({
-    onSwipedDown: _.debounce(
+    onSwipedDown: debounce(
       ({ velocity }) => {
         setDeltaY(0);
 
@@ -81,60 +78,39 @@ const BottomDrawer: FC<IBottomDrawerProps> = ({
   };
 
   return (
-    <>
-      <Transition
-        appear={true}
-        in={open}
-        timeout={{ appear: 0, enter: 0, exit: duration }}
-        unmountOnExit={unmountOnExit}
-        mountOnEnter={mountOnEnter}
-        nodeRef={nodeRef}
-      >
-        {(state) => (
-          <div ref={nodeRef}>
+    <Transition
+      in={open}
+      appear={true}
+      timeout={{ appear: 0, enter: 0, exit: duration }}
+      unmountOnExit={unmountOnExit}
+      mountOnEnter={mountOnEnter}
+    >
+      {(state) => (
+        <div className="BottomDrawer" {...swipeHandlers}>
+          <Backdrop open={open} onClick={onClose} />
+
+          <div
+            className="BottomDrawer-curtain"
+            style={{
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              ...(TransitionStyles as any)[state],
+              ...getTransforms(),
+            }}
+          >
+            <div className="BottomDrawer-handle" />
+
             <div
-              onClick={onClose}
               className={clsx(
-                className && `${className}__backdrop`,
-                classNames.backdrop
+                "BottomDrawer-content",
+                hideScrollbars && "BottomDrawer-content-hide-scrollbars"
               )}
-              // @ts-ignore
-              style={BackdropStyles[state]}
-            />
-            <div
-              className={clsx(className, classNames.drawer)}
-              style={{
-                ...(TransitionStyles as any)[state],
-                ...getTransforms(),
-              }}
             >
-              <div
-                {...swipeHandlers}
-                className={clsx(
-                  className && `${className}__handle-wrapper`,
-                  classNames.handleWrapper
-                )}
-              >
-                <div
-                  className={clsx(
-                    className && `${className}__handle`,
-                    classNames.handle
-                  )}
-                />
-              </div>
-              <div
-                className={clsx(
-                  className && `${className}__content`,
-                  classNames.contentWrapper
-                )}
-              >
-                {children}
-              </div>
+              <div className="BottomDrawer-content-inner">{children}</div>
             </div>
           </div>
-        )}
-      </Transition>
-    </>
+        </div>
+      )}
+    </Transition>
   );
 };
 

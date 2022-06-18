@@ -2,20 +2,82 @@ import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import Spinner from "../Spinner";
+import Button from "@components/Button";
+import { Container, Row, Column } from "@components/Grid";
 
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "Компоненты/Spinner/Playground",
+  title: "Components/Spinner",
   component: Spinner,
-  // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
 } as ComponentMeta<typeof Spinner>;
 
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof Spinner> = (args) => <Spinner {...args} />;
+const PlaygroundTemplate: ComponentStory<typeof Spinner> = (args) => (
+  <Spinner {...args} />
+);
 
-export const Playground = Template.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
+export const Playground = PlaygroundTemplate.bind({});
 Playground.args = {
   color: "primary",
   mode: "growing",
+};
+
+const SizeTemplate = () => {
+  return (
+    <div style={{display: "flex", flexDirection: "column", gap: "1rem"}}>
+      <div style={{ display: "flex", gap: "0.25rem" }}>
+        <Spinner color="primary" size="xl" />
+        <Spinner color="primary" size="lg" />
+        <Spinner color="primary" size="md" />
+        <Spinner color="primary" size="sm" />
+        <Spinner color="primary" size="xs" />
+      </div>
+
+      <div style={{ display: "flex", gap: "0.25rem" }}>
+        <Spinner mode="border" color="primary" size="xl" />
+        <Spinner mode="border" color="primary" size="lg" />
+        <Spinner mode="border" color="primary" size="md" />
+        <Spinner mode="border" color="primary" size="sm" />
+        <Spinner mode="border" color="primary" size="xs" />
+      </div>
+    </div>
+  );
+};
+
+export const Size = SizeTemplate.bind({});
+
+const ButtonsTempalate: ComponentStory<typeof Spinner> = () => {
+  return (
+    <div style={{ display: "flex", gap: "0.25rem" }}>
+      <Button
+        view="action"
+        contentLeft={
+          <>
+            <Spinner size="xs" mode="border" color="#fff" />
+          </>
+        }
+      >
+        Loading...
+      </Button>
+      <Button
+        view="action"
+        contentLeft={
+          <>
+            <Spinner size="sm" mode="growing" color="#fff" />
+          </>
+        }
+      >
+        Loading...
+      </Button>
+    </div>
+  );
+};
+
+export const Buttons = ButtonsTempalate.bind({});
+// @ts-ignore
+Buttons.parameters = {
+  docs: {
+    description: {
+      story:
+        "Use spinners within buttons to indicate an action is currently processing or taking place. You may also swap the text out of the spinner element and utilize button text as needed.",
+    },
+  },
 };

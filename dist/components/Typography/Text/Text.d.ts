@@ -5,46 +5,48 @@ export declare type TextOverflowValue = "fade" | "ellipsis" | "fade-horizontal";
 export declare type TextTypographyValue = "display-xl" | "display-lg" | "display-md" | "display-sm" | "headline-xl" | "headline-lg" | "headline-sm" | "headline-xs" | "headline-md" | "subheader-xl" | "subheader-lg" | "subheader-md" | "subheader-sm" | "body-short-xl" | "body-short-lg" | "body-short-md" | "body-short-sm" | "body-long-xl" | "body-long-lg" | "body-long-md" | "body-long-sm" | "caption-xl" | "caption-lg" | "caption-md" | "overline-lg" | "overline-md" | "overline-sm" | "control-xxs" | "control-xs" | "control-sm" | "control-lg" | "control-xl" | "control-md" | "control-xxl";
 export interface TextProps {
     /**
-     * Тип элемента для отображения как (строка или компонент).
+     * Type of element to display as (string or component).
      */
     as?: ElementType;
     /**
-     * Основной контент
+     * Main content
      */
     children?: ReactNode;
     /**
-     * Дополнительный класс
+     * Additional class
      */
     className?: string;
     /**
-     * Задает выравнивание текста в компоненте.
+     * Sets the alignment of the text in the component.
      */
     align?: TextAlignValue;
     /**
-     * Задает отображение переполненного текста
+     * Sets the display of overflow text
      */
     overflow?: TextOverflowValue;
     /**
-     * Максимальное количество строк текста (работает в связке с overflow)
+     * Maximum number of lines of text (works in conjunction with overflow)
      */
     maxLines?: number;
     /**
-     * Дополнительные стили
+     * Additional styles
      */
     style?: CSSProperties;
     /**
-     * Цвет текста
+     * Text color
      */
-    color?: string;
+    color: string;
     /**
-     * Задает типографику текста в компоненте.
+     * Sets the typography of the text in the component.
      */
     typography?: TextTypographyValue;
+    /**
+     * Sets the weigth of the text in the component.
+     */
     weight?: "bold" | "light" | "medium" | "regular";
 }
 /**
- * Базовый примитив представления текстовых данных.
- * @param { TextProps }  props
+ * A basic primitive for representing textual data.
  */
 export declare class Text extends PureComponent<TextProps> {
     private static getLineHeight;

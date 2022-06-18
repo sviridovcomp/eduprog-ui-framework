@@ -1,58 +1,122 @@
-import React from "react";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
-
+import Button from "@components/Button";
+import Input from "@components/Inputs/Input/Input";
+import InputPassword from "@components/Inputs/InputPassword/InputPassword";
+import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
+import { ComponentMeta, ComponentStory } from "@storybook/react";
+import React, { useState } from "react";
 import BottomDrawer from "../BottomDrawer";
 
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "Компоненты/BottomDrawer/Playground",
+  title: "Components/BottomDrawer",
   component: BottomDrawer,
-  // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
+  parameters: {
+    viewport: {
+      viewports: INITIAL_VIEWPORTS,
+      defaultViewport: "iphone6",
+    },
+  },
 } as ComponentMeta<typeof BottomDrawer>;
 
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof BottomDrawer> = (args) => (
-  <BottomDrawer {...args} />
-);
+const PlaygroundTemplate: ComponentStory<typeof BottomDrawer> = (props) => {
+  const [open, setOpen] = useState(false);
 
-export const Playground = Template.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
-Playground.args = {
-  children: (
-    <div>
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officia, fugit
-      distinctio? Nostrum eligendi possimus ducimus quidem similique, blanditiis
-      labore. Aperiam quis libero id nulla ducimus, accusantium quidem earum
-      repellat nam assumenda architecto, ipsa distinctio consequatur temporibus
-      rem a nemo ex ratione modi iste expedita iusto numquam? Molestias officiis
-      quidem perspiciatis excepturi, hic exercitationem provident beatae
-      deleniti quod nobis tenetur voluptatum numquam dicta officia accusantium.
-      Impedit, quod consequatur facilis asperiores, veritatis perferendis
-      voluptate excepturi dolorem non quos vero iste reiciendis velit aliquam?
-      Soluta quos dicta cupiditate adipisci aspernatur saepe iusto non rerum
-      qui, quas ab cumque dolorum nulla molestias, fuga, et ipsa vel.
-      Exercitationem temporibus provident voluptatem, sapiente laborum
-      dignissimos ipsam id ex veritatis quisquam aut, officiis nemo quis
-      voluptatibus? Expedita excepturi sequi nemo temporibus at nesciunt.
-      Explicabo, repudiandae nobis iste ullam fuga quod et ratione suscipit
-      possimus sunt? Nesciunt praesentium repellendus provident. Laudantium quas
-      reprehenderit earum fugiat eius dignissimos, vero sit eligendi. Molestias
-      aliquam hic dolores nemo officiis, doloribus sequi, voluptates cumque quia
-      distinctio possimus officia fuga quasi! Consequatur odit officia quae
-      temporibus voluptas vero sapiente sunt corporis, eaque fugit nulla
-      deserunt exercitationem ab dolor sed atque dicta neque inventore veritatis
-      doloremque? Laudantium nobis temporibus sequi quo vitae praesentium eius
-      totam repellendus et dolorum repudiandae minima, commodi, magni
-      consectetur odio facilis dolore debitis, ab doloribus saepe. Nemo,
-      perspiciatis quam neque animi voluptates repellat pariatur autem eaque
-      exercitationem iusto architecto incidunt, maxime natus itaque eveniet!
-      Aspernatur cumque accusamus pariatur sequi iste temporibus! At ut itaque
-      ea quasi officiis voluptate, dolore fuga dignissimos mollitia nulla culpa,
-      perferendis qui fugiat architecto velit, tempora ipsam alias! Earum,
-      tenetur laborum! Debitis facilis quasi at placeat, cupiditate optio maxime
-      ipsam adipisci eos, consectetur saepe minus earum cumque excepturi.
-      Accusamus aut sed voluptatem amet tempora, nam consequuntur ut quae? Ab
-      eaque iusto necessitatibus eius quod, tenetur in.
-    </div>
-  ),
+  return (
+    <>
+      <Button onClick={() => setOpen(!open)}>Open Bottom Drawer</Button>
+
+      <BottomDrawer
+        {...props}
+        open={open}
+        onClose={() => {
+          setOpen(false);
+        }}
+      >
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea impedit
+        tenetur blanditiis dolorem temporibus est quasi laborum facere labore,
+        iusto eaque eius alias vero voluptatum aliquid aspernatur voluptatibus
+        dignissimos adipisci expedita, recusandae quisquam. Odit distinctio
+        voluptatum pariatur quia, tempore tenetur. Qui modi animi atque eligendi
+        voluptate autem distinctio repellendus voluptas soluta provident
+        similique est reiciendis assumenda error molestias molestiae, recusandae
+        amet doloribus, dicta ducimus. Debitis nobis amet nulla, eaque totam
+        esse deserunt consequuntur quasi eos facere aut doloremque corrupti, et
+        dolorem recusandae accusamus soluta est sint ut, magnam voluptate odit.
+        Omnis nihil vero perferendis iste aliquam vel ipsum quas autem numquam
+        ab consequuntur molestias ipsam in perspiciatis sapiente maiores iusto
+        ipsa culpa, eius non libero exercitationem consectetur minima.
+        Necessitatibus in consectetur maiores a iure magni veniam placeat cumque
+        pariatur. Enim impedit alias soluta nam exercitationem doloremque quod
+        quia esse nihil! Dicta sint tempore unde cupiditate qui inventore libero
+        quasi rerum, in rem accusamus magnam quam eligendi, numquam ipsa minima
+        eum, soluta natus consectetur! Perspiciatis provident quaerat adipisci
+        recusandae in cum sapiente assumenda dolores dignissimos facere repellat
+        illo officiis, soluta vero, cupiditate architecto illum ea possimus
+        quae. Deleniti dignissimos, atque in exercitationem, labore a eligendi
+        nulla ea, esse totam incidunt beatae! Qui, totam id. Molestiae
+        accusantium veniam enim quia explicabo repudiandae commodi ipsum,
+        facilis sint, corporis tenetur tempore? Repellendus iste qui id amet
+        distinctio, voluptatibus sed quod voluptates ab, facilis expedita unde
+        quos, earum quo similique? Aspernatur optio sunt commodi error, quaerat
+        itaque aut veritatis perferendis blanditiis tenetur at deleniti.
+        Quibusdam rem omnis nesciunt qui excepturi quam tempora repellat? Fugit
+        repudiandae quas debitis voluptatibus excepturi corrupti odio velit
+        illum distinctio, adipisci architecto unde harum at vel et doloremque?
+        Iusto possimus aliquid alias quaerat eaque porro, non fugit? Sunt culpa
+        deserunt ipsam dolorum veritatis, incidunt nobis ullam voluptatum
+        aliquid est ea corporis?
+      </BottomDrawer>
+    </>
+  );
 };
+
+export const Playground = PlaygroundTemplate.bind({});
+
+const MobileFormTemplate: ComponentStory<typeof BottomDrawer> = (props) => {
+  interface IForm {
+    login: string;
+    password: string;
+  }
+  const [open, setOpen] = useState(false);
+  const [form, setForm] = useState<IForm>({ login: "", password: "" });
+
+  return (
+    <>
+      <Button onClick={() => setOpen(!open)}>Open Bottom Drawer</Button>
+
+      <BottomDrawer
+        {...props}
+        open={open}
+        onClose={() => {
+          setOpen(false);
+        }}
+      >
+        <form
+          style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}
+          onSubmit={(event) => {
+            event.preventDefault();
+            alert(JSON.stringify(form));
+            setOpen(false);
+          }}
+        >
+          <Input
+            label="login"
+            defaultValue={form.login}
+            onChange={(value: string) => setForm({ ...form, login: value })}
+          />
+
+          <InputPassword
+            label="password"
+            defaultValue={form.password}
+            onChange={(value: string) => setForm({ ...form, password: value })}
+          />
+
+          <Button type="submit" view="action" size="xl" width="available">
+            Sign in
+          </Button>
+        </form>
+      </BottomDrawer>
+    </>
+  );
+};
+
+export const MobileForm = MobileFormTemplate.bind({});

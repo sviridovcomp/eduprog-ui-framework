@@ -1,11 +1,10 @@
-/// <reference types="react" />
 export declare type defaultProps = {
     /**
-     * Дополнительный класс
+     * Additional class
      */
     className?: string;
     /**
-     * Дополнительные стили
+     * Additional styles
      */
     style?: React.CSSProperties;
 };

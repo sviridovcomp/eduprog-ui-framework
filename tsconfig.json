@@ -22,6 +22,10 @@
     "jsx": "react",
     "rootDir": "./src",
     "outDir": "./dist/",
+    "types": [
+      "jest",
+      "mdx",
+    ],
     "baseUrl": ".",
     "paths": {
       "@common/*": [
@@ -47,6 +51,6 @@
   "exclude": [
     "dist",
     "node_modules",
-    "**/*.stories.ts "
+    "**/*.stories.ts"
   ]
 }

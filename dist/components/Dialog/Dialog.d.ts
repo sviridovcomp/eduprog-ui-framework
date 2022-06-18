@@ -2,36 +2,32 @@ import React, { FC } from "react";
 import "./Dialog.scss";
 export declare type DialogPropsType = {
     /**
-     * Заголовок диалога
+     * Headline
      */
     label?: string;
     /**
-     * Контент диалога
-     */
-    children: React.ReactNode;
-    /**
-     * Размер диалога
+     * Size
      */
     size: "xs" | "sm" | "md" | "lg" | "xl" | "fluid" | "page";
     /**
-     * Открыт ли диалог
+     * Makes the dialog visible
      */
     open?: boolean;
     /**
-     * Событие вызываемое при закрытии диалога
+     * Event triggered by closing the dialog
      */
     onClose?: () => void;
     /**
-     * Вертикальное выравнивание
+     * Vertical alignment
      */
     verticalAlign?: "top" | "center";
     /**
-     * Стили диалога
+     * Styles of dialog
      */
     style?: React.CSSProperties;
 };
 /**
- * Компонент реализующий всплывающие диалоги
+ * Component to creating dialog windows
  */
 declare const Dialog: FC<DialogPropsType>;
 export default Dialog;

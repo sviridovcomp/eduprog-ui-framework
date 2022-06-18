@@ -1,27 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import Expand from "../Expand";
+import Button from "@components/Button";
 
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "Компоненты/Expand/Playground",
+  title: "Components/Expand",
   component: Expand,
-  // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
 } as ComponentMeta<typeof Expand>;
 
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof Expand> = (args) => <Expand {...args} />;
+const Template: ComponentStory<typeof Expand> = (args) => {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div>
+      <Button onClick={() => setOpen(!open)}>Open</Button>
+
+      <Expand open={open} {...args}></Expand>
+    </div>
+  );
+};
 
 export const Playground = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Playground.args = {
   children: (
-    <div>
+    <p style={{ color: "#fff", fontFamily: "Nunito" }}>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur
       consequatur dicta earum enim, fugiat hic impedit ipsam ipsum itaque
       laudantium modi nihil numquam, omnis, perferendis quasi recusandae
       reprehenderit temporibus voluptates!
-    </div>
+    </p>
   ),
 };

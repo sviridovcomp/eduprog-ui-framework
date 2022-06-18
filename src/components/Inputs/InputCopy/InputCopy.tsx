@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import BaseInput, { TextInputProps } from "../BaseInput/BaseInput";
 import "./InputCopy.scss";
 import clsx from "clsx";
@@ -29,7 +29,7 @@ export type InputCopyPropsType = TextInputProps & {
 };
 
 /**
- * InputCopy позволяет пользователю копировать текст текстового поля
+ * InputCopy alows user to copy a text of textfield
  */
 const InputCopy: FC<InputCopyPropsType> = ({
   label,
@@ -48,7 +48,7 @@ const InputCopy: FC<InputCopyPropsType> = ({
     setValue(value);
 
     if (onChange && event) {
-      onChange(value, event);
+      onChange(value);
     }
   };
 
