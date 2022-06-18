@@ -2,19 +2,19 @@ import { FC } from "react";
 import "./BottomDrawer.scss";
 export interface IBottomDrawerProps {
     /**
-     * Открыт ли BottomDrawer
+     * Is BottomDrawer visible
      */
     open: boolean;
     /**
-     * Колбэк, вызываемый при закрытии BottomDrawer
+     * onClose callback handler
      */
     onClose: () => void;
     /**
-     * Продолжительность анимация BottomDrawer
+     * Animation duration in BottomDrawer
      */
     duration?: number;
     /**
-     * Спрятать скроллбары
+     * Hide scrollbars
      */
     hideScrollbars?: boolean;
     unmountOnExit?: boolean;
