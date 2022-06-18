@@ -100,6 +100,7 @@ export declare type TextInputProps = defaultProps & {
      * Validating a textfield
      */
     validators?: ITextInputValidator;
+    size?: "md" | "xl";
     controlRef?: React.Ref<HTMLInputElement>;
 };
 declare const BaseInput: FC<TextInputProps>;

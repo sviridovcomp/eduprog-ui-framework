@@ -24,14 +24,32 @@
     top: 50%;
     transform: translate(0, -50%);
     left: 1rem;
-    font-size: 1.5rem;
     pointer-events: none;
     transition: all $transition-duration $transition-type;
     user-select: none;
 
+    &.Input-size {
+      &_md {
+        font-size: 1rem;
+      }
+
+      &_xl {
+        font-size: 1.5rem;
+      }
+    }
+
     &-active {
       top: 1rem;
-      font-size: 1rem;
+
+      &.Input-size {
+        &_md {
+          font-size: 0.8125rem;
+        }
+
+        &_xl {
+          font-size: 1rem;
+        }
+      }
 
       &.input-label-invalid {
         color: #e31c1c;
@@ -60,7 +78,7 @@
       background-color: $color-invalid;
 
       &:hover {
-        background-color: $color-invalid-hover!important;
+        background-color: $color-invalid-hover !important;
       }
     }
 
@@ -109,5 +127,4 @@
     transform: translateY(-50%);
     right: 1rem;
   }
-  
 }
