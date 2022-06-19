@@ -3,6 +3,8 @@
 .checkbox {
   display: inline-block;
   box-sizing: border-box;
+  font-family: var(--ep-font-family);
+  color: var(--ep-text-color);
 
   &-fullwidth_available {
     width: 100%;

@@ -19,7 +19,6 @@ Playground.args = {
   as: "h1",
   children:
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui corporis maiores itaque saepe possimus autem pariatur, dignissimos laboriosam alias quis, voluptatum deleniti culpa, numquam officiis? Totam enim voluptatibus quibusdam hic.",
-  color: "#ffffff",
 };
 
 const OverflowTemplate: ComponentStory<typeof Text> = (args) => (
@@ -33,7 +32,6 @@ Overflow.args = {
   overflow: "ellipsis",
   typography: "display-xl",
   maxLines: 1,
-  color: "#ffffff",
 };
 
 const OverflowFadeTemplate: ComponentStory<typeof Text> = (args) => (
@@ -47,7 +45,6 @@ OverflowFade.args = {
   overflow: "fade",
   typography: "display-xl",
   maxLines: 1,
-  color: "#ffffff",
 };
 
 const AlignTemplate: ComponentStory<typeof Text> = (args) => {
@@ -65,7 +62,6 @@ Align.args = {
   children: "Headline",
   typography: "display-xl",
   maxLines: 1,
-  color: "#ffffff",
 };
 
 const WeightTemplate: ComponentStory<typeof Text> = (args) => {
@@ -84,5 +80,4 @@ Weigth.args = {
   children: "Headline",
   typography: "display-xl",
   maxLines: 1,
-  color: "#ffffff",
 };

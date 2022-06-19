@@ -4,20 +4,22 @@
   display: flex;
   overflow: hidden;
   border-radius: 0.25rem;
+  color: var(--ep-text-color);
+  font-family: var(--ep-font-family);
 
   &-item {
     display: flex;
     align-items: center;
     gap: 0.5rem;
     justify-content: center;
-    background-color: $color-platinum;
+    background-color: var(--ep-item);
     cursor: pointer;
     user-select: none;
     transition: background 0.25s ease-in-out;
     height: 3.85rem;
 
     &-selected {
-      background-color: darken($color-platinum, 10%);
+      background-color: var(--ep-item-hovered);
     }
   }
 }

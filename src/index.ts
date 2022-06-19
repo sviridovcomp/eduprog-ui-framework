@@ -27,11 +27,12 @@ import TabsWithCheckboxes from "@components/Tabs/TabsWithCheckboxes/TabsWithChec
 import { TabsValue } from "@components/Tabs/TabsTypes";
 import BottomDrawer from "@components/BottomDrawer/BottomDrawer";
 import FullScreenSlider from "@components/FullScreenSlider/FullScreenSlider";
+import "./styles/themes/eduprogTheme.scss";
+
 
 import { useClickAway, ClickAwayListener } from "@utils/hooks/useClickAway";
 import useKeyDown from "@utils/hooks/useKeyDown";
 import usePreventScroll from "@utils/hooks/usePreventScroll";
-import "./styles/themes/eduprogTheme.scss";
 
 export {
   Button,
@@ -70,3 +71,5 @@ export {
   usePreventScroll,
 };
 export type { TabsValue };
+
+

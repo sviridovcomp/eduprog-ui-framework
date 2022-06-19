@@ -65,7 +65,7 @@ const Avatar: FC<AvatarPropsType> = ({
       style={{
         backgroundColor: autoColor
           ? colors[Math.floor(Math.random() * colors.length)]
-          : "grey",
+          : "var(--ep-avatar-background)",
       }}
     >
       {avatarUrl && (

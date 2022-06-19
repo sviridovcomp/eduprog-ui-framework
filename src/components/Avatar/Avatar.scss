@@ -13,10 +13,9 @@
   overflow: hidden;
   justify-content: center;
   align-items: center;
-  background-color: var(--);
 
   &-text {
-    color: $color-background;
+    color: var(--ep-text-color);
   }
 
   &-img {
