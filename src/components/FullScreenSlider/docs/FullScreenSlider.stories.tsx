@@ -1,12 +1,19 @@
 import React, { useState } from "react";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { ComponentMeta } from "@storybook/react";
 
 import FullScreenSlider from "../FullScreenSlider";
 import Button from "@components/Button";
+import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
 
 export default {
   title: "Components/FullScreenSlider",
   component: FullScreenSlider,
+  parameters: {
+    viewport: {
+      viewports: INITIAL_VIEWPORTS,
+      defaultViewport: "iphone6",
+    },
+  },
 } as ComponentMeta<typeof FullScreenSlider>;
 
 const PlaygroundTemplate = () => {

@@ -100,6 +100,7 @@ export declare type TextInputProps = defaultProps & {
      * Validating a textfield
      */
     validators?: ITextInputValidator;
+    size?: "md" | "xl";
     /**
      * onPointerDown callback handler
      */
@@ -112,6 +113,10 @@ export declare type TextInputProps = defaultProps & {
      * onPointerLeave callback handler
      */
     onPointerLeave?: (event?: React.MouseEvent) => void;
+    /**
+     * Ref to `input`
+     */
+    controlRef?: React.Ref<HTMLInputElement>;
 };
 declare const BaseInput: FC<TextInputProps>;
 export default BaseInput;

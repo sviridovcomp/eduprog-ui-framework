@@ -129,6 +129,8 @@ export type TextInputProps = defaultProps & {
    */
   validators?: ITextInputValidator;
 
+  size?: "md" | "xl";
+
   /**
    * onPointerDown callback handler
    */
@@ -178,6 +180,7 @@ const BaseInput: FC<TextInputProps> = ({
   validators,
   style,
   controlRef,
+  size = "md",
 }) => {
   enum ValidityStatus {
     Invalid,
@@ -238,11 +241,15 @@ const BaseInput: FC<TextInputProps> = ({
     <>
       <div className="input">
         <div
-          className={clsx("input-label", {
-            "input-label-active": forceFocus || active || defaultValue,
-            "input-label-invalid":
-              validationStatus == ValidityStatus.Invalid || forceInvalid,
-          })}
+          className={clsx(
+            "input-label",
+            { [`Input-size_${size}`]: size },
+            {
+              "input-label-active": forceFocus || active || defaultValue,
+              "input-label-invalid":
+                validationStatus == ValidityStatus.Invalid || forceInvalid,
+            }
+          )}
         >
           {label}
         </div>

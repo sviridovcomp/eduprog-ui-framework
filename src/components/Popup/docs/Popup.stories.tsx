@@ -48,9 +48,7 @@ Playground.args = {
       <Input label="login:" />
       <InputPassword label="password:" />
 
-      <Button size="xl" view="action">
-        Привет
-      </Button>
+      <Button view="action">Sign up</Button>
     </div>
   ),
 };
