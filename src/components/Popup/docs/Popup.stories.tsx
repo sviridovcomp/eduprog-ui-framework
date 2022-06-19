@@ -17,6 +17,8 @@ export default {
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: ComponentStory<typeof Popup> = (args) => {
+  const [login, setLogin] = useState("");
+  const [password, setPassword] = useState("");
   const [open, setOpen] = useState(false);
 
   return (
@@ -24,7 +26,34 @@ const Template: ComponentStory<typeof Popup> = (args) => {
       <span>
         <Button onClick={() => setOpen(!open)}>Sign in</Button>
         <div>
-          <Popup {...args} open={open} />
+          <Popup {...args} open={open}>
+            <div
+              style={{
+                padding: "1rem",
+                width: 200,
+                display: "flex",
+                flexDirection: "column",
+                gap: "0.5rem",
+              }}
+            >
+              <Input
+                defaultValue={login}
+                onChange={(value: string) => {
+                  setLogin(value);
+                }}
+                label="login:"
+              />
+              <InputPassword
+                defaultValue={password}
+                onChange={(value: string) => {
+                  setPassword(value);
+                }}
+                label="password:"
+              />
+
+              <Button view="action">Sign up</Button>
+            </div>
+          </Popup>
         </div>
       </span>
     </ClickAwayListener>
@@ -35,20 +64,4 @@ export const Playground = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Playground.args = {
   wrapperClassName: "StoryPopup",
-  children: (
-    <div
-      style={{
-        padding: "1rem",
-        width: 200,
-        display: "flex",
-        flexDirection: "column",
-        gap: "0.5rem",
-      }}
-    >
-      <Input label="login:" />
-      <InputPassword label="password:" />
-
-      <Button view="action">Sign up</Button>
-    </div>
-  ),
 };
