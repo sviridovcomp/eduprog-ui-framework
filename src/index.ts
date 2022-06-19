@@ -33,6 +33,7 @@ import "./styles/themes/eduprogTheme.scss";
 import { useClickAway, ClickAwayListener } from "@utils/hooks/useClickAway";
 import useKeyDown from "@utils/hooks/useKeyDown";
 import usePreventScroll from "@utils/hooks/usePreventScroll";
+import { RadioBoxValueProps } from "@components/RadioBox";
 
 export {
   Button,
@@ -70,6 +71,7 @@ export {
   useKeyDown,
   usePreventScroll,
 };
-export type { TabsValue };
+export type { TabsValue, RadioBoxValueProps };
+
 
 
