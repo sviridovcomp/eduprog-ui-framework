@@ -1,3 +1,11 @@
+### [1.7.1](https://github.com/edu-prog/eduprog-ui-framework/compare/v1.7.0...v1.7.1) (2022-06-19)
+
+
+### 🔧 Fixes
+
+* add theme toggler ([2a582a0](https://github.com/edu-prog/eduprog-ui-framework/commit/2a582a0926e347e7b4213e2c66efcc293ed15268))
+* update Input sizing ([74c10c3](https://github.com/edu-prog/eduprog-ui-framework/commit/74c10c3b9a0716522bd4f198d2a7ec55629c116d))
+
 ## [1.7.0](https://github.com/edu-prog/eduprog-ui-framework/compare/v1.6.0...v1.7.0) (2022-06-19)
 
 
