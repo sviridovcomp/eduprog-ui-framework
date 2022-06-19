@@ -14,6 +14,7 @@ module.exports = {
     "@storybook/addon-actions",
     "@storybook/addon-a11y",
     "storybook-addon-performance/register",
+    "storybook-theme-toggle"
   ],
   core: {
     builder: "webpack5",

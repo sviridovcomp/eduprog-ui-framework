@@ -80,6 +80,7 @@
     "storybook-addon-performance": "^0.16.1",
     "storybook-dark-mode": "^1.0.9",
     "storybook-react-i18next": "^1.0.20",
+    "storybook-theme-toggle": "^0.1.2",
     "style-loader": "^3.3.1",
     "ts-jest": "^27.1.4",
     "ts-keycode-enum": "^1.0.6",

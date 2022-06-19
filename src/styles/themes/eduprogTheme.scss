@@ -5,7 +5,7 @@ html {
   --ep-color-primary: #{$color-primary};
   --ep-color-secondary: #{$color-secondary};
 
-  &[data-theme="light"] {
+  &[data-color-theme="light"] {
     --ep-background-color: #fff;
     --ep-text-color: #000;
     --ep-item: #eceff1;
@@ -15,7 +15,7 @@ html {
     --ep-button-background-hovered: #dfe3f3;
   }
 
-  &[data-theme="dark"] {
+  &[data-color-theme="dark"] {
     --ep-background-color: #222;
     --ep-text-color: #fff;
     --ep-item: #545454;
