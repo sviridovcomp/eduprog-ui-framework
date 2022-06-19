@@ -1,14 +1,17 @@
 @import "~styles/variables/variables";
 
 .select {
+  color: var(--ep-text-color);
+
   &-item {
+    font-family: var(--ep-font-family);
     padding: 0.5rem;
     cursor: pointer;
     user-select: none;
     transition: background-color 0.1s ease;
 
     &:hover {
-      background-color: $color-platinum;
+      background-color: var(--ep-button-background-hovered);
     }
   }
 }

@@ -25,7 +25,7 @@ export const Playground = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Playground.args = {
   children: (
-    <p style={{ color: "#fff", fontFamily: "Nunito" }}>
+    <p>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur
       consequatur dicta earum enim, fugiat hic impedit ipsam ipsum itaque
       laudantium modi nihil numquam, omnis, perferendis quasi recusandae

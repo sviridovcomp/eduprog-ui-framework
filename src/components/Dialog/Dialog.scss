@@ -9,6 +9,8 @@
   position: fixed;
   left: 0;
   top: 0rem;
+  font-family: var(--ep-font-family);
+  color: var(--ep-text-color);
 
   &-align {
     &_top {
@@ -29,7 +31,7 @@
     position: fixed;
     justify-content: space-between;
     width: 100%;
-    background-color: #ffffff;
+    background-color: var(--ep-background-color);
     flex-direction: column;
     transition: max-height $transition-duration
       cubic-bezier(0.25, 0.46, 0.45, 0.94);

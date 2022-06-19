@@ -35,7 +35,7 @@ export interface IBottomDrawerProps {
 }
 
 /**
- * This component creates a bottom curtain for mobile devices. 
+ * This component creates a bottom curtain for mobile devices.
  */
 const BottomDrawer: FC<IBottomDrawerProps> = ({
   open,

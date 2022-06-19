@@ -13,5 +13,7 @@
 
   &-content {
     will-change: transform;
+    color: var(--ep-text-color);
+    font-family: var(--ep-font-family);
   }
 }

@@ -85,7 +85,7 @@ const InputPhone: FC<InputPhonePropsType> = ({
   ) => {
     const input = event?.target as HTMLInputElement;
     const inputValue = input.value.replace(/\D/g, "");
-
+    
     if (event?.key == "Backspace" && inputValue.length == 1) {
       setPhoneNumber("");
     }

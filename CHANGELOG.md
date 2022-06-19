@@ -1,3 +1,17 @@
+## [1.7.0](https://github.com/edu-prog/eduprog-ui-framework/compare/v1.6.0...v1.7.0) (2022-06-19)
+
+
+### 🔧 Fixes
+
+* fetch master ([1a0c42f](https://github.com/edu-prog/eduprog-ui-framework/commit/1a0c42f76dabd762a8d8ba6935352195985f7a8c))
+
+
+### 🧩 Features
+
+* add theming in ui-kit ([fe33397](https://github.com/edu-prog/eduprog-ui-framework/commit/fe333970b2888b2fb20c38e0262e7aac6c603767))
+* create theme config ([9a89ee7](https://github.com/edu-prog/eduprog-ui-framework/commit/9a89ee7d84a44b2b254f4ee39567ac67409e7758))
+* fix missing deps ([caa2dc0](https://github.com/edu-prog/eduprog-ui-framework/commit/caa2dc0abafbafe90209512ff8de9f4d7b596e2f))
+
 ### [1.4.1](https://github.com/edu-prog/eduprog-ui-framework/compare/v1.4.0...v1.4.1) (2022-06-16)
 
 
