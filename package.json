@@ -1,7 +1,7 @@
 {
   "name": "eduprog-ui",
   "homepage": "http://edu-prog.github.io/eduprog-ui-framework",
-  "version": "1.6.0",
+  "version": "1.4.1",
   "main": "./dist/index.js",
   "license": "Apache-2.0",
   "devDependencies": {
