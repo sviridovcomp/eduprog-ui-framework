@@ -10,22 +10,22 @@ import Backdrop from "@components/Backdrop/Backdrop";
 
 export interface IBottomDrawerProps {
   /**
-   * Открыт ли BottomDrawer
+   * Is BottomDrawer visible
    */
   open: boolean;
 
   /**
-   * Колбэк, вызываемый при закрытии BottomDrawer
+   * onClose callback handler
    */
   onClose: () => void;
 
   /**
-   * Продолжительность анимация BottomDrawer
+   * Animation duration in BottomDrawer
    */
   duration?: number;
 
   /**
-   * Спрятать скроллбары
+   * Hide scrollbars
    */
   hideScrollbars?: boolean;
   unmountOnExit?: boolean;
@@ -35,7 +35,7 @@ export interface IBottomDrawerProps {
 }
 
 /**
- * This component creates a bottom curtain for mobile devices. 
+ * This component creates a bottom curtain for mobile devices.
  */
 const BottomDrawer: FC<IBottomDrawerProps> = ({
   open,
