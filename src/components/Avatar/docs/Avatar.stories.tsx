@@ -2,10 +2,21 @@ import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import Avatar from "../Avatar";
+import { StorybookSizes } from "@utils/utils/common/storybook";
 
 export default {
   title: "Components/Avatar",
   component: Avatar,
+  argTypes: {
+    rounded: { control: "boolean" },
+    autoColor: { control: "boolean" },
+    avatarUrl: { control: "text" },
+    className: { control: "text" },
+    size: {
+      options: StorybookSizes(),
+      control: "select",
+    },
+  },
 } as ComponentMeta<typeof Avatar>;
 
 const PlaygroundTemplate: ComponentStory<typeof Avatar> = (args) => (

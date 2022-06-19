@@ -4,15 +4,21 @@ import { ComponentMeta, ComponentStory } from "@storybook/react";
 import Dialog from "../Dialog";
 import Button from "../../Button/Button";
 import Expand from "../../Expand/Expand";
+import { StorybookSizes } from "@utils/utils/common/storybook";
 
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
   title: "Components/Dialog",
   component: Dialog,
-  // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
+  argTypes: {
+    label: { control: "text" },
+    size: {
+      control: "select",
+      options: [...StorybookSizes(), "fluid", "page"],
+    },
+    open: { control: "boolean" },
+    verticalAlign: { options: ["top", "center"] },
+  },
 } as ComponentMeta<typeof Dialog>;
-
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 
 const PlaygroundTemplate: ComponentStory<typeof Dialog> = (args) => {
   const [open, setOpen] = useState(false);

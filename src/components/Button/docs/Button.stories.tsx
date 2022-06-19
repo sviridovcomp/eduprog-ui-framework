@@ -3,11 +3,35 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import Button from "../Button";
 import CarouselButton from "@components/Carousel/CarouselButton/CarouselButton";
+import { StorybookSizes } from "@utils/utils/common/storybook";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
   title: "Components/Button",
   component: Button,
+  argTypes: {
+    width: {
+      control: "radio",
+      options: ["auto", "available"],
+    },
+    name: { control: "text" },
+    view: {
+      control: "select",
+      options: [
+        "default",
+        "action",
+        "link",
+        "pseudo",
+        "clear",
+        "raised",
+        "accent",
+      ],
+    },
+    size: {
+      control: "select",
+      options: StorybookSizes(),
+    },
+  },
 
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
 } as ComponentMeta<typeof Button>;

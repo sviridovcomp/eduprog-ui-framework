@@ -19,4 +19,22 @@ export const parameters = {
   viewport: {
     viewports: INITIAL_VIEWPORTS,
   },
+  theme: {
+    default: 'light',
+    selector: 'body',
+    themes: [
+      {
+        id: 'light',
+        title: 'Light',
+        class: 'light',
+        color: '#fff',
+      },
+      {
+        id: 'dark',
+        title: 'Dark',
+        class: 'dark',
+        color: '#000',
+      },
+    ],
+  }
 };

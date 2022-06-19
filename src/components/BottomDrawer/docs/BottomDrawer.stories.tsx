@@ -15,6 +15,14 @@ export default {
       defaultViewport: "iphone6",
     },
   },
+  argTypes: {
+    hideScrollbars: { control: "boolean" },
+    unmountOnExit: { control: "boolean" },
+    mountOnEnter: { control: "boolean" },
+    duration: { control: "number" },
+    className: { control: "text" },
+    backdropClassname: { contol: "text" },
+  },
 } as ComponentMeta<typeof BottomDrawer>;
 
 const PlaygroundTemplate: ComponentStory<typeof BottomDrawer> = (props) => {
