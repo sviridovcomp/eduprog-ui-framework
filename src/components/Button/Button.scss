@@ -68,7 +68,12 @@
 
   &-view {
     &_default {
-      background-color: $color-lightgray;
+      color: var(--ep-text-color);
+      background-color: var(--ep-button-background);
+      &.btn-clicked,
+      &:hover {
+        background-color: var(--ep-button-background-hovered);
+      }
     }
     &_action {
       background-color: $color-primary;
@@ -78,27 +83,21 @@
       }
 
       &.Button-disabled {
-        background-color: lighten($color: $color-primary, $amount: 25%);
-      }
-    }
-    &_default {
-      color: $color-text;
-      background-color: $color-lightgray;
-      &.btn-clicked,
-      &:hover {
-        background-color: darken($color-background, 20%);
+        background-color: lighten($color-primary, 25%);
       }
     }
     &_link {
       border: 1px solid $color-lightblue;
       color: $color-lightblue;
-      background-color: $color-background;
+      background-color: var(--ep-button-background);
       &:hover {
-        background-color: lighten($color-lightblue, 21%);
+        background-color: var(--ep-button-background-hovered);
       }
     }
     &_pseudo {
-      border: 2px solid $color-gray;
+      background-color: transparent;
+      color: var(--ep-text-color);
+      border: 1px solid var(--ep-text-color);
     }
     &_clear {
       color: $color-darkgray;

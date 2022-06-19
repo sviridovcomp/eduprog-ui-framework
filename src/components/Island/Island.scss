@@ -9,6 +9,8 @@
   width: 100%;
   overflow: hidden;
   box-sizing: border-box;
+  background-color: var(--ep-background-color);
+  color: var(--ep-text-color);
 
   &-size {
     &_xs {

@@ -15,7 +15,7 @@
   align-items: center;
 
   &-text {
-    color: $color-background;
+    color: var(--ep-text-color);
   }
 
   &-img {

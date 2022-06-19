@@ -129,6 +129,24 @@ export type TextInputProps = defaultProps & {
    */
   validators?: ITextInputValidator;
 
+  /**
+   * onPointerDown callback handler
+   */
+  onPointerDown?: (event?: React.MouseEvent) => void;
+
+  /**
+   * onPointerUp callback handler
+   */
+  onPointerUp?: (event?: React.MouseEvent) => void;
+
+  /**
+   * onPointerLeave callback handler
+   */
+  onPointerLeave?: (event?: React.MouseEvent) => void;
+
+  /**
+   * Ref to `input`
+   */
   controlRef?: React.Ref<HTMLInputElement>;
 };
 
@@ -151,7 +169,6 @@ const BaseInput: FC<TextInputProps> = ({
   onPointerDown,
   onPointerUp,
   onPointerLeave,
-  onPointerMove,
   onFocus,
   onBlur,
   autoFocus = false,
@@ -252,7 +269,6 @@ const BaseInput: FC<TextInputProps> = ({
             onPointerDown={onPointerDown}
             onPointerUp={onPointerUp}
             onPointerLeave={onPointerLeave}
-            onPointerMove={onPointerMove}
             onChange={inputChange}
             onPaste={onPaste}
             onKeyDown={onKeyDown}

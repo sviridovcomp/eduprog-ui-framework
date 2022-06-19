@@ -1,22 +1,3 @@
-## [1.6.0](https://github.com/edu-prog/eduprog-ui-framework/compare/v1.5.0...v1.6.0) (2022-06-18)
-
-
-### 📚 Docs
-
-* update `BottomDrawer` docs. ([bb7f3ea](https://github.com/edu-prog/eduprog-ui-framework/commit/bb7f3ea21642d3e78d87a4694806f339c8dd081f))
-
-
-### 🧩 Features
-
-* create `RadioBox`, `Radio` components ([7c6e5b6](https://github.com/edu-prog/eduprog-ui-framework/commit/7c6e5b6b13d6c5295fb9cc6c6c31bf01c4c2153e))
-
-## [1.5.0](https://github.com/edu-prog/eduprog-ui-framework/compare/v1.4.1...v1.5.0) (2022-06-17)
-
-
-### 🧩 Features
-
-* create `Pagination` component ([7216334](https://github.com/edu-prog/eduprog-ui-framework/commit/7216334c7fb8893e36eabbebf56e3e2e1fa50539))
-
 ### [1.4.1](https://github.com/edu-prog/eduprog-ui-framework/compare/v1.4.0...v1.4.1) (2022-06-16)
 
 

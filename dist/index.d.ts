@@ -27,9 +27,8 @@ import TabsWithCheckboxes from "@components/Tabs/TabsWithCheckboxes/TabsWithChec
 import { TabsValue } from "@components/Tabs/TabsTypes";
 import BottomDrawer from "@components/BottomDrawer/BottomDrawer";
 import FullScreenSlider from "@components/FullScreenSlider/FullScreenSlider";
-import { RadioBoxValueProps, RadioBox, Radio } from "@components/RadioBox";
 import { useClickAway, ClickAwayListener } from "@utils/hooks/useClickAway";
 import useKeyDown from "@utils/hooks/useKeyDown";
 import usePreventScroll from "@utils/hooks/usePreventScroll";
-export { Button, Column, Container, Row, Expand, InputPhone, Menu, Dialog, Checkbox, Avatar, Island, Input, InputCount, InputCopy, InputPassword, Spinner, Switch, MultipleSelect, Notification, BaseInput, Select, Carousel, CarouselButton, Skeleton, TextSkeleton, Text, ToggleBlock, TabsWithCheckboxes, BottomDrawer, FullScreenSlider, useClickAway, ClickAwayListener, useKeyDown, usePreventScroll, RadioBox, Radio };
-export type { TabsValue, RadioBoxValueProps };
+export { Button, Column, Container, Row, Expand, InputPhone, Menu, Dialog, Checkbox, Avatar, Island, Input, InputCount, InputCopy, InputPassword, Spinner, Switch, MultipleSelect, Notification, BaseInput, Select, Carousel, CarouselButton, Skeleton, TextSkeleton, Text, ToggleBlock, TabsWithCheckboxes, BottomDrawer, FullScreenSlider, useClickAway, ClickAwayListener, useKeyDown, usePreventScroll, };
+export type { TabsValue };
