@@ -31,6 +31,7 @@ import FullScreenSlider from "@components/FullScreenSlider/FullScreenSlider";
 import { useClickAway, ClickAwayListener } from "@utils/hooks/useClickAway";
 import useKeyDown from "@utils/hooks/useKeyDown";
 import usePreventScroll from "@utils/hooks/usePreventScroll";
+import "./styles/themes/eduprogTheme.scss";
 
 export {
   Button,
