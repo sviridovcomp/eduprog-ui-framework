@@ -8,7 +8,7 @@ export declare type DialogPropsType = {
     /**
      * Size
      */
-    size: "xs" | "sm" | "md" | "lg" | "xl" | "fluid" | "page";
+    size?: "xs" | "sm" | "md" | "lg" | "xl" | "fluid" | "page";
     /**
      * Makes the dialog visible
      */
