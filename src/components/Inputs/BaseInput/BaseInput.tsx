@@ -129,20 +129,7 @@ export type TextInputProps = defaultProps & {
    */
   validators?: ITextInputValidator;
 
-  /**
-   * onPointerDown callback handler
-   */
-  onPointerDown?: (event?: React.MouseEvent) => void;
-
-  /**
-   * onPointerUp callback handler
-   */
-  onPointerUp?: (event?: React.MouseEvent) => void;
-
-  /**
-   * onPointerLeave callback handler
-   */
-  onPointerLeave?: (event?: React.MouseEvent) => void;
+  controlRef?: React.Ref<HTMLInputElement>;
 };
 
 const BaseInput: FC<TextInputProps> = ({
@@ -164,6 +151,7 @@ const BaseInput: FC<TextInputProps> = ({
   onPointerDown,
   onPointerUp,
   onPointerLeave,
+  onPointerMove,
   onFocus,
   onBlur,
   autoFocus = false,
@@ -172,6 +160,7 @@ const BaseInput: FC<TextInputProps> = ({
   forceInvalid = false,
   validators,
   style,
+  controlRef,
 }) => {
   enum ValidityStatus {
     Invalid,
@@ -222,39 +211,9 @@ const BaseInput: FC<TextInputProps> = ({
     }
   };
 
-  const inputPointerDown = (event: React.PointerEvent<HTMLInputElement>) => {
-    if (onPointerDown) {
-      onPointerDown(event);
-    }
-  };
-
-  const inputPointerUp = (event: React.PointerEvent<HTMLInputElement>) => {
-    if (onPointerUp) {
-      onPointerUp(event);
-    }
-  };
-
-  const inputPointerLeave = (event: React.PointerEvent<HTMLInputElement>) => {
-    if (onPointerLeave) {
-      onPointerLeave(event);
-    }
-  };
-
   const inputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (onChange) {
       onChange(event.target.value, event);
-    }
-  };
-
-  const inputPaste = (event: React.ClipboardEvent<HTMLInputElement>) => {
-    if (onPaste) {
-      onPaste(event);
-    }
-  };
-
-  const inputKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (onKeyDown) {
-      onKeyDown(event);
     }
   };
 
@@ -290,17 +249,19 @@ const BaseInput: FC<TextInputProps> = ({
             onBlur={inputBlur}
             value={defaultValue}
             onClick={onClick}
-            onPointerDown={inputPointerDown}
-            onPointerUp={inputPointerUp}
-            onPointerLeave={inputPointerLeave}
+            onPointerDown={onPointerDown}
+            onPointerUp={onPointerUp}
+            onPointerLeave={onPointerLeave}
+            onPointerMove={onPointerMove}
             onChange={inputChange}
-            onPaste={inputPaste}
-            onKeyDown={inputKeyDown}
+            onPaste={onPaste}
+            onKeyDown={onKeyDown}
             name={name}
             readOnly={readonly}
             autoComplete={autocomplete}
             style={{ cursor: cursor, ...style }}
             autoFocus={autoFocus}
+            ref={controlRef}
           />
 
           <div className="input-right" style={{ cursor: cursor }}>
