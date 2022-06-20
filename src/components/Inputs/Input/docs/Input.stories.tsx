@@ -6,6 +6,19 @@ import Input from "../Input";
 export default {
   title: "Components/Inputs/Input",
   component: Input,
+  argTypes: {
+    cursor: { options: ["text", "pointer"] },
+    className: { control: "text" },
+    maxLength: { control: "number" },
+    inputType: {
+      options: ["text", "tel", "email", "password", "number", "card"],
+    },
+    mask: { control: "text" },
+    autocomplete: { options: ["none", "cc-none"] },
+    defaultValue: { control: "text" },
+    name: { control: "text" },
+    readonly: { control: "boolean" },
+  },
 } as ComponentMeta<typeof Input>;
 
 const PlaygroundTemplate: ComponentStory<typeof Input> = (args) => {
@@ -23,8 +36,8 @@ const PlaygroundTemplate: ComponentStory<typeof Input> = (args) => {
     />
   );
 };
-
 export const Playground = PlaygroundTemplate.bind({});
+
 Playground.args = {
   label: "Email",
   cursor: "pointer",

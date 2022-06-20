@@ -18,19 +18,19 @@ Playground.args = {
   size: "sm",
   children: (
     <div style={{ display: "flex" }}>
-      <div style={{ width: "40%" }}>
+      <div>
         <img
           src="https://thispersondoesnotexist.com/image"
           width="100%"
           height="100%"
           alt=""
-          style={{ overflow: "hidden" }}
+          style={{ objectFit: "cover", overflow: "hidden" }}
         />
       </div>
-      <div style={{ width: "60%", padding: "1rem", color: "#fff" }}>
-        <div style={{ fontFamily: "Nunito", fontSize: "1.125rem" }}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod tenetur
-          facere provident quibusdam laborum fugit adipisci nihil quis omnis
+      <div style={{ padding: "1rem" }}>
+        <div>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
+          blanditiis unde fugit cumque qui ex accusamus necessitatibus eum
         </div>
 
         <div style={{ textAlign: "center" }}>

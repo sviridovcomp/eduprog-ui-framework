@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 
 import Dialog from "../Dialog";
@@ -23,6 +23,10 @@ export default {
 const PlaygroundTemplate: ComponentStory<typeof Dialog> = (args) => {
   const [open, setOpen] = useState(false);
   const [expandOpen, setExpandOpen] = useState(false);
+
+  useEffect(() => {
+    setOpen(Boolean(args.open));
+  }, [args.open]);
 
   return (
     <>
@@ -51,7 +55,7 @@ const PlaygroundTemplate: ComponentStory<typeof Dialog> = (args) => {
             way to get data from outside
           </p>
 
-          <Button onPointerDown={() => setExpandOpen(!expandOpen)}>
+          <Button onClick={() => setExpandOpen(!expandOpen)}>
             Dynamic height change
           </Button>
 

@@ -1,6 +1,6 @@
+import { defaultProps } from "@utils/defaultProps";
 import React, { FC } from "react";
 import "./Checkbox.scss";
-import { defaultProps } from "@utils/defaultProps";
 export declare type CheckboxPropsType = defaultProps & {
     /**
      * Content to the right or left of the Checkbox
@@ -37,8 +37,5 @@ export declare type CheckboxPropsType = defaultProps & {
     style?: React.CSSProperties;
     wrapperStyle?: React.CSSProperties;
 };
-/**
- * Component to creating checkboxes.
- */
 declare const Checkbox: FC<CheckboxPropsType>;
 export default Checkbox;
