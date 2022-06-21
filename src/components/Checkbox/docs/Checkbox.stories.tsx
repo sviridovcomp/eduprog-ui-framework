@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import Checkbox from "..";
 
@@ -28,24 +28,48 @@ const PlaygroundTemplate: ComponentStory<typeof Checkbox> = (args) => (
 );
 
 export const Playground = PlaygroundTemplate.bind({});
-Playground.args = {
-  checked: true,
-};
+Playground.args = {};
 
 const ViewTemplate = () => {
+  const [checked, setChecked] = useState(true);
+
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "0.25rem" }}>
       <div>
-        <Checkbox view="default" checked />
+        <Checkbox
+          view="default"
+          onChange={() => setChecked(!checked)}
+          checked={checked}
+        >
+          Default
+        </Checkbox>{" "}
       </div>
       <div>
-        <Checkbox view="primary" checked />
+        <Checkbox
+          view="primary"
+          onChange={() => setChecked(!checked)}
+          checked={checked}
+        >
+          Primary
+        </Checkbox>
       </div>
       <div>
-        <Checkbox view="secondary" checked />
+        <Checkbox
+          view="secondary"
+          onChange={() => setChecked(!checked)}
+          checked={checked}
+        >
+          Secondary
+        </Checkbox>
       </div>
       <div>
-        <Checkbox view="accent" checked />
+        <Checkbox
+          view="accent"
+          onChange={() => setChecked(!checked)}
+          checked={checked}
+        >
+          Accent
+        </Checkbox>
       </div>
     </div>
   );

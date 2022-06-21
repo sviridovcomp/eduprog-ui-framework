@@ -1,6 +1,7 @@
 import { defaultProps } from "@utils/defaultProps";
 import clsx from "clsx";
-import React, { FC } from "react";
+// @ts-ignore
+import React, { FC, useId } from "react";
 import "./Checkbox.scss";
 
 export type CheckboxPropsType = defaultProps & {
@@ -51,12 +52,15 @@ export type CheckboxPropsType = defaultProps & {
 
 const Checkbox: FC<CheckboxPropsType> = ({
   children,
-  view,
+  view = "default",
   className,
   checked,
   onChange,
   disabled,
 }) => {
+  const checkboxId = useId();
+  const labelbyId = `checkbox-${checkboxId}`;
+
   return (
     <div className={clsx("checkbox", { [`${view}`]: view }, className)}>
       <label>
@@ -65,11 +69,21 @@ const Checkbox: FC<CheckboxPropsType> = ({
           checked={checked}
           onChange={onChange}
           disabled={disabled}
+          id={labelbyId}
+          className="checkbox-control"
+          style={{ display: "none" }}
         />
-        <span className="checkbox-fake">
-          <span className="check"></span>
-        </span>{" "}
-        {children}
+        <label
+          className={clsx("checkbox-fake", { [`${view}`]: view })}
+          htmlFor={labelbyId}
+        >
+          <span>
+            <svg width="12px" height="10px" viewBox="0 0 12 10">
+              <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+            </svg>
+          </span>
+          <span>{children}</span>
+        </label>
       </label>
     </div>
   );

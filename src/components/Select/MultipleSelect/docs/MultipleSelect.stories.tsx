@@ -19,7 +19,7 @@ const Template: ComponentStory<typeof MultipleSelect> = (args) => {
           setOptions(value);
         }}
       />
-      <p style={{ color: "#fff", fontFamily: "Nunito" }}>
+      <p style={{ color: "var(--ep-text-color)" }}>
         Selected values:{" "}
         {[...options].map((option) => (
           <li key={option[0]}>{option[0]}</li>
