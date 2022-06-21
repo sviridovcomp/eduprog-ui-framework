@@ -52,14 +52,15 @@
       display: block;
       height: 3px;
       border-radius: 100px;
-      background-color: $color-background;
+      background-color: var(--ep-background-color);
     }
   }
 
   &-content {
     position: relative;
     border-radius: 1rem 1rem 0 0;
-    background-color: $color-background;
+    background-color: var(--ep-background-color);
+    color: var(--ep-text-color);
     overflow: auto;
 
     &-hide-scrollbars {

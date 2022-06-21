@@ -69,7 +69,7 @@ export type PopupProps = {
 const Popup: FC<PopupProps> = ({
   open = false,
   direction,
-  clearly,
+  clearly = true,
   fullwidth,
   children,
   onClose,

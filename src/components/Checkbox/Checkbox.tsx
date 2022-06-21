@@ -1,8 +1,7 @@
-// @ts-ignore
-import React, { FC, useEffect, useRef, useState, useId } from "react";
-import "./Checkbox.scss";
 import { defaultProps } from "@utils/defaultProps";
 import clsx from "clsx";
+import React, { FC } from "react";
+import "./Checkbox.scss";
 
 export type CheckboxPropsType = defaultProps & {
   /**
@@ -18,7 +17,7 @@ export type CheckboxPropsType = defaultProps & {
   /**
    * View mode
    */
-  view: "default" | "primary" | "secondary" | "accent";
+  view?: "default" | "primary" | "secondary" | "accent";
 
   /**
    * Controls the width of the checkbox. When 'available' it stretches the checkbox by the width of the parent
@@ -50,95 +49,27 @@ export type CheckboxPropsType = defaultProps & {
   wrapperStyle?: React.CSSProperties;
 };
 
-/**
- * Component to creating checkboxes.
- */
 const Checkbox: FC<CheckboxPropsType> = ({
   children,
-  position = "left",
-  view = "default",
-  width = "auto",
-  disabled = false,
-  checked = false,
-  className = "",
+  view,
+  className,
+  checked,
   onChange,
-  autoFocus,
-  style,
-  wrapperStyle,
+  disabled,
 }) => {
-  const checkboxRef = useRef<HTMLInputElement>(null);
-  const [pressed, setPressed] = useState(checked || false);
-  const checkboxId = useId();
-  const rootClasses = clsx(
-    "checkbox-checkmark",
-
-    { [`checkbox-fullwidth_${width}`]: width }
-  );
-
-  useEffect(() => {
-    if (autoFocus && checkboxRef.current != null) {
-      checkboxRef.current.focus();
-    }
-  }, []);
-
-  useEffect(() => {
-    setPressed(checked || false);
-  }, [checked]);
-
-  const changing = (event: React.ChangeEvent) => {
-    const checkbox = event.target as HTMLInputElement;
-
-    setPressed(checkbox.checked);
-
-    if (onChange) {
-      onChange();
-    }
-  };
-
   return (
-    <div
-      className={clsx(
-        "checkbox",
-        { [`checkbox-fullwidth_${width}`]: width },
-        ...className.split(" ")
-      )}
-    >
-      <label
-        style={wrapperStyle}
-        className={clsx("checkbox-wrapper", {
-          [`checkbox-fullwidth_${width}`]: width,
-        })}
-        htmlFor={`${checkboxId}-checkbox`}
-      >
-        {position === "left" && (
-          <div className="checkbox-additional">{children}</div>
-        )}
-
+    <div className={clsx("checkbox", { [`${view}`]: view }, className)}>
+      <label>
         <input
           type="checkbox"
-          onChange={changing}
+          checked={checked}
+          onChange={onChange}
           disabled={disabled}
-          checked={pressed}
-          ref={checkboxRef}
-          id={`${checkboxId}-checkbox`}
         />
-
-        <span
-          style={style}
-          className={clsx("checkbox-fake", {
-            [`checkbox-checkmark-view_${view}`]: view,
-          })}
-        >
-          <span className={rootClasses}>
-            <svg width="14" height="10" viewBox="0 0 14 10">
-              <path d="M1.49 4.885l1.644-1.644 4.385 4.385L5.874 9.27 1.49 4.885zm4.384 1.096L11.356.5 13 2.144 7.519 7.626 5.874 5.98v.001z"></path>
-            </svg>
-          </span>
-        </span>
-
-        {position === "right" && (
-          <div className="checkbox-additional">{children}</div>
-        )}
+        <span className="checkbox-fake">
+          <span className="check"></span>
+        </span>{" "}
+        {children}
       </label>
     </div>
   );

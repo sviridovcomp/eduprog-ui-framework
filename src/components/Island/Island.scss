@@ -9,7 +9,7 @@
   width: 100%;
   overflow: hidden;
   box-sizing: border-box;
-  background-color: var(--ep-background-color);
+  background-color: var(--ep-box-background-color);
   color: var(--ep-text-color);
 
   &-size {
@@ -18,7 +18,7 @@
     }
 
     &_sm {
-      max-width: $large-mobile-device;
+      max-width: 25rem;
     }
 
     &_md {
@@ -36,7 +36,7 @@
 
   &-type {
     &_shadow {
-      box-shadow: rgba(0, 0, 0, 0.19) 0 0 20px;
+      box-shadow: var(--ep-box-shadow);
       transition: box-shadow, transform 0.3s ease-in-out;
     }
 

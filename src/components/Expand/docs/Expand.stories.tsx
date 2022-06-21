@@ -7,6 +7,13 @@ import Button from "@components/Button";
 export default {
   title: "Components/Expand",
   component: Expand,
+  argTypes: {
+    open: { control: "boolean" },
+    transition: {
+      options: ["fade", "slide"],
+    },
+    duration: { control: "number" },
+  },
 } as ComponentMeta<typeof Expand>;
 
 const Template: ComponentStory<typeof Expand> = (args) => {

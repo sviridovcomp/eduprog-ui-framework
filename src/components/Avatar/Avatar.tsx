@@ -38,7 +38,7 @@ const Avatar: FC<AvatarPropsType> = ({
   avatarUrl,
   text = "undefined",
   size = "md",
-  autoColor,
+  autoColor = false,
   className = "",
 }) => {
   const rootClasses = clsx(

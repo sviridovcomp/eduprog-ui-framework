@@ -1,9 +1,10 @@
 .multiple-select {
   z-index: 123;
   color: var(--ep-text-color);
- 
+
   &-checkbox {
     display: flex;
+    align-items: center;
     height: 2.5rem;
     cursor: pointer;
     padding-left: 0.5rem;

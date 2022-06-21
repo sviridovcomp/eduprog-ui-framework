@@ -55,7 +55,7 @@ const Menu: FC<MenuPropsType> = ({
   children,
   toggle,
   direction = "bottom-left",
-  clearly = false,
+  clearly = true,
   fullwidth = false,
   dismissible = "always",
   style,

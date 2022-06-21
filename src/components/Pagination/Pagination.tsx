@@ -80,11 +80,11 @@ const Pagination: FC<IPaginationProps> = ({
 
   return (
     <ul className="Pagination">
-      {frame && (
+      {selectedPage > 1 && (
         <Button className="Pagination-button" onClick={PrevPage}>
           <svg
             style={{ display: "flex" }}
-            fill="#000000"
+            fill="currentColor"
             height="24px"
             viewBox="0 0 24 24"
             width="24px"
@@ -99,7 +99,7 @@ const Pagination: FC<IPaginationProps> = ({
       {frame > 0 && (
         <Button className="Pagination-button" onClick={PrevFrame}>
           <svg
-            fill="#000000"
+            fill="currentColor"
             height="24px"
             viewBox="0 0 24 24"
             width="24px"
@@ -126,10 +126,11 @@ const Pagination: FC<IPaginationProps> = ({
           </li>
         )
       )}
+
       {frame + siblingCount < count && (
         <Button className={clsx("Pagination-button")} onClick={NextFrame}>
           <svg
-            fill="#000000"
+            fill="currentColor"
             height="24px"
             viewBox="0 0 24 24"
             width="24px"
@@ -157,7 +158,7 @@ const Pagination: FC<IPaginationProps> = ({
         <Button className="Pagination-button" onClick={() => NextPage()}>
           <svg
             style={{ display: "flex" }}
-            fill="#000000"
+            fill="currentColor"
             height="24px"
             viewBox="0 0 24 24"
             width="24px"

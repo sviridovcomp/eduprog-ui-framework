@@ -1,11 +1,26 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-
-import Checkbox from "../Checkbox";
+import Checkbox from "..";
 
 export default {
   title: "Components/Checkbox",
   component: Checkbox,
+  argTypes: {
+    checked: { control: "boolean" },
+    className: { control: "text" },
+    position: {
+      options: ["left", "right"],
+    },
+    view: {
+      control: "select",
+      options: ["default", "primary", "secondary", "accent"],
+    },
+    disabled: { control: "boolean" },
+    width: {
+      options: ["auto", "available"],
+    },
+    autoFocus: { control: "boolean" },
+  },
 } as ComponentMeta<typeof Checkbox>;
 
 const PlaygroundTemplate: ComponentStory<typeof Checkbox> = (args) => (

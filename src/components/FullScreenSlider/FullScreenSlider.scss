@@ -10,7 +10,7 @@
     bottom: 0;
     right: 0;
     overflow: auto;
-    background-color: #fff;
+    background-color: var(--ep-background-color);
   }
 
   &-control {
