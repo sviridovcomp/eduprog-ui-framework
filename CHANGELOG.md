@@ -1,3 +1,10 @@
+### [1.8.1](https://github.com/edu-prog/eduprog-ui-framework/compare/v1.8.0...v1.8.1) (2022-06-21)
+
+
+### 🔧 Fixes
+
+* update `checkbox` component ([99f5502](https://github.com/edu-prog/eduprog-ui-framework/commit/99f5502a7a00f6d13134d3f12b2a91dc6371575e))
+
 ## [1.8.0](https://github.com/edu-prog/eduprog-ui-framework/compare/v1.7.1...v1.8.0) (2022-06-21)
 
 
