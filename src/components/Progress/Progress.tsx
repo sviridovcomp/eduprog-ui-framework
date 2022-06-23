@@ -7,7 +7,13 @@ export type colorVariants = "primary" | "secondary" | "accent";
 export interface IProgressProps {
   value: number;
   color: colorVariants | string;
+  /**
+   *
+   */
   striped?: boolean;
+  /**
+   * Animated -- progress bar animation, only works in conjunction with the striped property.
+   */
   animated?: boolean;
 }
 
