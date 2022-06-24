@@ -1,6 +1,6 @@
 import useNotification from "@utils/hooks/useNotification";
 import { emitter, Events } from "@utils/utils/emitter";
-import { NotificationDispatcher } from "@utils/utils/NotificationDispatcher/NotificationDispatcher";
+import NotificationDispatcher from "../NotificationDispatcher";
 import clsx from "clsx";
 import React, { FC, useState } from "react";
 import { useCallback, useEffect } from "react";
@@ -38,7 +38,7 @@ const NotificationBox: FC<INotificationBoxProps> = ({
     return () => {
       emitter.off();
     };
-  }, [dispatch]);
+  }, [dispatch, autoCloseDelay, isHovered]);
 
   const onClose = useCallback((id: string) => {
     emitter.emit(Events.HIDE, id);

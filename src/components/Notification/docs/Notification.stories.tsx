@@ -8,6 +8,7 @@ import NotificationBox, {
   INotificationBoxProps,
 } from "../NotificationBox/NotificationBox";
 import { NotificationPropsType } from "../NotificationItem";
+import Error from "@icons/Error";
 
 export default {
   title: "Components/Notification",
@@ -23,7 +24,7 @@ const PlaygroundTemplate: ComponentStory<typeof NotificationBox> = (
     Notify({
       title: args.title,
       content: args.content,
-      status: args.status,
+      icon: args.icon,
       hasCloser: args.hasCloser,
     }),
   ];
@@ -56,6 +57,6 @@ Playground.args = {
       assumenda!
     </>
   ),
-  status: "ok",
+  icon: <Error />,
   hasCloser: true,
 };

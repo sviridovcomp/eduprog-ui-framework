@@ -1,12 +1,16 @@
-import React from "react";
+import React, { FC } from "react";
+import { IconProps } from "./IconProps";
 
-const Done = () => {
+const Done: FC<IconProps> = ({ width = 24, height = 24, color = "#fff" }) => {
   return (
     <div
       style={{
+        width: width,
+        height: height,
         display: "inline-flex",
         background: "#2fc26e",
         borderRadius: "50%",
+        color: color,
       }}
     >
       <svg

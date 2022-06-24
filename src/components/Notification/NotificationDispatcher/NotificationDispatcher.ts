@@ -1,5 +1,5 @@
 import { NotificationActionType } from "@utils/hooks/useNotification/useNotification";
-import { emitter, Events } from "../emitter";
+import { emitter, Events } from "@utils/utils/emitter";
 
 interface INotificationDispatcher {
     dispatch: (value: NotificationActionType) => void;
@@ -11,9 +11,16 @@ export const NotificationDispatcher = (props: INotificationDispatcher) => {
     emitter.on(Events.SHOW, (notification) => {
         props.dispatch({type: "ADD", notification});
 
-        if (!props.isHovered && props.autoCloseDelay) {
+                    console.log("hovered", props.isHovered);
+
+
+        if (props.autoCloseDelay) {
             setTimeout(() => {
-                !props.isHovered && props.dispatch({type: "REMOVE", id: notification.id});
+                if (props.isHovered) {
+                    console.log("hovered", props.isHovered);
+                    return;
+                }
+                props.dispatch({type: "REMOVE", id: notification.id});
             }, props.autoCloseDelay);
         }
     });

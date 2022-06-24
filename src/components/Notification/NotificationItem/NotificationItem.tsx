@@ -10,7 +10,7 @@ import { defaultProps } from "@utils/defaultProps";
 export type NotificationPropsType = defaultProps & {
   id?: string;
   hasCloser?: boolean;
-  status?: "ok" | "fail";
+  icon?: React.ReactNode;
   onClose?: (id?: string) => void;
   title: string;
   content: React.ReactNode;
@@ -19,7 +19,7 @@ export type NotificationPropsType = defaultProps & {
 const NotificationItem: FC<NotificationPropsType> = ({
   id,
   hasCloser = true,
-  status = "ok",
+  icon = <Done color="#fff" />,
   title,
   content,
   onClose,
@@ -29,7 +29,6 @@ const NotificationItem: FC<NotificationPropsType> = ({
   const closeTimeoutRef = useRef(0);
 
   const [isClosing, setIsClosing] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
 
   const swipeableHandlers = useSwipeable({
     onSwiped: ({ dir }) => {
@@ -46,17 +45,13 @@ const NotificationItem: FC<NotificationPropsType> = ({
       return;
     }
 
-    if (isHovered) {
-      return;
-    }
-
     setIsClosing(true);
 
     closeTimeoutRef.current = window.setTimeout(() => {
       setIsClosing(false);
       onClose(id);
     }, 100);
-  }, [isHovered]);
+  }, []);
 
   return (
     <div
@@ -67,10 +62,7 @@ const NotificationItem: FC<NotificationPropsType> = ({
     >
       <div className="notification-wrapper">
         <div className="notification-left">
-          <div className="notification__icon">
-            {status == "ok" && <Done />}
-            {status == "fail" && <Error />}
-          </div>
+          <div className="notification__icon">{icon}</div>
           <div>
             <div className="notification__title">{title}</div>
             <div className="notification__content">{content}</div>
