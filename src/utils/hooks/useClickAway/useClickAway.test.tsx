@@ -1,3 +1,4 @@
+/* eslint-disable quotes */
 // @ts-nocheck
 
 import React from "react";

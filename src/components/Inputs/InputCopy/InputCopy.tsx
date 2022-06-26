@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { FC, useState } from "react";
 import BaseInput, { TextInputProps } from "../BaseInput/BaseInput";
 import "./InputCopy.scss";
 import clsx from "clsx";
