@@ -1,10 +1,10 @@
 import React, { FC } from "react";
 import Button from "@components/Button";
 import "./CarouselButton.scss";
-import { defaultProps } from "@utils/defaultProps";
 import clsx from "clsx";
+import { ButtonPropsType } from "@components/Button/Button";
 
-export interface ICarouselButtonProps extends defaultProps {
+export interface ICarouselButtonProps extends ButtonPropsType {
   direction?: "left" | "right";
   onClick?: (event?: React.MouseEvent<HTMLButtonElement>) => void;
 }
@@ -14,6 +14,7 @@ const CarouselButton: FC<ICarouselButtonProps> = ({
   style,
   className = "",
   onClick,
+  ...rest
 }) => {
   const directionRouting = new Map([
     ["left", 0],
@@ -28,6 +29,7 @@ const CarouselButton: FC<ICarouselButtonProps> = ({
       }}
       className={clsx("CarouselButton", { [`${className}`]: className })}
       onClick={onClick}
+      {...rest}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
