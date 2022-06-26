@@ -9,15 +9,21 @@ import range from "lodash/range";
 import random from "lodash/random";
 import Skeleton from "@components/Skeleton/Skeleton";
 
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
   title: "Components/Carousel",
   component: Carousel,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "Carousel allows you to rotate through arbitrary items. Multiple items can be shown simultaneously.",
+      },
+    },
+  },
 } as ComponentMeta<typeof Carousel>;
 
 const responsive = {
   superLargeDesktop: {
-    // the naming can be any, depends on you.
     breakpoint: { max: 4000, min: 3000 },
     items: 3,
   },
