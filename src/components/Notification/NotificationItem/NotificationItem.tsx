@@ -2,7 +2,6 @@ import React, { FC, useCallback, useRef, useState } from "react";
 import "./NotificationItem.scss";
 import Done from "@icons/Done";
 import CloseIcon from "@icons/Close";
-import Error from "@icons/Error";
 import { useSwipeable } from "react-swipeable";
 import clsx from "clsx";
 import { defaultProps } from "@utils/defaultProps";
@@ -19,7 +18,7 @@ export type NotificationPropsType = defaultProps & {
 const NotificationItem: FC<NotificationPropsType> = ({
   id,
   hasCloser = true,
-  icon = <Done color="#fff" />,
+  icon = <Done />,
   title,
   content,
   onClose,
