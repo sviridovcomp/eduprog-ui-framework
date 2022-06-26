@@ -1,0 +1,36 @@
+<!-- Color.stories.mdx -->
+
+import { Canvas, Meta, Story } from "@storybook/addon-docs";
+import "./Color.scss";
+
+<Meta title="Theme/Colors" />
+
+# Colours
+
+## Default Colours
+
+Eduprog UI provides a set of standard colours that are ubiquitous in component organisation
+
+Basic colours can be changed and customised to each developer's taste for a more personalised application
+
+<div className="ThemeBox">
+  <div className="ThemeBox-item primary">Primary</div>
+  <div className="ThemeBox-item secondary">Secondary</div>
+  <div className="ThemeBox-item accent">Accent</div>
+  <div className="ThemeBox-item success">Success</div>
+  <div className="ThemeBox-item danger">Danger</div>
+</div>
+
+## Customize Theme Colours
+
+You can change framework variables like any other css variables
+
+```css
+:root {
+  --ep-color-primary: #6320ee;
+  --ep-color-secondary: #8075ff;
+  --ep-color-accent: #50c878;
+  --ep-color-success: #46c93a;
+  --ep-color-danger: #a00707;
+}
+```

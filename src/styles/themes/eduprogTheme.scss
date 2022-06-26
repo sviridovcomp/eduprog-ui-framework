@@ -10,6 +10,8 @@ html {
   --ep-color-primary: #{$color-primary};
   --ep-color-secondary: #{$color-secondary};
   --ep-color-accent: #{$color-accent};
+  --ep-color-success: #{$color-success};
+  --ep-color-danger: #{$color-danger};
   --ep-popup-shadow: 0 12px 28px 0 rgba(0, 0, 0, 0.2),
     0 2px 4px 0 rgba(0, 0, 0, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
   --ep-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
