@@ -1,10 +1,11 @@
-import React, { FC, useCallback, useRef, useState } from "react";
+import React, { FC, useCallback, useEffect, useRef, useState } from "react";
 import "./NotificationItem.scss";
 import Done from "@icons/Done";
 import CloseIcon from "@icons/Close";
 import { useSwipeable } from "react-swipeable";
 import clsx from "clsx";
 import { defaultProps } from "@utils/defaultProps";
+import random from "lodash/random";
 
 export type NotificationPropsType = defaultProps & {
   id?: string;
@@ -13,6 +14,7 @@ export type NotificationPropsType = defaultProps & {
   onClose?: (id?: string) => void;
   title: string;
   content: React.ReactNode;
+  autoCloseDelay: number;
 };
 
 const NotificationItem: FC<NotificationPropsType> = ({
@@ -24,8 +26,10 @@ const NotificationItem: FC<NotificationPropsType> = ({
   onClose,
   onPointerEnter,
   onPointerLeave,
+  autoCloseDelay,
 }) => {
   const closeTimeoutRef = useRef(0);
+  const [progress, setProgress] = useState(0);
 
   const [isClosing, setIsClosing] = useState(false);
 
@@ -38,6 +42,19 @@ const NotificationItem: FC<NotificationPropsType> = ({
     delta: 100,
     trackMouse: true,
   });
+
+  useEffect(() => {
+    const fillingProgressBar = setInterval(() => {
+      if (progress >= 90) {
+        setProgress(100);
+        return;
+      }
+      const ratio = 100 / (autoCloseDelay / 100);
+
+      setProgress(progress + ratio);
+    }, 100);
+    return () => clearInterval(fillingProgressBar);
+  }, [progress]);
 
   const closeNotification = useCallback(() => {
     if (!onClose) {
@@ -77,6 +94,10 @@ const NotificationItem: FC<NotificationPropsType> = ({
           )}
         </div>
       </div>
+      <div
+        className="notification-progress"
+        style={{ width: `${progress}%` }}
+      ></div>
     </div>
   );
 };

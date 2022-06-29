@@ -8,6 +8,7 @@ export declare type NotificationPropsType = defaultProps & {
     onClose?: (id?: string) => void;
     title: string;
     content: React.ReactNode;
+    autoCloseDelay: number;
 };
 declare const NotificationItem: FC<NotificationPropsType>;
 export default NotificationItem;

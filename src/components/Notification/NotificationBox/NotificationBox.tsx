@@ -53,10 +53,9 @@ const NotificationBox: FC<INotificationBoxProps> = ({
     >
       {notifications.map((notification) => (
         <NotificationItem
-          onPointerEnter={() => setIsHovered(true)}
-          onPointerLeave={() => setIsHovered(false)}
           key={notification.id}
           {...notification}
+          autoCloseDelay={autoCloseDelay}
           onClose={() => notification.id && onClose(notification.id)}
         ></NotificationItem>
       ))}

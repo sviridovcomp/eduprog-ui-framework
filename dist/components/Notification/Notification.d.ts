@@ -15,5 +15,6 @@ export declare const InitNotification: (props: NotificationPropsType) => {
     onClose?: ((id?: string | undefined) => void) | undefined;
     title: string;
     content: import("react").ReactNode;
+    autoCloseDelay: number;
 };
 export declare const Notify: (props: NotificationPropsType) => void;
