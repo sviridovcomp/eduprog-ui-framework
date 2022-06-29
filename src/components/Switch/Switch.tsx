@@ -4,8 +4,6 @@ import { defaultProps } from "@utils/defaultProps";
 import clsx from "clsx";
 
 export type SwitchProps = defaultProps & {
-  label?: string;
-  position?: "left" | "right";
   color: "primary" | "secondary" | "accent" | string;
   name?: string;
   onChange?: (event?: React.ChangeEvent) => void;
@@ -17,9 +15,7 @@ export type SwitchProps = defaultProps & {
 
 const Switch: FC<SwitchProps> = ({
   style,
-  label,
   color = "primary",
-  position = "left",
   className = "",
   name = "",
   onChange,
