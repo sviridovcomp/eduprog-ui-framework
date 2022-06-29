@@ -29,7 +29,7 @@ const NotificationBox: FC<INotificationBoxProps> = ({
   rootClassName,
   autoCloseDelay = 5000,
 }) => {
-  const [isHovered, setIsHovered] = useState(false);
+  const [isHovered] = useState(false);
   const { notifications, dispatch } = useNotification();
 
   useEffect(() => {

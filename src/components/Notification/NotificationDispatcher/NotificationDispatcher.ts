@@ -17,7 +17,6 @@ export const NotificationDispatcher = (props: INotificationDispatcher) => {
         if (props.autoCloseDelay) {
             setTimeout(() => {
                 if (props.isHovered) {
-                    console.log("hovered", props.isHovered);
                     return;
                 }
                 props.dispatch({type: "REMOVE", id: notification.id});

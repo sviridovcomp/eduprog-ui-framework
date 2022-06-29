@@ -5,7 +5,6 @@ import CloseIcon from "@icons/Close";
 import { useSwipeable } from "react-swipeable";
 import clsx from "clsx";
 import { defaultProps } from "@utils/defaultProps";
-import random from "lodash/random";
 
 export type NotificationPropsType = defaultProps & {
   id?: string;
