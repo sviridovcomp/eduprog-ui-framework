@@ -64,7 +64,6 @@ const MultipleSelectLargeDevice: FC<MultipleSelectPropsType<any>> = ({
   };
 
   const selectOption = (optionKey: string) => {
-    console.log(selectedOptions);
     if (selectedOptions?.has(optionKey) && selectedOptions?.delete(optionKey)) {
       setSelectedOptions(new Map(selectedOptions));
     } else {
@@ -72,7 +71,6 @@ const MultipleSelectLargeDevice: FC<MultipleSelectPropsType<any>> = ({
         new Map(selectedOptions?.set(optionKey, options.get(optionKey)))
       );
     }
-    console.log(selectedOptions);
   };
 
   useEffect(() => {

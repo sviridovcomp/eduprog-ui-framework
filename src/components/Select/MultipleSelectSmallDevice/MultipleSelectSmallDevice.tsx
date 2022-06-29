@@ -29,8 +29,6 @@ const MultipleSelectSmallDevice: FC<MultipleSelectPropsType<string>> = ({
 
       setSelectedOptions(new Map(selectedOptions.set(label, value)));
     });
-
-    console.log(selectedOptions);
   };
 
   useEffect(() => {

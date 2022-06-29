@@ -11,9 +11,6 @@ export const NotificationDispatcher = (props: INotificationDispatcher) => {
     emitter.on(Events.SHOW, (notification) => {
         props.dispatch({type: "ADD", notification});
 
-                    console.log("hovered", props.isHovered);
-
-
         if (props.autoCloseDelay) {
             setTimeout(() => {
                 if (props.isHovered) {

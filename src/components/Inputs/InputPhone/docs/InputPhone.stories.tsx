@@ -18,7 +18,6 @@ const Template: ComponentStory<typeof InputPhone> = (args) => {
     <InputPhone
       onChange={(data) => {
         setValue(data);
-        console.log("update: ", value);
       }}
       {...args}
     />

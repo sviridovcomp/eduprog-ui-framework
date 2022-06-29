@@ -90,10 +90,6 @@ const FullScreenSlider: FC<FullScreenSliderProps> = ({
   //   }
   // }, [open, slideIndex]);
 
-  useEffect(() => {
-    console.log(deltaY);
-  }, [deltaY]);
-
   return (
     <div className="FullScreenSlider">
       {open && (
