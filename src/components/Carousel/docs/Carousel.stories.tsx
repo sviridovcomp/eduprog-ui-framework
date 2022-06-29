@@ -46,7 +46,10 @@ const IslandItem = () => {
   const seed = random(0, 9007199254740992);
   return (
     <Island hoverTransition="translateY">
-      <div style={{ position: "relative", height: 200 }}>
+      <div
+        style={{ position: "relative", height: 200 }}
+        className="island-photo"
+      >
         {!imageLoaded && <Skeleton variant="rectangular" animation="wave" />}
         <img
           src={`https://picsum.photos/seed/${seed}/344/200`}

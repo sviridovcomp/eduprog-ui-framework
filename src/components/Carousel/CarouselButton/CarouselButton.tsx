@@ -25,6 +25,8 @@ const CarouselButton: FC<ICarouselButtonProps> = ({
     <Button
       rounded
       style={{
+        width: "2.5rem",
+        height: "2.5rem",
         ...style,
       }}
       className={clsx("CarouselButton", { [`${className}`]: className })}
