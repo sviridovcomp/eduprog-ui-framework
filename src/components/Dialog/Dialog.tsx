@@ -5,7 +5,7 @@ import { CSSTransition } from "react-transition-group";
 import Backdrop from "@components/Backdrop/Backdrop";
 import usePreventScroll from "@utils/hooks/usePreventScroll";
 import Button from "@components/Button";
-import Close from "@icons/Close";
+import CloseIcon from "@icons/Close";
 
 export type DialogPropsType = {
   /**
@@ -85,8 +85,12 @@ const Dialog: FC<DialogPropsType> = ({
           >
             {hasCloser && (
               <div className="dialog-close">
-                <Button view="raised" className="dialog-close-button">
-                  <Close />
+                <Button
+                  view="raised"
+                  className="dialog-close-button"
+                  onClick={() => onClose && onClose()}
+                >
+                  <CloseIcon />
                 </Button>
               </div>
             )}
