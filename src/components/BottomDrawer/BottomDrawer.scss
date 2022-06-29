@@ -17,25 +17,7 @@
     max-height: calc(100% - 2rem);
     display: flex;
     flex-direction: column;
-    transition: transform 0.25s ease;
-
-    &-animation {
-      &-enter {
-        transform: translate3d(0, 100%, 0);
-      }
-
-      &-enter-active {
-        transform: translate3d(0, 0, 0);
-      }
-
-      &-exit {
-        transform: translate3d(0, 100%, 0);
-      }
-
-      &-exit-active {
-        transform: translate3d(0, 0, 0);
-      }
-    }
+    transition: transform 0.25s;
   }
 
   &-handle {

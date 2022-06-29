@@ -1,23 +1,11 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { TextInputProps } from "../BaseInput/BaseInput";
 import "./InputCopy.scss";
 export declare type InputCopyPropsType = TextInputProps & {
     /**
-     * Заголовок input
-     */
-    label: string;
-    /**
-     * Текст, который показан при копировании
+     * Text that is shown when copying
      */
     copyLabel: string;
-    /**
-     * Событие обновления input
-     */
-    onChange: (value: string, event?: React.ChangeEvent<HTMLInputElement>) => void;
-    /**
-     * Имя элемента в DOM
-     */
-    name?: string;
 };
 /**
  * InputCopy alows user to copy a text of textfield

@@ -1,9 +1,9 @@
 
 export const TransitionStyles = {
   entering: {transform: "translate3d(0, 100%, 0)"},
-  entered: {transform: "translate3d(0, 0, 0)"},
+  entered: {transform: "none"},
   exiting: {transform: "translate3d(0, 100%, 0)"},
-  exited: {display: "translate3d(0, 0, 0)"},
+  exited: {display: "none"},
 };
 
 export const BackdropStyles = {
