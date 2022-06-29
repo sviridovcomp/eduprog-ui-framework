@@ -33,6 +33,7 @@ import { useClickAway, ClickAwayListener } from "@utils/hooks/useClickAway";
 import useKeyDown from "@utils/hooks/useKeyDown";
 import usePreventScroll from "@utils/hooks/usePreventScroll";
 import { RadioBoxValueProps } from "@components/RadioBox";
+import { Themes, ThemeDetect } from "@utils/themeDetector/themeDetect";
 
 export {
   Button,
@@ -70,5 +71,7 @@ export {
   ClickAwayListener,
   useKeyDown,
   usePreventScroll,
+  Themes,
+  ThemeDetect,
 };
 export type { TabsValue, RadioBoxValueProps };

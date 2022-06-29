@@ -4,6 +4,8 @@ import clsx from "clsx";
 import { CSSTransition } from "react-transition-group";
 import Backdrop from "@components/Backdrop/Backdrop";
 import usePreventScroll from "@utils/hooks/usePreventScroll";
+import Button from "@components/Button";
+import Close from "@icons/Close";
 
 export type DialogPropsType = {
   /**
@@ -35,6 +37,8 @@ export type DialogPropsType = {
    * Styles of dialog
    */
   style?: React.CSSProperties;
+
+  hasCloser?: boolean;
 };
 
 /**
@@ -48,6 +52,7 @@ const Dialog: FC<DialogPropsType> = ({
   onClose,
   verticalAlign = "center",
   style,
+  hasCloser = true,
 }) => {
   usePreventScroll(open, "dialog-body");
 
@@ -78,6 +83,13 @@ const Dialog: FC<DialogPropsType> = ({
               [`dialog-body-align_${verticalAlign}`]: verticalAlign,
             })}
           >
+            {hasCloser && (
+              <div className="dialog-close">
+                <Button view="raised" className="dialog-close-button">
+                  <Close />
+                </Button>
+              </div>
+            )}
             <section className="dialog-header">
               <h2 className="dialog-heading">{label}</h2>
             </section>

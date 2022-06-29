@@ -151,7 +151,9 @@ const Button: FC<ButtonPropsType> = ({
       event.preventDefault();
     }
 
-    setPressed(true);
+    if (!disabled) {
+      setPressed(true);
+    }
 
     if (onPointerDown) {
       onPointerDown(event);

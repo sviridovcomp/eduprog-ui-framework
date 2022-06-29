@@ -25,6 +25,7 @@ export declare type DialogPropsType = {
      * Styles of dialog
      */
     style?: React.CSSProperties;
+    hasCloser?: boolean;
 };
 /**
  * Component to creating dialog windows

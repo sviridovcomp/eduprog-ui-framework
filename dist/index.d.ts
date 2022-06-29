@@ -32,5 +32,6 @@ import { useClickAway, ClickAwayListener } from "@utils/hooks/useClickAway";
 import useKeyDown from "@utils/hooks/useKeyDown";
 import usePreventScroll from "@utils/hooks/usePreventScroll";
 import { RadioBoxValueProps } from "@components/RadioBox";
-export { Button, Column, Container, Row, Expand, InputPhone, Menu, Dialog, Checkbox, Avatar, Island, Input, InputCount, InputCopy, InputPassword, Spinner, Switch, MultipleSelect, NotificationBox, Notify, BaseInput, Select, Carousel, CarouselButton, Skeleton, TextSkeleton, Text, ToggleBlock, TabsWithCheckboxes, BottomDrawer, FullScreenSlider, useClickAway, ClickAwayListener, useKeyDown, usePreventScroll, };
+import { Themes, ThemeDetect } from "@utils/themeDetector/themeDetect";
+export { Button, Column, Container, Row, Expand, InputPhone, Menu, Dialog, Checkbox, Avatar, Island, Input, InputCount, InputCopy, InputPassword, Spinner, Switch, MultipleSelect, NotificationBox, Notify, BaseInput, Select, Carousel, CarouselButton, Skeleton, TextSkeleton, Text, ToggleBlock, TabsWithCheckboxes, BottomDrawer, FullScreenSlider, useClickAway, ClickAwayListener, useKeyDown, usePreventScroll, Themes, ThemeDetect, };
 export type { TabsValue, RadioBoxValueProps };

@@ -26,6 +26,47 @@
     @include fade-animations(0.15);
   }
 
+  &-content {
+    overscroll-behavior: contain;
+    max-height: calc(80vh - 200px);
+    overflow-y: auto;
+    scroll-behavior: auto;
+    padding: 0.625rem 1rem;
+
+    &::-webkit-scrollbar {
+      width: 0.3125rem;
+      height: 0.3125rem;
+      display: block;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 0.3125rem;
+      background-color: var(--ep-text-color);
+    }
+
+    &::selection {
+      background: #2564ff26;
+    }
+  }
+
+  &-close {
+    position: absolute;
+    right: -0.3125rem;
+    top: -0.3125rem;
+    transition: all 0.25s ease;
+
+    &-button {
+      gap: 0;
+      width: 2.25rem;
+      height: 2.25rem;
+    }
+
+    &:hover {
+      right: 0;
+      top: 0;
+    }
+  }
+
   &-body {
     display: flex;
     position: fixed;
@@ -38,9 +79,6 @@
     z-index: 101;
     padding: 1rem;
     border-radius: 2rem;
-    overflow: auto;
-    overscroll-behavior: contain;
-    overflow-y: auto;
 
     &-animation {
       &-enter {
