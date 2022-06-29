@@ -1,53 +1,74 @@
-import React, { FC, useState } from "react";
+import React, { FC, useState, useCallback } from "react";
 import "./Switch.scss";
 import { defaultProps } from "@utils/defaultProps";
 import clsx from "clsx";
 
 export type SwitchProps = defaultProps & {
-  size?: "xs" | "sm" | "md" | "lg" | "xl";
   label?: string;
   position?: "left" | "right";
-  color?: "primary" | "secondary" | "accent";
+  color: "primary" | "secondary" | "accent" | string;
   name?: string;
-  onChange?: () => void;
+  onChange?: (event?: React.ChangeEvent) => void;
+  textOn?: React.ReactChild;
+  textOff?: React.ReactChild;
+  checked: boolean;
+  disabled?: boolean;
 };
 
 const Switch: FC<SwitchProps> = ({
   style,
   label,
-  color,
+  color = "primary",
   position = "left",
   className = "",
   name = "",
   onChange,
-  size = "md",
+  textOn,
+  textOff,
+  checked,
+  disabled,
 }) => {
-  const [active, setActive] = useState(false);
-
   const changing = (event: React.ChangeEvent) => {
-    const checkbox = event.target as HTMLInputElement;
-
-    setActive(checkbox.checked);
-
     if (onChange) {
-      onChange();
+      onChange(event);
     }
   };
 
+  const colorRouter = useCallback(() => {
+    const router = new Map([
+      ["primary", "var(--ep-color-primary)"],
+      ["secondary", "var(--ep-color-secondary)"],
+      ["accent", "var(--ep-color-accent)"],
+    ]);
+
+    if (router.has(color)) {
+      return router.get(color);
+    }
+
+    return color;
+  }, [color]);
+
   return (
-    <label className={clsx("switch", className)} style={style}>
-      {position == "left" && <div className="switch-additional">{label}</div>}
-
-      <input type="checkbox" onChange={changing} name={name} checked={active} />
-      <span
-        className={clsx("switch-slider", {
-          [`switch-slider-color_${color}`]: color,
-          [`switch-slider-size_${size}`]: size,
-        })}
+    <div
+      className={clsx("switch", className)}
+      style={{
+        color: colorRouter(),
+        opacity: `${disabled ? "0.6" : "initial"}`,
+        ...style,
+      }}
+    >
+      <input
+        type="checkbox"
+        onChange={changing}
+        name={name}
+        checked={checked}
+        disabled={disabled}
       />
-
-      {position == "right" && <div className="switch-additional">{label}</div>}
-    </label>
+      <div className="switch-circle"></div>
+      <div className="switch-text on">{textOn}</div>
+      <div className="switch-text off">{textOff}</div>
+      <div className="switch-background"></div>
+    </div>
   );
 };
 
