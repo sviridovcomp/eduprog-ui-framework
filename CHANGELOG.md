@@ -1,3 +1,29 @@
+## [1.9.0](https://github.com/edu-prog/eduprog-ui-framework/compare/v1.8.1...v1.9.0) (2022-07-01)
+
+
+### 📚 Docs
+
+* fix `InputCopy` docs ([4ee13b9](https://github.com/edu-prog/eduprog-ui-framework/commit/4ee13b93381983511bca87ed1ac240fee4b7c946))
+
+
+### 🧩 Features
+
+* create `NotificationBox` component ([aa27715](https://github.com/edu-prog/eduprog-ui-framework/commit/aa277150627498ddb14dda8ef28337c3350091c3))
+* new component `Switch` ([2436916](https://github.com/edu-prog/eduprog-ui-framework/commit/2436916d51911e0c5c6411268a779786551179c8))
+* update `NotificationBox` component ([53b73b6](https://github.com/edu-prog/eduprog-ui-framework/commit/53b73b697e24cd9c08a4601c6c84ff70cb5f36fc))
+
+
+### 🔧 Fixes
+
+* add `Notification` progressbar ([c15b624](https://github.com/edu-prog/eduprog-ui-framework/commit/c15b6242afcde26031d37f1b82a423b167ea2745))
+* fix `CarouselButton` theming ([df57771](https://github.com/edu-prog/eduprog-ui-framework/commit/df57771fc398fb9f47873e4a3315d4316e373dce))
+* fix issue [#62](https://github.com/edu-prog/eduprog-ui-framework/issues/62) ([012b776](https://github.com/edu-prog/eduprog-ui-framework/commit/012b7761c8406e077db4ab652f2b1771151add65))
+* fix issue [#63](https://github.com/edu-prog/eduprog-ui-framework/issues/63) ([f2a98a3](https://github.com/edu-prog/eduprog-ui-framework/commit/f2a98a3d5930ec42e18398b102a4add3ab4158f8))
+* fix issue [#64](https://github.com/edu-prog/eduprog-ui-framework/issues/64) ([fd8a01f](https://github.com/edu-prog/eduprog-ui-framework/commit/fd8a01ff8d3b036dca4d37bf5af728882775e8ea))
+* fix issue [#67](https://github.com/edu-prog/eduprog-ui-framework/issues/67) ([d29f5b4](https://github.com/edu-prog/eduprog-ui-framework/commit/d29f5b4e733c89820cbfbe16d5f7d2c9864125b9))
+* fix issue [#67](https://github.com/edu-prog/eduprog-ui-framework/issues/67) ([904e8ec](https://github.com/edu-prog/eduprog-ui-framework/commit/904e8ecb080fe8b847ef6ad3beef8341f3ea5928))
+* update `Notification` component ([ab13fe7](https://github.com/edu-prog/eduprog-ui-framework/commit/ab13fe74e3fa5dd93ebbb6656cc79934af1719b4))
+
 ### [1.8.1](https://github.com/edu-prog/eduprog-ui-framework/compare/v1.8.0...v1.8.1) (2022-06-21)
 
 
