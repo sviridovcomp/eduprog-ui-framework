@@ -1,7 +1,7 @@
 {
   "name": "eduprog-ui",
   "homepage": "http://digital.ui-kit.eduprog.ru",
-  "version": "1.9.0",
+  "version": "1.9.1",
   "main": "./dist/index.js",
   "license": "Apache-2.0",
   "devDependencies": {

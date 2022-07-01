@@ -1,3 +1,10 @@
+### [1.9.1](https://github.com/edu-prog/eduprog-ui-framework/compare/v1.9.0...v1.9.1) (2022-07-01)
+
+
+### 🔧 Fixes
+
+* update NotificationItem ([b14b269](https://github.com/edu-prog/eduprog-ui-framework/commit/b14b269abb65d5e468fa1131ae2cfca627d546ae))
+
 ## [1.9.0](https://github.com/edu-prog/eduprog-ui-framework/compare/v1.8.1...v1.9.0) (2022-07-01)
 
 
