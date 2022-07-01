@@ -3,7 +3,6 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import Spinner from "../Spinner";
 import Button from "@components/Button";
-import { Container, Row, Column } from "@components/Grid";
 
 export default {
   title: "Components/Spinner",
@@ -22,7 +21,7 @@ Playground.args = {
 
 const SizeTemplate = () => {
   return (
-    <div style={{display: "flex", flexDirection: "column", gap: "1rem"}}>
+    <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
       <div style={{ display: "flex", gap: "0.25rem" }}>
         <Spinner color="primary" size="xl" />
         <Spinner color="primary" size="lg" />

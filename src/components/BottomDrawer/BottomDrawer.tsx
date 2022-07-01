@@ -78,39 +78,41 @@ const BottomDrawer: FC<IBottomDrawerProps> = ({
   };
 
   return (
-    <Transition
-      in={open}
-      appear={true}
-      timeout={{ appear: 0, enter: 0, exit: duration }}
-      unmountOnExit={unmountOnExit}
-      mountOnEnter={mountOnEnter}
-    >
-      {(state) => (
-        <div className="BottomDrawer" {...swipeHandlers}>
-          <Backdrop open={open} onClick={onClose} />
-
-          <div
-            className="BottomDrawer-curtain"
-            style={{
-              // eslint-disable-next-line @typescript-eslint/no-explicit-any
-              ...(TransitionStyles as any)[state],
-              ...getTransforms(),
-            }}
-          >
-            <div className="BottomDrawer-handle" />
+    <>
+      <Transition
+        in={open}
+        appear={true}
+        timeout={{ appear: 0, enter: 0, exit: duration }}
+        unmountOnExit={unmountOnExit}
+        mountOnEnter={mountOnEnter}
+      >
+        {(state) => (
+          <div className="BottomDrawer" {...swipeHandlers}>
+            <Backdrop open={open} onClick={onClose} />
 
             <div
-              className={clsx(
-                "BottomDrawer-content",
-                hideScrollbars && "BottomDrawer-content-hide-scrollbars"
-              )}
+              className="BottomDrawer-curtain"
+              style={{
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                ...(TransitionStyles as any)[state],
+                ...getTransforms(),
+              }}
             >
-              <div className="BottomDrawer-content-inner">{children}</div>
+              <div className="BottomDrawer-handle" />
+
+              <div
+                className={clsx(
+                  "BottomDrawer-content",
+                  hideScrollbars && "BottomDrawer-content-hide-scrollbars"
+                )}
+              >
+                <div className="BottomDrawer-content-inner">{children}</div>
+              </div>
             </div>
           </div>
-        </div>
-      )}
-    </Transition>
+        )}
+      </Transition>
+    </>
   );
 };
 

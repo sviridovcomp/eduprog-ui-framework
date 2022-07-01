@@ -1,31 +1,13 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { FC, useState } from "react";
 import BaseInput, { TextInputProps } from "../BaseInput/BaseInput";
 import "./InputCopy.scss";
 import clsx from "clsx";
 
 export type InputCopyPropsType = TextInputProps & {
   /**
-   * Заголовок input
-   */
-  label: string;
-
-  /**
-   * Текст, который показан при копировании
+   * Text that is shown when copying
    */
   copyLabel: string;
-
-  /**
-   * Событие обновления input
-   */
-  onChange: (
-    value: string,
-    event?: React.ChangeEvent<HTMLInputElement>
-  ) => void;
-
-  /**
-   * Имя элемента в DOM
-   */
-  name?: string;
 };
 
 /**
@@ -35,7 +17,6 @@ const InputCopy: FC<InputCopyPropsType> = ({
   label,
   copyLabel = "Скопировано",
   onChange,
-  name = "",
   ...rest
 }) => {
   const [value, setValue] = useState("");
@@ -75,7 +56,6 @@ const InputCopy: FC<InputCopyPropsType> = ({
         inputType="text"
         onChange={onInputChange}
         label={label}
-        name={name}
         {...rest}
         rightAdditional={
           <svg

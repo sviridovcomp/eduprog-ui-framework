@@ -4,11 +4,9 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import Select from "@components/Select/Select/Select";
 import { SelectValue } from "../SelectProps";
 
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
   title: "Components/Select/Select",
   component: Select,
-  // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
 } as ComponentMeta<typeof Select>;
 
 const Template: ComponentStory<typeof Select> = (args) => {
@@ -24,7 +22,7 @@ const Template: ComponentStory<typeof Select> = (args) => {
           args.onChange && args.onChange(value);
         }}
       />
-      <p style={{ color: "#fff", fontFamily: "Nunito" }}>
+      <p style={{ color: "var(--ep-text-color)", fontFamily: "Nunito" }}>
         Selected value: {option && option.key}
       </p>
     </>
@@ -43,4 +41,3 @@ Playground.args = {
   ],
   label: "Выберите категории кэшбека:",
 };
-// More on args: https://storybook.js.org/docs/react/writing-stories/args

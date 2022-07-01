@@ -21,6 +21,10 @@
   font-size: 1rem;
   touch-action: manipulation;
 
+  &:disabled {
+    opacity: 0.6;
+  }
+
   &-rounded {
     border-radius: 50%;
   }
@@ -95,19 +99,23 @@
       }
     }
     &_pseudo {
-      background-color: transparent;
+      background-color: var(--ep-background-color);
       color: var(--ep-text-color);
       border: 1px solid var(--ep-text-color);
     }
     &_clear {
       color: $color-darkgray;
-      background-color: transparent;
+      background-color: var(--ep-background-color);
+      transition: color 0.25s ease;
+
       &:hover {
-        color: $color-text;
+        color: var(--ep-text-color);
       }
     }
     &_raised {
-      box-shadow: 0 0 13px 3px rgba(0, 0, 0, 0.17);
+      background-color: var(--ep-background-color);
+      box-shadow: var(--ep-popup-shadow);
+      color: var(--ep-text-color);
     }
     &_accent {
       color: $color-background;

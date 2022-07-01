@@ -13,7 +13,7 @@ import InputPassword from "@components/Inputs/InputPassword/InputPassword";
 import InputCount from "@components/Inputs/InputCount/InputCount";
 import Spinner from "@components/Spinner/Spinner";
 import Switch from "@components/Switch/Switch";
-import Notification from "@components/Notification/Notification";
+import { NotificationBox, Notify } from "@components/Notification";
 import BaseInput from "@components/Inputs/BaseInput/BaseInput";
 import MultipleSelect from "@components/Select/MultipleSelect/MultipleSelect";
 import Select from "@components/Select/Select/Select";
@@ -29,11 +29,11 @@ import BottomDrawer from "@components/BottomDrawer/BottomDrawer";
 import FullScreenSlider from "@components/FullScreenSlider/FullScreenSlider";
 import "./styles/themes/eduprogTheme.scss";
 
-
 import { useClickAway, ClickAwayListener } from "@utils/hooks/useClickAway";
 import useKeyDown from "@utils/hooks/useKeyDown";
 import usePreventScroll from "@utils/hooks/usePreventScroll";
 import { RadioBoxValueProps } from "@components/RadioBox";
+import { Themes, ThemeDetect } from "@utils/themeDetector/themeDetect";
 
 export {
   Button,
@@ -54,7 +54,8 @@ export {
   Spinner,
   Switch,
   MultipleSelect,
-  Notification,
+  NotificationBox,
+  Notify,
   BaseInput,
   Select,
   Carousel,
@@ -70,8 +71,7 @@ export {
   ClickAwayListener,
   useKeyDown,
   usePreventScroll,
+  Themes,
+  ThemeDetect,
 };
 export type { TabsValue, RadioBoxValueProps };
-
-
-

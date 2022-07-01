@@ -20,7 +20,7 @@ const PlaygroundTemplate: ComponentStory<typeof Pagination> = (args) => {
           args.onChange && args.onChange(page);
         }}
       />
-      <p style={{ color: "#fff", fontFamily: "Nunito" }}>
+      <p style={{ color: "var(--ep-text-color)", fontFamily: "Nunito" }}>
         Selected page: {page}
       </p>
     </>

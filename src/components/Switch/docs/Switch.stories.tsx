@@ -1,24 +1,103 @@
-import React from "react";
+import React, { useState } from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import Switch from "../Switch";
 
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
   title: "Components/Switch",
   component: Switch,
-  // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
 } as ComponentMeta<typeof Switch>;
 
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof Switch> = (args) => <Switch {...args} />;
+interface Form {
+  first: boolean;
+  second: boolean;
+  third: boolean;
+  fourth: boolean;
+}
 
-export const Playground = Template.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
-Playground.args = {
-  label: "label",
-  style: {
-    width: "200px",
-    justifyContent: "space-between",
-  },
+const PlaygroundTemplate: ComponentStory<typeof Switch> = (args) => {
+  const [form, setForm] = useState<Form>({
+    first: false,
+    second: true,
+    third: true,
+    fourth: true,
+  });
+
+  return (
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        gap: "0.625rem",
+        padding: "1.25rem",
+      }}
+    >
+      <Switch
+        {...args}
+        color="primary"
+        onChange={() => setForm({ ...form, first: !form.first })}
+        checked={form.first}
+      />
+
+      <Switch
+        {...args}
+        color="primary"
+        onChange={() => setForm({ ...form, second: !form.second })}
+        checked={form.second}
+      />
+
+      <Switch color="primary" checked={false} disabled />
+    </div>
+  );
 };
+
+export const Playground = PlaygroundTemplate.bind({});
+
+const ColorTemplate: ComponentStory<typeof Switch> = (args) => {
+  const [form, setForm] = useState<Form>({
+    first: true,
+    second: true,
+    third: true,
+    fourth: true,
+  });
+
+  return (
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        gap: "0.625rem",
+        padding: "1.25rem",
+      }}
+    >
+      <Switch
+        {...args}
+        color="primary"
+        onChange={() => setForm({ ...form, first: !form.first })}
+        checked={form.first}
+      />
+      <Switch
+        {...args}
+        color="secondary"
+        checked={form.second}
+        onChange={() => setForm({ ...form, second: !form.second })}
+      />
+      <Switch
+        {...args}
+        color="accent"
+        checked={form.third}
+        onChange={() => setForm({ ...form, third: !form.third })}
+      />
+      <Switch
+        {...args}
+        color="#ffbf11"
+        checked={form.fourth}
+        onChange={() => setForm({ ...form, fourth: !form.fourth })}
+      />
+    </div>
+  );
+};
+
+export const Color = ColorTemplate.bind({});

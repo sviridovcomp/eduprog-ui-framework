@@ -1,80 +1,62 @@
-import React, { useState } from "react";
+// @ts-nocheck
+import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
-import Notification from "../Notification";
-import { Container, Row, Column } from "@components/Grid";
+import { Notify } from "../Notification";
 import Button from "@components/Button";
+import NotificationBox, {
+  INotificationBoxProps,
+} from "../NotificationBox/NotificationBox";
+import { NotificationPropsType } from "../NotificationItem";
+import Error from "@icons/Error";
 
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
   title: "Components/Notification",
-  component: Notification,
-  // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
-} as ComponentMeta<typeof Notification>;
+  component: NotificationBox,
+} as ComponentMeta<typeof NotificationBox>;
 
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const PlaygroundTemplate: ComponentStory<typeof Notification> = (args) => (
-  <Notification {...args} />
-);
+type NotificationProps = NotificationPropsType & INotificationBoxProps;
 
-export const Playground = PlaygroundTemplate.bind({});
-
-const ExampleTemplate = () => {
-  interface INotificatonShow {
-    first: boolean;
-    second: boolean;
-  }
-
-  const [notification, setNotification] = useState<INotificatonShow>({
-    first: false,
-    second: false,
-  });
+const PlaygroundTemplate: ComponentStory<typeof NotificationBox> = (
+  args: NotificationProps
+) => {
+  const showNotification = () => [
+    Notify({
+      title: args.title,
+      content: args.content,
+      icon: args.icon,
+      hasCloser: args.hasCloser,
+    }),
+  ];
 
   return (
     <>
-      <Container adaptive>
-        <Row>
-          <Column col={6}>
-            <Button
-              onClick={() => setNotification({ ...notification, first: true })}
-            >
-              Show notification one
-            </Button>
-          </Column>
-          <Column col={6}>
-            <Button
-              onClick={() => setNotification({ ...notification, second: true })}
-            >
-              Show notification two
-            </Button>
-          </Column>
-        </Row>
-      </Container>
-      <Notification
-        open={notification.first}
-        hasCloser
-        status={"ok"}
-        title={""}
-        stickTo={"left"}
-        onCloserClick={() => setNotification({ ...notification, first: false })}
-        onCloseTimeout={() =>
-          setNotification({ ...notification, first: false })
-        }
-      >
-        Notification one
-      </Notification>
+      <NotificationBox
+        position={args.position}
+        rootStyle={args.NotificationBoxRootStyle}
+      />
 
-      <Notification
-        open={notification.second}
-        hasCloser
-        status={"ok"}
-        title={""}
-        stickTo={"left"}
-      >
-        Notification one
-      </Notification>
+      <div style={{ display: "grid", placeItems: "center" }}>
+        <Button onClick={showNotification}>Open notification</Button>
+      </div>
     </>
   );
 };
 
-export const Example = ExampleTemplate.bind({});
+export const Playground = PlaygroundTemplate.bind({});
+Playground.args = {
+  NotificationBoxRootStyle: {
+    zIndex: 10,
+  },
+  title: "Documentation Example",
+  content: (
+    <>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut ipsa ullam aut
+      reprehenderit sapiente veniam voluptatem, nostrum deleniti aliquam nemo
+      molestias expedita accusamus consequatur iure deserunt similique est quod
+      assumenda!
+    </>
+  ),
+  icon: <Error />,
+  hasCloser: true,
+};

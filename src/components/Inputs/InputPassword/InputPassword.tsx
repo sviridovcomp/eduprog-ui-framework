@@ -30,11 +30,11 @@ const InputPassword: FC<InputPasswordPropsType> = ({
   }
   const [error, setError] = useState<ErrorStatus>();
 
-  /* /* eslint-disable-line quotes */
   const router = [
     ["Пароль слишком короткий", "Используйте хотя бы 6 символов"],
     [
       "Пароль содержит запрещённые символы",
+      // eslint-disable-next-line quotes
       'Для пароля можно использовать только буквы латинского алфавита, цифры и символы: `!@#$%^&*()_=+[]{};:"\\|,.',
     ],
     [

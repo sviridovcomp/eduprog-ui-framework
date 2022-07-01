@@ -1,0 +1,75 @@
+.notification {
+  position: relative;
+  min-width: 300px;
+  max-width: 400px;
+  width: 100%;
+  min-height: 56px;
+  font-weight: 400;
+  line-height: 1.6;
+  border-radius: 1rem;
+  transition: transform 0.25s ease;
+  padding: 1rem 1rem 1rem 1rem;
+  user-select: none;
+  color: var(--ep-text-color);
+  background-color: var(--ep-background-color);
+  box-shadow: var(--ep-popup-shadow);
+  box-sizing: border-box;
+  overflow: hidden;
+
+  &:hover {
+    transform: translate(0, 3px);
+  }
+
+  &-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    transition: all 0.25s ease;
+    background-color: #fff;
+  }
+
+  &-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &-left {
+    display: flex;
+    gap: 0.75rem;
+  }
+
+  &-closing {
+    transform: translate(0, -100%) !important;
+  }
+
+  &__title {
+    font-size: 1rem;
+    line-height: 1.2;
+    font-weight: 700;
+  }
+
+  &__content {
+    margin-top: 0.5rem;
+    font-size: 0.8125rem;
+  }
+
+  &__closer {
+    button {
+      background-color: transparent;
+      outline: none;
+      border: none;
+      cursor: pointer;
+
+      svg {
+        fill: #959ea7;
+        transition: 0.25s ease;
+
+        &:hover {
+          fill: #fff;
+        }
+      }
+    }
+  }
+}

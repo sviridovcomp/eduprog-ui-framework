@@ -15,6 +15,7 @@ const Template: ComponentStory<typeof MultipleSelect> = (args) => {
     <>
       <MultipleSelect
         {...args}
+        // eslint-disable-next-line
         onChange={(value: any) => {
           setOptions(value);
         }}

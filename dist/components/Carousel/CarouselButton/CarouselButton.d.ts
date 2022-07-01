@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import "./CarouselButton.scss";
-import { defaultProps } from "@utils/defaultProps";
-export interface ICarouselButtonProps extends defaultProps {
+import { ButtonPropsType } from "@components/Button/Button";
+export interface ICarouselButtonProps extends ButtonPropsType {
     direction?: "left" | "right";
     onClick?: (event?: React.MouseEvent<HTMLButtonElement>) => void;
 }
