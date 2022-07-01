@@ -34,6 +34,7 @@ const PlaygroundTemplate: ComponentStory<typeof NotificationBox> = (
       <NotificationBox
         position={args.position}
         rootStyle={args.NotificationBoxRootStyle}
+        autoCloseDelay={args.autoCloseDelay}
       />
 
       <div style={{ display: "grid", placeItems: "center" }}>
@@ -48,6 +49,7 @@ Playground.args = {
   NotificationBoxRootStyle: {
     zIndex: 10,
   },
+  autoCloseDelay: 10000,
   title: "Documentation Example",
   content: (
     <>

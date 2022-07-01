@@ -14,6 +14,7 @@ export type NotificationPropsType = defaultProps & {
   title: string;
   content: React.ReactNode;
   autoCloseDelay: number;
+  isProgressBarVisible?: boolean;
 };
 
 const NotificationItem: FC<NotificationPropsType> = ({
@@ -26,6 +27,7 @@ const NotificationItem: FC<NotificationPropsType> = ({
   onPointerEnter,
   onPointerLeave,
   autoCloseDelay,
+  isProgressBarVisible = true,
 }) => {
   const closeTimeoutRef = useRef(0);
   const [progress, setProgress] = useState(0);
@@ -43,6 +45,10 @@ const NotificationItem: FC<NotificationPropsType> = ({
   });
 
   useEffect(() => {
+    if (!isProgressBarVisible) {
+      return;
+    }
+
     const fillingProgressBar = setInterval(() => {
       if (progress >= 90) {
         setProgress(100);
@@ -83,20 +89,23 @@ const NotificationItem: FC<NotificationPropsType> = ({
             <div className="notification__content">{content}</div>
           </div>
         </div>
-        <div className="notification-right">
-          {hasCloser && (
-            <div className="notification__closer">
-              <button onClick={() => closeNotification()}>
-                <CloseIcon />
-              </button>
-            </div>
-          )}
-        </div>
+        <div className="notification-right"></div>
       </div>
-      <div
-        className="notification-progress"
-        style={{ width: `${progress}%` }}
-      ></div>
+
+      {hasCloser && (
+        <div className="notification__closer">
+          <button onClick={() => closeNotification()}>
+            <i className="notification__closer-icon_close notification__closer-icon_less"></i>
+          </button>
+        </div>
+      )}
+
+      {isProgressBarVisible && (
+        <div
+          className="notification-progress"
+          style={{ width: `${progress}%` }}
+        />
+      )}
     </div>
   );
 };
