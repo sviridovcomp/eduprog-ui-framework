@@ -1,3 +1,5 @@
+@import "~styles/variables/colors";
+
 .notification {
   position: relative;
   min-width: 300px;
@@ -57,19 +59,52 @@
 
   &__closer {
     button {
+      position: absolute;
+      border: 0;
       background-color: transparent;
-      outline: none;
-      border: none;
+      top: 8px;
+      right: 8px;
+      transform: scale(0.75);
+      padding: 0;
       cursor: pointer;
+    }
 
-      svg {
-        fill: #959ea7;
-        transition: 0.25s ease;
+    &-icon_close::before,
+    &-icon_close::after {
+      background: var(--ep-text-color);
+      content: "";
+      position: absolute;
+      width: 1rem;
+      height: 0.125rem;
+      border-radius: 0.125rem;
+      transition: all 0.3s ease;
+    }
 
-        &:hover {
-          fill: #fff;
-        }
+    &-icon_close {
+      width: 1.875rem;
+      height: 1.875rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      transition: all 0.25s ease;
+
+      &::before {
+        transform: rotate(-45deg);
       }
+
+      &::after {
+        transform: rotate(45deg);
+      }
+
+      &:hover::before,
+      &:hover::after {
+        width: 12px;
+        transform: rotate(180deg);
+      }
+    }
+
+    &-icon_less {
     }
   }
 }
