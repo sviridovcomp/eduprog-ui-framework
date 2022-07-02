@@ -25,15 +25,17 @@ const PlaygroundTemplate: ComponentStory<typeof Input> = (args) => {
   const [value, setValue] = useState("");
 
   return (
-    <Input
-      {...args}
-      defaultValue={value}
-      onChange={(value: string, event) => {
-        setValue(value);
+    <div style={{ maxWidth: 300, display: "flex", margin: "auto" }}>
+      <Input
+        {...args}
+        defaultValue={value}
+        onChange={(value: string, event) => {
+          setValue(value);
 
-        args.onChange && args.onChange(value, event);
-      }}
-    />
+          args.onChange && args.onChange(value, event);
+        }}
+      />
+    </div>
   );
 };
 export const Playground = PlaygroundTemplate.bind({});
@@ -47,7 +49,7 @@ const MaskTemplate: ComponentStory<typeof Input> = (args) => {
   const [value, setValue] = useState("");
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+    <div style={{ maxWidth: 300, display: "flex", margin: "auto" }}>
       <Input
         {...args}
         mask="ivanov@gmail.com"
@@ -71,7 +73,14 @@ const ValidationTemplate: ComponentStory<typeof Input> = (args) => {
   const [value, setValue] = useState("");
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+    <div
+      style={{
+        maxWidth: 300,
+        display: "flex",
+        flexDirection: "column",
+        margin: "auto",
+      }}
+    >
       <Input
         {...args}
         validators={{

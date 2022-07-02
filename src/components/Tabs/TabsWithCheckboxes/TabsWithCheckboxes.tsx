@@ -58,7 +58,7 @@ const TabsWithCheckboxes: FC<TabsWithCheckboxProps> = ({
             view="default"
             style={{ backgroundColor: "#fff" }}
             position="right"
-            wrapperStyle={{ userSelect: "none", gap: "1rem" }}
+            checkboxStyle={{ userSelect: "none", gap: "1rem" }}
             checked={selectedValue.includes(option)}
             disabled
             {...checkboxProps}

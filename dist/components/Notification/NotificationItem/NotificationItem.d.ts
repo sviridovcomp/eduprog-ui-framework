@@ -9,6 +9,7 @@ export declare type NotificationPropsType = defaultProps & {
     title: string;
     content: React.ReactNode;
     autoCloseDelay: number;
+    isProgressBarVisible?: boolean;
 };
 declare const NotificationItem: FC<NotificationPropsType>;
 export default NotificationItem;

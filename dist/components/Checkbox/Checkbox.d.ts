@@ -35,7 +35,8 @@ export declare type CheckboxPropsType = defaultProps & {
      */
     autoFocus?: boolean;
     style?: React.CSSProperties;
-    wrapperStyle?: React.CSSProperties;
+    checkboxClassName?: string;
+    checkboxStyle?: React.CSSProperties;
 };
 declare const Checkbox: FC<CheckboxPropsType>;
 export default Checkbox;

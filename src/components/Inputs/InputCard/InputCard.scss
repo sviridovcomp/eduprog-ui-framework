@@ -1,0 +1,18 @@
+.input-card {
+  display: flex;
+  gap: 0.125rem;
+
+  &-number {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  &-expire {
+    border-radius: 0;
+  }
+
+  &-cvc {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}

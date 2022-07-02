@@ -132,24 +132,18 @@ export type TextInputProps = defaultProps & {
   size?: "md" | "xl";
 
   /**
-   * onPointerDown callback handler
-   */
-  onPointerDown?: (event?: React.MouseEvent) => void;
-
-  /**
-   * onPointerUp callback handler
-   */
-  onPointerUp?: (event?: React.MouseEvent) => void;
-
-  /**
-   * onPointerLeave callback handler
-   */
-  onPointerLeave?: (event?: React.MouseEvent) => void;
-
-  /**
    * Ref to `input`
    */
   controlRef?: React.Ref<HTMLInputElement>;
+
+  rootClassName?: string;
+  rootStyle?: React.CSSProperties;
+
+  controlStyle?: React.CSSProperties;
+  controlClassName?: string;
+
+  rigthAdditionalStyle?: React.CSSProperties;
+  rigthAdditioanlClassName?: string;
 };
 
 const BaseInput: FC<TextInputProps> = ({
@@ -176,11 +170,17 @@ const BaseInput: FC<TextInputProps> = ({
   autoFocus = false,
   forceFocus = false,
   className = "",
+  rootClassName = "",
   forceInvalid = false,
   validators,
   style,
   controlRef,
   size = "md",
+  controlStyle,
+  controlClassName = "",
+  rootStyle,
+  rigthAdditionalStyle,
+  rigthAdditioanlClassName = "",
 }) => {
   enum ValidityStatus {
     Invalid,
@@ -239,7 +239,10 @@ const BaseInput: FC<TextInputProps> = ({
 
   return (
     <>
-      <div className="input">
+      <div
+        className={clsx("input", rootClassName, className)}
+        style={{ ...style, ...rootStyle }}
+      >
         <div
           className={clsx(
             "input-label",
@@ -255,7 +258,7 @@ const BaseInput: FC<TextInputProps> = ({
         </div>
 
         <div className="input-field">
-          <div className="input-left">{leftAdditional}</div>
+          {leftAdditional && <div className="input-left">{leftAdditional}</div>}
 
           <input
             className={clsx(
@@ -264,7 +267,7 @@ const BaseInput: FC<TextInputProps> = ({
                 "input-control-invalid":
                   validationStatus == ValidityStatus.Invalid || forceInvalid,
               },
-              className
+              controlClassName
             )}
             type={inputType == "card" ? "tel" : inputType}
             maxLength={maxLength}
@@ -282,14 +285,19 @@ const BaseInput: FC<TextInputProps> = ({
             name={name}
             readOnly={readonly}
             autoComplete={autocomplete}
-            style={{ cursor: cursor, ...style }}
+            style={{ cursor: cursor, ...controlStyle }}
             autoFocus={autoFocus}
             ref={controlRef}
           />
 
-          <div className="input-right" style={{ cursor: cursor }}>
-            {rightAdditional}
-          </div>
+          {rightAdditional && (
+            <div
+              className={clsx("input-right", rigthAdditioanlClassName)}
+              style={{ cursor: cursor }}
+            >
+              {rightAdditional}
+            </div>
+          )}
         </div>
       </div>
       {validators && validationStatus == ValidityStatus.Invalid && (

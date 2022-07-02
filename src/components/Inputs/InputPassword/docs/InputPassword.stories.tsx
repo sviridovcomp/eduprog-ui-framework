@@ -15,14 +15,16 @@ const PlaygroundTemplate: ComponentStory<typeof InputPassword> = (args) => {
   const [value, setValue] = useState("");
 
   return (
-    <InputPassword
-      {...args}
-      defaultValue={value}
-      onChange={(value, event) => {
-        setValue(value);
-        args.onChange && args.onChange(value, event);
-      }}
-    />
+    <div style={{ maxWidth: 300, display: "flex", margin: "auto" }}>
+      <InputPassword
+        {...args}
+        defaultValue={value}
+        onChange={(value, event) => {
+          setValue(value);
+          args.onChange && args.onChange(value, event);
+        }}
+      />
+    </div>
   );
 };
 
@@ -36,14 +38,16 @@ const ValdationTemplate: ComponentStory<typeof InputPassword> = (args) => {
   const [value, setValue] = useState("");
 
   return (
-    <InputPassword
-      {...args}
-      defaultValue={value}
-      onChange={(value, event) => {
-        setValue(value);
-        args.onChange && args.onChange(value, event);
-      }}
-    />
+    <div style={{ maxWidth: 300, display: "flex", margin: "auto" }}>
+      <InputPassword
+        {...args}
+        defaultValue={value}
+        onChange={(value, event) => {
+          setValue(value);
+          args.onChange && args.onChange(value, event);
+        }}
+      />
+    </div>
   );
 };
 

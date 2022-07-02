@@ -47,7 +47,8 @@ export type CheckboxPropsType = defaultProps & {
 
   style?: React.CSSProperties;
 
-  wrapperStyle?: React.CSSProperties;
+  checkboxClassName?: string;
+  checkboxStyle?: React.CSSProperties;
 };
 
 const Checkbox: FC<CheckboxPropsType> = ({
@@ -57,6 +58,8 @@ const Checkbox: FC<CheckboxPropsType> = ({
   checked,
   onChange,
   disabled,
+  checkboxStyle,
+  checkboxClassName = "",
 }) => {
   const checkboxId = useId();
   const labelbyId = `checkbox-${checkboxId}`;
@@ -74,15 +77,20 @@ const Checkbox: FC<CheckboxPropsType> = ({
           style={{ display: "none" }}
         />
         <label
-          className={clsx("checkbox-fake", { [`${view}`]: view })}
+          className={clsx(
+            "checkbox-fake",
+            { [`${view}`]: view },
+            checkboxClassName
+          )}
           htmlFor={labelbyId}
+          style={checkboxStyle}
         >
-          <span>
+          <span className="checkbox-fake-checkbox">
             <svg width="12px" height="10px" viewBox="0 0 12 10">
               <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
             </svg>
           </span>
-          <span>{children}</span>
+          <span className="checkbox-fake-label">{children}</span>
         </label>
       </label>
     </div>

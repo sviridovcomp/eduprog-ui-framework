@@ -12,15 +12,26 @@ export default {
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: ComponentStory<typeof InputPhone> = (args) => {
-  const [value, setValue] = useState("");
+  const [, setValue] = useState("");
 
   return (
-    <InputPhone
-      onChange={(data) => {
-        setValue(data);
-      }}
-      {...args}
-    />
+    <>
+      <div
+        style={{
+          maxWidth: 300,
+          display: "flex",
+          flexDirection: "row",
+          margin: "auto",
+        }}
+      >
+        <InputPhone
+          onChange={(data) => {
+            setValue(data);
+          }}
+          {...args}
+        />
+      </div>
+    </>
   );
 };
 export const Playground = Template.bind({});

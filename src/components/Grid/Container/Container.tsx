@@ -12,7 +12,7 @@ export type ContainerPropsType = {
 const Container: FC<ContainerPropsType> = ({
   children,
   fullwidth,
-  adaptive,
+  adaptive = true,
   fixed,
   style,
 }) => {

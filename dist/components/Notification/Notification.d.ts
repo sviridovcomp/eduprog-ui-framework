@@ -16,5 +16,6 @@ export declare const InitNotification: (props: NotificationPropsType) => {
     title: string;
     content: import("react").ReactNode;
     autoCloseDelay: number;
+    isProgressBarVisible?: boolean | undefined;
 };
 export declare const Notify: (props: NotificationPropsType) => void;
