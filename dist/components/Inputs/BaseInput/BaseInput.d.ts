@@ -49,10 +49,6 @@ export declare type TextInputProps = defaultProps & {
      */
     onPaste?: (event?: React.ClipboardEvent<HTMLInputElement>) => void;
     /**
-     * onKeyDown callback handler
-     */
-    onKeyDown?: (event?: React.KeyboardEvent<HTMLInputElement>) => void;
-    /**
      * onBlur callback handler
      */
     onBlur?: (event?: React.FocusEvent<HTMLInputElement>) => void;

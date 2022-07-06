@@ -102,7 +102,7 @@
     &_pseudo {
       background-color: var(--ep-background-color);
       color: var(--ep-text-color);
-      border: 1px solid var(--ep-text-color);
+      border: 2px solid var(--ep-impl-button-pseudo-border);
     }
     &_clear {
       color: $color-darkgray;

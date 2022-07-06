@@ -46,6 +46,7 @@ html {
     --ep-avatar-background: #d8ddf2;
     --ep-button-background: #ebefff;
     --ep-button-background-hovered: #dfe3f3;
+    --ep-impl-button-pseudo-border: #ccc;
   }
 
   &[data-color-theme="dark"] {
@@ -57,5 +58,6 @@ html {
     --ep-avatar-background: #7a7a7a;
     --ep-button-background: #464646;
     --ep-button-background-hovered: #575757;
+    --ep-impl-button-pseudo-border: #3f3e43;
   }
 }

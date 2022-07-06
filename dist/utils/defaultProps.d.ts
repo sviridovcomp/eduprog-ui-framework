@@ -11,29 +11,33 @@ export declare type defaultProps = {
     /**
      * onPointerDown callback handler
      */
-    onPointerDown?: (event?: React.PointerEvent) => void;
+    onPointerDown?: (event?: React.PointerEvent<any>) => void;
     /**
      * onPointerEnter callback handler
      */
-    onPointerEnter?: (event?: React.PointerEvent) => void;
+    onPointerEnter?: (event?: React.PointerEvent<any>) => void;
     /**
      * onPointerLeave callback handler
      */
-    onPointerLeave?: (event?: React.PointerEvent) => void;
+    onPointerLeave?: (event?: React.PointerEvent<any>) => void;
     /**
      * onPointerUp callback handler
      */
-    onPointerUp?: (event?: React.PointerEvent) => void;
+    onPointerUp?: (event?: React.PointerEvent<any>) => void;
     /**
      * onPointerMove callback handler
      */
-    onPointerMove?: (event?: React.PointerEvent) => void;
+    onPointerMove?: (event?: React.PointerEvent<any>) => void;
     /**
      * onFocus callback handler
      */
-    onFocus?: (event?: React.FocusEvent) => void;
+    onFocus?: (event?: React.FocusEvent<any>) => void;
     /**
      * onBlur callback handler
      */
-    onBlur?: (event?: React.FocusEvent) => void;
+    onBlur?: (event?: React.FocusEvent<any>) => void;
+    /**
+     * onKeyDown callback handler
+     */
+    onKeyDown?: (event?: React.KeyboardEvent<any>) => void;
 };
