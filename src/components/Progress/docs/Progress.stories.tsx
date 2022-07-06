@@ -26,7 +26,11 @@ const PlaygroundTemplate: ComponentStory<typeof Progress> = (args) => {
     return () => clearInterval(fillingProgressBar);
   }, [value]);
 
-  return <Progress {...args} value={value} />;
+  return (
+    <div style={{ maxWidth: 300, margin: "auto" }}>
+      <Progress {...args} value={value} />
+    </div>
+  );
 };
 
 export const Playground = PlaygroundTemplate.bind({});
@@ -49,7 +53,11 @@ const WithAnimationTemplate: ComponentStory<typeof Progress> = (args) => {
     return () => clearInterval(fillingProgressBar);
   }, [value]);
 
-  return <Progress {...args} value={value} />;
+  return (
+    <div style={{ maxWidth: 300, margin: "auto" }}>
+      <Progress {...args} value={value} />
+    </div>
+  );
 };
 
 export const WithAnimation = WithAnimationTemplate.bind({});
@@ -82,7 +90,11 @@ const GradientTemplate: ComponentStory<typeof Progress> = (args) => {
     return () => clearInterval(fillingProgressBar);
   }, [value]);
 
-  return <Progress {...args} value={value} />;
+  return (
+    <div style={{ maxWidth: 300, margin: "auto" }}>
+      <Progress {...args} value={value} />;
+    </div>
+  );
 };
 
 export const Gradient = GradientTemplate.bind({});
