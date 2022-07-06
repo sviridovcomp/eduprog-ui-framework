@@ -22,10 +22,6 @@
     }
   }
 
-  &-animation {
-    @include fade-animations(0.15);
-  }
-
   &-content {
     overscroll-behavior: contain;
     max-height: calc(80vh - 200px);
@@ -86,11 +82,12 @@
       }
 
       &-enter-active {
-        transform: scale(1);
-        transition: 0.15s transform ease-in-out;
+        transform: scale(1.1);
+        transition: 0.15s transform ease;
       }
 
       &-enter-done {
+        transition: 0.15s transform ease;
         transform: scale(1);
       }
 
@@ -100,7 +97,7 @@
 
       &-exit-active {
         transform: scale(1.25);
-        transition: 0.15s transform ease-in-out;
+        transition: 0.15s transform ease;
       }
     }
 

@@ -16,20 +16,26 @@ const CarouselButton: FC<ICarouselButtonProps> = ({
   onClick,
   ...rest
 }) => {
-  const directionRouting = new Map([
-    ["left", 0],
-    ["right", 180],
-  ]);
+  const directionTransforms = (direction: string) => {
+    const router = new Map([
+      ["left", ["rotate(0deg)", "translate(-1rem, 0)"]],
+      ["right", ["rotate(180deg)", "translate(1rem, 0)"]],
+    ]);
+
+    return router.get(direction);
+  };
 
   return (
     <Button
       rounded
       style={{
-        width: "2.5rem",
-        height: "2.5rem",
         ...style,
       }}
-      className={clsx("CarouselButton", { [`${className}`]: className })}
+      className={clsx(
+        "CarouselButton",
+        { [`${className}`]: className },
+        { [`CarouselButton-${direction}`]: direction }
+      )}
       onClick={onClick}
       {...rest}
     >
@@ -40,7 +46,7 @@ const CarouselButton: FC<ICarouselButtonProps> = ({
         width="24px"
         fill="currentColor"
         style={{
-          transform: `rotate(${directionRouting.get(direction)}deg)`,
+          transform: directionTransforms(direction)?.[0],
         }}
       >
         <path d="M0 0h24v24H0V0z" fill="none" />

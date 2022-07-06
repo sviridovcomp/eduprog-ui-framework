@@ -5,8 +5,22 @@
   &-checkbox {
     display: flex;
     align-items: center;
-    height: 2.5rem;
-    cursor: pointer;
     padding-left: 0.5rem;
+  }
+
+  &-item {
+    transition: all 0.25s ease;
+    border-radius: 0.25rem;
+
+    &:hover {
+      background-color: var(--ep-item);
+    }
+  }
+
+  &-popup {
+    background-color: var(--ep-background-color);
+    box-shadow: var(--ep-popup-shadow);
+    border-radius: 0.5rem;
+    padding: 0.5rem;
   }
 }

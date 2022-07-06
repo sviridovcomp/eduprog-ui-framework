@@ -16,13 +16,14 @@
   transform: scale(1);
   transition: 0.1s transform ease-in-out, 0.15s background-color ease-in-out;
   border: 2px;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   font-family: $font-family;
   font-size: 1rem;
   touch-action: manipulation;
 
   &:disabled {
     opacity: 0.6;
+    cursor: auto;
   }
 
   &-rounded {

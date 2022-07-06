@@ -1,6 +1,7 @@
 @import "~styles/variables/colors";
 
 .Pagination {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -13,10 +14,24 @@
     width: 2rem;
     height: 2rem;
     font-size: 0.875rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-    &_selected {
-      background-color: $color-primary !important;
-      color: #ffffff;
+    &-active {
+      position: absolute;
+      top: 0;
+      color: #fff;
+      background-color: $color-primary;
+      z-index: 1;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition: all 0.25s ease;
     }
+
+    // &_selected {
+    //   background-color: $color-primary !important;
+    //   color: #ffffff;
+    // }
   }
 }

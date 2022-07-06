@@ -12,7 +12,7 @@ export default {
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: ComponentStory<typeof InputPhone> = (args) => {
-  const [, setValue] = useState("");
+  const [value, setValue] = useState("");
 
   return (
     <>
@@ -20,16 +20,19 @@ const Template: ComponentStory<typeof InputPhone> = (args) => {
         style={{
           maxWidth: 300,
           display: "flex",
-          flexDirection: "row",
+          flexDirection: "column",
           margin: "auto",
         }}
       >
         <InputPhone
-          onChange={(data) => {
+          label="Phone input"
+          defaultValue={value}
+          onChange={(data: string) => {
             setValue(data);
           }}
-          {...args}
+          // {...args}
         />
+        <p style={{ color: "var(--ep-text-color)" }}>Phone number: {value}</p>
       </div>
     </>
   );

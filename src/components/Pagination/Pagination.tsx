@@ -78,25 +78,43 @@ const Pagination: FC<IPaginationProps> = ({
     }
   };
 
+  const initialState = 1;
+  const active =
+    selectedPage % siblingCount == 0
+      ? siblingCount
+      : selectedPage % siblingCount;
+  const leftActive = 2 * (active == 0 ? initialState : active);
+  const leftActiveOffset = 0.25 * (active == 0 ? initialState : active);
+
   return (
     <ul className="Pagination">
-      {selectedPage > 1 && (
-        <Button className="Pagination-button" onClick={PrevPage}>
-          <svg
-            style={{ display: "flex" }}
-            fill="currentColor"
-            height="24px"
-            viewBox="0 0 24 24"
-            width="24px"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path d="M0 0h24v24H0V0z" fill="none" />
-            <path d="M14.91 6.71c-.39-.39-1.02-.39-1.41 0L8.91 11.3c-.39.39-.39 1.02 0 1.41l4.59 4.59c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L11.03 12l3.88-3.88c.38-.39.38-1.03 0-1.41z" />
-          </svg>
-        </Button>
-      )}
-
-      {frame > 0 && (
+      <div
+        className={clsx("Pagination-button", "Pagination-button-active")}
+        style={{
+          left: `
+            ${leftActive + leftActiveOffset}rem`,
+        }}
+      >
+        {selectedPage}{" "}
+      </div>
+      <Button
+        className="Pagination-button"
+        onClick={PrevPage}
+        disabled={selectedPage <= 1}
+      >
+        <svg
+          style={{ display: "flex" }}
+          fill="currentColor"
+          height="24px"
+          viewBox="0 0 24 24"
+          width="24px"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M0 0h24v24H0V0z" fill="none" />
+          <path d="M14.91 6.71c-.39-.39-1.02-.39-1.41 0L8.91 11.3c-.39.39-.39 1.02 0 1.41l4.59 4.59c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L11.03 12l3.88-3.88c.38-.39.38-1.03 0-1.41z" />
+        </svg>
+      </Button>
+      {/* {frame > 0 && (
         <Button className="Pagination-button" onClick={PrevFrame}>
           <svg
             fill="currentColor"
@@ -109,13 +127,12 @@ const Pagination: FC<IPaginationProps> = ({
             <path d="M6 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm12 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
           </svg>
         </Button>
-      )}
-
+      )} */}
       {range(1, siblingCount == undefined ? count : siblingCount + 1).map(
         (page) => (
           <li key={frame + page}>
             <Button
-              view={frame + page == selectedPage ? "action" : "default"}
+              // view={frame + page == selectedPage ? "action" : "default"}
               onClick={() => {
                 setSelectedPage(frame + page);
               }}
@@ -126,8 +143,7 @@ const Pagination: FC<IPaginationProps> = ({
           </li>
         )
       )}
-
-      {frame + siblingCount < count && (
+      {/* {frame + siblingCount < count && (
         <Button className={clsx("Pagination-button")} onClick={NextFrame}>
           <svg
             fill="currentColor"
@@ -140,9 +156,8 @@ const Pagination: FC<IPaginationProps> = ({
             <path d="M6 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm12 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
           </svg>
         </Button>
-      )}
-
-      {selectedPage + siblingCount < count + 1 && (
+      )} */}
+      {/* {selectedPage + siblingCount < count + 1 && (
         <Button
           onClick={() => {
             setFrame(count - siblingCount);
@@ -152,23 +167,24 @@ const Pagination: FC<IPaginationProps> = ({
         >
           {count}
         </Button>
-      )}
-
-      {selectedPage + 1 <= count && (
-        <Button className="Pagination-button" onClick={() => NextPage()}>
-          <svg
-            style={{ display: "flex" }}
-            fill="currentColor"
-            height="24px"
-            viewBox="0 0 24 24"
-            width="24px"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path d="M0 0h24v24H0V0z" fill="none" />
-            <path d="M9.31 6.71c-.39.39-.39 1.02 0 1.41L13.19 12l-3.88 3.88c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0l4.59-4.59c.39-.39.39-1.02 0-1.41L10.72 6.7c-.38-.38-1.02-.38-1.41.01z" />
-          </svg>
-        </Button>
-      )}
+      )} */}
+      <Button
+        className="Pagination-button"
+        disabled={selectedPage + 1 >= count}
+        onClick={() => NextPage()}
+      >
+        <svg
+          style={{ display: "flex" }}
+          fill="currentColor"
+          height="24px"
+          viewBox="0 0 24 24"
+          width="24px"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M0 0h24v24H0V0z" fill="none" />
+          <path d="M9.31 6.71c-.39.39-.39 1.02 0 1.41L13.19 12l-3.88 3.88c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0l4.59-4.59c.39-.39.39-1.02 0-1.41L10.72 6.7c-.38-.38-1.02-.38-1.41.01z" />
+        </svg>
+      </Button>
     </ul>
   );
 };

@@ -1,9 +1,10 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { FC, useEffect, useRef, useState } from "react";
 import "./MultipleSelectLargeDevice.scss";
 import BaseInput from "@components/Inputs/BaseInput/BaseInput";
-import Menu from "@components/Menu/Menu";
 import Checkbox from "@components/Checkbox";
 import { MultipleSelectPropsType } from "@components/Select/MultipleSelect/MultipleSelectProps";
+import { offset, useFloating, size } from "@floating-ui/react-dom-interactions";
+import { useClickAway } from "@utils/hooks/useClickAway";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const MultipleSelectLargeDevice: FC<MultipleSelectPropsType<any>> = ({
@@ -16,44 +17,32 @@ const MultipleSelectLargeDevice: FC<MultipleSelectPropsType<any>> = ({
   dropdownStyles,
   defaultValue = new Map(),
 }) => {
+  const [open, setOpen] = useState(false);
+  const rootRef = useRef(null);
+  useClickAway(rootRef, () => {
+    setOpen(false);
+  });
+
+  const { x, y, reference, floating, strategy } = useFloating({
+    open: open,
+    onOpenChange: setOpen,
+    placement: "bottom-start",
+    middleware: [
+      offset(8),
+      size({
+        apply({ rects, availableHeight, elements }) {
+          Object.assign(elements.floating.style, {
+            width: `${rects.reference.width}px`,
+            maxHeight: `${availableHeight}px`,
+          });
+        },
+        padding: 8,
+      }),
+    ],
+  });
+
   const [selectedOptions, setSelectedOptions] =
     useState<Map<string, any>>(defaultValue); // eslint-disable-line @typescript-eslint/no-explicit-any
-
-  const [open, setOpen] = useState(false);
-
-  const SelectToggle = (
-    <BaseInput
-      label={label}
-      defaultValue={
-        !selectedOptions
-          ? ""
-          : [...selectedOptions].map((option) => option[0]).join(", ")
-      }
-      cursor="pointer"
-      readonly
-      style={wrapperStyles}
-      rightAdditional={
-        <span
-          style={{
-            transition: "0.2s transform ease",
-            transform: `rotate(${open ? "180" : "0"}deg)`,
-            height: "24px",
-          }}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            height="24px"
-            viewBox="0 0 24 24"
-            width="24px"
-            fill="currentColor"
-          >
-            <path d="M24 24H0V0h24v24z" fill="none" opacity=".87" />
-            <path d="M15.88 9.29L12 13.17 8.12 9.29c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41l4.59 4.59c.39.39 1.02.39 1.41 0l4.59-4.59c.39-.39.39-1.02 0-1.41-.39-.38-1.03-.39-1.42 0z" />
-          </svg>
-        </span>
-      }
-    />
-  );
 
   const disabledPredicate = (optionKey: string) => {
     return (
@@ -79,38 +68,81 @@ const MultipleSelectLargeDevice: FC<MultipleSelectPropsType<any>> = ({
     }
   }, [selectedOptions]);
 
-  const SelectPopup = [...options].map((option, index) => (
-    <div className="multiple-select-item" key={index}>
-      <Checkbox
-        position="right"
-        onChange={() => selectOption(option[0])}
-        view="primary"
-        className="multiple-select-checkbox"
-        width="available"
-        disabled={disabledPredicate(option[0])}
-        checkboxStyle={{ userSelect: "none", gap: "1rem" }}
-        checked={selectedOptions?.get(option[0])}
-      >
-        {option[0]}
-      </Checkbox>
-    </div>
-  ));
-
   return (
-    <div className="multiple-select" style={dropdownStyles}>
-      <Menu
-        direction="bottom-center"
-        toggle={SelectToggle}
-        clearly
-        dismissible="outside"
-        fullwidth
-        style={{ zIndex: zIndex }}
-        onOpen={() => setOpen(!open)}
-        onClose={() => setOpen(false)}
-        contentStyle={{ borderRadius: "0.5rem" }}
-      >
-        {SelectPopup}
-      </Menu>
+    <div className="multiple-select" style={dropdownStyles} ref={rootRef}>
+      <BaseInput
+        label={label}
+        onClick={() => setOpen(!open)}
+        defaultValue={
+          !selectedOptions
+            ? ""
+            : [...selectedOptions].map((option) => option[0]).join(", ")
+        }
+        cursor="pointer"
+        readonly
+        controlRef={reference}
+        style={wrapperStyles}
+        rightAdditional={
+          <span
+            style={{
+              transition: "0.2s transform ease",
+              transform: `rotate(${open ? "180" : "0"}deg)`,
+              height: "24px",
+            }}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 0 24 24"
+              width="24px"
+              fill="currentColor"
+            >
+              <path d="M24 24H0V0h24v24z" fill="none" opacity=".87" />
+              <path d="M15.88 9.29L12 13.17 8.12 9.29c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41l4.59 4.59c.39.39 1.02.39 1.41 0l4.59-4.59c.39-.39.39-1.02 0-1.41-.39-.38-1.03-.39-1.42 0z" />
+            </svg>
+          </span>
+        }
+        rigthAdditionalStyle={{ pointerEvents: "none" }}
+      />
+
+      {open && (
+        <div
+          className="multiple-select-popup"
+          ref={floating}
+          style={{
+            position: strategy,
+            top: y ?? 0,
+            left: x ?? 0,
+          }}
+        >
+          {[...options].map((option, index) => (
+            <div className="multiple-select-item" key={index}>
+              <Checkbox
+                position="right"
+                onChange={() => selectOption(option[0])}
+                view="primary"
+                className="multiple-select-checkbox"
+                width="available"
+                disabled={disabledPredicate(option[0])}
+                checkboxLabelStyle={{
+                  display: "flex",
+                  width: "100%",
+                  height: "2.5rem",
+                  cursor: "pointer",
+                }}
+                checkboxFakeStyle={{
+                  display: "flex",
+                  gap: "1rem",
+                  width: "100%",
+                }}
+                checked={selectedOptions?.get(option[0])}
+              >
+                {option[0]}
+              </Checkbox>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

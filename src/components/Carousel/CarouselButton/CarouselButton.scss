@@ -1,13 +1,33 @@
 @import "~styles/variables/colors";
 
 .CarouselButton {
-  width: 3rem;
-  height: 3rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  transition: all 0.25s ease;
 
   &:hover {
     background-color: $color-primary;
-    svg {
-      fill: #eeeeee;
+    color: #fff;
+
+    &.CarouselButton-left {
+      transform: translate(-0.25rem, 0);
     }
+    &.CarouselButton-right {
+      transform: translate(0.25rem, 0);
+    }
+  }
+
+  &:active {
+    &:hover {
+      &.CarouselButton-left {
+        transform: translate(-0.25rem, 0) scale(0.96);
+      }
+
+      &.CarouselButton-right {
+        transform: translate(0.25rem, 0) scale(0.96);
+      }
+    }
+
+    transform: scale(0.96);
   }
 }

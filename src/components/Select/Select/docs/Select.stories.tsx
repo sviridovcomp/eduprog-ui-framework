@@ -13,7 +13,14 @@ const Template: ComponentStory<typeof Select> = (args) => {
   const [option, setOption] = useState<SelectValue<string>>();
 
   return (
-    <>
+    <div
+      style={{
+        display: "flex",
+        margin: "auto",
+        maxWidth: 300,
+        flexDirection: "column",
+      }}
+    >
       <Select
         {...args}
         onChange={(value) => {
@@ -25,7 +32,7 @@ const Template: ComponentStory<typeof Select> = (args) => {
       <p style={{ color: "var(--ep-text-color)", fontFamily: "Nunito" }}>
         Selected value: {option && option.key}
       </p>
-    </>
+    </div>
   );
 };
 

@@ -9,8 +9,4 @@
   right: 0;
   touch-action: none;
   will-change: opacity;
-
-  &-animation {
-    @include fade-animations(0.4);
-  }
 }

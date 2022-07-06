@@ -1,4 +1,5 @@
-import React, { FC, useEffect, useState } from "react";
+// @ts-ignore
+import React, { FC, useEffect, useState, useId } from "react";
 import "./BaseInput.scss";
 import clsx from "clsx";
 import { defaultProps } from "@utils/defaultProps";
@@ -63,11 +64,6 @@ export type TextInputProps = defaultProps & {
    * onPaste callback handler
    */
   onPaste?: (event?: React.ClipboardEvent<HTMLInputElement>) => void;
-
-  /**
-   * onKeyDown callback handler
-   */
-  onKeyDown?: (event?: React.KeyboardEvent<HTMLInputElement>) => void;
 
   /**
    * onBlur callback handler
@@ -189,6 +185,8 @@ const BaseInput: FC<TextInputProps> = ({
 
   const [active, setActive] = useState(false);
   const [dirty, setDirty] = useState(false);
+  const inputId = useId();
+  const labelbyId = `input-${inputId}`;
   const [validationStatus, setValidationStatus] = useState(
     ValidityStatus.Valid
   );
@@ -243,7 +241,8 @@ const BaseInput: FC<TextInputProps> = ({
         className={clsx("input", rootClassName, className)}
         style={{ ...style, ...rootStyle }}
       >
-        <div
+        <label
+          htmlFor={labelbyId}
           className={clsx(
             "input-label",
             { [`Input-size_${size}`]: size },
@@ -255,7 +254,7 @@ const BaseInput: FC<TextInputProps> = ({
           )}
         >
           {label}
-        </div>
+        </label>
 
         <div className="input-field">
           {leftAdditional && <div className="input-left">{leftAdditional}</div>}
@@ -288,12 +287,13 @@ const BaseInput: FC<TextInputProps> = ({
             style={{ cursor: cursor, ...controlStyle }}
             autoFocus={autoFocus}
             ref={controlRef}
+            id={labelbyId}
           />
 
           {rightAdditional && (
             <div
               className={clsx("input-right", rigthAdditioanlClassName)}
-              style={{ cursor: cursor }}
+              style={{ cursor: cursor, ...rigthAdditionalStyle }}
             >
               {rightAdditional}
             </div>

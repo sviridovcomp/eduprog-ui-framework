@@ -12,7 +12,14 @@ const Template: ComponentStory<typeof MultipleSelect> = (args) => {
   const [options, setOptions] = useState([]);
 
   return (
-    <>
+    <div
+      style={{
+        display: "flex",
+        maxWidth: 300,
+        flexDirection: "column",
+        margin: "auto",
+      }}
+    >
       <MultipleSelect
         {...args}
         // eslint-disable-next-line
@@ -26,7 +33,7 @@ const Template: ComponentStory<typeof MultipleSelect> = (args) => {
           <li key={option[0]}>{option[0]}</li>
         ))}
       </p>
-    </>
+    </div>
   );
 };
 

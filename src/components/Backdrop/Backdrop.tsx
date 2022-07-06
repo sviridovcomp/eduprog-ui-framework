@@ -16,7 +16,8 @@ const Backdrop: FC<IBackdropProps> = ({ open, timeout = 250, onClick }) => {
       in={open}
       unmountOnExit
       timeout={timeout}
-      classNames="backdrop-animation"
+      classNames="impl-fade-transition"
+      style={{ "--ep-impl-fade-animation": `${timeout}ms` }}
     >
       <div className="backdrop" onClick={onClick} />
     </CSSTransition>

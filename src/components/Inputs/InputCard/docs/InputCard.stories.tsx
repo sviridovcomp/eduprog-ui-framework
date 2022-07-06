@@ -18,7 +18,11 @@ const PlaygroundTemplate: ComponentStory<typeof InputCard> = (args) => {
   return (
     <>
       <div style={{ maxWidth: 900, display: "flex", margin: "auto" }}>
-        <InputCard defaultValue={value} onChange={(value) => setValue(value)} />
+        <InputCard
+          {...args}
+          defaultValue={value}
+          onChange={(value) => setValue(value)}
+        />
       </div>
       <ul style={{ color: "var(--ep-text-color)" }}>
         <li>Card number: {value.number}</li>

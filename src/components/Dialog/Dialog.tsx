@@ -61,7 +61,8 @@ const Dialog: FC<DialogPropsType> = ({
       unmountOnExit
       in={open}
       timeout={150}
-      classNames={"dialog-animation"}
+      classNames={"impl-fade-transition"}
+      style={{ "--ep-impl-fade-animation": "150ms" }}
     >
       <div
         style={style}

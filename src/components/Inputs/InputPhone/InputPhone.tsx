@@ -1,5 +1,6 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { FC } from "react";
 import BaseInput, { TextInputProps } from "../BaseInput/BaseInput";
+import { Key } from "ts-keycode-enum";
 
 export type InputPhonePropsType = TextInputProps;
 
@@ -8,14 +9,12 @@ export type InputPhonePropsType = TextInputProps;
  */
 const InputPhone: FC<InputPhonePropsType> = ({
   label,
+  defaultValue,
   onChange,
-  defaultValue = "",
-  ...rest
+  // ...rest
 }) => {
-  const [phoneNumber, setPhoneNumber] = useState(defaultValue);
-
-  const mappedPhoneNumber = (phoneNumber: string) => {
-    let formattedValue: string;
+  const formatPhoneNumber = (phoneNumber: string) => {
+    let formattedValue = "";
 
     if (["7", "8", "9"].includes(phoneNumber[0])) {
       if (phoneNumber[0] === "9") {
@@ -45,26 +44,24 @@ const InputPhone: FC<InputPhonePropsType> = ({
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const inputChange = (value: string, event: any): void => {
-    const { selectionStart } = event.target as HTMLInputElement;
+    const input = event.target as HTMLInputElement;
+    const { selectionStart } = input;
     const inputNumbersValue = value.replace(/\D/g, "");
 
     if (!inputNumbersValue) {
-      setPhoneNumber("");
-      return;
+      return changeInputEvent("");
     }
 
-    const formattedInputValue = mappedPhoneNumber(inputNumbersValue);
-
-    if (value.length !== selectionStart && selectionStart) {
+    if (selectionStart && value.length !== selectionStart) {
       if (event.data && /\D/g.test(event.data)) {
-        setPhoneNumber(inputNumbersValue.replace(event.data, ""));
-        event.target.selectionStart = selectionStart - 1;
-        event.target.selectionEnd = event.target.selectionStart;
+        changeInputEvent(inputNumbersValue.replace(event.data, ""));
+        input.selectionStart = selectionStart - 1;
+        input.selectionEnd = event.target.selectionStart;
       }
       return;
     }
 
-    setPhoneNumber(formattedInputValue);
+    changeInputEvent(formatPhoneNumber(inputNumbersValue));
   };
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -80,32 +77,53 @@ const InputPhone: FC<InputPhonePropsType> = ({
     }
   };
 
-  const inputKeyDown = (
-    event: React.KeyboardEvent<HTMLInputElement> | undefined
-  ) => {
-    const input = event?.target as HTMLInputElement;
-    const inputValue = input.value.replace(/\D/g, "");
-    
-    if (event?.key == "Backspace" && inputValue.length == 1) {
-      setPhoneNumber("");
+  const inputKeyDown = (event: any) => {
+    // const input = event?.target as HTMLInputElement;
+    // const inputValue = input.value.replace(/\D/g, "");
+    // if (event.keyCode == Key.Backspace && inputValue.length <= 1) {
+    //   changeInputEvent("");
+    // } else if (
+    //   [Key.Backspace, Key.Delete].includes(event.keyCode) &&
+    //   inputValue.length > 1
+    // ) {
+    //   let symToClear = "";
+    //   switch (event.keyCode) {
+    //     case Key.Backspace:
+    //       symToClear = event.target.value[event.target.selectionStart - 1];
+    //       break;
+    //     case Key.Delete:
+    //       symToClear = event.target.value[event.target.selectionStart];
+    //       break;
+    //   }
+    //   console.log(symToClear);
+    //   if (symToClear && /\D/.test(symToClear)) {
+    //     event.preventDefault();
+    //   }
+    // }
+    const inputValue = event.target.value.replace(/\D/g, "");
+    if (event.keyCode == Key.Backspace && inputValue <= 1) {
+      changeInputEvent("");
     }
   };
 
-  useEffect(() => {
+  const changeInputEvent = (
+    value: string,
+    event?: React.ChangeEvent<HTMLInputElement>
+  ) => {
     if (onChange) {
-      onChange(phoneNumber);
+      onChange(value, event);
     }
-  }, [phoneNumber]);
+  };
 
   return (
     <BaseInput
-      defaultValue={phoneNumber}
       inputType="tel"
+      defaultValue={defaultValue}
       onChange={inputChange}
       onPaste={inputPaste}
       onKeyDown={inputKeyDown}
       label={label}
-      {...rest}
+      // {...rest}
     />
   );
 };

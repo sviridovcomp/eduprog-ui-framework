@@ -135,7 +135,6 @@ const Button: FC<ButtonPropsType> = ({
   const [pressed, setPressed] = useState(false);
 
   const rootClasses = clsx(
-    { [`${className}`]: className },
     "Button",
     { [`Button-view_${view}`]: view },
     { [`Button-size_${size}`]: size },
@@ -143,7 +142,8 @@ const Button: FC<ButtonPropsType> = ({
     { [`Button-width_${width}`]: width },
     { "Button-disabled": disabled },
     { "Button-rounded": rounded },
-    { "Button-progress": progress }
+    { "Button-progress": progress },
+    { [`${className}`]: className }
   );
 
   const pointerDown = (event: React.PointerEvent<HTMLButtonElement>) => {

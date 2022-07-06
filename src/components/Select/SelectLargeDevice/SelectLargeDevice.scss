@@ -2,16 +2,24 @@
 
 .select {
   color: var(--ep-text-color);
+  background-color: var(--ep-background-color);
+  box-shadow: var(--ep-popup-shadow);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  padding: 0.5rem;
 
   &-item {
     font-family: var(--ep-font-family);
     padding: 0.5rem;
+    border-radius: 0.25rem;
     cursor: pointer;
     user-select: none;
-    transition: background-color 0.1s ease;
+    transition: all 0.25s ease;
 
     &:hover {
-      background-color: var(--ep-button-background-hovered);
+      color: var(--ep-text-color);
+      background-color: var(--ep-item-hovered);
+      // box-shadow: 0 20px 35px -10px rgba($color-primary, 0.5);
     }
   }
 }

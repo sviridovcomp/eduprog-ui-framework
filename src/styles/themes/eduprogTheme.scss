@@ -1,8 +1,29 @@
 @import "~styles/variables/colors";
+@import "~styles/variables/animations";
 
 * {
   box-sizing: border-box;
   font-family: var(--ep-font-family);
+}
+
+.impl-fade-transition {
+  &-enter {
+    opacity: 0;
+  }
+
+  &-enter-active {
+    opacity: 1;
+    transition: opacity var(--ep-impl-fade-animation) ease-in-out;
+  }
+
+  &-exit {
+    opacity: 1;
+  }
+
+  &-exit-active {
+    opacity: 0;
+    transition: opacity var(--ep-impl-fade-animation) ease-in-out;
+  }
 }
 
 html {

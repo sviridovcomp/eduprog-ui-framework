@@ -47,8 +47,11 @@ export type CheckboxPropsType = defaultProps & {
 
   style?: React.CSSProperties;
 
-  checkboxClassName?: string;
-  checkboxStyle?: React.CSSProperties;
+  checkboxFakeClassName?: string;
+  checkboxFakeStyle?: React.CSSProperties;
+
+  checkboxLabelClassName?: string;
+  checkboxLabelStyle?: React.CSSProperties;
 };
 
 const Checkbox: FC<CheckboxPropsType> = ({
@@ -58,15 +61,20 @@ const Checkbox: FC<CheckboxPropsType> = ({
   checked,
   onChange,
   disabled,
-  checkboxStyle,
-  checkboxClassName = "",
+  checkboxFakeClassName,
+  checkboxFakeStyle,
+  checkboxLabelClassName,
+  checkboxLabelStyle,
 }) => {
   const checkboxId = useId();
   const labelbyId = `checkbox-${checkboxId}`;
 
   return (
     <div className={clsx("checkbox", { [`${view}`]: view }, className)}>
-      <label>
+      <label
+        style={checkboxLabelStyle}
+        className={clsx("checkbox-label", checkboxLabelClassName)}
+      >
         <input
           type="checkbox"
           checked={checked}
@@ -80,12 +88,14 @@ const Checkbox: FC<CheckboxPropsType> = ({
           className={clsx(
             "checkbox-fake",
             { [`${view}`]: view },
-            checkboxClassName
+            checkboxFakeClassName
           )}
           htmlFor={labelbyId}
-          style={checkboxStyle}
+          style={checkboxFakeStyle}
         >
-          <span className="checkbox-fake-checkbox">
+          <span
+            className={clsx("checkbox-fake-checkbox", checkboxFakeClassName)}
+          >
             <svg width="12px" height="10px" viewBox="0 0 12 10">
               <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
             </svg>
