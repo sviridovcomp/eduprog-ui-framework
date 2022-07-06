@@ -1,3 +1,10 @@
+### [1.9.3](https://github.com/edu-prog/eduprog-ui-framework/compare/v1.9.2...v1.9.3) (2022-07-06)
+
+
+### 🔧 Fixes
+
+* update exports deps ([565fe27](https://github.com/edu-prog/eduprog-ui-framework/commit/565fe27e81c91f3d113babaf81f59322972ebbe7))
+
 ### [1.9.2](https://github.com/edu-prog/eduprog-ui-framework/compare/v1.9.1...v1.9.2) (2022-07-06)
 
 
