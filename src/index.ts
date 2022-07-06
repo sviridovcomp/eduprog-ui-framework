@@ -33,6 +33,8 @@ import useKeyDown from "@utils/hooks/useKeyDown";
 import usePreventScroll from "@utils/hooks/usePreventScroll";
 import { RadioBoxValueProps } from "@components/RadioBox";
 import { Themes, ThemeDetect } from "@utils/themeDetector/themeDetect";
+import { SelectValue } from "@components/Select/Select/SelectProps";
+import { MultipleSelectValue } from "@components/Select/MultipleSelect/MultipleSelectProps";
 
 export {
   Button,
@@ -72,4 +74,4 @@ export {
   Themes,
   ThemeDetect,
 };
-export type { TabsValue, RadioBoxValueProps };
+export type { TabsValue, RadioBoxValueProps, SelectValue, MultipleSelectValue };

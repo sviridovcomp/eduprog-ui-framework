@@ -32,5 +32,7 @@ import useKeyDown from "@utils/hooks/useKeyDown";
 import usePreventScroll from "@utils/hooks/usePreventScroll";
 import { RadioBoxValueProps } from "@components/RadioBox";
 import { Themes, ThemeDetect } from "@utils/themeDetector/themeDetect";
+import { SelectValue } from "@components/Select/Select/SelectProps";
+import { MultipleSelectValue } from "@components/Select/MultipleSelect/MultipleSelectProps";
 export { Button, Column, Container, Row, Expand, InputPhone, Dialog, Checkbox, Avatar, Island, Input, InputCount, InputCopy, InputPassword, Spinner, Switch, MultipleSelect, NotificationBox, Notify, BaseInput, Select, Carousel, CarouselButton, Skeleton, TextSkeleton, Text, ToggleBlock, TabsWithCheckboxes, BottomDrawer, FullScreenSlider, useClickAway, ClickAwayListener, useKeyDown, usePreventScroll, Themes, ThemeDetect, };
-export type { TabsValue, RadioBoxValueProps };
+export type { TabsValue, RadioBoxValueProps, SelectValue, MultipleSelectValue };
