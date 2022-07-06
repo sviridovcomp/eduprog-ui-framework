@@ -45,6 +45,7 @@ const BottomDrawer: FC<IBottomDrawerProps> = ({
   mountOnEnter = true,
   duration = 250,
   hideScrollbars = false,
+  className,
 }) => {
   usePreventScroll(open, "BottomDrawer-content");
 
@@ -87,7 +88,7 @@ const BottomDrawer: FC<IBottomDrawerProps> = ({
         mountOnEnter={mountOnEnter}
       >
         {(state) => (
-          <div className="BottomDrawer" {...swipeHandlers}>
+          <div className={clsx("BottomDrawer", className)} {...swipeHandlers}>
             <Backdrop open={open} onClick={onClose} />
 
             <div
