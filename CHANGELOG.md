@@ -1,3 +1,10 @@
+### [1.9.5](https://github.com/edu-prog/eduprog-ui-framework/compare/v1.9.4...v1.9.5) (2022-07-08)
+
+
+### 🔧 Fixes
+
+* update `Select`, `MultipleSelect` components ([fbffc5f](https://github.com/edu-prog/eduprog-ui-framework/commit/fbffc5f735be7e77ff635739ea403c1fd7ad4128))
+
 ### [1.9.4](https://github.com/edu-prog/eduprog-ui-framework/compare/v1.9.3...v1.9.4) (2022-07-06)
 
 
