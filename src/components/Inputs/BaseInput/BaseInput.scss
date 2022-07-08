@@ -14,6 +14,27 @@
     position: relative;
   }
 
+  &.input-size {
+    &_md {
+      .input-label {
+        font-size: 1rem;
+        &-active {
+          font-size: 0.8125rem;
+        }
+      }
+
+      &_xl {
+        .input-label {
+          font-size: 1.5rem;
+
+          &-active {
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+  }
+
   &-label {
     width: 90%;
     overflow: hidden;
@@ -29,28 +50,8 @@
     user-select: none;
     color: var(--ep-text-color);
 
-    &.Input-size {
-      &_md {
-        font-size: 1rem;
-      }
-
-      &_xl {
-        font-size: 1.5rem;
-      }
-    }
-
     &-active {
       top: 1rem;
-
-      &.Input-size {
-        &_md {
-          font-size: 0.8125rem;
-        }
-
-        &_xl {
-          font-size: 1rem;
-        }
-      }
 
       &.input-label-invalid {
         color: #e31c1c;

@@ -5,6 +5,7 @@ import Checkbox from "@components/Checkbox";
 import { MultipleSelectPropsType } from "@components/Select/MultipleSelect/MultipleSelectProps";
 import { offset, useFloating, size } from "@floating-ui/react-dom-interactions";
 import { useClickAway } from "@utils/hooks/useClickAway";
+import { SelectValue } from "../Select/SelectProps";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const MultipleSelectLargeDevice: FC<MultipleSelectPropsType<any>> = ({
@@ -15,7 +16,7 @@ const MultipleSelectLargeDevice: FC<MultipleSelectPropsType<any>> = ({
   zIndex,
   wrapperStyles,
   dropdownStyles,
-  defaultValue = new Map(),
+  defaultValue = [],
 }) => {
   const [open, setOpen] = useState(false);
   const rootRef = useRef(null);
@@ -41,24 +42,34 @@ const MultipleSelectLargeDevice: FC<MultipleSelectPropsType<any>> = ({
     ],
   });
 
-  const [selectedOptions, setSelectedOptions] =
-    useState<Map<string, any>>(defaultValue); // eslint-disable-line @typescript-eslint/no-explicit-any
+  const containsOption = (
+    options: Array<SelectValue<any>>,
+    option: SelectValue<any>
+  ): boolean => {
+    return options.some((currentOption) => currentOption.key == option.key);
+  };
 
-  const disabledPredicate = (optionKey: string) => {
+  const [selectedOptions, setSelectedOptions] = useState(defaultValue); // eslint-disable-line @typescript-eslint/no-explicit-any
+
+  const disabledPredicate = (option: SelectValue<any>) => {
     return (
       maxSelectedOptions !== undefined &&
-      [...selectedOptions].length >= maxSelectedOptions &&
-      !selectedOptions?.has(optionKey)
+      selectedOptions.length >= maxSelectedOptions &&
+      !containsOption(selectedOptions, option)
     );
   };
 
-  const selectOption = (optionKey: string) => {
-    if (selectedOptions?.has(optionKey) && selectedOptions?.delete(optionKey)) {
-      setSelectedOptions(new Map(selectedOptions));
-    } else {
+  const selectOption = (option: SelectValue<any>) => {
+    console.log(option);
+
+    if (containsOption(selectedOptions, option)) {
       setSelectedOptions(
-        new Map(selectedOptions?.set(optionKey, options.get(optionKey)))
+        selectedOptions.filter((currentOption) => {
+          return currentOption.key != option.key;
+        })
       );
+    } else {
+      setSelectedOptions([...selectedOptions, option]);
     }
   };
 
@@ -73,11 +84,7 @@ const MultipleSelectLargeDevice: FC<MultipleSelectPropsType<any>> = ({
       <BaseInput
         label={label}
         onClick={() => setOpen(!open)}
-        defaultValue={
-          !selectedOptions
-            ? ""
-            : [...selectedOptions].map((option) => option[0]).join(", ")
-        }
+        defaultValue={selectedOptions.map((option) => option.key).join(", ")}
         cursor="pointer"
         readonly
         controlRef={reference}
@@ -115,15 +122,15 @@ const MultipleSelectLargeDevice: FC<MultipleSelectPropsType<any>> = ({
             left: x ?? 0,
           }}
         >
-          {[...options].map((option, index) => (
+          {options.map((option, index) => (
             <div className="multiple-select-item" key={index}>
               <Checkbox
                 position="right"
-                onChange={() => selectOption(option[0])}
+                onChange={() => selectOption(option)}
                 view="primary"
                 className="multiple-select-checkbox"
                 width="available"
-                disabled={disabledPredicate(option[0])}
+                disabled={disabledPredicate(option)}
                 checkboxLabelStyle={{
                   display: "flex",
                   width: "100%",
@@ -135,9 +142,9 @@ const MultipleSelectLargeDevice: FC<MultipleSelectPropsType<any>> = ({
                   gap: "1rem",
                   width: "100%",
                 }}
-                checked={selectedOptions?.get(option[0])}
+                checked={containsOption(selectedOptions, option)}
               >
-                {option[0]}
+                {option.key}
               </Checkbox>
             </div>
           ))}

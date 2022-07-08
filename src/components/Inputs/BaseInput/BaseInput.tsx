@@ -238,20 +238,21 @@ const BaseInput: FC<TextInputProps> = ({
   return (
     <>
       <div
-        className={clsx("input", rootClassName, className)}
+        className={clsx(
+          "input",
+          { [`input-size_${size}`]: size },
+          rootClassName,
+          className
+        )}
         style={{ ...style, ...rootStyle }}
       >
         <label
           htmlFor={labelbyId}
-          className={clsx(
-            "input-label",
-            { [`Input-size_${size}`]: size },
-            {
-              "input-label-active": forceFocus || active || defaultValue,
-              "input-label-invalid":
-                validationStatus == ValidityStatus.Invalid || forceInvalid,
-            }
-          )}
+          className={clsx("input-label", {
+            "input-label-active": forceFocus || active || defaultValue,
+            "input-label-invalid":
+              validationStatus == ValidityStatus.Invalid || forceInvalid,
+          })}
         >
           {label}
         </label>

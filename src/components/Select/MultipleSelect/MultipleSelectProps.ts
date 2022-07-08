@@ -1,4 +1,5 @@
 import React from "react";
+import { SelectValue } from "../Select/SelectProps";
 
 export type MultipleSelectValue<Type> = {
   name: string;
@@ -14,7 +15,7 @@ export type MultipleSelectPropsType<Type> = {
   /**
    * Опции доступные для выбора в select
    */
-  options: Map<string, Type>;
+  options: Array<SelectValue<Type>>;
 
   /**
    * zIndex popup
@@ -36,10 +37,10 @@ export type MultipleSelectPropsType<Type> = {
    * @param option - массив выбранных опций
    */
   onChange?: (
-    option: Map<string, Type>
+    option: Array<SelectValue<Type>>
   ) => void;
 
-  defaultValue?: Map<string, Type>;
+  defaultValue?: Array<SelectValue<Type>>;
 
   wrapperStyles?: React.CSSProperties;
 

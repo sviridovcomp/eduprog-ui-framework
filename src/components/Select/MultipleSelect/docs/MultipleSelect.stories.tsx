@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import MultipleSelect from "@components/Select/MultipleSelect/MultipleSelect";
+import { SelectValue } from "@components/Select/Select/SelectProps";
 
 export default {
   title: "Components/Select/MultipleSelect",
@@ -29,8 +30,8 @@ const Template: ComponentStory<typeof MultipleSelect> = (args) => {
       />
       <p style={{ color: "var(--ep-text-color)" }}>
         Selected values:{" "}
-        {[...options].map((option) => (
-          <li key={option[0]}>{option[0]}</li>
+        {options.map((option: SelectValue<any>, index) => (
+          <li key={index}>{option.key}</li>
         ))}
       </p>
     </div>
@@ -40,13 +41,13 @@ const Template: ComponentStory<typeof MultipleSelect> = (args) => {
 export const Playground = Template.bind({});
 Playground.args = {
   label: "Выберите категории кэшбэка:",
-  options: new Map([
-    ["5% - Аптеки", "5% - аптеки"],
-    ["5% - Ozon.ru", "5% - ozon.ru"],
-    ["3% - Пятёрочка", "fewfew"],
-    ["5% - Спорттовары", "grewge"],
-    ["5% - Такси", "fwegfewr"],
-    ["5% - Рестораны", "fwergerr"],
-  ]),
+  options: [
+    { key: "5% - Аптеки", value: "5% - аптеки" },
+    { key: "5% - Ozon.ru", value: "5% - ozon.ru" },
+    { key: "3% - Пятёрочка", value: "fewfew" },
+    { key: "5% - Спорттовары", value: "grewge" },
+    { key: "5% - Такси", value: "fwegfewr" },
+    { key: "5% - Рестораны", value: "fwergerr" },
+  ],
   maxSelectedOptions: 3,
 };

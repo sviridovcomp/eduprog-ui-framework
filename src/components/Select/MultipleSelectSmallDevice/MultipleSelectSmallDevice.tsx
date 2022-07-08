@@ -2,6 +2,7 @@ import React, { FC, useEffect, useState } from "react";
 import { MultipleSelectPropsType } from "@components/Select/MultipleSelect/MultipleSelectProps";
 import "./MultipleSelectSmallDevice.scss";
 import clsx from "clsx";
+import { SelectValue } from "../Select/SelectProps";
 
 const MultipleSelectSmallDevice: FC<MultipleSelectPropsType<string>> = ({
   label,
@@ -10,25 +11,24 @@ const MultipleSelectSmallDevice: FC<MultipleSelectPropsType<string>> = ({
   options,
   onChange,
   wrapperStyles,
-  defaultValue = new Map(),
+  defaultValue = [],
 }) => {
   const [active, setActive] = useState(false);
-  const [selectedOptions, setSelectedOptions] =
-    useState<Map<string, any>>(defaultValue); // eslint-disable-line @typescript-eslint/no-explicit-any
+  const [selectedOptions, setSelectedOptions] = useState(defaultValue); // eslint-disable-line @typescript-eslint/no-explicit-any
 
   const selectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const options = event.target.selectedOptions;
 
-    [...options].forEach(({ label, value }) => {
-      if (
-        maxSelectedOptions &&
-        [...selectedOptions].length > maxSelectedOptions
-      ) {
-        return;
-      }
-
-      setSelectedOptions(new Map(selectedOptions.set(label, value)));
-    });
+    setSelectedOptions(
+      [...options]
+        .map((item) => {
+          return {
+            key: item.label,
+            value: item.value,
+          } as SelectValue<any>;
+        })
+        .slice(0, maxSelectedOptions)
+    );
   };
 
   useEffect(() => {
@@ -43,7 +43,11 @@ const MultipleSelectSmallDevice: FC<MultipleSelectPropsType<string>> = ({
 
   return (
     <div className="input">
-      <div className={clsx("input-label", { "input-label-active": active })}>
+      <div
+        className={clsx("input-label", "Input-size_md", {
+          "input-label-active": active || selectedOptions.length > 0,
+        })}
+      >
         {label}
       </div>
 
@@ -57,19 +61,23 @@ const MultipleSelectSmallDevice: FC<MultipleSelectPropsType<string>> = ({
           size={1}
           multiple
         >
-          {[...options].map(([label], index) => (
+          {options.map((option, index) => (
             <option
-              value={label}
+              value={option.value}
               key={index}
-              selected={selectedOptions.has(label)}
+              selected={selectedOptions.some(
+                (currentOption) => currentOption.key == option.key
+              )}
             >
-              {label}
+              {option.key}
             </option>
           ))}
         </select>
 
         <div className="multiple-select-value">
-          {[...selectedOptions].map(([label]) => label).join(", ")}
+          {selectedOptions
+            .map((selectedOption) => selectedOption.key)
+            .join(", ")}
         </div>
 
         <div className="multiple-select-icon">
