@@ -1,3 +1,10 @@
+### [1.9.4](https://github.com/edu-prog/eduprog-ui-framework/compare/v1.9.3...v1.9.4) (2022-07-06)
+
+
+### 🔧 Fixes
+
+* fix `BottomDrawer` adding className ([c6910c7](https://github.com/edu-prog/eduprog-ui-framework/commit/c6910c74ca29c630bacd03f14fd68fe4523f18fa))
+
 ### [1.9.3](https://github.com/edu-prog/eduprog-ui-framework/compare/v1.9.2...v1.9.3) (2022-07-06)
 
 
