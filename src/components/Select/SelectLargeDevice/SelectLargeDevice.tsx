@@ -12,6 +12,7 @@ import {
   flip,
 } from "@floating-ui/react-dom-interactions";
 import { useClickAway } from "@utils/hooks/useClickAway";
+import clsx from "clsx";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const SelectLargeDevice: FC<SelectTypeProps<any>> = ({
@@ -19,7 +20,8 @@ const SelectLargeDevice: FC<SelectTypeProps<any>> = ({
   defaultValue,
   options,
   onChange,
-  zIndex,
+  controlStyle,
+  controlClassName,
   wrapperStyles,
   dropdownStyles,
 }) => {
@@ -76,6 +78,8 @@ const SelectLargeDevice: FC<SelectTypeProps<any>> = ({
         onClick={() => setOpen(!open)}
         style={wrapperStyles}
         controlRef={reference}
+        controlStyle={controlStyle}
+        controlClassName={clsx(controlClassName)}
         rightAdditional={
           <span
             style={{

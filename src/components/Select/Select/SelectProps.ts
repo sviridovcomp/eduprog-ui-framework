@@ -37,4 +37,7 @@ export type SelectTypeProps<Type> = {
   wrapperStyles?: React.CSSProperties;
 
   dropdownStyles?: React.CSSProperties;
+
+  controlClassName?: string;
+  controlStyle?: React.CSSProperties;
 };

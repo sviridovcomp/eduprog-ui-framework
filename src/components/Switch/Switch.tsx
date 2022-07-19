@@ -1,5 +1,5 @@
 // @ts-ignore
-import React, { FC, useId, useCallback } from "react";
+import React, { FC, useCallback } from "react";
 import "./Switch.scss";
 import { defaultProps } from "@utils/defaultProps";
 import clsx from "clsx";
