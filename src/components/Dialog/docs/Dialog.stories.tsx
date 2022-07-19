@@ -35,6 +35,7 @@ const PlaygroundTemplate: ComponentStory<typeof Dialog> = (args) => {
       <Dialog
         {...args}
         open={open}
+        rootStyle={{ zIndex: 9999 }}
         onClose={() => {
           setOpen(false);
 

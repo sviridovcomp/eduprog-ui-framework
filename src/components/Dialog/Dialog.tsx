@@ -34,9 +34,14 @@ export type DialogPropsType = {
   verticalAlign?: "top" | "center";
 
   /**
-   * Styles of dialog
+   * Root Styles of dialog
    */
-  style?: React.CSSProperties;
+  rootStyle?: React.CSSProperties;
+
+  /**
+   * Root ClassName
+   */
+  rootClassName?: string;
 
   hasCloser?: boolean;
 };
@@ -51,7 +56,8 @@ const Dialog: FC<DialogPropsType> = ({
   open = false,
   onClose,
   verticalAlign = "center",
-  style,
+  rootStyle,
+  rootClassName,
   hasCloser = true,
 }) => {
   usePreventScroll(open, "dialog-body");
@@ -62,12 +68,12 @@ const Dialog: FC<DialogPropsType> = ({
       in={open}
       timeout={150}
       classNames={"impl-fade-transition"}
-      style={{ "--ep-impl-fade-animation": "150ms" }}
+      style={{ "--ep-impl-fade-animation": "150ms", ...rootStyle }}
     >
       <div
-        style={style}
         className={clsx("dialog", {
           [`dialog-align_${verticalAlign}`]: verticalAlign,
+          rootClassName,
         })}
       >
         <Backdrop open={open} onClick={onClose} />

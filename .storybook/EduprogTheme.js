@@ -26,6 +26,6 @@ export default create({
 
   brandTitle: "My custom storybook",
   brandUrl: "https://eduprog.ru",
-  brandImage: "https://res.cloudinary.com/dixvycrtj/image/upload/v1655328354/eduprog-ui-logo_auwnjy.svg",
+  brandImage: "https://res.cloudinary.com/dixvycrtj/image/upload/v1655328354/logos/eduprog-ui-logo_auwnjy.svg",
   brandTarget: "_self",
 });
