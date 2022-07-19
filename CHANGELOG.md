@@ -1,3 +1,10 @@
+### [1.9.7](https://github.com/edu-prog/eduprog-ui-framework/compare/v1.9.6...v1.9.7) (2022-07-19)
+
+
+### 🔧 Fixes
+
+* create `Badge` component ([63fc98a](https://github.com/edu-prog/eduprog-ui-framework/commit/63fc98a70631278870e67e4d596f06b0f6c9d306))
+
 ### [1.9.6](https://github.com/edu-prog/eduprog-ui-framework/compare/v1.9.5...v1.9.6) (2022-07-19)
 
 
