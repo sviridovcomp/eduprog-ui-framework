@@ -9,6 +9,7 @@ export declare type SwitchProps = defaultProps & {
     textOff?: React.ReactChild;
     checked: boolean;
     disabled?: boolean;
+    inputHtmlId?: string;
 };
 declare const Switch: FC<SwitchProps>;
 export default Switch;

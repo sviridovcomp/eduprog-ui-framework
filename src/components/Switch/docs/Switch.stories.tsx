@@ -101,3 +101,30 @@ const ColorTemplate: ComponentStory<typeof Switch> = (args) => {
 };
 
 export const Color = ColorTemplate.bind({});
+
+const labelTemplate = () => {
+  const [check, setCheck] = useState(false);
+  return (
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        gap: "0.625rem",
+        padding: "1.25rem",
+      }}
+    >
+      <div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
+        <label htmlFor="switch-id-1">action</label>
+        <Switch
+          inputHtmlId="switch-id-1"
+          color="primary"
+          checked={check}
+          onChange={() => setCheck(!check)}
+        ></Switch>
+      </div>
+    </div>
+  );
+};
+
+export const Label = labelTemplate.bind({});

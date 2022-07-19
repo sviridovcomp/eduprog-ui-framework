@@ -27,6 +27,7 @@ import { TabsValue } from "@components/Tabs/TabsTypes";
 import BottomDrawer from "@components/BottomDrawer/BottomDrawer";
 import FullScreenSlider from "@components/FullScreenSlider/FullScreenSlider";
 import "./styles/themes/eduprogTheme.scss";
+import Badge from "@components/Badge";
 
 import { useClickAway, ClickAwayListener } from "@utils/hooks/useClickAway";
 import useKeyDown from "@utils/hooks/useKeyDown";
@@ -73,5 +74,6 @@ export {
   usePreventScroll,
   Themes,
   ThemeDetect,
+  Badge
 };
 export type { TabsValue, RadioBoxValueProps, SelectValue, MultipleSelectValue };

@@ -22,9 +22,13 @@ export declare type DialogPropsType = {
      */
     verticalAlign?: "top" | "center";
     /**
-     * Styles of dialog
+     * Root Styles of dialog
      */
-    style?: React.CSSProperties;
+    rootStyle?: React.CSSProperties;
+    /**
+     * Root ClassName
+     */
+    rootClassName?: string;
     hasCloser?: boolean;
 };
 /**

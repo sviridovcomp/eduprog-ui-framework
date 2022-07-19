@@ -1,4 +1,5 @@
-import React, { FC, useState, useCallback } from "react";
+// @ts-ignore
+import React, { FC, useId, useCallback } from "react";
 import "./Switch.scss";
 import { defaultProps } from "@utils/defaultProps";
 import clsx from "clsx";
@@ -11,6 +12,7 @@ export type SwitchProps = defaultProps & {
   textOff?: React.ReactChild;
   checked: boolean;
   disabled?: boolean;
+  inputHtmlId?: string;
 };
 
 const Switch: FC<SwitchProps> = ({
@@ -23,6 +25,7 @@ const Switch: FC<SwitchProps> = ({
   textOff,
   checked,
   disabled,
+  inputHtmlId,
 }) => {
   const changing = (event: React.ChangeEvent) => {
     if (onChange) {
@@ -58,6 +61,7 @@ const Switch: FC<SwitchProps> = ({
         onChange={changing}
         name={name}
         checked={checked}
+        id={inputHtmlId}
         disabled={disabled}
       />
       <div className="switch-circle"></div>

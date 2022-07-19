@@ -1,0 +1,47 @@
+@import "~styles/variables/colors";
+
+.badge {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+  padding: 0 0.625rem;
+  border-radius: 2rem;
+
+  &::before {
+    content: "";
+    width: 0.375rem;
+    height: 0.375rem;
+    border-radius: 50%;
+    margin-right: 0.375rem;
+  }
+
+  &-view {
+    &_success {
+      &::before {
+        background-color: $color-success;
+      }
+
+      background-color: darken($color-success, 30%);
+      color: #fff;
+    }
+
+    &_error {
+      &::before {
+        background-color: $color-danger;
+      }
+
+      background-color: lighten($color-danger, 50%);
+    }
+
+    &_warning {
+      &::before {
+        background-color: $color-warning;
+      }
+
+      background-color: darken($color-warning, 10%);
+      color: #fff;
+    }
+  }
+}

@@ -4,3 +4,4 @@ declare const _default: ComponentMeta<React.FC<import("../Switch").SwitchProps>>
 export default _default;
 export declare const Playground: ComponentStory<React.FC<import("../Switch").SwitchProps>>;
 export declare const Color: ComponentStory<React.FC<import("../Switch").SwitchProps>>;
+export declare const Label: () => JSX.Element;
