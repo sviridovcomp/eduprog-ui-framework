@@ -1,4 +1,8 @@
 .checkbox {
+  &-control:disabled + &-fake > &-fake-checkbox {
+    opacity: 0.6;
+  }
+
   &-fake {
     display: inline-flex;
     gap: 0.5rem;

@@ -47,6 +47,7 @@ html {
     --ep-button-background: #ebefff;
     --ep-button-background-hovered: #dfe3f3;
     --ep-impl-button-pseudo-border: #ccc;
+    color-scheme: light;
   }
 
   &[data-color-theme="dark"] {
@@ -59,5 +60,6 @@ html {
     --ep-button-background: #464646;
     --ep-button-background-hovered: #575757;
     --ep-impl-button-pseudo-border: #3f3e43;
+    color-scheme: dark;
   }
 }

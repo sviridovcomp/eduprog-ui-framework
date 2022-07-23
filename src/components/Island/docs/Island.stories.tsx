@@ -3,6 +3,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import Island from "../Island";
 import Button from "@components/Button";
+import Text from "@components/Typography/Text";
 
 export default {
   title: "Components/Island",
@@ -15,7 +16,9 @@ const PlaygroundTemplate: ComponentStory<typeof Island> = (args) => (
 
 export const Playground = PlaygroundTemplate.bind({});
 Playground.args = {
-  size: "sm",
+  style: {
+    maxWidth: "40rem",
+  },
   children: (
     <div style={{ display: "flex" }}>
       <div>
@@ -29,12 +32,20 @@ Playground.args = {
       </div>
       <div style={{ padding: "1rem" }}>
         <div>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-          blanditiis unde fugit cumque qui ex accusamus necessitatibus eum
+          <Text as="h1" typography="headline-lg" color="var(--ep-text-color)">
+            Person biography
+          </Text>
+
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+            Praesentium assumenda temporibus aliquid nemo saepe velit quis!
+            Natus, similique velit? Non nam amet distinctio nostrum tempore
+            inventore veniam. Nulla, laborum quisquam!
+          </p>
         </div>
 
         <div style={{ textAlign: "center" }}>
-          <Button view="action">Show</Button>
+          <Button view="action">Show details...</Button>
         </div>
       </div>
     </div>

@@ -10,6 +10,7 @@ import {
   offset,
   size,
   flip,
+  autoUpdate,
 } from "@floating-ui/react-dom-interactions";
 import { useClickAway } from "@utils/hooks/useClickAway";
 import clsx from "clsx";
@@ -46,6 +47,7 @@ const SelectLargeDevice: FC<SelectTypeProps<any>> = ({
         padding: 8,
       }),
     ],
+    whileElementsMounted: autoUpdate,
   });
   const [value, setValue] = useState(defaultValue ? defaultValue : options[0]);
 
@@ -72,7 +74,7 @@ const SelectLargeDevice: FC<SelectTypeProps<any>> = ({
     >
       <BaseInput
         label={label}
-        defaultValue={value ? value.key : ""}
+        defaultValue={value ? value.name : ""}
         cursor="pointer"
         readonly
         onClick={() => setOpen(!open)}
@@ -114,13 +116,16 @@ const SelectLargeDevice: FC<SelectTypeProps<any>> = ({
             ...dropdownStyles,
           }}
         >
-          {options.map(({ key, value }, index) => (
+          {options?.map(({ name, value }) => (
             <div
-              className="select-item"
-              key={index}
-              onClick={() => onSelect({ key: key, value: value })}
+              className={clsx(
+                "select-item",
+                value == { name: name, value: value } && "select-item-selected"
+              )}
+              key={name}
+              onClick={() => onSelect({ name: name, value: value })}
             >
-              {key}
+              {name}
             </div>
           ))}
         </div>

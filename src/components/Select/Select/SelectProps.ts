@@ -1,7 +1,9 @@
-import { KeyValue } from "@utils/utils/common/types";
 import React from "react";
 
-export type SelectValue<Type> = KeyValue<Type>
+export type SelectValue<Type> = {
+  name: string;
+  value: Type;
+}
 
 export type SelectTypeProps<Type> = {
   /**

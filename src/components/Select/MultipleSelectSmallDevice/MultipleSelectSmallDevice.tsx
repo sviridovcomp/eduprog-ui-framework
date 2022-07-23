@@ -14,7 +14,7 @@ const MultipleSelectSmallDevice: FC<MultipleSelectPropsType<string>> = ({
   defaultValue = [],
 }) => {
   const [active, setActive] = useState(false);
-  const [selectedOptions, setSelectedOptions] = useState(defaultValue); // eslint-disable-line @typescript-eslint/no-explicit-any
+  const [selectedOptions, setSelectedOptions] = useState(defaultValue);
 
   const selectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const options = event.target.selectedOptions;
@@ -23,9 +23,9 @@ const MultipleSelectSmallDevice: FC<MultipleSelectPropsType<string>> = ({
       [...options]
         .map((item) => {
           return {
-            key: item.label,
+            name: item.label,
             value: item.value,
-          } as SelectValue<any>;
+          };
         })
         .slice(0, maxSelectedOptions)
     );
@@ -66,17 +66,17 @@ const MultipleSelectSmallDevice: FC<MultipleSelectPropsType<string>> = ({
               value={option.value}
               key={index}
               selected={selectedOptions.some(
-                (currentOption) => currentOption.key == option.key
+                (currentOption) => currentOption.name == option.name
               )}
             >
-              {option.key}
+              {option.name}
             </option>
           ))}
         </select>
 
         <div className="multiple-select-value">
           {selectedOptions
-            .map((selectedOption) => selectedOption.key)
+            .map((selectedOption) => selectedOption.name)
             .join(", ")}
         </div>
 
