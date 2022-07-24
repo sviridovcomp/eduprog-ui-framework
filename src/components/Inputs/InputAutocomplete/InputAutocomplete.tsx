@@ -1,18 +1,26 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
+import { isBrowser, isMobile } from "react-device-detect";
+import Input from "../Input/Input";
+import InputAutocompleteBrowser from "./Browser/InputAutocompleteBrowser";
+
+export type AutocompleteValue<Type> = {
+  name: string;
+  value: Type;
+};
 
 export interface IInputAutocompleteProps {
-  options?: Map<string, any>; // eslint-disable-line @typescript-eslint/no-explicit-any
+  label: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  options?: Array<AutocompleteValue<any>>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  onChange?: (value?: AutocompleteValue<any>) => void;
 }
 
-const InputAutocomplete: FC<IInputAutocompleteProps> = () => {
-  return (
-    <div>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. At dolore ipsum
-      minima omnis quidem repudiandae, sunt tenetur! Beatae commodi culpa
-      delectus enim excepturi illo ipsam, reiciendis similique tempore ullam
-      vitae!
-    </div>
-  );
+const InputAutocomplete: FC<IInputAutocompleteProps> = (args) => {
+  if (isMobile) {
+  } else if (isBrowser) {
+    return <InputAutocompleteBrowser {...args} />;
+  }
 };
 
 export default InputAutocomplete;

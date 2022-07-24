@@ -7,8 +7,7 @@
   border-radius: 0.5rem;
   overflow: hidden;
   padding: 0.5rem;
-
-  overflow-y: scroll;
+  overflow-y: auto;
 
   &-item {
     font-family: var(--ep-font-family);

@@ -17,6 +17,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 
     &-active {
       position: absolute;
@@ -24,14 +25,9 @@
       color: #fff;
       background-color: $color-primary;
       z-index: 1;
-      border-radius: 0.5rem;
+      border-radius: 0.75rem;
       cursor: pointer;
       transition: all 0.25s ease;
     }
-
-    // &_selected {
-    //   background-color: $color-primary !important;
-    //   color: #ffffff;
-    // }
   }
 }

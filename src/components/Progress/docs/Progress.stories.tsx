@@ -92,7 +92,7 @@ const GradientTemplate: ComponentStory<typeof Progress> = (args) => {
 
   return (
     <div style={{ maxWidth: 300, margin: "auto" }}>
-      <Progress {...args} value={value} />;
+      <Progress {...args} value={value} />
     </div>
   );
 };
