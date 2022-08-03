@@ -18,9 +18,9 @@ describe("Island testing", () => {
 
   it("Island type rendering", () => {
     const islandTypes: IslandTypeType[] = ["border", "shadow"];
-    islandTypes.forEach((type) => {
-      const island = shallow(<Island view={type}>island-content</Island>);
-      expect(island.find(`.island-type_${type}`).text()).toEqual(
+    islandTypes.forEach((view) => {
+      const island = shallow(<Island view={view}>island-content</Island>);
+      expect(island.find(`.island-view_${view}`).text()).toEqual(
         "island-content"
       );
     });
