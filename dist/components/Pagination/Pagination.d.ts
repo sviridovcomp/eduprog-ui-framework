@@ -1,4 +1,5 @@
 import { FC } from "react";
+import React from "react";
 import "./Pagination.scss";
 export interface IPaginationProps {
     /**
@@ -17,6 +18,8 @@ export interface IPaginationProps {
      * onChange callback handler
      */
     onChange?: (value: number) => void;
+    nextButton?: React.ReactNode;
+    previousButton?: React.ReactNode;
 }
 /**
  * Pagination component enables the user to select a specific page from a range of pages

@@ -5,10 +5,6 @@ import { defaultProps } from "@utils/defaultProps";
 
 export type IslandPropsType = defaultProps & {
   /**
-   * Size
-   */
-  size?: "xs" | "sm" | "md" | "lg" | "xl";
-  /**
    * Align
    */
   align?: "left" | "center" | "right";
@@ -19,7 +15,7 @@ export type IslandPropsType = defaultProps & {
    *
    * `border` - light grey outline
    */
-  type?: "shadow" | "border";
+  view?: "shadow" | "border";
 
   /**
    * The transition that will be made when hovering over Island.
@@ -40,9 +36,8 @@ export type IslandPropsType = defaultProps & {
  */
 const Island: FC<IslandPropsType> = ({
   children,
-  size = "md",
   align = "center",
-  type = "shadow",
+  view = "shadow",
   hoverTransition = null,
   style,
   onClick,
@@ -51,9 +46,8 @@ const Island: FC<IslandPropsType> = ({
   const rootClasses = clsx(
     className,
     "island",
-    { [`island-size_${size}`]: size },
     { [`island-align_${align}`]: align },
-    { [`island-type_${type}`]: type },
+    { [`island-view_${view}`]: view },
     { [`island-hover_${hoverTransition}`]: hoverTransition }
   );
 

@@ -3,7 +3,13 @@ import "./MultipleSelectLargeDevice.scss";
 import BaseInput from "@components/Inputs/BaseInput/BaseInput";
 import Checkbox from "@components/Checkbox";
 import { MultipleSelectPropsType } from "@components/Select/MultipleSelect/MultipleSelectProps";
-import { offset, useFloating, size } from "@floating-ui/react-dom-interactions";
+import {
+  offset,
+  useFloating,
+  size,
+  autoUpdate,
+  flip,
+} from "@floating-ui/react-dom-interactions";
 import { useClickAway } from "@utils/hooks/useClickAway";
 import { SelectValue } from "../Select/SelectProps";
 
@@ -24,29 +30,33 @@ const MultipleSelectLargeDevice: FC<MultipleSelectPropsType<any>> = ({
     setOpen(false);
   });
 
-  const { x, y, reference, floating, strategy } = useFloating({
-    open: open,
-    onOpenChange: setOpen,
-    placement: "bottom-start",
-    middleware: [
-      offset(8),
-      size({
-        apply({ rects, availableHeight, elements }) {
-          Object.assign(elements.floating.style, {
-            width: `${rects.reference.width}px`,
-            maxHeight: `${availableHeight}px`,
-          });
-        },
-        padding: 8,
-      }),
-    ],
-  });
+  const { x, y, reference, floating, strategy } = useFloating<HTMLInputElement>(
+    {
+      open: open,
+      onOpenChange: setOpen,
+      placement: "bottom-start",
+      middleware: [
+        offset(8),
+        flip({ padding: 8 }),
+        size({
+          apply({ rects, availableHeight, elements }) {
+            Object.assign(elements.floating.style, {
+              width: `${rects.reference.width}px`,
+              maxHeight: `${availableHeight}px`,
+            });
+          },
+          padding: 8,
+        }),
+      ],
+      whileElementsMounted: autoUpdate,
+    }
+  );
 
   const containsOption = (
     options: Array<SelectValue<any>>,
     option: SelectValue<any>
   ): boolean => {
-    return options.some((currentOption) => currentOption.key == option.key);
+    return options.some((currentOption) => currentOption.name == option.name);
   };
 
   const [selectedOptions, setSelectedOptions] = useState(defaultValue); // eslint-disable-line @typescript-eslint/no-explicit-any
@@ -60,12 +70,10 @@ const MultipleSelectLargeDevice: FC<MultipleSelectPropsType<any>> = ({
   };
 
   const selectOption = (option: SelectValue<any>) => {
-    console.log(option);
-
     if (containsOption(selectedOptions, option)) {
       setSelectedOptions(
         selectedOptions.filter((currentOption) => {
-          return currentOption.key != option.key;
+          return currentOption.name != option.name;
         })
       );
     } else {
@@ -84,7 +92,7 @@ const MultipleSelectLargeDevice: FC<MultipleSelectPropsType<any>> = ({
       <BaseInput
         label={label}
         onClick={() => setOpen(!open)}
-        defaultValue={selectedOptions.map((option) => option.key).join(", ")}
+        defaultValue={selectedOptions.map((option) => option.name).join(", ")}
         cursor="pointer"
         readonly
         controlRef={reference}
@@ -144,7 +152,7 @@ const MultipleSelectLargeDevice: FC<MultipleSelectPropsType<any>> = ({
                 }}
                 checked={containsOption(selectedOptions, option)}
               >
-                {option.key}
+                {option.name}
               </Checkbox>
             </div>
           ))}

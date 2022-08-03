@@ -7,6 +7,7 @@
   border-radius: 0.5rem;
   overflow: hidden;
   padding: 0.5rem;
+  overflow-y: auto;
 
   &-item {
     font-family: var(--ep-font-family);
@@ -16,10 +17,10 @@
     user-select: none;
     transition: all 0.25s ease;
 
+    &-selected,
     &:hover {
       color: var(--ep-text-color);
       background-color: var(--ep-item-hovered);
-      // box-shadow: 0 20px 35px -10px rgba($color-primary, 0.5);
     }
   }
 }

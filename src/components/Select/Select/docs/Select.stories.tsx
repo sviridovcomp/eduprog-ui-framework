@@ -30,7 +30,7 @@ const Template: ComponentStory<typeof Select> = (args) => {
         }}
       />
       <p style={{ color: "var(--ep-text-color)", fontFamily: "Nunito" }}>
-        Selected value: {option && option.key}
+        Selected value: {option && option.name}
       </p>
     </div>
   );
@@ -39,12 +39,12 @@ const Template: ComponentStory<typeof Select> = (args) => {
 export const Playground = Template.bind({});
 Playground.args = {
   options: [
-    { key: "5% - Аптеки", value: "5% - аптеки" },
-    { key: "5% - Ozon.ru", value: "5% - ozon.ru" },
-    { key: "3% - Пятёрочка", value: "fewfew" },
-    { key: "5% - Спорттовары", value: "grewge" },
-    { key: "5% - Такси", value: "fwegfewr" },
-    { key: "5% - Рестораны", value: "fwergerr" },
+    { name: "5% - Аптеки", value: "5% - аптеки" },
+    { name: "5% - Ozon.ru", value: "5% - ozon.ru" },
+    { name: "3% - Пятёрочка", value: "fewfew" },
+    { name: "5% - Спорттовары", value: "grewge" },
+    { name: "5% - Такси", value: "fwegfewr" },
+    { name: "5% - Рестораны", value: "fwergerr" },
   ],
   label: "Выберите категории кэшбека:",
 };

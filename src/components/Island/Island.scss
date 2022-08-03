@@ -6,35 +6,12 @@
   display: flex;
   flex-direction: column;
   border-radius: 2rem;
-  width: 100%;
   overflow: hidden;
   box-sizing: border-box;
   background-color: var(--ep-box-background-color);
   color: var(--ep-text-color);
 
-  &-size {
-    &_xs {
-      max-width: $small-mobile-device;
-    }
-
-    &_sm {
-      max-width: 25rem;
-    }
-
-    &_md {
-      max-width: $small-laptop-device;
-    }
-
-    &_lg {
-      max-width: $large-laptop-device;
-    }
-
-    &_xl {
-      max-width: $large-pc-device;
-    }
-  }
-
-  &-type {
+  &-view {
     &_shadow {
       box-shadow: var(--ep-box-shadow);
       transition: box-shadow, transform 0.3s ease-in-out;

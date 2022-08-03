@@ -3,10 +3,6 @@ import "./Island.scss";
 import { defaultProps } from "@utils/defaultProps";
 export declare type IslandPropsType = defaultProps & {
     /**
-     * Size
-     */
-    size?: "xs" | "sm" | "md" | "lg" | "xl";
-    /**
      * Align
      */
     align?: "left" | "center" | "right";
@@ -17,7 +13,7 @@ export declare type IslandPropsType = defaultProps & {
      *
      * `border` - light grey outline
      */
-    type?: "shadow" | "border";
+    view?: "shadow" | "border";
     /**
      * The transition that will be made when hovering over Island.
      *

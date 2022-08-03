@@ -3,23 +3,38 @@
   position: relative;
   display: flex;
   overflow: hidden;
-  border-radius: 0.25rem;
+  border-radius: 0.5rem;
   color: var(--ep-text-color);
   font-family: var(--ep-font-family);
+  border: 2px solid var(--ep-item);
+  background-color: var(--ep-background-color);
 
   &-item {
     display: flex;
     align-items: center;
     gap: 0.5rem;
     justify-content: center;
-    background-color: var(--ep-item);
     cursor: pointer;
     user-select: none;
-    transition: background 0.25s ease-in-out;
-    height: 3.85rem;
+    transition: background 0.25s ease;
+    padding: 1rem;
+    margin: 0.25rem 0;
+    border-radius: 0.25rem;
+
+    &:first-child {
+      margin: 0.25rem 0 0.25rem 0.25rem;
+    }
+
+    &:last-child {
+      margin: 0.25rem 0.25rem 0.25rem 0;
+    }
+
+    &:hover {
+      background-color: var(--ep-item);
+    }
 
     &-selected {
-      background-color: var(--ep-item-hovered);
+      background-color: var(--ep-item-hovered) !important;
     }
   }
 }
