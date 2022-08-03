@@ -1,7 +1,7 @@
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 import { isBrowser, isMobile } from "react-device-detect";
-import Input from "../Input/Input";
 import InputAutocompleteBrowser from "./Browser/InputAutocompleteBrowser";
+import InputAutocompleteMobile from "./Mobile/InputAutocompleteMobile";
 
 export type AutocompleteValue<Type> = {
   name: string;
@@ -18,9 +18,12 @@ export interface IInputAutocompleteProps {
 
 const InputAutocomplete: FC<IInputAutocompleteProps> = (args) => {
   if (isMobile) {
+    return <InputAutocompleteMobile {...args} />;
   } else if (isBrowser) {
     return <InputAutocompleteBrowser {...args} />;
   }
+
+  return <></>;
 };
 
 export default InputAutocomplete;

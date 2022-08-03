@@ -1,0 +1,45 @@
+.calendar {
+  position: relative;
+  max-width: max-content;
+
+  &-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &-button {
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+
+  &-day {
+    width: 2rem;
+    height: 2rem;
+    padding: 0.25rem;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    transition: all 0.25s ease;
+    border-radius: 0.75rem;
+    cursor: pointer;
+
+    &:hover {
+      background: var(--ep-item);
+    }
+
+    &-selected {
+      color: #fff;
+      background-color: var(--ep-color-primary) !important;
+    }
+
+    &-another-month {
+      opacity: 0.6;
+    }
+
+    &-disabled {
+      opacity: 0.6;
+      pointer-events: none;
+    }
+  }
+}

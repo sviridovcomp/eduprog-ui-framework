@@ -28,7 +28,6 @@ const InputAutocompleteBrowser: FC<IInputAutocompleteProps> = ({
     return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
   };
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const filteredOptions = () => {
     const regexPattern = new RegExp(escapeRegExp(value.trim()), "i");
 
