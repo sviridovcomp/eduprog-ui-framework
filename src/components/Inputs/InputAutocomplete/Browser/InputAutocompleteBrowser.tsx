@@ -47,7 +47,7 @@ const InputAutocompleteBrowser: FC<IInputAutocompleteProps> = ({
       offset(8),
       flip(),
       size({
-        apply({ rects, availableHeight, elements }) {
+        apply({ rects, elements }) {
           Object.assign(elements.floating.style, {
             width: `${rects.reference.width}px`,
             maxHeight: "calc(2.5rem * 6)",

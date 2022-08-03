@@ -1,6 +1,6 @@
 import BottomDrawer from "@components/BottomDrawer/BottomDrawer";
 import Input from "@components/Inputs/Input/Input";
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import {
   AutocompleteValue,
   IInputAutocompleteProps,
@@ -38,6 +38,12 @@ const InputAutocompleteMobile: FC<IInputAutocompleteProps> = ({
     setValue(option.name);
     setOpen(false);
   };
+
+  useEffect(() => {
+    if (onChange) {
+      onChange(selectedOptions);
+    }
+  }, [selectedOptions]);
 
   return (
     <>
