@@ -33,14 +33,16 @@ const InputCopy: FC<InputCopyPropsType> = ({
     }
   };
 
-  const copyValue = () => {
-    if (!value.length) {
+  const copyValue = async () => {
+    if (!value) {
       return;
     }
 
-    navigator.clipboard.writeText(value).then(function (err) {
-      console.error("Async: Could not copy text: ", err);
-    });
+    try {
+      await navigator.clipboard.writeText(value);
+    } catch (error) {
+      console.error(error);
+    }
 
     setActivePopup(true);
 
@@ -54,6 +56,7 @@ const InputCopy: FC<InputCopyPropsType> = ({
       <BaseInput
         defaultValue={value}
         inputType="text"
+        controlStyle={{ paddingRight: "3rem", ...rest.controlStyle }}
         onChange={onInputChange}
         label={label}
         {...rest}

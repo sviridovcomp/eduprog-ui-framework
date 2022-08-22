@@ -77,6 +77,7 @@ const InputPassword: FC<InputPasswordPropsType> = ({
         inputType={passwordVisible ? "text" : "password"}
         label={label}
         name={name}
+        controlStyle={{ paddingRight: "3rem", ...rest.controlStyle }}
         defaultValue={defaultValue}
         {...rest}
         rightAdditional={
