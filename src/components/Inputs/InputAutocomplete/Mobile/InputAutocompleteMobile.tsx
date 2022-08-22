@@ -1,6 +1,6 @@
 import BottomDrawer from "@components/BottomDrawer/BottomDrawer";
 import Input from "@components/Inputs/Input/Input";
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import {
   AutocompleteValue,
   IInputAutocompleteProps,
@@ -14,6 +14,7 @@ const InputAutocompleteMobile: FC<IInputAutocompleteProps> = ({
 }) => {
   const [value, setValue] = useState("");
   const [selectedOptions, setSelectedOptions] =
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     useState<AutocompleteValue<any>>();
   const [open, setOpen] = useState(false);
 
@@ -33,11 +34,18 @@ const InputAutocompleteMobile: FC<IInputAutocompleteProps> = ({
     });
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const selectItem = (option: AutocompleteValue<any>) => {
     setSelectedOptions(option);
     setValue(option.name);
     setOpen(false);
   };
+
+  useEffect(() => {
+    if (onChange) {
+      onChange(selectedOptions);
+    }
+  }, [selectedOptions]);
 
   return (
     <>
