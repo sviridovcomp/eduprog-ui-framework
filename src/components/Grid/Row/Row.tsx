@@ -15,12 +15,14 @@ const Row: FC<RowPropsType> = ({
   align,
   adaptive = true,
   style,
+  className,
 }) => {
   const rootClasses = clsx([
     "ep-row",
     { [`ep-row_spacing-${spacing}`]: spacing },
     { [`ep-row_align_${align}`]: align },
     { "ep-row_adaptive": adaptive },
+    className,
   ]);
   return (
     <div style={style} className={rootClasses}>
