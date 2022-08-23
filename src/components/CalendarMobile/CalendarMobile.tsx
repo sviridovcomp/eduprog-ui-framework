@@ -6,10 +6,11 @@ import {
 import clsx from "clsx";
 import React, { FC, useEffect, useRef, useState } from "react";
 import range from "lodash/range";
+import debounce from "lodash/debounce";
 import "./CalendarMobile.scss";
-import dayjs from "dayjs";
 import CloseIcon from "@icons/Close";
 import Button from "@components/Button";
+import { useSwipeable } from "react-swipeable";
 
 export interface CalendarMobileProps {
   defaultValue: Array<Date>;
@@ -21,6 +22,15 @@ const CalendarMobile: FC<CalendarMobileProps> = ({ defaultValue }) => {
   const [selectedDates, setSelectedDates] = useState<Array<Date>>(
     defaultValue ?? []
   );
+
+  const swipeHandlers = useSwipeable({
+    onSwipedLeft: () => {
+      setYear(year + 1);
+    },
+    onSwipedRight: () => {
+      setYear(year - 1);
+    },
+  });
 
   useEffect(() => {
     document
@@ -69,7 +79,7 @@ const CalendarMobile: FC<CalendarMobileProps> = ({ defaultValue }) => {
           </div>
         </div>
 
-        <div className="YearSelector">
+        <div className="YearSelector" {...swipeHandlers}>
           {range(year - 2, year + 3).map((item) => (
             <div
               className={clsx(
@@ -88,7 +98,7 @@ const CalendarMobile: FC<CalendarMobileProps> = ({ defaultValue }) => {
           ))}
         </div>
 
-        <div className="MounthsSelector" ref={Months}>
+        <div className="MounthsSelector">
           {range(12).map((month: number) => (
             <table className="calendar-table" key={month}>
               <caption className="calendar-table-month-name">
