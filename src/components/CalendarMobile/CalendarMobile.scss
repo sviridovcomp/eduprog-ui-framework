@@ -1,0 +1,66 @@
+@import "~styles/variables/variables";
+
+.CalendarMobile {
+  position: relative;
+  background-color: #ffbb00;
+
+  &Wrapper {
+    max-width: $small-mobile-device;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    min-height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: auto;
+    height: 100%;
+    overflow: overlay;
+    z-index: 1;
+
+    .Controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2rem 0.5rem 0.5rem 0.5rem;
+      font-weight: 500;
+    }
+
+    .YearSelector {
+      display: flex;
+      gap: 1rem;
+
+      &Item {
+        padding: 2rem 0rem;
+        &:first-child,
+        &:last-child {
+          color: #373737;
+        }
+
+        &:nth-child(2n) {
+          color: #535353;
+        }
+
+        &-Selected {
+          color: var(--ep-color-primary);
+        }
+      }
+    }
+    .MounthsSelector {
+      overflow-y: scroll;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+
+      &::-webkit-scrollbar {
+        width: 0;
+      }
+
+      caption {
+        font-weight: 500;
+        text-align: left;
+        padding: 0.5rem;
+        border-bottom: 1px solid #808080;
+      }
+    }
+  }
+}
