@@ -1,4 +1,4 @@
-import { FC } from "react";
+import React, { FC } from "react";
 import "./BottomDrawer.scss";
 export interface IBottomDrawerProps {
     /**
@@ -21,6 +21,7 @@ export interface IBottomDrawerProps {
     mountOnEnter?: boolean;
     className?: string;
     backdropClassname?: string;
+    children: React.ReactNode;
 }
 /**
  * This component creates a bottom curtain for mobile devices.

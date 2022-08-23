@@ -1,0 +1,6 @@
+.example-column {
+  transition: all 0.25s ease;
+  &:hover {
+    transform: scale(0.99);
+  }
+}

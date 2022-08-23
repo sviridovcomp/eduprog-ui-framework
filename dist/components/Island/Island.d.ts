@@ -25,6 +25,7 @@ export declare type IslandPropsType = defaultProps & {
      * onClick callback handler
      */
     onClick?: (event: React.MouseEvent) => void;
+    children: React.ReactNode;
 };
 /**
  * Island displays information in a rounded block with a border

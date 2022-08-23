@@ -4,6 +4,8 @@ import { defaultProps } from "@utils/defaultProps";
 import clsx from "clsx";
 
 export type ButtonPropsType = defaultProps & {
+  children?: React.ReactNode;
+
   /**
    * View mode
    */

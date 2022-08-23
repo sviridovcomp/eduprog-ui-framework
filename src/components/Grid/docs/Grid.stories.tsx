@@ -5,6 +5,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { Container, Row, Column } from "@components/Grid";
 import range from "lodash/range";
 import Island from "@components/Island/Island";
+import "./GridExample.scss";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -28,7 +29,12 @@ const PlaygroundTemplate: ComponentStory<typeof Container> = (props) => {
         {/* @ts-ignore */}
         {range(props.colsCount).map((currentCol) => (
           // @ts-ignore
-          <Column key={currentCol} col={props.colSize}>
+          <Column
+            key={currentCol}
+            // @ts-ignore
+            col={props.colSize}
+            className="example-column"
+          >
             <div
               style={{
                 height: "100vh",

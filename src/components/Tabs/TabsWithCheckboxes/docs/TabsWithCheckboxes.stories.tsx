@@ -17,7 +17,7 @@ const Template: ComponentStory<typeof TabsWithCheckbox> = (args) => {
   const [options, setOptions] = useState<TabsValue[]>([]);
 
   return (
-    <>
+    <div style={{ maxWidth: 800, margin: "0 auto" }}>
       <TabsWithCheckbox
         {...args}
         onChange={(data) => {
@@ -34,7 +34,7 @@ const Template: ComponentStory<typeof TabsWithCheckbox> = (args) => {
           </li>
         ))}
       </p>
-    </>
+    </div>
   );
 };
 

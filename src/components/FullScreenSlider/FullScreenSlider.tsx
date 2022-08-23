@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import React, { FC, useEffect, useState } from "react";
+import React, { FC, useState } from "react";
 import { useSwipeable } from "react-swipeable";
 import "./FullScreenSlider.scss";
 import range from "lodash/range";

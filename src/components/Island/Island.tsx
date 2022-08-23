@@ -29,6 +29,8 @@ export type IslandPropsType = defaultProps & {
    * onClick callback handler
    */
   onClick?: (event: React.MouseEvent) => void;
+
+  children: React.ReactNode;
 };
 
 /**

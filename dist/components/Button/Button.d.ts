@@ -2,6 +2,7 @@ import React, { FC } from "react";
 import "./Button.scss";
 import { defaultProps } from "@utils/defaultProps";
 export declare type ButtonPropsType = defaultProps & {
+    children?: React.ReactNode;
     /**
      * View mode
      */

@@ -17,6 +17,7 @@ export declare type ColumnPropsType = defaultProps & {
     mb?: AdditionalSpacingWidth;
     spacing?: AdditionalSpacingWidth;
     onClick?: (event: React.MouseEvent<HTMLElement>) => void;
+    children: React.ReactNode;
 };
 declare const Column: FC<ColumnPropsType>;
 export default Column;

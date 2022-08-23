@@ -17,7 +17,7 @@ const Template: ComponentStory<typeof TabsWithToggles> = (args) => {
   const [option, setOption] = useState<TabsValue>();
 
   return (
-    <>
+    <div style={{ maxWidth: 800, margin: "0 auto" }}>
       <TabsWithToggles
         {...args}
         onChange={(data) => {
@@ -28,7 +28,7 @@ const Template: ComponentStory<typeof TabsWithToggles> = (args) => {
       <p style={{ color: "#fff", fontFamily: "Nunito" }}>
         Selected value: {option?.label}
       </p>
-    </>
+    </div>
   );
 };
 

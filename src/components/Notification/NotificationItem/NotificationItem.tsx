@@ -1,7 +1,6 @@
 import React, { FC, useCallback, useEffect, useRef, useState } from "react";
 import "./NotificationItem.scss";
 import Done from "@icons/Done";
-import CloseIcon from "@icons/Close";
 import { useSwipeable } from "react-swipeable";
 import clsx from "clsx";
 import { defaultProps } from "@utils/defaultProps";

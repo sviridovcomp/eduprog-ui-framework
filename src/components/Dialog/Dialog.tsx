@@ -44,6 +44,8 @@ export type DialogPropsType = {
   rootClassName?: string;
 
   hasCloser?: boolean;
+
+  children?: React.ReactNode;
 };
 
 /**

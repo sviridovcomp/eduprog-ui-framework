@@ -1,7 +1,7 @@
 import { IconProps } from "@icons/IconProps";
 import React, { FC } from "react";
 
-const Visa: FC<IconProps> = ({ width = "2rem", height = "2rem" }) => {
+const Visa: FC<IconProps> = () => {
   return (
     <div className="ui-icon" style={{ display: "flex", alignItems: "center" }}>
       <svg

@@ -3,7 +3,6 @@ import React, { FC, useEffect, useState } from "react";
 import { DayName, MonthName, MounthData } from "./CalendarUtils";
 import "./Calendar.scss";
 import clsx from "clsx";
-import { Value } from "@storybook/theming";
 
 export type CalendarProps = {
   label?: string;
