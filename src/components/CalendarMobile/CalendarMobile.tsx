@@ -4,9 +4,8 @@ import {
   MounthData,
 } from "@components/Calendar/CalendarUtils";
 import clsx from "clsx";
-import React, { FC, useEffect, useRef, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import range from "lodash/range";
-import debounce from "lodash/debounce";
 import "./CalendarMobile.scss";
 import CloseIcon from "@icons/Close";
 import Button from "@components/Button";
@@ -14,11 +13,16 @@ import { useSwipeable } from "react-swipeable";
 
 export interface CalendarMobileProps {
   defaultValue: Array<Date>;
+  onChange: (dates: Array<Date>) => void;
+  onClose: () => void;
 }
 
-const CalendarMobile: FC<CalendarMobileProps> = ({ defaultValue }) => {
+const CalendarMobile: FC<CalendarMobileProps> = ({
+  defaultValue,
+  onChange,
+  onClose,
+}) => {
   const [year, setYear] = useState(new Date().getFullYear());
-  const Months = useRef<HTMLDivElement>(null);
   const [selectedDates, setSelectedDates] = useState<Array<Date>>(
     defaultValue ?? []
   );
@@ -62,18 +66,24 @@ const CalendarMobile: FC<CalendarMobileProps> = ({ defaultValue }) => {
     }
   };
 
+  useEffect(() => {
+    if (onChange) {
+      onChange(selectedDates);
+    }
+  }, [selectedDates]);
+
   return (
     <div className="CalendarMobile">
       <div className="CalendarMobileWrapper">
         <div className="Controls">
-          <div className="CloseButton">
+          <div className="CloseButton" onClick={onClose}>
             <CloseIcon />
           </div>
 
           <div className="Title">Выберите день</div>
 
           <div className="AcceptButton">
-            <Button view="clear" style={{ color: "#668fd6" }}>
+            <Button view="clear" style={{ color: "#668fd6" }} onClick={onClose}>
               Готово
             </Button>
           </div>

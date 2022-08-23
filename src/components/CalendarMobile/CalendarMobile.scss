@@ -18,6 +18,7 @@
     overflow: overlay;
     z-index: 1;
     overflow-behavior: contain;
+    background-color: var(--ep-background-color);
 
     .Controls {
       display: flex;

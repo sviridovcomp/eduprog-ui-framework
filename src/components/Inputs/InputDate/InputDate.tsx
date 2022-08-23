@@ -10,7 +10,8 @@ import React, { FC, useState } from "react";
 import Input from "../Input/Input";
 import "./InputDate.scss";
 import dayjs from "dayjs";
-import { ClickAwayListener } from "@utils/hooks/useClickAway";
+import { BrowserView, MobileView } from "react-device-detect";
+import CalendarMobile from "@components/CalendarMobile/CalendarMobile";
 
 export interface InputDateProps {
   label: string;
@@ -50,15 +51,29 @@ const InputDate: FC<InputDateProps> = ({ label, dateFormat = "D.MM.YYYY" }) => {
       />
 
       {open && (
-        <ClickAwayListener onClickAway={() => setOpen(false)}>
-          <div
-            className="Popup"
-            ref={floating}
-            style={{ position: strategy, top: y ?? 0, left: x ?? 0 }}
-          >
-            <Calendar onChange={(dates: Date[]) => setSelectedDates(dates)} />
-          </div>
-        </ClickAwayListener>
+        <div>
+          {/* @ts-ignore */}
+          <BrowserView>
+            <div
+              className="Popup"
+              ref={floating}
+              style={{ position: strategy, top: y ?? 0, left: x ?? 0 }}
+            >
+              <Calendar
+                defaultValue={selectedDates}
+                onChange={(dates: Date[]) => setSelectedDates(dates)}
+              />
+            </div>
+          </BrowserView>
+          {/* @ts-ignore */}
+          <MobileView>
+            <CalendarMobile
+              defaultValue={selectedDates}
+              onChange={(dates: Date[]) => setSelectedDates(dates)}
+              onClose={() => setOpen(false)}
+            />
+          </MobileView>
+        </div>
       )}
     </div>
   );
