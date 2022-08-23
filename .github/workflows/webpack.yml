@@ -12,7 +12,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x, 16.x]
+        node-version: [14.x, 16.x, 18.x]
 
     steps:
       - uses: actions/checkout@v2
@@ -31,7 +31,7 @@ jobs:
         uses: borales/actions-yarn@v3.0.0
         with:
           cmd: lint:js
-          
+
       - name: Testing
         uses: borales/actions-yarn@v3.0.0
         with:
@@ -41,6 +41,3 @@ jobs:
         uses: borales/actions-yarn@v3.0.0
         with:
           cmd: build
-          
-          
-          
