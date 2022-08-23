@@ -8,7 +8,7 @@ export default {
   component: Badge,
 } as ComponentMeta<typeof Badge>;
 
-const PlaygroundTemplate: ComponentStory<typeof Badge> = (args) => {
+const PlaygroundTemplate: ComponentStory<typeof Badge> = () => {
   return (
     <div style={{ display: "flex", gap: "0.25rem" }}>
       <Badge view="success">Success</Badge>
@@ -19,6 +19,3 @@ const PlaygroundTemplate: ComponentStory<typeof Badge> = (args) => {
 };
 
 export const Playground = PlaygroundTemplate.bind({});
-Playground.args = {
-  children: "Success",
-};

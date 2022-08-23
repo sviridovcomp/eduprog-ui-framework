@@ -29,7 +29,8 @@ const Template: ComponentStory<typeof MultipleSelect> = (args) => {
         }}
       />
       <p style={{ color: "var(--ep-text-color)" }}>
-        Selected values:{" "}
+        Selected values:
+        {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
         {options.map((option: SelectValue<any>, index) => (
           <li key={index}>{option.name}</li>
         ))}

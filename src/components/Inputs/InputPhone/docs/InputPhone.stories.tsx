@@ -25,12 +25,11 @@ const Template: ComponentStory<typeof InputPhone> = (args) => {
         }}
       >
         <InputPhone
-          label="Phone input"
           defaultValue={value}
           onChange={(data: string) => {
             setValue(data);
           }}
-          // {...args}
+          {...args}
         />
         <p style={{ color: "var(--ep-text-color)" }}>Phone number: {value}</p>
       </div>

@@ -2,7 +2,6 @@ import React, { FC, useEffect, useState } from "react";
 import { MultipleSelectPropsType } from "@components/Select/MultipleSelect/MultipleSelectProps";
 import "./MultipleSelectSmallDevice.scss";
 import clsx from "clsx";
-import { SelectValue } from "../Select/SelectProps";
 
 const MultipleSelectSmallDevice: FC<MultipleSelectPropsType<string>> = ({
   label,

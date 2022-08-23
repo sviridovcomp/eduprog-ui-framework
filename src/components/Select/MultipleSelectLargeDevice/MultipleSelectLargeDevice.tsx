@@ -19,7 +19,6 @@ const MultipleSelectLargeDevice: FC<MultipleSelectPropsType<any>> = ({
   options,
   maxSelectedOptions = undefined,
   onChange,
-  zIndex,
   wrapperStyles,
   dropdownStyles,
   defaultValue = [],
@@ -53,14 +52,15 @@ const MultipleSelectLargeDevice: FC<MultipleSelectPropsType<any>> = ({
   );
 
   const containsOption = (
-    options: Array<SelectValue<any>>,
-    option: SelectValue<any>
+    options: Array<SelectValue<any>>, // eslint-disable-line @typescript-eslint/no-explicit-any
+    option: SelectValue<any> // eslint-disable-line @typescript-eslint/no-explicit-any
   ): boolean => {
     return options.some((currentOption) => currentOption.name == option.name);
   };
 
   const [selectedOptions, setSelectedOptions] = useState(defaultValue); // eslint-disable-line @typescript-eslint/no-explicit-any
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const disabledPredicate = (option: SelectValue<any>) => {
     return (
       maxSelectedOptions !== undefined &&
@@ -69,6 +69,7 @@ const MultipleSelectLargeDevice: FC<MultipleSelectPropsType<any>> = ({
     );
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const selectOption = (option: SelectValue<any>) => {
     if (containsOption(selectedOptions, option)) {
       setSelectedOptions(

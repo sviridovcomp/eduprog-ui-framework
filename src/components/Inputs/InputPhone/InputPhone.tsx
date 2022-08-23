@@ -77,6 +77,7 @@ const InputPhone: FC<InputPhonePropsType> = ({
     }
   };
 
+  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
   const inputKeyDown = (event: any) => {
     // const input = event?.target as HTMLInputElement;
     // const inputValue = input.value.replace(/\D/g, "");
