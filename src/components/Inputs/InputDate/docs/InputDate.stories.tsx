@@ -12,9 +12,12 @@ const PlaygroundTemplate: ComponentStory<typeof InputDate> = (args) => {
   return (
     <>
       <div style={{ maxWidth: 300, margin: "auto" }}>
-        <InputDate label="Choose date:" />
+        <InputDate {...args} />
       </div>
     </>
   );
 };
 export const Playground = PlaygroundTemplate.bind({});
+Playground.args = {
+  label: "Choose date:",
+};
