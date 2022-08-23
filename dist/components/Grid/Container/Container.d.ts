@@ -6,6 +6,7 @@ export declare type ContainerPropsType = defaultProps & {
     adaptive?: boolean;
     fixed?: boolean;
     style?: React.CSSProperties;
+    children?: React.ReactNode;
 };
 declare const Container: FC<ContainerPropsType>;
 export default Container;

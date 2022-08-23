@@ -17,6 +17,8 @@ export type ExpandProps = {
    * Transition duration
    */
   duration?: number;
+
+  children?: React.ReactNode;
 };
 
 /**

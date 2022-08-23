@@ -8,6 +8,7 @@ export type ContainerPropsType = defaultProps & {
   adaptive?: boolean;
   fixed?: boolean;
   style?: React.CSSProperties;
+  children?: React.ReactNode;
 };
 
 const Container: FC<ContainerPropsType> = ({

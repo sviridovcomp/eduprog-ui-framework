@@ -1,4 +1,4 @@
-import { FC } from "react";
+import React, { FC } from "react";
 import "./Expand.scss";
 export declare type ExpandProps = {
     /**
@@ -13,6 +13,7 @@ export declare type ExpandProps = {
      * Transition duration
      */
     duration?: number;
+    children?: React.ReactNode;
 };
 /**
  * Component to show expandable content

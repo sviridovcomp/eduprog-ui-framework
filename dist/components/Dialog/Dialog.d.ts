@@ -30,6 +30,7 @@ export declare type DialogPropsType = {
      */
     rootClassName?: string;
     hasCloser?: boolean;
+    children?: React.ReactNode;
 };
 /**
  * Component to creating dialog windows

@@ -32,6 +32,8 @@ export interface IBottomDrawerProps {
   mountOnEnter?: boolean;
   className?: string;
   backdropClassname?: string;
+
+  children: React.ReactNode;
 }
 
 /**

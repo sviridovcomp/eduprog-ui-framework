@@ -5,6 +5,7 @@ import "./Badge.scss";
 
 export type BadgeProps = defaultProps & {
   view: "success" | "error" | "warning";
+  children?: React.ReactNode;
 };
 
 const Badge: FC<BadgeProps> = ({

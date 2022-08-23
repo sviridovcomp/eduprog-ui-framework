@@ -8,6 +8,7 @@ export interface ISkeletonProps {
   width?: number;
   height?: number;
   borderRadius?: number | "auto";
+  children?: React.ReactNode;
 }
 
 const Skeleton: FC<ISkeletonProps> = ({
