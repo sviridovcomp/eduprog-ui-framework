@@ -2,10 +2,17 @@ import React, { useState } from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import CalendarMobile from "../CalendarMobile";
+import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
 
 export default {
   title: "Components/CalendarMobile",
   component: CalendarMobile,
+  parameters: {
+    viewport: {
+      viewports: INITIAL_VIEWPORTS,
+      defaultViewport: "iphone6",
+    },
+  },
 } as ComponentMeta<typeof CalendarMobile>;
 
 const PlaygroundTemplate: ComponentStory<typeof CalendarMobile> = (args) => {

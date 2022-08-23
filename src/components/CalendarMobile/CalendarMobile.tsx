@@ -4,7 +4,7 @@ import {
   MounthData,
 } from "@components/Calendar/CalendarUtils";
 import clsx from "clsx";
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useRef, useState } from "react";
 import range from "lodash/range";
 import "./CalendarMobile.scss";
 import dayjs from "dayjs";
@@ -17,9 +17,18 @@ export interface CalendarMobileProps {
 
 const CalendarMobile: FC<CalendarMobileProps> = ({ defaultValue }) => {
   const [year, setYear] = useState(new Date().getFullYear());
+  const Months = useRef<HTMLDivElement>(null);
   const [selectedDates, setSelectedDates] = useState<Array<Date>>(
     defaultValue ?? []
   );
+
+  useEffect(() => {
+    document
+      .querySelector(
+        `.MounthsSelector table:nth-child(${new Date().getMonth() + 1}) caption`
+      )
+      ?.scrollIntoView();
+  }, []);
 
   const containsDate = (dates: Array<Date>, date: Date): boolean => {
     return dates.some((currentDate) => {
@@ -73,20 +82,18 @@ const CalendarMobile: FC<CalendarMobileProps> = ({ defaultValue }) => {
             </div>
           ))}
         </div>
+        <div className="WeeknameTitles">
+          {DayName().map((name) => (
+            <div key={name}>{name}</div>
+          ))}
+        </div>
 
-        <div className="MounthsSelector">
+        <div className="MounthsSelector" ref={Months}>
           {range(12).map((month: number) => (
             <table className="calendar-table" key={month}>
               <caption className="calendar-table-month-name">
                 {MonthName()[month]}
               </caption>
-              <thead>
-                <tr>
-                  {DayName().map((name) => (
-                    <th key={name}>{name}</th>
-                  ))}
-                </tr>
-              </thead>
 
               <tbody>
                 {MounthData(year, month).map((week, index) => (
