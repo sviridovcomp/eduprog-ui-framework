@@ -7,7 +7,7 @@ export interface RadioBoxValueProps {
 }
 export declare type RadioBoxProps = defaultProps & {
     options: RadioBoxValueProps[];
-    children: React.ReactNode;
+    children?: React.ReactNode;
 };
 declare const RadioBox: FC<RadioBoxProps>;
 export default RadioBox;

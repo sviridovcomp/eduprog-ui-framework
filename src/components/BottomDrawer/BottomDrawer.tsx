@@ -33,7 +33,7 @@ export interface IBottomDrawerProps {
   className?: string;
   backdropClassname?: string;
 
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 /**
