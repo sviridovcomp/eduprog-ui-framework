@@ -1,6 +1,5 @@
-import React, { FC } from "react";
+import React, { FC, useId } from "react";
 import Skeleton from "@components/Skeleton/Skeleton";
-import { v4 as uuid } from "uuid";
 import range from "lodash/range";
 
 export interface ITextSkeletonProps {
@@ -14,11 +13,14 @@ const TextSkeleton: FC<ITextSkeletonProps> = ({
   animation = "wave",
   height = 16,
 }) => {
+  const id = useId();
+  const SkeletonId = `skeleton-${id}`;
+
   return (
     <div className="Skeleton-Group">
       {range(1, rows).map(() => (
         <Skeleton
-          key={uuid()}
+          key={SkeletonId}
           height={height}
           variant="text"
           animation={animation}
