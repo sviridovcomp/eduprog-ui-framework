@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import Calendar from "../Calendar";
 
 export default {
-  title: "Components/Calendar",
+  title: "Components/Calendar/Browser",
   component: Calendar,
 } as ComponentMeta<typeof Calendar>;
 

@@ -5,7 +5,7 @@ import CalendarMobile from "../CalendarMobile";
 import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
 
 export default {
-  title: "Components/CalendarMobile",
+  title: "Components/Calendar/Mobile",
   component: CalendarMobile,
   parameters: {
     viewport: {
