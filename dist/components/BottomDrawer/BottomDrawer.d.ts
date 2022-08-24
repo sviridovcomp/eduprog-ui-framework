@@ -21,7 +21,7 @@ export interface IBottomDrawerProps {
     mountOnEnter?: boolean;
     className?: string;
     backdropClassname?: string;
-    children: React.ReactNode;
+    children?: React.ReactNode;
 }
 /**
  * This component creates a bottom curtain for mobile devices.

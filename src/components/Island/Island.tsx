@@ -30,7 +30,7 @@ export type IslandPropsType = defaultProps & {
    */
   onClick?: (event: React.MouseEvent) => void;
 
-  children: React.ReactNode;
+  children?: React.ReactNode;
 };
 
 /**

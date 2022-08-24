@@ -26,6 +26,10 @@
       align-items: center;
       padding: 2rem 0.5rem 0.5rem 0.5rem;
       font-weight: 500;
+
+      .CloseButton {
+        cursor: pointer;
+      }
     }
 
     .YearSelector {
