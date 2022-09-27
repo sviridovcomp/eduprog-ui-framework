@@ -1,11 +1,14 @@
 import { FC } from "react";
 import "./Calendar.scss";
-export declare type CalendarProps = {
+export interface CalendarProps {
     label?: string;
     defaultValue?: Array<Date>;
     onChange?: (value: Array<Date>) => void;
     disabledDates?: Array<Date>;
     disabledWeekDays?: Array<number>;
-};
-declare const Calendar: FC<CalendarProps>;
+}
+export interface CalendarBrowserProps extends CalendarProps {
+    label?: string;
+}
+export declare const Calendar: FC<CalendarBrowserProps>;
 export default Calendar;
