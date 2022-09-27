@@ -1,18 +1,22 @@
 import Button from "@components/Button";
 import React, { FC, useEffect, useState } from "react";
-import { DayName, MonthName, MounthData } from "./CalendarUtils";
+import { containsDate, DayName, MonthName, MounthData } from "./CalendarUtils";
 import "./Calendar.scss";
 import clsx from "clsx";
 
-export type CalendarProps = {
+export interface CalendarProps {
   label?: string;
   defaultValue?: Array<Date>;
   onChange?: (value: Array<Date>) => void;
   disabledDates?: Array<Date>;
   disabledWeekDays?: Array<number>;
-};
+}
 
-const Calendar: FC<CalendarProps> = ({
+export interface CalendarBrowserProps extends CalendarProps {
+  label?: string;
+}
+
+export const Calendar: FC<CalendarBrowserProps> = ({
   onChange,
   disabledDates,
   defaultValue,
@@ -44,16 +48,6 @@ const Calendar: FC<CalendarProps> = ({
     }
 
     setMonth(month + 1);
-  };
-
-  const containsDate = (dates: Array<Date>, date: Date): boolean => {
-    return dates.some((currentDate) => {
-      return (
-        currentDate.getFullYear() == date.getFullYear() &&
-        currentDate.getMonth() == date.getMonth() &&
-        currentDate.getDate() == date.getDate()
-      );
-    });
   };
 
   const selectDate = (date: Date) => {
@@ -121,7 +115,8 @@ const Calendar: FC<CalendarProps> = ({
                       "calendar-day",
                       containsDate(selectedDates, day) &&
                         "calendar-day-selected",
-                      disabledWeekDays?.includes(day.getDay()) &&
+                      (disabledWeekDays?.includes(day.getDay()) ||
+                        (disabledDates && containsDate(disabledDates, day))) &&
                         "calendar-day-disabled"
                     )}
                     key={index}
