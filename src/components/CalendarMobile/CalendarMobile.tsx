@@ -1,4 +1,5 @@
 import {
+  containsDate,
   DayName,
   MonthName,
   MounthData,
@@ -10,10 +11,9 @@ import "./CalendarMobile.scss";
 import CloseIcon from "@icons/Close";
 import Button from "@components/Button";
 import { useSwipeable } from "react-swipeable";
+import { CalendarProps } from "@components/Calendar/Calendar";
 
-export interface CalendarMobileProps {
-  defaultValue: Array<Date>;
-  onChange: (dates: Array<Date>) => void;
+export interface CalendarMobileProps extends CalendarProps {
   onClose: () => void;
 }
 
@@ -21,6 +21,8 @@ const CalendarMobile: FC<CalendarMobileProps> = ({
   defaultValue,
   onChange,
   onClose,
+  disabledDates,
+  disabledWeekDays,
 }) => {
   const [year, setYear] = useState(new Date().getFullYear());
   const [selectedDates, setSelectedDates] = useState<Array<Date>>(
@@ -43,16 +45,6 @@ const CalendarMobile: FC<CalendarMobileProps> = ({
       )
       ?.scrollIntoView();
   }, []);
-
-  const containsDate = (dates: Array<Date>, date: Date): boolean => {
-    return dates.some((currentDate) => {
-      return (
-        currentDate.getFullYear() == date.getFullYear() &&
-        currentDate.getMonth() == date.getMonth() &&
-        currentDate.getDate() == date.getDate()
-      );
-    });
-  };
 
   const selectDate = (date: Date) => {
     if (containsDate(selectedDates, date)) {
@@ -122,9 +114,13 @@ const CalendarMobile: FC<CalendarMobileProps> = ({
                       day ? (
                         <td
                           className={clsx(
-                            "calendar-day",
+                            "calendar-day calendar-day-mobile",
                             containsDate(selectedDates, day) &&
-                              "calendar-day-selected"
+                              "calendar-day-selected",
+                            (disabledWeekDays?.includes(day.getDay()) ||
+                              (disabledDates &&
+                                containsDate(disabledDates, day))) &&
+                              "calendar-day-disabled"
                           )}
                           key={index}
                           onClick={() => selectDate(day)}
