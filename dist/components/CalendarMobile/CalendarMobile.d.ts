@@ -1,8 +1,7 @@
 import { FC } from "react";
 import "./CalendarMobile.scss";
-export interface CalendarMobileProps {
-    defaultValue: Array<Date>;
-    onChange: (dates: Array<Date>) => void;
+import { CalendarProps } from "@components/Calendar/Calendar";
+export interface CalendarMobileProps extends CalendarProps {
     onClose: () => void;
 }
 declare const CalendarMobile: FC<CalendarMobileProps>;
