@@ -14,7 +14,7 @@
   text-align: center;
   white-space: nowrap;
   transform: scale(1);
-  transition: 0.1s transform ease-in-out, 0.15s background-color ease-in-out;
+  transition: all 0.25s ease;
   border: 2px;
   border-radius: 0.75rem;
   font-family: $font-family;
@@ -81,14 +81,10 @@
       }
     }
     &_action {
-      background-color: $color-primary;
-      color: $color-background;
+      background-color: var(--ep-color-primary);
+      color: #ffffff;
       &:hover {
-        background-color: darken($color-primary, 20%);
-      }
-
-      &.Button-disabled {
-        background-color: lighten($color-primary, 25%);
+        filter: brightness(85%);
       }
     }
     &_link {
@@ -119,11 +115,11 @@
       color: var(--ep-text-color);
     }
     &_accent {
-      color: $color-background;
-      background-color: $color-accent;
+      color: #ffffff;
+      background-color: var(--ep-color-accent);
 
       &:hover {
-        background-color: darken($color-accent, 10%);
+        filter: brightness(85%);
       }
     }
   }
