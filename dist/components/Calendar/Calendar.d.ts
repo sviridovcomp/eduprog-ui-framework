@@ -6,6 +6,8 @@ export interface CalendarProps {
     onChange?: (value: Array<Date>) => void;
     disabledDates?: Array<Date>;
     disabledWeekDays?: Array<number>;
+    multiple?: boolean;
+    classNameDay?: string;
 }
 export interface CalendarBrowserProps extends CalendarProps {
     label?: string;
