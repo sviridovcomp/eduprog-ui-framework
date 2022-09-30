@@ -10,6 +10,8 @@ export interface CalendarProps {
   onChange?: (value: Array<Date>) => void;
   disabledDates?: Array<Date>;
   disabledWeekDays?: Array<number>;
+  multiple?: boolean;
+  classNameDay?: string;
 }
 
 export interface CalendarBrowserProps extends CalendarProps {
@@ -21,6 +23,8 @@ export const Calendar: FC<CalendarBrowserProps> = ({
   disabledDates,
   defaultValue,
   disabledWeekDays,
+  multiple,
+  classNameDay,
 }) => {
   const [month, setMonth] = useState(new Date().getMonth());
   const [year, setYear] = useState(new Date().getFullYear());
@@ -51,14 +55,18 @@ export const Calendar: FC<CalendarBrowserProps> = ({
   };
 
   const selectDate = (date: Date) => {
-    if (containsDate(selectedDates, date)) {
-      setSelectedDates(
-        selectedDates.filter((currentDate) => {
-          return currentDate.getTime() != date.getTime();
-        })
-      );
+    if (multiple) {
+      if (containsDate(selectedDates, date)) {
+        setSelectedDates(
+          selectedDates.filter((currentDate) => {
+            return currentDate.getTime() != date.getTime();
+          })
+        );
+      } else {
+        setSelectedDates([...selectedDates, date]);
+      }
     } else {
-      setSelectedDates([...selectedDates, date]);
+      setSelectedDates([date]);
     }
   };
 
@@ -117,7 +125,8 @@ export const Calendar: FC<CalendarBrowserProps> = ({
                         "calendar-day-selected",
                       (disabledWeekDays?.includes(day.getDay()) ||
                         (disabledDates && containsDate(disabledDates, day))) &&
-                        "calendar-day-disabled"
+                        "calendar-day-disabled",
+                      classNameDay
                     )}
                     key={index}
                     onClick={() => selectDate(day)}
