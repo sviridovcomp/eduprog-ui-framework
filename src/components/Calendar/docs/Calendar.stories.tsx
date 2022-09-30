@@ -16,6 +16,8 @@ const PlaygroundTemplate: ComponentStory<typeof Calendar> = (args) => {
         {...args}
         defaultValue={dates}
         onChange={(currentDates: Array<Date>) => setDates(currentDates)}
+        currentMonth={1}
+        currentYear={1969}
       />
 
       <div>{JSON.stringify(dates)}</div>
