@@ -1,3 +1,11 @@
+## [1.13.1](https://github.com/edu-prog/eduprog-ui-framework/compare/v1.13.0...v1.13.1) (2022-09-30)
+
+
+### 🔧 Fixes
+
+* update ([48f678d](https://github.com/edu-prog/eduprog-ui-framework/commit/48f678d6e00cba22e003c59612013380632a054f))
+* update ([#95](https://github.com/edu-prog/eduprog-ui-framework/issues/95)) ([2edd95d](https://github.com/edu-prog/eduprog-ui-framework/commit/2edd95dc83292d8aad1c3eb8e186130ad980eb55))
+
 ## [1.13.0](https://github.com/edu-prog/eduprog-ui-framework/compare/v1.12.0...v1.13.0) (2022-09-30)
 
 
