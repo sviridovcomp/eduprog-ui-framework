@@ -82,7 +82,7 @@
     }
     &_action {
       background-color: var(--ep-color-primary);
-      color: $color-background;
+      color: #ffffff;
       &:hover {
         filter: brightness(85%);
       }
@@ -115,7 +115,7 @@
       color: var(--ep-text-color);
     }
     &_accent {
-      color: var(--ep-background-color);
+      color: #ffffff;
       background-color: var(--ep-color-accent);
 
       &:hover {
