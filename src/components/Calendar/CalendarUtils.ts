@@ -88,3 +88,12 @@ export const containsDate = (dates: Array<Date>, date: Date): boolean => {
     );
   });
 };
+
+export const isToday = (dist: Date) => {
+  const now = new Date();
+  return (
+    now.getDate() == dist.getDate() &&
+    now.getMonth() == dist.getMonth() &&
+    now.getFullYear() == dist.getFullYear()
+  );
+};

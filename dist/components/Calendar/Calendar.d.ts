@@ -8,9 +8,13 @@ export interface CalendarProps {
     disabledWeekDays?: Array<number>;
     multiple?: boolean;
     classNameDay?: string;
+    isHeaderVisible?: boolean;
+    classNameToday?: string;
 }
 export interface CalendarBrowserProps extends CalendarProps {
     label?: string;
+    currentMonth?: number;
+    currentYear?: number;
 }
 export declare const Calendar: FC<CalendarBrowserProps>;
 export default Calendar;

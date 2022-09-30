@@ -19,3 +19,4 @@ export declare const DayName: () => string[];
 export declare const MonthName: () => string[];
 export declare const MounthData: (year: number, month: number) => (Date | undefined)[][];
 export declare const containsDate: (dates: Array<Date>, date: Date) => boolean;
+export declare const isToday: (dist: Date) => boolean;
