@@ -35,16 +35,14 @@
   }
 
   &-progress {
-    background-image: linear-gradient(
-      45deg,
-      hsla(0, 0%, 100%, 0.15) 25%,
-      transparent 0,
-      transparent 50%,
-      hsla(0, 0%, 100%, 0.15) 0,
-      hsla(0, 0%, 100%, 0.15) 75%,
-      transparent 0,
-      transparent
-    );
+    background-image: linear-gradient(45deg,
+        hsla(0, 0%, 100%, 0.15) 25%,
+        transparent 0,
+        transparent 50%,
+        hsla(0, 0%, 100%, 0.15) 0,
+        hsla(0, 0%, 100%, 0.15) 75%,
+        transparent 0,
+        transparent);
     background-size: 1rem 1rem;
     animation: progress-stripes 0.25s linear infinite;
   }
@@ -75,31 +73,38 @@
     &_default {
       color: var(--ep-text-color);
       background-color: var(--ep-button-background);
+
       &.btn-clicked,
       &:hover {
         background-color: var(--ep-button-background-hovered);
       }
     }
+
     &_action {
       background-color: var(--ep-color-primary);
       color: #ffffff;
+
       &:hover {
         filter: brightness(85%);
       }
     }
+
     &_link {
       border: 1px solid $color-lightblue;
       color: $color-lightblue;
       background-color: var(--ep-button-background);
+
       &:hover {
         background-color: var(--ep-button-background-hovered);
       }
     }
+
     &_pseudo {
       background-color: var(--ep-background-color);
       color: var(--ep-text-color);
       border: 2px solid var(--ep-impl-button-pseudo-border);
     }
+
     &_clear {
       color: $color-darkgray;
       background-color: var(--ep-background-color);
@@ -109,11 +114,13 @@
         color: var(--ep-text-color);
       }
     }
+
     &_raised {
       background-color: var(--ep-background-color);
       box-shadow: var(--ep-popup-shadow);
       color: var(--ep-text-color);
     }
+
     &_accent {
       color: #ffffff;
       background-color: var(--ep-color-accent);
@@ -128,16 +135,20 @@
     &_xs {
       height: 1.5rem;
     }
+
     &_sm {
       height: 1.875rem;
     }
+
     &_md {
       height: 2.5rem;
     }
+
     &_lg {
       font-size: 1.125rem;
       height: 3.125rem;
     }
+
     &_xl {
       font-size: 1.375rem;
       height: 3.725rem;

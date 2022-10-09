@@ -82,7 +82,6 @@ const Checkbox: FC<CheckboxPropsType> = ({
           disabled={disabled}
           id={labelbyId}
           className="checkbox-control"
-          style={{ display: "none" }}
         />
         <label
           className={clsx(

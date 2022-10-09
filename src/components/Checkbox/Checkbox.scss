@@ -1,5 +1,14 @@
 .checkbox {
-  &-control:disabled + &-fake > &-fake-checkbox {
+  &-control {
+    appearance: none;
+    position: absolute;
+
+    &:focus-visible+.checkbox-fake>.checkbox-fake-checkbox {
+      transform: translateY(-0.25rem);
+    }
+  }
+
+  &-control:disabled+&-fake>&-fake-checkbox {
     opacity: 0.6;
   }
 
@@ -56,6 +65,7 @@
         transform: translate(-50%, -50%);
       }
     }
+
     &:hover span:first-child {
       background-color: var(--ep-item-hovered);
     }
@@ -63,13 +73,15 @@
 }
 
 @mixin checkboxTheming($theme, $color) {
-  .checkbox-control:checked + .checkbox-fake.#{$theme} {
+  .checkbox-control:checked+.checkbox-fake.#{$theme} {
     span {
       &:first-child {
         background: $color;
+
         svg {
           stroke-dashoffset: 0;
         }
+
         &:before {
           opacity: 0;
           transition: all 0.6s ease;
