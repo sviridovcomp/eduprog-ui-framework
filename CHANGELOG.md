@@ -1,3 +1,13 @@
+## [1.13.2](https://github.com/edu-prog/eduprog-ui-framework/compare/v1.13.1...v1.13.2) (2022-10-09)
+
+
+### 🔧 Fixes
+
+* issue [#97](https://github.com/edu-prog/eduprog-ui-framework/issues/97) ([6bd834a](https://github.com/edu-prog/eduprog-ui-framework/commit/6bd834a6abe7113cf92b0d4b3c9ab98a9ce49ced))
+* set colors to badges ([1530224](https://github.com/edu-prog/eduprog-ui-framework/commit/15302245c8ed018f9d14a3173924aed5b77d4c85))
+* set colors to badges ([#99](https://github.com/edu-prog/eduprog-ui-framework/issues/99)) ([898767c](https://github.com/edu-prog/eduprog-ui-framework/commit/898767c6dfff644da86ab0bcbf95aeae9e07ffab))
+* update ([fb85e0f](https://github.com/edu-prog/eduprog-ui-framework/commit/fb85e0f872a83166e71a7c5f417162b7ad3456c7))
+
 ## [1.13.1](https://github.com/edu-prog/eduprog-ui-framework/compare/v1.13.0...v1.13.1) (2022-09-30)
 
 
