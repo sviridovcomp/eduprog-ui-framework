@@ -6,6 +6,7 @@ import "./Badge.scss";
 export type BadgeProps = defaultProps & {
   view: "success" | "error" | "warning";
   children?: React.ReactNode;
+  withoutDot?: boolean;
 };
 
 const Badge: FC<BadgeProps> = ({
@@ -13,6 +14,7 @@ const Badge: FC<BadgeProps> = ({
   view = "success",
   style,
   className,
+  withoutDot = true,
   onPointerDown,
   onPointerEnter,
   onPointerLeave,
@@ -23,7 +25,7 @@ const Badge: FC<BadgeProps> = ({
 }) => {
   return (
     <div
-      className={clsx("badge", { [`badge-view_${view}`]: view }, className)}
+      className={clsx("badge", !withoutDot && "badge-dot", { [`badge-view_${view}`]: view }, className)}
       style={style}
       onPointerDown={onPointerDown}
       onPointerEnter={onPointerEnter}
