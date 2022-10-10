@@ -1,6 +1,6 @@
 import { SelectTypeProps } from "@components/Select/Select/SelectProps";
 import React, { FC, useEffect, useState } from "react";
-import "./SelectSmallDevice.scss";
+import "../MultipleSelectSmallDevice/MultipleSelectSmallDevice.scss";
 import "@components/Inputs/BaseInput/BaseInput.scss";
 import clsx from "clsx";
 
@@ -33,7 +33,7 @@ const SelectSmallDevice: FC<SelectTypeProps<any>> = ({
   }, [selectedOption]);
 
   return (
-    <div className="input">
+    <div className="input input-size_md">
       <div
         className={clsx("input-label", {
           "input-label-active": active || selectedOption,
@@ -63,9 +63,9 @@ const SelectSmallDevice: FC<SelectTypeProps<any>> = ({
           ))}
         </select>
 
-        <div className="select-value">{selectedOption.name}</div>
+        <div className="multiple-select-value">{selectedOption.name}</div>
 
-        <div className="select-icon">
+        <div className="multiple-select-icon">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             height="24px"

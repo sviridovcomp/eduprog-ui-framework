@@ -41,7 +41,7 @@ const MultipleSelectSmallDevice: FC<MultipleSelectPropsType<string>> = ({
   };
 
   return (
-    <div className="input">
+    <div className="input input-size_md">
       <div
         className={clsx("input-label", "Input-size_md", {
           "input-label-active": active || selectedOptions.length > 0,
