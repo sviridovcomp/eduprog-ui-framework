@@ -116,14 +116,16 @@ const SelectLargeDevice: FC<SelectTypeProps<any>> = ({
             ...dropdownStyles,
           }}
         >
-          {options?.map(({ name, value }) => (
+          {options?.map(({ name, value: rhsValue }) => (
             <div
               className={clsx(
                 "select-item",
-                value == { name: name, value: value } && "select-item-selected"
+                value.name == name &&
+                  value.value == rhsValue &&
+                  "select-item-selected"
               )}
               key={name}
-              onClick={() => onSelect({ name: name, value: value })}
+              onClick={() => onSelect({ name: name, value: rhsValue })}
             >
               {name}
             </div>

@@ -1,13 +1,7 @@
 .multiple-select {
-  &-label {
-    position: absolute;
-    font-size: 0.8125rem;
-  }
-
   &-value {
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    bottom: 0.5rem;
     left: 1rem;
     overflow-x: hidden;
     overflow-y: hidden;
@@ -19,7 +13,6 @@
     white-space: nowrap;
     pointer-events: none;
     color: var(--ep-text-color);
-    height: 1rem;
   }
 
   &-icon {
