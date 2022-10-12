@@ -35,13 +35,13 @@ html {
   --ep-color-danger: #{$color-danger};
   --ep-popup-shadow: 0 12px 28px 0 rgba(0, 0, 0, 0.2),
     0 2px 4px 0 rgba(0, 0, 0, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
-  --ep-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  --ep-box-shadow: none;
 
   &[data-color-theme="light"] {
-    --ep-background-color: #fff;
+    --ep-background-color: #f6f7f8;
     --ep-box-background-color: #fff;
     --ep-text-color: #000;
-    --ep-item: #eceff1;
+    --ep-item: #ecf1f7;
     --ep-item-hovered: #e4ebf3;
     --ep-avatar-background: #d8ddf2;
     --ep-button-background: #ebefff;

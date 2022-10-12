@@ -79,14 +79,14 @@ export const MounthData = (year: number, month: number) => {
   return result;
 };
 
-export const containsDate = (dates: Array<Date>, date: Date): boolean => {
-  return dates.some((currentDate) => {
+export const containsDate = (date: Date, dates?: Array<Date>): boolean => {
+  return dates?.some((currentDate) => {
     return (
       currentDate.getFullYear() == date.getFullYear() &&
       currentDate.getMonth() == date.getMonth() &&
       currentDate.getDate() == date.getDate()
     );
-  });
+  }) ?? false;
 };
 
 export const isToday = (dist: Date) => {
