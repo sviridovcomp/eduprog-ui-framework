@@ -52,7 +52,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.29.4",
     "gh-pages": "^4.0.0",
-    "husky": "^7.0.4",
+    "husky": "^8.0.2",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.5.1",
     "jest-useragent-mock": "^0.1.1",
