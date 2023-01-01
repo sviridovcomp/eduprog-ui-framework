@@ -82,7 +82,7 @@ export const Calendar: FC<CalendarBrowserProps> = ({
 
   const selectDate = (date: Date) => {
     if (multiple) {
-      if (containsDate(selectedDates, date)) {
+      if (containsDate(date, selectedDates)) {
         setSelectedDates(
           selectedDates.filter((currentDate) => {
             return currentDate.getTime() != date.getTime();
@@ -150,10 +150,10 @@ export const Calendar: FC<CalendarBrowserProps> = ({
                     className={clsx(
                       "calendar-day",
                       isToday(day) && classNameToday,
-                      containsDate(selectedDates, day) &&
+                      containsDate(day, selectedDates) &&
                         "calendar-day-selected",
                       (disabledWeekDays?.includes(day.getDay()) ||
-                        (disabledDates && containsDate(disabledDates, day))) &&
+                        (disabledDates && containsDate(day, disabledDates))) &&
                         "calendar-day-disabled",
                       classNameDay
                     )}
