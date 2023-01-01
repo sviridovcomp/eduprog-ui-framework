@@ -163,5 +163,5 @@ const MobileTemplate: ComponentStory<typeof Dialog> = (args) => {
 export const Mobile = MobileTemplate.bind({});
 Mobile.args = {
   hasCloser: false,
-  bodyStyle: { maxWidth: 350, bottom: 16 },
+  bodyStyle: { maxWidth: 350, bottom: "1em" },
 };
