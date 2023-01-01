@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { TextInputProps } from "../BaseInput/BaseInput";
-export declare type InputPhonePropsType = TextInputProps;
+export type InputPhonePropsType = TextInputProps;
 /**
  * InputPhone allows to input a phone number
  */

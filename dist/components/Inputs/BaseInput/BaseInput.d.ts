@@ -15,7 +15,7 @@ export interface ITextInputValidator {
      */
     message?: string;
 }
-export declare type TextInputProps = defaultProps & {
+export type TextInputProps = defaultProps & {
     /**
      * Label for the textfield
      */

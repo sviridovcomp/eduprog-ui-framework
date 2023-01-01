@@ -3,7 +3,7 @@ export declare enum Events {
     HIDE = "hide",
     HIDE_ALL = "hideAll"
 }
-export declare type Handler<T = any> = (event: T) => void;
+export type Handler<T = any> = (event: T) => void;
 interface Emitter {
     on<T = any>(event: Events, handler: Handler<T>): void;
     emit<T = any>(event: Events, args?: T): void;

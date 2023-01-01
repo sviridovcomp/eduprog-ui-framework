@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { defaultProps } from "@utils/defaultProps";
 import "./Radio.scss";
-export declare type RadioProps = defaultProps & {
+export type RadioProps = defaultProps & {
     label?: string;
     value?: string;
     checked?: boolean;

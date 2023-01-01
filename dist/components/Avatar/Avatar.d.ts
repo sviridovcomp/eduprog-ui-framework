@@ -1,7 +1,7 @@
 import { FC } from "react";
 import "./Avatar.scss";
 import { defaultProps } from "@utils/defaultProps";
-export declare type AvatarPropsType = defaultProps & {
+export type AvatarPropsType = defaultProps & {
     /**
      * Rounded mode
      */

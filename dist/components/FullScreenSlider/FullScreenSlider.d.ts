@@ -3,7 +3,7 @@ import "./FullScreenSlider.scss";
 export interface IFullScreenSliderLayout {
     image: string;
 }
-export declare type FullScreenSliderProps = {
+export type FullScreenSliderProps = {
     open?: boolean;
     slides: React.ReactNode[];
     onClose?: () => void;

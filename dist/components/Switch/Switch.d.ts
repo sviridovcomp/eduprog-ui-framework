@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import "./Switch.scss";
 import { defaultProps } from "@utils/defaultProps";
-export declare type SwitchProps = defaultProps & {
+export type SwitchProps = defaultProps & {
     color: "primary" | "secondary" | "accent" | string;
     name?: string;
     onChange?: (event?: React.ChangeEvent) => void;

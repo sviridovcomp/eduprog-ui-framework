@@ -1,5 +1,5 @@
 import React from "react";
-export declare type defaultProps = {
+export type defaultProps = {
     /**
      * Additional class
      */

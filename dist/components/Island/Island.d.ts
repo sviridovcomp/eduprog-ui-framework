@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import "./Island.scss";
 import { defaultProps } from "@utils/defaultProps";
-export declare type IslandPropsType = defaultProps & {
+export type IslandPropsType = defaultProps & {
     /**
      * Align
      */

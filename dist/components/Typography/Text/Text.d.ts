@@ -1,8 +1,8 @@
 import { ElementType, ReactNode, CSSProperties, PureComponent } from "react";
 import "./Text.scss";
-export declare type TextAlignValue = "start" | "end" | "center" | "justify";
-export declare type TextOverflowValue = "fade" | "ellipsis" | "fade-horizontal";
-export declare type TextTypographyValue = "display-xl" | "display-lg" | "display-md" | "display-sm" | "headline-xl" | "headline-lg" | "headline-sm" | "headline-xs" | "headline-md" | "subheader-xl" | "subheader-lg" | "subheader-md" | "subheader-sm" | "body-short-xl" | "body-short-lg" | "body-short-md" | "body-short-sm" | "body-long-xl" | "body-long-lg" | "body-long-md" | "body-long-sm" | "caption-xl" | "caption-lg" | "caption-md" | "overline-lg" | "overline-md" | "overline-sm" | "control-xxs" | "control-xs" | "control-sm" | "control-lg" | "control-xl" | "control-md" | "control-xxl";
+export type TextAlignValue = "start" | "end" | "center" | "justify";
+export type TextOverflowValue = "fade" | "ellipsis" | "fade-horizontal";
+export type TextTypographyValue = "display-xl" | "display-lg" | "display-md" | "display-sm" | "headline-xl" | "headline-lg" | "headline-sm" | "headline-xs" | "headline-md" | "subheader-xl" | "subheader-lg" | "subheader-md" | "subheader-sm" | "body-short-xl" | "body-short-lg" | "body-short-md" | "body-short-sm" | "body-long-xl" | "body-long-lg" | "body-long-md" | "body-long-sm" | "caption-xl" | "caption-lg" | "caption-md" | "overline-lg" | "overline-md" | "overline-sm" | "control-xxs" | "control-xs" | "control-sm" | "control-lg" | "control-xl" | "control-md" | "control-xxl";
 export interface TextProps {
     /**
      * Type of element to display as (string or component).

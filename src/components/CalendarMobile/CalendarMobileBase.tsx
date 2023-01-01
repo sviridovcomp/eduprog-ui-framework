@@ -5,15 +5,12 @@ import {
   MounthData,
 } from "@components/Calendar/CalendarUtils";
 import clsx from "clsx";
-import React, { FC, useEffect, useState } from "react";
+import React, { FC, useState } from "react";
 import range from "lodash/range";
 import "./CalendarMobile.scss";
 import CloseIcon from "@icons/Close";
 import Button from "@components/Button";
 import { useSwipeable } from "react-swipeable";
-import { CalendarProps } from "@components/Calendar/Calendar";
-import dayjs from "dayjs";
-import isBetween from "dayjs/plugin/isBetween";
 
 interface CalendarMobileBaseProps {
   onClose: () => void;

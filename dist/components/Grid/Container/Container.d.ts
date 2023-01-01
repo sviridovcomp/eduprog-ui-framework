@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import "./Container.scss";
 import { defaultProps } from "@utils/defaultProps";
-export declare type ContainerPropsType = defaultProps & {
+export type ContainerPropsType = defaultProps & {
     fullwidth?: boolean;
     adaptive?: boolean;
     fixed?: boolean;

@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import "./Dialog.scss";
-export declare type DialogPropsType = {
+export type DialogPropsType = {
     /**
      * Headline
      */

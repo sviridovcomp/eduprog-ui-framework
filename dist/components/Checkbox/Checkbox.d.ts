@@ -1,7 +1,7 @@
 import { defaultProps } from "@utils/defaultProps";
 import React, { FC } from "react";
 import "./Checkbox.scss";
-export declare type CheckboxPropsType = defaultProps & {
+export type CheckboxPropsType = defaultProps & {
     /**
      * Content to the right or left of the Checkbox
      */
