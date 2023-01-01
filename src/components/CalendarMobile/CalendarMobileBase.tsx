@@ -1,6 +1,7 @@
 import {
   containsDate,
   DayName,
+  isToday,
   MonthName,
   MounthData,
 } from "@components/Calendar/CalendarUtils";
@@ -23,6 +24,7 @@ interface CalendarMobileBaseProps {
   disabledDates?: Array<Date>;
   disabledWeekDays?: Array<number>;
   classNameDay?: string;
+  classNameToday?: string;
 }
 
 const CalendarMobileBase: FC<CalendarMobileBaseProps> = ({
@@ -31,6 +33,7 @@ const CalendarMobileBase: FC<CalendarMobileBaseProps> = ({
   onClose,
   disabledDates,
   disabledWeekDays,
+  classNameToday,
   classNameDay,
 }) => {
   const [year, setYear] = useState(new Date().getFullYear());
@@ -95,12 +98,13 @@ const CalendarMobileBase: FC<CalendarMobileBaseProps> = ({
                         <td
                           className={clsx(
                             "calendar-day calendar-day-mobile",
+                            isToday(day) && classNameToday,
                             containsDate(day, defaultValue) &&
                               "calendar-day-selected",
-                            disabledWeekDays?.includes(day.getDay()) ||
+                            (disabledWeekDays?.includes(day.getDay()) ||
                               (disabledDates &&
-                                containsDate(day, disabledDates) &&
-                                "calendar-day-disabled"),
+                                containsDate(day, disabledDates))) &&
+                              "calendar-day-disabled",
                             classNameDay
                           )}
                           key={index}

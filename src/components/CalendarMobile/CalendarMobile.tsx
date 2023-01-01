@@ -13,6 +13,10 @@ const CalendarMobile: FC<CalendarMobileProps> = ({
   defaultValue,
   onChange,
   onClose,
+  disabledWeekDays,
+  disabledDates,
+  classNameToday,
+  multiple = false,
 }) => {
   dayjs.extend(isBetween);
 
@@ -29,14 +33,18 @@ const CalendarMobile: FC<CalendarMobileProps> = ({
   }, []);
 
   const selectDate = (date: Date) => {
-    if (containsDate(date, selectedDates)) {
-      setSelectedDates(
-        selectedDates.filter((currentDate) => {
-          return currentDate.getTime() != date.getTime();
-        })
-      );
+    if (multiple) {
+      if (containsDate(date, selectedDates)) {
+        setSelectedDates(
+          selectedDates.filter((currentDate) => {
+            return currentDate.getTime() != date.getTime();
+          })
+        );
+      } else {
+        setSelectedDates([...selectedDates, date]);
+      }
     } else {
-      setSelectedDates([...selectedDates, date]);
+      setSelectedDates([date]);
     }
   };
 
@@ -51,6 +59,9 @@ const CalendarMobile: FC<CalendarMobileProps> = ({
       defaultValue={selectedDates}
       onClose={onClose}
       onChange={selectDate}
+      disabledDates={disabledDates}
+      disabledWeekDays={disabledWeekDays}
+      classNameDay={classNameToday}
     ></CalendarMobileBase>
   );
 };
