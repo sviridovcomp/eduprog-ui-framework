@@ -8,6 +8,7 @@ interface CalendarMobileBaseProps {
     disabledDates?: Array<Date>;
     disabledWeekDays?: Array<number>;
     classNameDay?: string;
+    classNameToday?: string;
 }
 declare const CalendarMobileBase: FC<CalendarMobileBaseProps>;
 export default CalendarMobileBase;
