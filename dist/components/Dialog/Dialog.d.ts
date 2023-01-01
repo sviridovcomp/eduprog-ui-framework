@@ -20,15 +20,20 @@ export declare type DialogPropsType = {
     /**
      * Vertical alignment
      */
-    verticalAlign?: "top" | "center";
+    verticalAlign?: "top" | "center" | "bottom";
     /**
      * Root Styles of dialog
      */
     rootStyle?: React.CSSProperties;
     /**
-     * Root ClassName
+     * Root ClassName of dialog
      */
     rootClassName?: string;
+    bodyStyle?: React.CSSProperties;
+    /**
+     * Body ClassName of dialog
+     */
+    bodyClassName?: string;
     hasCloser?: boolean;
     children?: React.ReactNode;
 };

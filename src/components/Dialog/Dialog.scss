@@ -13,10 +13,6 @@
   color: var(--ep-text-color);
 
   &-align {
-    &_top {
-      top: 2rem;
-    }
-
     &_center {
       align-items: center;
     }
@@ -79,6 +75,16 @@
     z-index: 101;
     padding: 1rem;
     border-radius: 2rem;
+
+    &-align {
+      &_top {
+        top: 2rem;
+      }
+
+      &_bottom {
+        bottom: 2rem;
+      }
+    }
 
     &-animation {
       &-enter {

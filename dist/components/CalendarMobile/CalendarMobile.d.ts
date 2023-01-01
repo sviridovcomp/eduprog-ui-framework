@@ -1,6 +1,5 @@
-import { FC } from "react";
-import "./CalendarMobile.scss";
 import { CalendarProps } from "@components/Calendar/Calendar";
+import { FC } from "react";
 export interface CalendarMobileProps extends CalendarProps {
     onClose: () => void;
 }
