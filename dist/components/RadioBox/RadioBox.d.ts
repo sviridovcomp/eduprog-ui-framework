@@ -5,7 +5,7 @@ export interface RadioBoxValueProps {
     label: string;
     value: string;
 }
-export declare type RadioBoxProps = defaultProps & {
+export type RadioBoxProps = defaultProps & {
     options: RadioBoxValueProps[];
     children?: React.ReactNode;
 };

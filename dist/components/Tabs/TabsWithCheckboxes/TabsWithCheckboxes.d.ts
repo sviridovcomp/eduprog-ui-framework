@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { CheckboxPropsType } from "../../Checkbox/Checkbox";
 import { TabsValue } from "../TabsTypes";
-export declare type TabsWithCheckboxProps = {
+export type TabsWithCheckboxProps = {
     /**
      * Options
      */

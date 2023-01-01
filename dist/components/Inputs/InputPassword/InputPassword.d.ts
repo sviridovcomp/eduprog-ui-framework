@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { TextInputProps } from "../BaseInput/BaseInput";
 import "./InputPassword.scss";
-export declare type InputPasswordPropsType = TextInputProps & {
+export type InputPasswordPropsType = TextInputProps & {
     /**
      * Is textfield validation required
      */

@@ -1,6 +1,6 @@
 import { FC } from "react";
 import "./Progress.scss";
-export declare type colorVariants = "primary" | "secondary" | "accent";
+export type colorVariants = "primary" | "secondary" | "accent";
 export interface IProgressProps {
     value: number;
     color: colorVariants | string;

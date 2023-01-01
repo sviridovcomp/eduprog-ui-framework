@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import "./Expand.scss";
-export declare type ExpandProps = {
+export type ExpandProps = {
     /**
      * Make the expand open
      */

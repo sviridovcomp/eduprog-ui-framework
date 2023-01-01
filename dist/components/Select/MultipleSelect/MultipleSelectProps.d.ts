@@ -1,10 +1,10 @@
 import React from "react";
 import { SelectValue } from "../Select/SelectProps";
-export declare type MultipleSelectValue<Type> = {
+export type MultipleSelectValue<Type> = {
     name: string;
     value: Type;
 };
-export declare type MultipleSelectPropsType<Type> = {
+export type MultipleSelectPropsType<Type> = {
     /**
      * Лейбл для select
      */

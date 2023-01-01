@@ -1,5 +1,5 @@
 import { FC } from "react";
-export declare type AutocompleteValue<Type> = {
+export type AutocompleteValue<Type> = {
     name: string;
     value: Type;
 };

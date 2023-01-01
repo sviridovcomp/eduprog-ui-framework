@@ -1,9 +1,9 @@
 import React from "react";
-export declare type SelectValue<Type> = {
+export type SelectValue<Type> = {
     name: string;
     value: Type;
 };
-export declare type SelectTypeProps<Type> = {
+export type SelectTypeProps<Type> = {
     /**
      * Заголовок селектора
      */

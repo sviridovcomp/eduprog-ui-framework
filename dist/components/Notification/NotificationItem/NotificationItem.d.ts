@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import "./NotificationItem.scss";
 import { defaultProps } from "@utils/defaultProps";
-export declare type NotificationPropsType = defaultProps & {
+export type NotificationPropsType = defaultProps & {
     id?: string;
     hasCloser?: boolean;
     icon?: React.ReactNode;

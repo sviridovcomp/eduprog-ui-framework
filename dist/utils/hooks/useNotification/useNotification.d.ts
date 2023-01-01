@@ -1,5 +1,5 @@
 import { NotificationPropsType } from "@components/Notification/NotificationItem";
-export declare type NotificationActionType = {
+export type NotificationActionType = {
     type: "ADD";
     notification: NotificationPropsType;
 } | {

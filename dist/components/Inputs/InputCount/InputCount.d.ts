@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { TextInputProps } from "../BaseInput/BaseInput";
 import "./InputCount.scss";
-export declare type InputCountPropsType = TextInputProps & {
+export type InputCountPropsType = TextInputProps & {
     /**
      * Minimum value
      */
