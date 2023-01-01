@@ -1,3 +1,11 @@
+## [1.14.0](https://github.com/edu-prog/eduprog-ui-framework/compare/v1.13.3...v1.14.0) (2023-01-01)
+
+
+### 🧩 Features
+
+* rebuild framework ([a5b8bbe](https://github.com/edu-prog/eduprog-ui-framework/commit/a5b8bbe08dc77bcb9a775af189f8098edaef851b))
+* update calendar props ([2d14028](https://github.com/edu-prog/eduprog-ui-framework/commit/2d14028f2ba2a1331df1b50f69834d3df85e2ad9))
+
 ## [1.13.3](https://github.com/edu-prog/eduprog-ui-framework/compare/v1.13.2...v1.13.3) (2022-10-10)
 
 
