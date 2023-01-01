@@ -37,6 +37,7 @@
       justify-content: center;
       gap: 2rem;
       border-bottom: 1px solid #515151;
+      user-select: none;
 
       &Item {
         padding: 2rem 0rem;
@@ -62,6 +63,7 @@
       font-weight: 500;
       border-bottom: 1px solid #808080;
       padding: 0.5rem 0;
+      user-select: none;
     }
 
     .MounthsSelector {

@@ -44,7 +44,10 @@ const PlaygroundTemplate: ComponentStory<typeof CalendarMobile> = (args) => {
           {...args}
           defaultValue={dates}
           onClose={() => setOpen(false)}
-          onChange={(currentDates: Array<Date>) => setDates(currentDates)}
+          onChange={(currentDates: Array<Date>) => {
+            setDates(currentDates);
+            args.onChange?.(currentDates);
+          }}
         />
       )}
     </div>
@@ -52,4 +55,6 @@ const PlaygroundTemplate: ComponentStory<typeof CalendarMobile> = (args) => {
 };
 
 export const Playground = PlaygroundTemplate.bind({});
-Playground.args = {};
+Playground.args = {
+  disabledWeekDays: [0, 6],
+};
